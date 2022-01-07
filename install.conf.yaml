@@ -1,3 +1,35 @@
-- clean: []
-- link: {}
-- shell: []
+- defaults:
+    link:
+        create: true
+        force: true
+- link:
+    # Window manager
+    ~/.config/sway: sway
+    ~/.config/swaylock: swaylock
+    ~/.config/wallpapers: wallpapers
+    ~/.config/waybar: waybar
+    # Shell
+    ~/.config/fish: fish
+    ~/.config/omf: omf
+    # Applications
+    ~/.config/nvim: nvim
+    ~/.config/git: git
+    ~/.config/alacritty: alacritty
+    ~/.config/ranger: ranger
+    ~/.config/zathura: zathura
+    ~/.proxychains: proxychains
+    ~/.config/mako: mako
+    ~/.config/ulauncher: ulauncher
+- shell:
+    - [git clone https://github.com/P3TERX/aria2.conf.git ~/.aria2]
+- link:
+    ~/.aria2/aria2.conf:
+      path: aria2/aria2.conf
+    # Compilers
+    ~/.cargo: cargo
+    # Scripts
+    ~/Script: scripts
+    # Electron
+    ~/.config/electron-flags.conf: electron/electron-flags.conf
+    ~/.config/electron12-flags.conf: electron/electron-flags.conf
+    ~/.config/chrome-flags.conf: electron/electron-flags.conf

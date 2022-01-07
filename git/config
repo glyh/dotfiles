@@ -1,0 +1,29 @@
+[user]
+	email = lyhokia@gmail.com
+	name = lyhokia
+[diff]
+	tool = vimdiff
+[pull]
+	rebase = false
+[http]
+	proxy =
+[difftool]
+	prompt = false
+[difftool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	#path = nvim
+[alias]
+	l = log --oneline --decorate --graph
+	d = diff
+	a = add
+	c = commit
+	o = checkout
+	s = status
+	f = config
+	i = config --get-regexp alias
+	t = difftool
+	p = pull
+	u = push
+	g = clone
+	b = branch
+	r = restore
