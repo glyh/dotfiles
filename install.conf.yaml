@@ -28,7 +28,7 @@
     # Compilers
     ~/.cargo: cargo
     # Scripts
-    ~/Script: scripts
+    ~/Scripts: scripts
     # Electron
     ~/.config/electron-flags.conf: electron/electron-flags.conf
     ~/.config/electron12-flags.conf: electron/electron-flags.conf
