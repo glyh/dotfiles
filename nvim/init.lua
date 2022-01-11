@@ -77,7 +77,7 @@ require('packer').startup({function(use)
   -- use {'janet-lang/janet.vim', ft = 'janet'}
   -- use {'wlangstroth/vim-racket', ft = 'racket'}
   -- use {'hylang/vim-hy', ft = 'hy'}
-  -- use {'vlime/vlime', rtp = 'vim/'}
+  use {'vlime/vlime', rtp = 'vim/'}
 
   use {'nvim-neorg/neorg',
     after = 'nvim-treesitter',
@@ -225,20 +225,20 @@ require('packer').startup({function(use)
     end
   }
 
-  -- use {'eraserhd/parinfer-rust',
-  --   ft = LISP_FILE_TYPES_TABLE,
-  --   run = 'cargo build --release',
-  -- }
-  -- use {'guns/vim-sexp',
-  --   ft = LISP_FILE_TYPES_TABLE,
-  --   config = function()
-  --     vim.g.sexp_filetypes = LISP_FILE_TYPES
-  --   end
-  -- }
-  -- use {'tpope/vim-sexp-mappings-for-regular-people',
-  --   ft = LISP_FILE_TYPES_TABLE,
-  --   requires = 'guns/vim-sexp',
-  -- }
+  use {'eraserhd/parinfer-rust',
+    ft = LISP_FILE_TYPES_TABLE,
+    run = 'cargo build --release',
+  }
+  use {'guns/vim-sexp',
+    ft = LISP_FILE_TYPES_TABLE,
+    config = function()
+      vim.g.sexp_filetypes = LISP_FILE_TYPES
+    end
+  }
+  use {'tpope/vim-sexp-mappings-for-regular-people',
+    ft = LISP_FILE_TYPES_TABLE,
+    requires = 'guns/vim-sexp',
+  }
 
   use 'tpope/vim-commentary'
 
