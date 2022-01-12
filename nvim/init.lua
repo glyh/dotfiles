@@ -129,15 +129,15 @@ require('packer').startup({function(use)
     end,
   }
 
-  use {'whatyouhide/vim-lengthmatters',
-    config = function()
-      vim.g['lengthmatters_excluded'] = {
-        'unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'nerdtree',
-        'help', 'qf', 'dirvish', 'markdown', 'tex', 'man',
-        'conjure-log-[0-9]\\+\\.[a-z]\\+', 'OUTLINE'
-      }
-    end,
-  }
+  -- use {'whatyouhide/vim-lengthmatters',
+  --   config = function()
+  --     vim.g['lengthmatters_excluded'] = {
+  --       'unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'nerdtree',
+  --       'help', 'qf', 'dirvish', 'markdown', 'tex', 'man',
+  --       'conjure-log-[0-9]\\+\\.[a-z]\\+', 'OUTLINE'
+  --     }
+  --   end,
+  -- }
 
   use {'beauwilliams/focus.nvim',
     config = function()
