@@ -33,3 +33,6 @@
     ~/.config/electron-flags.conf: electron/electron-flags.conf
     ~/.config/electron12-flags.conf: electron/electron-flags.conf
     ~/.config/chrome-flags.conf: electron/electron-flags.conf
+- shell:
+    - [mkdir -p ~/.local/share/applications]
+    - [cp ./entries/* ~/.local/share/applications]
