@@ -20,6 +20,7 @@
     ~/.proxychains: proxychains
     ~/.config/mako: mako
     ~/.config/ulauncher: ulauncher
+    ~/.config/nyxt : nyxt
 - shell:
     - [git clone https://github.com/P3TERX/aria2.conf.git ~/.aria2]
 - link:
