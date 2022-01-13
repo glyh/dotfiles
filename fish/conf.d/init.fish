@@ -7,6 +7,7 @@ set -gxa PATH                ~/.local/bin
 set -gxa PATH                ~/.nimble/bin
 set -gxa PATH                ~/.yarn/bin
 set -gxa PATH                ~/.cargo/bin
+set -gxa PATH                ~/.roswell/bin
 
 # XDG
 set -gx  XDG_CONFIG_HOME     ~/.config
