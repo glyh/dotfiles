@@ -306,4 +306,3 @@ exec ulauncher --hide-window 1 &
 #exec ibus-daemon -drxR
 exec mako
 exec v2raya --lite
-#setxkbmap -option caps:escape
