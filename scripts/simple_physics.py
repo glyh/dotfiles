@@ -27,13 +27,13 @@ book = {
 pages = []
 
 for chapter_name, chapter_content in book.items():
-    os.mkdir(chapter_name)
+    os.makedirs("/tmp/simple_physics_images/" + chapter_name, exist_ok=True)
     for i in range(1, 1 + int(chapter_content["page"])):
         print("Requesting: ", chapter_name, ", page ", i)
         url = chapter_content["url"] + str(i) + ".png"
         print("Url:", url)
         r = requests.get(url, allow_redirects=True)
-        saved_path = "/tmp/simple_physics_images" + chapter_name + \
+        saved_path = "/tmp/simple_physics_images/" + chapter_name + \
                      "/" + str(i) + ".png"
         open(saved_path, "wb").write(r.content)
         img = Image.open(saved_path)
