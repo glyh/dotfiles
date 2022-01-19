@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-echo -n UserName:
+echo -n "UserName: "
 read username
-echo -n Password:
+echo -n "Password: "
 read -s password
 
 {
