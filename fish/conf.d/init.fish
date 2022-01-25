@@ -23,10 +23,13 @@ set -gx  TERM                alacritty
 # Firefox
 set -gx MOZ_ENABLE_WAYLAND   1
 
-# IME
-set GTK_IM_MODULE            fcitx
-set QT_IM_MODULE             fcitx
-set XMODIFIERS               \@im=fcitx
+# # IME
+# set -gx GTK_IM_MODULE            fcitx
+# set -gx QT_IM_MODULE             fcitx
+# set -gx XMODIFIERS               \@im=fcitx
+
+# CL
+set -gx CL_SOURCE_REGISTRY       ~/Documents/CS/projects/cl
 
 # Spawning sway
 set TTY1 (tty)
