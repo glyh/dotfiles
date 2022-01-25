@@ -27,3 +27,5 @@
 	g = clone
 	b = branch
 	r = restore
+[url "https://github.com.cnpmjs.org/"]
+	insteadof = https://github.com/
