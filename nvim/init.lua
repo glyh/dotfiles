@@ -1,5 +1,5 @@
--- _G.GITHUB_CDN = 'github.com.npmjs.org'
-_G.GITHUB_CDN = 'hub.fastgit.org'
+_G.GITHUB_CDN = 'github.com.cnpmjs.org'
+-- _G.GITHUB_CDN = 'github.com'
 _G.HOME_LANG = 'zh'
 
 local utils = require('utils')
@@ -12,7 +12,7 @@ utils.ensure('nvim-lua', 'plenary.nvim')
 -- General
 
 _G.LISP_FILE_TYPES = 'clojure,fennel,janet,racket,hy,lisp'
-_G.LISP_FILE_TYPES_TABLE = {'clojure', 'fennel', 'hy', 'lisp'}
+_G.LISP_FILE_TYPES_TABLE = {'clojure', 'fennel', 'hy', 'lisp', 'racket'}
 
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
@@ -33,6 +33,7 @@ vim.opt.updatetime = 500
 vim.opt.wrap = false
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
+vim.g.did_load_filetypes = true
 
 -- Auto Reload
 utils.augroup('LuaAutoConfReload',
@@ -43,7 +44,7 @@ utils.augroup('LuaAutoConfReload',
     local rtps = vim.api.nvim_list_runtime_paths()
     for _, parent in ipairs(parents) do
         for _, rtp in ipairs(rtps) do
-            if parent == rtp then
+            if parent == rtp or parent == "/home/lyh/Documents/CS/dotfiles" then
                 vim.cmd("luafile %")
                 vim.cmd("PackerCompile")
                 return
@@ -72,12 +73,13 @@ require('packer').startup({function(use)
 
   ----- FileType Support -----
 
-  use {'zah/nim.vim', ft = 'nim' }
+  -- use {'zah/nim.vim', ft = 'nim' }
   use {'bakpakin/fennel.vim', ft = 'fennel'}
+  use {'ajouellette/sway-vim-syntax', ft = 'sway'}
   -- use {'janet-lang/janet.vim', ft = 'janet'}
-  -- use {'wlangstroth/vim-racket', ft = 'racket'}
+  use {'wlangstroth/vim-racket', ft = 'racket'}
   -- use {'hylang/vim-hy', ft = 'hy'}
-  use {'vlime/vlime', rtp = 'vim/'}
+  use {'vlime/vlime', ft = 'lisp'}
 
   use {'nvim-neorg/neorg',
     after = 'nvim-treesitter',
@@ -128,16 +130,6 @@ require('packer').startup({function(use)
       ]])
     end,
   }
-
-  -- use {'whatyouhide/vim-lengthmatters',
-  --   config = function()
-  --     vim.g['lengthmatters_excluded'] = {
-  --       'unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'nerdtree',
-  --       'help', 'qf', 'dirvish', 'markdown', 'tex', 'man',
-  --       'conjure-log-[0-9]\\+\\.[a-z]\\+', 'OUTLINE'
-  --     }
-  --   end,
-  -- }
 
   use {'beauwilliams/focus.nvim',
     config = function()
@@ -252,10 +244,6 @@ require('packer').startup({function(use)
 
   ----- Tools -----
 
-  -- use {'akinsho/toggleterm.nvim',
-  --   config = require('plugins.toggleterm')
-  -- }
-
   use {'kevinhwang91/rnvimr',
     config = function ()
       vim.g.rnvimr_enable_ex = 1
@@ -264,12 +252,6 @@ require('packer').startup({function(use)
         'n', '<A-o>', '<cmd>RnvimrToggle<CR>', {noremap = true})
     end
   }
-
-  -- use {'rafcamlet/nvim-luapad',
-  --   config = function()
-  --     api.set_keymap('n', '<leader>lp', '<cmd>Luapad<CR>', {noremap = true})
-  --   end
-  -- }
 
   use {'skywind3000/asyncrun.vim',
     config = function()
@@ -280,8 +262,7 @@ require('packer').startup({function(use)
   use {'skywind3000/asynctasks.vim',
     config = function()
       vim.g.asyncrun_rootmarks = {
-        '.git', '.svn', '.root', '.project', '.hg',
-        'Cargo.toml', '.nimble'
+        '.git', '.svn', '.root', '.project', '.hg', 'Cargo.toml', '.nimble'
       }
       vim.api.nvim_set_keymap(
         'n', '<localleader>ab', '<cmd>AsyncTask build<CR>', {noremap = true})
@@ -297,31 +278,15 @@ require('packer').startup({function(use)
     end
   }
 
+
   use {'Olical/conjure',
-    branch = 'develop',
-    ft = vim.list_extend({'lua'}, LISP_FILE_TYPES_TABLE),
+    ft = {'clojure', 'fennel', 'hy', 'lua', 'racket'},
     -- In this order we won't change LISP_FILE_TYPES_TABLE
     config = function()
       local utils = require('utils')
       vim.g['conjure#log#hud#border'] = 'none'
       vim.g['conjure#extract#tree_sitter#enabled'] = true
       vim.g['conjure#mapping#eval_visual'] = 'e'
-      local toggle = function ()
-        local re = vim.regex('conjure-log-[0-9]\\+\\.[a-z]\\+$')
-        for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-           if re:match_str(
-             vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win)))
-             and vim.api.nvim_win_get_config(win).focusable then
-            vim.cmd('ConjureLogCloseVisible')
-            return
-           end
-        end
-        vim.cmd('ConjureLogVSplit')
-      end
-      -- NOTE: sometimes we'll focus on a non-conjure buffer, I use
-      -- pcall to workaround this.
-      vim.api.nvim_set_keymap( 'n', '<localleader>ll',
-        utils.bridge(function() pcall(toggle) end , 'cmd_keys') , {noremap = true})
     end
   }
 
@@ -330,16 +295,7 @@ require('packer').startup({function(use)
   }
   use {'rcarriga/nvim-dap-ui',
     requires = 'mfussenegger/nvim-dap',
-    config = function()
-      local dap, dapui = require('dap'), require('dapui')
-      dapui.setup {}
-      dap.listeners.after.event_initialized.dapui_config =
-        function() dapui.open() end
-      dap.listeners.before.event_terminated.dapui_config =
-        function() dapui.close() end
-      dap.listeners.before.event_exited.dapui_config =
-        function() dapui.close() end
-    end
+    config = require('plugins.dapui')
   }
   use 'jbyuki/one-small-step-for-vimkind'
 
@@ -448,6 +404,26 @@ require('packer').startup({function(use)
   }
 
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  use { 'rmagatti/auto-session',
+    config = function()
+      require('auto-session').setup {
+        log_level = 'info',
+      }
+    end
+  }
+
+  use { "nathom/filetype.nvim",
+    config = function()
+      require("filetype").setup({
+        overrides = {
+            extensions = {
+                asd = "lisp",
+            }
+        },
+    })
+    end
+  }
 
 end,config = {
   git = { default_url_format = 'https://' .. _G.GITHUB_CDN .. '/%s' }
