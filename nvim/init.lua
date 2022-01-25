@@ -33,7 +33,7 @@ vim.opt.updatetime = 500
 vim.opt.wrap = false
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
-vim.g.did_load_filetypes = true
+vim.g.did_load_filetypes = true -- Use plugin to load filetypes
 
 -- Auto Reload
 utils.augroup('LuaAutoConfReload',
@@ -58,7 +58,7 @@ require('packer').startup({function(use)
 
   ----- Package Manager -----
 
-  use {'wbthomason/packer.nvim',
+  use { 'wbthomason/packer.nvim',
     config = function()
         vim.api.nvim_set_keymap(
           'n', '<leader>pu', '<cmd>PackerSync<CR>', {noremap = true})
@@ -74,14 +74,14 @@ require('packer').startup({function(use)
   ----- FileType Support -----
 
   -- use {'zah/nim.vim', ft = 'nim' }
-  use {'bakpakin/fennel.vim', ft = 'fennel'}
-  use {'ajouellette/sway-vim-syntax', ft = 'sway'}
+  use { 'bakpakin/fennel.vim', ft = 'fennel' }
+  use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
   -- use {'janet-lang/janet.vim', ft = 'janet'}
-  use {'wlangstroth/vim-racket', ft = 'racket'}
+  use { 'wlangstroth/vim-racket', ft = 'racket' }
   -- use {'hylang/vim-hy', ft = 'hy'}
-  use {'vlime/vlime', ft = 'lisp'}
+  use { 'vlime/vlime', ft = 'lisp' }
 
-  use {'nvim-neorg/neorg',
+  use { 'nvim-neorg/neorg',
     after = 'nvim-treesitter',
     config = function()
       require('neorg').setup({
@@ -101,7 +101,7 @@ require('packer').startup({function(use)
     requires = 'nvim-lua/plenary.nvim'
   }
 
-  use {'lervag/vimtex',
+  use { 'lervag/vimtex',
     ft = 'tex',
     config = function()
       vim.g.vimtex_view_enabled = true
@@ -109,20 +109,20 @@ require('packer').startup({function(use)
     end
   }
 
-  use {'lark-parser/vim-lark-syntax', ft = 'lark' }
+  use { 'lark-parser/vim-lark-syntax', ft = 'lark' }
 
   ----- UI -----
 
   use { 'chrisbra/Colorizer' }
 
 
-  use {'itchyny/lightline.vim',
+  use { 'itchyny/lightline.vim',
     config = function()
       vim.g.lightline = { colorscheme = 'nord' }
     end
   }
 
-  use {'shaunsingh/nord.nvim',
+  use { 'shaunsingh/nord.nvim',
     config = function()
       vim.cmd([[
          colorscheme nord
@@ -131,7 +131,7 @@ require('packer').startup({function(use)
     end,
   }
 
-  use {'beauwilliams/focus.nvim',
+  use { 'beauwilliams/focus.nvim',
     config = function()
       require('focus').setup({
         enable = true,
@@ -147,7 +147,7 @@ require('packer').startup({function(use)
     end,
   }
 
-  use {'folke/todo-comments.nvim',
+  use { 'folke/todo-comments.nvim',
     config = function ()
       require('todo-comments').setup {
           keywords = {
@@ -168,7 +168,7 @@ require('packer').startup({function(use)
     end,
   }
 
-  use {'lukas-reineke/indent-blankline.nvim',
+  use { 'lukas-reineke/indent-blankline.nvim',
     config = function ()
       require('indent_blankline').setup {
         char = '|',
@@ -185,7 +185,7 @@ require('packer').startup({function(use)
 
   use 'wellle/targets.vim'
 
-  use {'windwp/nvim-autopairs',
+  use { 'windwp/nvim-autopairs',
     config = function()
       local autopairs = require('nvim-autopairs')
       autopairs.setup({
@@ -217,17 +217,17 @@ require('packer').startup({function(use)
     end
   }
 
-  use {'eraserhd/parinfer-rust',
+  use { 'eraserhd/parinfer-rust',
     ft = LISP_FILE_TYPES_TABLE,
     run = 'cargo build --release',
   }
-  use {'guns/vim-sexp',
+  use { 'guns/vim-sexp',
     ft = LISP_FILE_TYPES_TABLE,
     config = function()
       vim.g.sexp_filetypes = LISP_FILE_TYPES
     end
   }
-  use {'tpope/vim-sexp-mappings-for-regular-people',
+  use { 'tpope/vim-sexp-mappings-for-regular-people',
     ft = LISP_FILE_TYPES_TABLE,
     requires = 'guns/vim-sexp',
   }
@@ -244,7 +244,7 @@ require('packer').startup({function(use)
 
   ----- Tools -----
 
-  use {'kevinhwang91/rnvimr',
+  use { 'kevinhwang91/rnvimr',
     config = function ()
       vim.g.rnvimr_enable_ex = 1
       vim.g.rnvimr_enable_picker = 1
@@ -253,13 +253,13 @@ require('packer').startup({function(use)
     end
   }
 
-  use {'skywind3000/asyncrun.vim',
+  use { 'skywind3000/asyncrun.vim',
     config = function()
       vim.g.asyncrun_open = 6
       vim.api.nvim_set_keymap('c', '!,', 'AsyncRun ', {noremap = true})
     end
   }
-  use {'skywind3000/asynctasks.vim',
+  use { 'skywind3000/asynctasks.vim',
     config = function()
       vim.g.asyncrun_rootmarks = {
         '.git', '.svn', '.root', '.project', '.hg', 'Cargo.toml', '.nimble'
@@ -271,7 +271,7 @@ require('packer').startup({function(use)
     end
   }
 
-  use {'simrat39/symbols-outline.nvim',
+  use { 'simrat39/symbols-outline.nvim',
     config = function()
       vim.api.nvim_set_keymap(
         'n', '<leader>o', '<cmd>SymbolsOutline<CR>', {noremap = true})
@@ -279,7 +279,7 @@ require('packer').startup({function(use)
   }
 
 
-  use {'Olical/conjure',
+  use { 'Olical/conjure',
     ft = {'clojure', 'fennel', 'hy', 'lua', 'racket'},
     -- In this order we won't change LISP_FILE_TYPES_TABLE
     config = function()
@@ -290,10 +290,10 @@ require('packer').startup({function(use)
     end
   }
 
-  use {'mfussenegger/nvim-dap',
+  use { 'mfussenegger/nvim-dap',
     config = require('plugins.dap'),
   }
-  use {'rcarriga/nvim-dap-ui',
+  use { 'rcarriga/nvim-dap-ui',
     requires = 'mfussenegger/nvim-dap',
     config = require('plugins.dapui')
   }
@@ -332,28 +332,22 @@ require('packer').startup({function(use)
     end
   }
 
-  use {'L3MON4D3/LuaSnip', event = 'InsertEnter' }
+  use { 'L3MON4D3/LuaSnip', event = 'InsertEnter' }
 
-  use {'hrsh7th/nvim-cmp',
+  use { 'hrsh7th/nvim-cmp',
     after = 'neorg', -- LuaSnip dispatches in runtime
     event = {'InsertEnter', 'CmdlineEnter'},
     config = require('plugins.cmp'),
   }
-  use {'hrsh7th/cmp-buffer', after = 'nvim-cmp',
-  }
-  use {'hrsh7th/cmp-path', after = 'nvim-cmp',
-  }
-  use {'hrsh7th/cmp-cmdline', after = 'nvim-cmp',
-  }
-  use {'saadparwaiz1/cmp_luasnip', after = "nvim-cmp",
-  }
-  use {'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp",
-  }
+  use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
+  use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
+  use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }
+  use { 'saadparwaiz1/cmp_luasnip', after = "nvim-cmp" }
+  use { 'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp" }
 
-  use {'neovim/nvim-lspconfig', config = require('plugins.lspconfig'),
-  }
+  use { 'neovim/nvim-lspconfig', config = require('plugins.lspconfig') }
 
-  use {'jose-elias-alvarez/null-ls.nvim',
+  use { 'jose-elias-alvarez/null-ls.nvim',
     requires = 'nvim-lua/plenary.nvim',
     config = function()
       local null_ls = require('null-ls')
@@ -381,19 +375,19 @@ require('packer').startup({function(use)
     requires = 'nvim-treesitter/nvim-treesitter',
     config = require('plugins.treesitter')
   }
-  use {'nvim-treesitter/nvim-treesitter-textobjects',
+  use { 'nvim-treesitter/nvim-treesitter-textobjects',
     requires = 'nvim-treesitter/nvim-treesitter',
     config = require('plugins.treesitter')
   }
 
-  use {'mbbill/undotree',
+  use { 'mbbill/undotree',
     config = function()
       vim.api.nvim_set_keymap(
         'n', '<leader>u', '<cmd>UndotreeToggle<CR>', {noremap = true})
     end
   }
 
-  use {'voldikss/vim-translator',
+  use { 'voldikss/vim-translator',
     config = function()
       -- g.translator_window_type = 'preview'
       vim.g.translator_target_lang = 'zh'
@@ -407,9 +401,7 @@ require('packer').startup({function(use)
 
   use { 'rmagatti/auto-session',
     config = function()
-      require('auto-session').setup {
-        log_level = 'info',
-      }
+      require('auto-session').setup { log_level = 'info' }
     end
   }
 
