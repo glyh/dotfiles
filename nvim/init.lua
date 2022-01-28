@@ -78,8 +78,19 @@ require('packer').startup({function(use)
   use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
   -- use {'janet-lang/janet.vim', ft = 'janet'}
   use { 'wlangstroth/vim-racket', ft = 'racket' }
-  -- use {'hylang/vim-hy', ft = 'hy'}
-  use { 'vlime/vlime', ft = 'lisp' }
+  use {'hylang/vim-hy', ft = 'hy'}
+  use { 'vlime/vlime', ft = 'lisp',
+    config = function()
+      vim.g.vlime_cl_impl = "ros"
+      vim.cmd([[
+        function! VlimeBuildServerCommandFor_ros(vlime_loader, vlime_eval)
+            return ["ros", "run",
+                        \ "--load", a:vlime_loader,
+                        \ "--eval", a:vlime_eval]
+        endfunction
+      ]])
+    end
+  }
 
   use { 'nvim-neorg/neorg',
     after = 'nvim-treesitter',
@@ -232,7 +243,8 @@ require('packer').startup({function(use)
     requires = 'guns/vim-sexp',
   }
 
-  use 'tpope/vim-commentary'
+  -- use 'tpope/vim-commentary'
+  use 'b3nj5m1n/kommentary'
 
   use 'tpope/vim-sleuth'
 
@@ -345,7 +357,7 @@ require('packer').startup({function(use)
   use { 'saadparwaiz1/cmp_luasnip', after = "nvim-cmp" }
   use { 'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp" }
 
-  use { 'neovim/nvim-lspconfig', config = require('plugins.lspconfig') }
+  use { 'glyh/nvim-lspconfig', branch='feat/add-cl-lsp', config = require('plugins.lspconfig') }
 
   use { 'jose-elias-alvarez/null-ls.nvim',
     requires = 'nvim-lua/plenary.nvim',
@@ -399,19 +411,20 @@ require('packer').startup({function(use)
 
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-  use { 'rmagatti/auto-session',
+  --[[ use { 'rmagatti/auto-session',
     config = function()
       require('auto-session').setup { log_level = 'info' }
     end
-  }
+  } ]]
 
   use { "nathom/filetype.nvim",
     config = function()
       require("filetype").setup({
         overrides = {
-            extensions = {
-                asd = "lisp",
-            }
+          extensions = {
+            asd = "lisp",
+            ros = "lisp",
+          }
         },
     })
     end

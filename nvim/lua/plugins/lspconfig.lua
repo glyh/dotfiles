@@ -18,8 +18,12 @@ return function()
     }
   }
 
+  local configs = require('lspconfig.configs')
+  local util = require('lspconfig.util')
   local lspconfig = require('lspconfig')
   -- local lsputil = require('lspconfig.util')
+
+  lspconfig.cl_lsp.setup{ capabilities = capabilities }
 
   lspconfig.clangd.setup{ capabilities = capabilities }
 
