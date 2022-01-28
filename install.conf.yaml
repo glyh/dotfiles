@@ -26,14 +26,16 @@
 - link:
     ~/.aria2/aria2.conf:
       path: aria2/aria2.conf
-    # Compilers
+    # Developments
     ~/.cargo: cargo
+    ~/.roswell/init.lisp: roswell/init.lisp
     # Scripts
     ~/Scripts: scripts
     # Electron
     ~/.config/electron-flags.conf: electron/electron-flags.conf
     ~/.config/electron12-flags.conf: electron/electron-flags.conf
     ~/.config/chrome-flags.conf: electron/electron-flags.conf
+    ~/.config/chromium-flags.conf: electron/electron-flags.conf
 - shell:
     - [mkdir -p ~/.local/share/applications]
     - [cp ./entries/* ~/.local/share/applications]
