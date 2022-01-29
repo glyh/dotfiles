@@ -79,7 +79,9 @@ require('packer').startup({function(use)
   -- use {'janet-lang/janet.vim', ft = 'janet'}
   use { 'wlangstroth/vim-racket', ft = 'racket' }
   use {'hylang/vim-hy', ft = 'hy'}
+
   use { 'vlime/vlime', ft = 'lisp',
+    disable = true,
     config = function()
       vim.g.vlime_cl_impl = "ros"
       vim.cmd([[
@@ -266,20 +268,41 @@ require('packer').startup({function(use)
   }
 
   use { 'skywind3000/asyncrun.vim',
+    disable = true,
     config = function()
       vim.g.asyncrun_open = 6
       vim.api.nvim_set_keymap('c', '!,', 'AsyncRun ', {noremap = true})
     end
   }
   use { 'skywind3000/asynctasks.vim',
+    disable = true,
     config = function()
       vim.g.asyncrun_rootmarks = {
         '.git', '.svn', '.root', '.project', '.hg', 'Cargo.toml', '.nimble'
       }
+      vim.g.asynctask_template = "~/.config/nvim/task_template.ini"
       vim.api.nvim_set_keymap(
         'n', '<localleader>ab', '<cmd>AsyncTask build<CR>', {noremap = true})
       vim.api.nvim_set_keymap(
         'n', '<localleader>ar', '<cmd>AsyncTask run<CR>', {noremap = true})
+    end
+  }
+
+  use { 'pianocomposer321/yabs.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('yabs'):setup({
+        languages = { -- List of languages in vim's `filetype` format
+          lisp = {
+            tasks = {
+              swank = {
+                command = 'ros_swank',
+                output = 'terminal'
+              }
+            }
+          }
+        },
+      })
     end
   }
 
@@ -292,7 +315,7 @@ require('packer').startup({function(use)
 
 
   use { 'Olical/conjure',
-    ft = {'clojure', 'fennel', 'hy', 'lua', 'racket'},
+    ft = {'clojure', 'fennel', 'hy', 'lua', 'racket', 'lisp'},
     -- In this order we won't change LISP_FILE_TYPES_TABLE
     config = function()
       local utils = require('utils')
@@ -411,11 +434,12 @@ require('packer').startup({function(use)
 
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-  --[[ use { 'rmagatti/auto-session',
+  use { 'rmagatti/auto-session',
     config = function()
       require('auto-session').setup { log_level = 'info' }
-    end
-  } ]]
+    end,
+    disable = true
+  }
 
   use { "nathom/filetype.nvim",
     config = function()
@@ -424,7 +448,7 @@ require('packer').startup({function(use)
           extensions = {
             asd = "lisp",
             ros = "lisp",
-          }
+          },
         },
     })
     end

@@ -22,6 +22,7 @@ end
 -- Quit
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>qa<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>q<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>wq<CR>', {noremap = true})
 
 -- Normal
 -- In case arpeggio is not installed
