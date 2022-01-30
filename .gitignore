@@ -4,3 +4,5 @@ cargo/.package-cache
 nvim/plugin
 fish/fish_variables
 
+__pycache__
+
