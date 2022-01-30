@@ -52,15 +52,16 @@ exec ros -Q -- $0 "$@"
            :prefix "A simple wrapper for swank server"
            :args " [keyword] ")
          (uiop:quit))
+    ;; Load systems
+    (pushnew (uiop/os:getcwd) ql:*local-project-directories*)
+    (dolist (p free-args)
+      (asdf:load-system p))
+    ;; Manage SIGINT
+    (set-signal-handler +SIGINT+
+      (format t "Stoping swank server...")
+      (uiop:quit 0))
+    ;; Start swank server and wait
     (let ((port (getf options :port 4005)))
-      (pushnew (uiop/os:getcwd) ql:*local-project-directories*)
-      (dolist (p free-args)
-        (asdf:load-system p))
-      ; Manage SIGINT
-      (set-signal-handler +SIGINT+
-        (format t "Stoping swank server...")
-        (uiop:quit 0))
-      ;; Start swank server and wait
       (setf swank:*configure-emacs-indentation* nil
             swank::*enable-event-history* nil
             swank:*log-events* t)
