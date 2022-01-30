@@ -64,6 +64,8 @@ require('packer').startup({function(use)
           'n', '<leader>pu', '<cmd>PackerSync<CR>', {noremap = true})
         vim.api.nvim_set_keymap(
           'n', '<leader>ps', '<cmd>PackerStatus<CR>', {noremap = true})
+        vim.api.nvim_set_keymap(
+          'n', '<leader>pc', '<cmd>PackerCompile<CR>', {noremap = true})
     end
   }
 
@@ -379,6 +381,7 @@ require('packer').startup({function(use)
   use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }
   use { 'saadparwaiz1/cmp_luasnip', after = "nvim-cmp" }
   use { 'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp" }
+  use { 'PaterJason/cmp-conjure', after = {"nvim-cmp", "conjure"} }
 
   use { 'glyh/nvim-lspconfig', branch='feat/add-cl-lsp', config = require('plugins.lspconfig') }
 
@@ -449,6 +452,9 @@ require('packer').startup({function(use)
             asd = "lisp",
             ros = "lisp",
           },
+          shebang = {
+            bb = "clojure"
+          }
         },
     })
     end
