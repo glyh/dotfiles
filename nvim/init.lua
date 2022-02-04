@@ -260,14 +260,14 @@ require('packer').startup({function(use)
 
   ----- Tools -----
 
-  use { 'kevinhwang91/rnvimr',
+  --[[ use { 'kevinhwang91/rnvimr',
     config = function ()
       vim.g.rnvimr_enable_ex = 1
       vim.g.rnvimr_enable_picker = 1
       vim.api.nvim_set_keymap(
         'n', '<A-o>', '<cmd>RnvimrToggle<CR>', {noremap = true})
     end
-  }
+  } ]]
 
   use { 'skywind3000/asyncrun.vim',
     disable = true,
@@ -444,7 +444,7 @@ require('packer').startup({function(use)
     disable = true
   }
 
-  use { "nathom/filetype.nvim",
+  use { 'nathom/filetype.nvim',
     config = function()
       require("filetype").setup({
         overrides = {
@@ -458,6 +458,9 @@ require('packer').startup({function(use)
         },
     })
     end
+  }
+
+  use { 'lilydjwg/fcitx.vim'
   }
 
 end,config = {

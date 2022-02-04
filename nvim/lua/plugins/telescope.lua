@@ -5,7 +5,7 @@ return function()
       buffers = {
         theme = 'dropdown',
         previewer = false
-      }
+      },
     },
     extensions = {
       fzf = {
