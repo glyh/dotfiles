@@ -1,0 +1,5 @@
+#!/usr/bin/env hy
+(import random)
+
+(let [alphabet "1234567890QWERTYUIOPqwertyuiopASDFGHJKLasdfghjklZXCVBNMzxcvbnm"]
+  (print (.join "" (lfor i (range 1000) (random.choice alphabet)))))

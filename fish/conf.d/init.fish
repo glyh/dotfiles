@@ -4,7 +4,7 @@ set -gx HOME_LANG            zh
 # Path
 set -gxa PATH                ~/Scripts
 set -gxa PATH                ~/.local/bin
-set -gxa PATH                ~/.nimble/bin
+# set -gxa PATH                ~/.nimble/bin
 set -gxa PATH                ~/.yarn/bin
 set -gxa PATH                ~/.cargo/bin
 set -gxa PATH                ~/.roswell/bin
@@ -18,7 +18,7 @@ set -gx  XDG_USER_CONFIG_DIR ~/.config
 set -gx  VISUAL              nvim
 set -gx  EDITOR              nvim
 set -gx  PAGER               page
-set -gx  TERM                alacritty
+set -gx  TERM                kitty
 
 # Firefox
 set -gx MOZ_ENABLE_WAYLAND   1
@@ -29,7 +29,11 @@ set -gx MOZ_ENABLE_WAYLAND   1
 # set -gx XMODIFIERS               \@im=fcitx
 
 # CL
-set -gx CL_SOURCE_REGISTRY       ~/Documents/CS/projects/cl
+set -gx  CL_SOURCE_REGISTRY  ~/Documents/CS/projects/cl
+
+# Carp
+set -gx  CARP_DIR            ~/.carp
+set -gxa PATH                "$CARP_DIR/bin"
 
 # Spawning sway
 set TTY1 (tty)
