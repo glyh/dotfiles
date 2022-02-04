@@ -343,9 +343,8 @@ require('packer').startup({function(use)
   use { 'nvim-telescope/telescope-frecency.nvim',
     requires = {'tami5/sql.nvim', 'nvim-telescope/telescope.nvim'}
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim',
+  use {'nvim-telescope/telescope-fzy-native.nvim',
     requires = 'nvim-telescope/telescope.nvim',
-    run = 'make'
   }
   use { 'nvim-telescope/telescope-dap.nvim',
     requires = 'nvim-telescope/telescope.nvim',
