@@ -36,6 +36,8 @@
     ~/.config/electron12-flags.conf: electron/electron-flags.conf
     ~/.config/chrome-flags.conf: electron/electron-flags.conf
     ~/.config/chromium-flags.conf: electron/electron-flags.conf
+    ~/.inputrc: readline/.inputrc
+    ~/.config/kitty: kitty
 - shell:
     - [mkdir -p ~/.local/share/applications]
     - [cp ./entries/* ~/.local/share/applications]
