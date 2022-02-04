@@ -39,5 +39,8 @@
     ~/.inputrc: readline/.inputrc
     ~/.config/kitty: kitty
 - shell:
+    - [git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes]
+    - [ln -s ~/.config/kitty/kitty-themes/themes/Apprentice.conf ~/.config/kitty/theme.conf]
+- shell:
     - [mkdir -p ~/.local/share/applications]
     - [cp ./entries/* ~/.local/share/applications]
