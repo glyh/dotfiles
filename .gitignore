@@ -3,6 +3,8 @@ cargo/registry
 cargo/.package-cache
 nvim/plugin
 fish/fish_variables
+kitty/kitty-themes
+kitty/theme.conf
 
 __pycache__
 
