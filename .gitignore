@@ -1,16 +1,13 @@
-cargo/git 
-cargo/registry
-cargo/.package-cache
+cargo/*
+!cargo/config
 nvim/plugin
 
-fish/fish_variables
-fish/completions
-fish/functions
-fish/conf.d
+fish/*
+!fish/config.fish
+!fish/fish_plugins
 !fish/conf.d/env.fish
 
 kitty/kitty-themes
 kitty/theme.conf
 
 __pycache__
-
