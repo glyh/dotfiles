@@ -2,7 +2,13 @@ cargo/git
 cargo/registry
 cargo/.package-cache
 nvim/plugin
+
 fish/fish_variables
+fish/completions
+fish/functions
+fish/conf.d
+!fish/conf.d/env.fish
+
 kitty/kitty-themes
 kitty/theme.conf
 
