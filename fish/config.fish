@@ -50,3 +50,4 @@ alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m
 #alias cljs="shadow-cljs"
 
 #alias xournalpp="GTK_THEME=Adwaita:dark xournalpp"
+starship init fish | source # Use starship
