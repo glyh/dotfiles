@@ -75,6 +75,8 @@ require('packer').startup({function(use)
 
   ----- FileType Support -----
 
+  use { 'tylerw/zinit-vim-syntax', ft = 'zsh'}
+  use { 'clones/vim-zsh', ft = 'zsh'}
   -- use {'zah/nim.vim', ft = 'nim' }
   use { 'bakpakin/fennel.vim', ft = 'fennel' }
   use { 'ajouellette/sway-vim-syntax', ft = 'sway' }

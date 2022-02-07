@@ -38,9 +38,11 @@
     ~/.config/chromium-flags.conf: electron/electron-flags.conf
     ~/.inputrc: readline/.inputrc
     ~/.config/kitty: kitty
+    ~/.zshenv: zsh/.zshenv.home
+    ~/.config/zsh: zsh
+    ~/.config/starship: starship
 - shell:
     - [git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes]
     - [ln -s ~/.config/kitty/kitty-themes/themes/Apprentice.conf ~/.config/kitty/theme.conf]
-- shell:
     - [mkdir -p ~/.local/share/applications]
     - [cp ./entries/* ~/.local/share/applications]
