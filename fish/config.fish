@@ -13,8 +13,6 @@ alias ew="$EDITOR ~/.config/sway/config" # Window manager
 alias g="git"
 alias l="ls"
 alias c="cd"
-alias i="sudo light"
-alias i100 "sudo light -S 100"
 alias p="proxychains"
 alias pg="proxychains git"
 alias pa="proxychains paru"
