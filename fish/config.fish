@@ -27,7 +27,6 @@ alias rt="trash-restore"
 alias py="ptpython"
 alias cl="rlwrap ros run"
 alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m reply.main"
-#alias xournalpp="GTK_THEME=Adwaita:dark xournalpp"
 
 function en
   if test $EDITOR = "nvim"

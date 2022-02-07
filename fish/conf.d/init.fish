@@ -35,6 +35,9 @@ set -gx  CL_SOURCE_REGISTRY  ~/Documents/CS/projects/cl
 set -gx  CARP_DIR            ~/.carp
 set -gxa PATH                "$CARP_DIR/bin"
 
+# GTK themes
+set -gx  GTK_THEME           Adwaita:dark
+
 # Spawning sway
 set TTY1 (tty)
 [ "$TTY1" = "/dev/tty1" ] && exec sway
