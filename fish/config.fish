@@ -1,29 +1,14 @@
+# Fish options
 fish_vi_key_bindings
+set fish_greeting
+starship init fish | source # Use starship
 
-# Editor
-
-alias e="nvim"
-alias en="nvim -u NONE"
+# Aliases
+alias e=$EDITOR
 alias er="sudoedit"
-
-function ec
-    echo "cd ~/.config/nvim/; and nvim init.lua" | fish /dev/stdin
-end
-
-function ef
-    echo "cd ~/.config/fish; and nvim config.fish" | fish /dev/stdin
-end
-
-function es
-    echo "cd ~/.config/sway; and nvim config" | fish /dev/stdin
-end
-
-function f
-  ranger --choosedir=$HOME/.rangerdir
-  set LASTDIR (cat $HOME/.rangerdir)
-  cd $LASTDIR
-end
-
+alias ee="$EDITOR ~/.config/nvim/init.lua" # editor
+alias es="$EDITOR ~/.config/fish/config.fish" # shell
+alias ew="$EDITOR ~/.config/sway/config" # Window manager
 alias g="git"
 alias l="ls"
 alias c="cd"
@@ -39,15 +24,20 @@ alias tp="trash-put"
 alias tl="trash-list"
 alias te="trash-empty"
 alias rt="trash-restore"
-# alias nb="nimble"
-# alias janet="janet -m ~/.local/lib/janet/lib/"
-# alias jpm="jpm --tree=janet"
 alias py="ptpython"
 alias cl="rlwrap ros run"
 alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m reply.main"
-
-#alias ccljs="create-cljs-project"
-#alias cljs="shadow-cljs"
-
 #alias xournalpp="GTK_THEME=Adwaita:dark xournalpp"
-starship init fish | source # Use starship
+
+function en
+  if test $EDITOR = "nvim"
+    nvim -u NONE
+  else
+    echo "Not implemented"
+  end
+end
+function f
+  ranger --choosedir=$HOME/.rangerdir
+  set LASTDIR (cat $HOME/.rangerdir)
+  cd $LASTDIR
+end
