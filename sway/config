@@ -223,6 +223,12 @@ mode "nag" {
      bindsym XF86MonBrightnessDown exec light -U 10
 
 #
+# Other functions
+#
+
+    bindsym $mod+g exec toggle_gammastep
+
+#
 # Scratchpad:
 #
     # Sway has a "scratchpad", which is a bag of holding for windows.
@@ -296,6 +302,8 @@ default_floating_border normal
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
+
+seat seat0 hide_cursor 3000
 
 include /etc/sway/config.d/*
 
