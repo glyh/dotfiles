@@ -137,7 +137,7 @@ require('packer').startup({function(use)
 
   ----- UI -----
 
-  use { 'chrisbra/Colorizer' }
+  -- use { 'chrisbra/Colorizer' }
 
 
   use { 'itchyny/lightline.vim',
@@ -325,7 +325,8 @@ require('packer').startup({function(use)
   }
 
 
-  use { 'Olical/conjure',
+  use { 'glyh/conjure',
+    lock = true,
     ft = {'clojure', 'fennel', 'hy', 'lua', 'racket', 'lisp'},
     -- In this order we won't change LISP_FILE_TYPES_TABLE
     config = function()
@@ -333,7 +334,10 @@ require('packer').startup({function(use)
       vim.g['conjure#log#hud#border'] = 'none'
       vim.g['conjure#extract#tree_sitter#enabled'] = true
       vim.g['conjure#mapping#eval_visual'] = 'e'
-    end
+      vim.g['conjure#filetype#lisp'] = 'conjure.client.common-lisp.nrepl'
+      vim.g['conjure#client#fennel#aniseed#aniseed_module_prefix'] = 'aniseed.'
+    end,
+    requires = 'Olical/aniseed'
   }
 
   use { 'mfussenegger/nvim-dap',
