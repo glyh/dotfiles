@@ -23,7 +23,7 @@ return function()
   local lspconfig = require('lspconfig')
   -- local lsputil = require('lspconfig.util')
 
-  lspconfig.cl_lsp.setup{ capabilities = capabilities }
+  -- lspconfig.cl_lsp.setup{ capabilities = capabilities }
 
   lspconfig.clangd.setup{ capabilities = capabilities }
 

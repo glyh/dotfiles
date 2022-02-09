@@ -85,7 +85,7 @@ require('packer').startup({function(use)
   use {'hylang/vim-hy', ft = 'hy'}
 
   use { 'vlime/vlime', ft = 'lisp',
-    disable = true,
+    -- disable = true,
     config = function()
       vim.g.vlime_cl_impl = "ros"
       vim.cmd([[
@@ -319,6 +319,7 @@ require('packer').startup({function(use)
 
 
   use { 'Olical/conjure',
+    disable = true,
     ft = {'clojure', 'fennel', 'hy', 'lua', 'racket', 'lisp'},
     -- In this order we won't change LISP_FILE_TYPES_TABLE
     config = function()
@@ -384,9 +385,10 @@ require('packer').startup({function(use)
   use { 'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp" }
   use { 'PaterJason/cmp-conjure', after = {"nvim-cmp", "conjure"} }
 
-  use { 'glyh/nvim-lspconfig', branch='feat/add-cl-lsp', config = require('plugins.lspconfig') }
+  use { 'neovim/nvim-lspconfig', config = require('plugins.lspconfig') }
 
   use { 'jose-elias-alvarez/null-ls.nvim',
+    disable = true,
     requires = 'nvim-lua/plenary.nvim',
     config = function()
       local null_ls = require('null-ls')
