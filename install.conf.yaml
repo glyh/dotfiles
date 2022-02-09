@@ -41,6 +41,7 @@
     ~/.zshenv: zsh/.zshenv.home
     ~/.config/zsh: zsh
     ~/.config/starship: starship
+    ~/.config/bat: bat
 - shell:
     - [git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes]
     - [ln -s ~/.config/kitty/kitty-themes/themes/Apprentice.conf ~/.config/kitty/theme.conf]
