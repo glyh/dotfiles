@@ -1,32 +1,19 @@
 # Fish options
 fish_vi_key_bindings
 set fish_greeting
+set -x fish_cursor_default block
+set -x fish_cursor_insert line blink
+set -x fish_cursor_replace_one underscore
+set -x fish_cursor_visual block
+set fish_vi_force_cursor
+
+# Plugins
 starship init fish | source # Use starship
 zoxide init fish | source
 
-# Aliases
+# Editor commands
 alias e=$EDITOR
 alias er="sudoedit"
-alias ee="$EDITOR ~/.config/nvim/init.lua" # editor
-alias es="$EDITOR ~/.config/fish/config.fish" # shell
-alias ew="$EDITOR ~/.config/sway/config" # Window manager
-alias g="git"
-alias l="ls"
-alias c="cd"
-alias p="proxychains"
-alias pg="proxychains git"
-alias pa="proxychains paru"
-alias a="paru"
-alias ch="chezmoi"
-alias rm="rm -i"
-alias tp="trash-put"
-alias tl="trash-list"
-alias te="trash-empty"
-alias rt="trash-restore"
-alias py="ptpython"
-alias cl="rlwrap ros run"
-alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m reply.main"
-
 function en
   if test $EDITOR = "nvim"
     nvim -u NONE
@@ -34,14 +21,30 @@ function en
     echo "Not implemented"
   end
 end
+alias ee="$EDITOR ~/.config/nvim/init.lua" # editor
+alias es="$EDITOR ~/.config/fish/config.fish" # shell
+alias ew="$EDITOR ~/.config/sway/config" # Window manager
+
+# Tools
+alias g="git"
+alias l="ls"
+alias c="cd"
 function f
   ranger --choosedir=$HOME/.rangerdir
   set LASTDIR (cat $HOME/.rangerdir)
   cd $LASTDIR
 end
+alias p="proxychains"
+alias pg="proxychains git"
+alias pa="proxychains paru"
+alias a="paru"
+alias rm="rm -i"
+alias tp="trash-put"
+alias tl="trash-list"
+alias te="trash-empty"
+alias rt="trash-restore"
 
-set -x fish_cursor_default block
-set -x fish_cursor_insert line blink
-set -x fish_cursor_replace_one underscore
-set -x fish_cursor_visual block
-set fish_vi_force_cursor
+# Languages
+alias py="ptpython"
+alias cl="rlwrap ros run"
+alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m reply.main"
