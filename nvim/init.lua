@@ -43,22 +43,22 @@ vim.g.maplocalleader = ','
 vim.g.did_load_filetypes = true -- Use plugin to load filetypes
 
 -- Auto Reload
--- utils.augroup('LuaAutoConfReload',
---   {{'BufWritePost', '*.lua', function()
---     local path = vim.fn.expand('%:p')
---     local file = require('plenary.path').new(path)
---     local parents = file:parents()
---     local rtps = vim.api.nvim_list_runtime_paths()
---     for _, parent in ipairs(parents) do
---         for _, rtp in ipairs(rtps) do
---             if parent == rtp or parent == "/home/lyh/Documents/CS/dotfiles" then
---                 vim.cmd("luafile %")
---                 vim.cmd("PackerCompile")
---                 return
---             end
---         end
---     end
---   end}})
+utils.augroup('LuaAutoConfReload',
+  {{'BufWritePost', '*.lua', function()
+    local path = vim.fn.expand('%:p')
+    local file = require('plenary.path').new(path)
+    local parents = file:parents()
+    local rtps = vim.api.nvim_list_runtime_paths()
+    for _, parent in ipairs(parents) do
+        for _, rtp in ipairs(rtps) do
+            if parent == rtp or parent == "/home/lyh/Documents/CS/dotfiles" then
+                vim.cmd("luafile %")
+                vim.cmd("PackerCompile")
+                return
+            end
+        end
+    end
+  end}})
 
 -- Set up packer
 require('packer').startup({function(use)
