@@ -39,3 +39,9 @@ function f
   set LASTDIR (cat $HOME/.rangerdir)
   cd $LASTDIR
 end
+
+set -x fish_cursor_default block
+set -x fish_cursor_insert line blink
+set -x fish_cursor_replace_one underscore
+set -x fish_cursor_visual block
+set fish_vi_force_cursor
