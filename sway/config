@@ -111,7 +111,7 @@ mode "nag" {
 # Basics:
 #
     # Lock the screen
-    bindsym $mod+x exec "swaylock ; brightnessctl s 100"
+    bindsym $mod+x exec swaylock
     # Start a terminal
     bindsym $mod+space exec $term
 
