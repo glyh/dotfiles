@@ -1,5 +1,12 @@
-_G.GITHUB_CDN = 'github.com.cnpmjs.org'
--- _G.GITHUB_CDN = 'github.com'
+_G.GITHUB_CDN = (
+  -- 'github.com.cnpmjs.org'
+  -- 'gitclone.com/github.com'
+  -- 'mirrors.tuna.tsinghua.edu.cn/git'
+  -- 'hub.fastgit.org'
+  'hub.gitfast.tk'
+  -- 'ghproxy.com/https://github.com'
+  -- 'github.com'
+  )
 _G.HOME_LANG = 'zh'
 
 local utils = require('utils')
@@ -36,22 +43,22 @@ vim.g.maplocalleader = ','
 vim.g.did_load_filetypes = true -- Use plugin to load filetypes
 
 -- Auto Reload
-utils.augroup('LuaAutoConfReload',
-  {{'BufWritePost', '*.lua', function()
-    local path = vim.fn.expand('%:p')
-    local file = require('plenary.path').new(path)
-    local parents = file:parents()
-    local rtps = vim.api.nvim_list_runtime_paths()
-    for _, parent in ipairs(parents) do
-        for _, rtp in ipairs(rtps) do
-            if parent == rtp or parent == "/home/lyh/Documents/CS/dotfiles" then
-                vim.cmd("luafile %")
-                vim.cmd("PackerCompile")
-                return
-            end
-        end
-    end
-  end}})
+-- utils.augroup('LuaAutoConfReload',
+--   {{'BufWritePost', '*.lua', function()
+--     local path = vim.fn.expand('%:p')
+--     local file = require('plenary.path').new(path)
+--     local parents = file:parents()
+--     local rtps = vim.api.nvim_list_runtime_paths()
+--     for _, parent in ipairs(parents) do
+--         for _, rtp in ipairs(rtps) do
+--             if parent == rtp or parent == "/home/lyh/Documents/CS/dotfiles" then
+--                 vim.cmd("luafile %")
+--                 vim.cmd("PackerCompile")
+--                 return
+--             end
+--         end
+--     end
+--   end}})
 
 -- Set up packer
 require('packer').startup({function(use)
@@ -319,7 +326,6 @@ require('packer').startup({function(use)
 
 
   use { 'Olical/conjure',
-    disable = true,
     ft = {'clojure', 'fennel', 'hy', 'lua', 'racket', 'lisp'},
     -- In this order we won't change LISP_FILE_TYPES_TABLE
     config = function()
@@ -346,8 +352,9 @@ require('packer').startup({function(use)
   use { 'nvim-telescope/telescope-frecency.nvim',
     requires = {'tami5/sql.nvim', 'nvim-telescope/telescope.nvim'}
   }
-  use {'nvim-telescope/telescope-fzy-native.nvim',
+  use {'nvim-telescope/telescope-fzf-native.nvim',
     requires = 'nvim-telescope/telescope.nvim',
+    run = 'make'
   }
   use { 'nvim-telescope/telescope-dap.nvim',
     requires = 'nvim-telescope/telescope.nvim',
@@ -463,8 +470,7 @@ require('packer').startup({function(use)
     end
   }
 
-  use { 'lilydjwg/fcitx.vim'
-  }
+  use { 'lilydjwg/fcitx.vim' }
 
 end,config = {
   git = { default_url_format = 'https://' .. _G.GITHUB_CDN .. '/%s' }

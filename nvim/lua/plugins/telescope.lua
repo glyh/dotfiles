@@ -8,22 +8,22 @@ return function()
       },
     },
     extensions = {
-      fzy_native = {
-        override_generic_sorter = true,
-        override_file_sorter = true,
-      }
-      -- fzf = {
-      --   fuzzy = true,
+      -- fzy_native = {
       --   override_generic_sorter = true,
       --   override_file_sorter = true,
-      --   case_mode = 'smart_case'
-      -- },
+      -- }
+      fzf = {
+        fuzzy = true,
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = 'smart_case'
+      },
       -- frecency = {
       --   ignore_patterns = {'/run/*/firenvim/*'}
       -- }
     }
   })
-  tele.load_extension('fzy_native')
+  tele.load_extension('fzf')
   tele.load_extension('frecency')
   tele.load_extension('projects')
   tele.load_extension('dap')
