@@ -1,17 +1,19 @@
 [user]
 	email = lyhokia@gmail.com
-	name = lyhokia
+	name = glyh
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+[merge]
+	conflictstyle = diff3
 [diff]
-	tool = vimdiff
+	colorMoved = default
 [pull]
 	rebase = false
-[http]
-	proxy =
-[difftool]
-	prompt = false
-[difftool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-	#path = nvim
 [alias]
 	l = log --oneline --decorate --graph
 	d = diff
@@ -27,5 +29,5 @@
 	g = clone
 	b = branch
 	r = restore
-# [url "https://github.com.cnpmjs.org/"]
-# 	insteadof = https://github.com/
+[url "https://hub.gitfast.tk/"]
+	insteadof = https://github.com/
