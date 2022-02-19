@@ -26,12 +26,23 @@ local function load_plugins()
     -- only add other plugins if they are necessary to reproduce the issue
     require("packer").startup({
         {
-
             "wbthomason/packer.nvim",
-            "chromium/chromium",
-            {"sarcasticadmin/empty-repo",
-              run = "tail -f /dev/null" -- Do nothing forever
-            }
+            { 'hrsh7th/nvim-cmp',
+              config = function()
+	        local cmp = require("cmp")
+	        cmp.setup.cmdline(':', {
+                  sources = cmp.config.sources({
+                  }, {
+                    { name = 'cmdline' }
+                  })
+                })
+
+	      end,
+	      event = {'InsertEnter', 'CmdlineEnter'},
+            },
+
+            { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }
+
 
         },
         config = {
@@ -50,3 +61,4 @@ else
     require("packer").sync()
 end
 
+vim.cmd([[ set completeopt=menu,menuone,noselect]])

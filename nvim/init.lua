@@ -85,11 +85,12 @@ require('packer').startup({function(use)
   use { 'tylerw/zinit-vim-syntax', ft = 'zsh'}
   use { 'clones/vim-zsh', ft = 'zsh'}
   -- use {'zah/nim.vim', ft = 'nim' }
-  use { 'bakpakin/fennel.vim', ft = 'fennel' }
+  -- use { 'bakpakin/fennel.vim', ft = 'fennel' } -- Have treesitter syntax, can disable
   use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
   -- use {'janet-lang/janet.vim', ft = 'janet'}
   use { 'wlangstroth/vim-racket', ft = 'racket' }
   use {'hylang/vim-hy', ft = 'hy'}
+  use {'kmonad/kmonad-vim', ft = 'kbd'}
 
   use { 'vlime/vlime', ft = 'lisp',
     -- disable = true,
@@ -258,6 +259,11 @@ require('packer').startup({function(use)
 
   -- use 'tpope/vim-commentary'
   use 'b3nj5m1n/kommentary'
+  -- use { 'numToStr/Comment.nvim',
+  --   config = function()
+  --     require('Comment').setup()
+  --   end
+  -- }
 
   use 'tpope/vim-sleuth'
 
@@ -269,14 +275,15 @@ require('packer').startup({function(use)
 
   ----- Tools -----
 
-  --[[ use { 'kevinhwang91/rnvimr',
+  use { 'kevinhwang91/rnvimr',
+    disable = true,
     config = function ()
       vim.g.rnvimr_enable_ex = 1
       vim.g.rnvimr_enable_picker = 1
       vim.api.nvim_set_keymap(
         'n', '<A-o>', '<cmd>RnvimrToggle<CR>', {noremap = true})
     end
-  } ]]
+  }
 
   use { 'skywind3000/asyncrun.vim',
     disable = true,
@@ -317,7 +324,9 @@ require('packer').startup({function(use)
     end
   }
 
-  use { 'simrat39/symbols-outline.nvim',
+  use { 'zeertzjq/symbols-outline.nvim',
+    branch = 'patch-1',
+    -- disable = true,
     config = function()
       vim.api.nvim_set_keymap(
         'n', '<leader>o', '<cmd>SymbolsOutline<CR>', {noremap = true})
@@ -327,17 +336,15 @@ require('packer').startup({function(use)
 
   use { 'glyh/conjure',
     lock = true,
-    ft = {'clojure', 'fennel', 'hy', 'lua', 'racket', 'lisp'},
-    -- In this order we won't change LISP_FILE_TYPES_TABLE
+    ft = {'clojure', 'fennel', 'hy', 'lua', 'racket'}, -- disable for lisp at the moment for it's buggy
     config = function()
-      local utils = require('utils')
       vim.g['conjure#log#hud#border'] = 'none'
       vim.g['conjure#extract#tree_sitter#enabled'] = true
       vim.g['conjure#mapping#eval_visual'] = 'e'
-      vim.g['conjure#filetype#lisp'] = 'conjure.client.common-lisp.nrepl'
-      vim.g['conjure#client#fennel#aniseed#aniseed_module_prefix'] = 'aniseed.'
+      -- vim.g['conjure#filetype#lisp'] = 'conjure.client.common-lisp.nrepl'
+      -- vim.g['conjure#client#fennel#aniseed#aniseed_module_prefix'] = 'aniseed.'
     end,
-    requires = 'Olical/aniseed'
+    -- requires = 'Olical/aniseed'
   }
 
   use { 'mfussenegger/nvim-dap',
@@ -397,6 +404,7 @@ require('packer').startup({function(use)
   use { 'PaterJason/cmp-conjure', after = {"nvim-cmp", "conjure"} }
 
   use { 'neovim/nvim-lspconfig', config = require('plugins.lspconfig') }
+  -- Buggy LSP, to figure out some day
 
   use { 'jose-elias-alvarez/null-ls.nvim',
     disable = true,
@@ -433,6 +441,7 @@ require('packer').startup({function(use)
   }
 
   use { 'mbbill/undotree',
+    disable = true,
     config = function()
       vim.api.nvim_set_keymap(
         'n', '<leader>u', '<cmd>UndotreeToggle<CR>', {noremap = true})
@@ -449,13 +458,16 @@ require('packer').startup({function(use)
     end
   }
 
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  -- use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   use { 'rmagatti/auto-session',
     config = function()
-      require('auto-session').setup { log_level = 'info' }
+      require('auto-session').setup {
+        log_level = 'info',
+        bypass_session_save_file_types = {}
+      }
     end,
-    disable = true
+    -- disable = true
   }
 
   use { 'nathom/filetype.nvim',
@@ -465,9 +477,12 @@ require('packer').startup({function(use)
           extensions = {
             asd = "lisp",
             ros = "lisp",
+            jimple = "java", 
+            jimp = "java",
+            fnl = "fennel"
           },
           shebang = {
-            bb = "clojure"
+            bb = "clojure",
           }
         },
     })
