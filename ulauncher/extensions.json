@@ -1,1 +1,9 @@
-{}
+{
+    "com.github.ikorjefocur.ulauncher-commandrunner": {
+        "id": "com.github.ikorjefocur.ulauncher-commandrunner",
+        "url": "https://github.com/IkorJefocur/ulauncher-commandrunner",
+        "updated_at": "2022-02-19T14:49:13.904078",
+        "last_commit": "dfd7bc08ac4764612ce50d2d26a665db7d975be6",
+        "last_commit_time": "2021-10-31T14:33:55"
+    }
+}
