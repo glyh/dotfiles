@@ -71,9 +71,10 @@ input "1267:12600:MSFT0001:00_04F3:3138_Touchpad" {
     scroll_method edge
 }
 
-input * {
-    xkb_options "caps:escape_shifted_capslock"
-}
+# Managed by Kmonad
+# input * {
+#     xkb_options "caps:escape_shifted_capslock"
+# }
 
 #
 # NAG
@@ -243,8 +244,8 @@ mode "nag" {
 #
 # Screenshot:
 #
-    bindsym --release Print exec grimshot copy screen
-    bindsym --release $mod+Print exec grimshot copy area
+    bindsym Print exec grimshot copy screen
+    bindsym $mod+Print exec grimshot copy area
 
 #
 # Edit everywhere:
@@ -315,3 +316,4 @@ exec ulauncher --hide-window 1 &
 exec mako
 exec v2raya --lite
 exec --no-startup-id fcitx5 -d
+exec kmonad ~/.config/kmonad/kmonad.kbd
