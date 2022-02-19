@@ -5,6 +5,7 @@
                     (nyxt-init-file "stylesheet.lisp")))
   (load file))
 
+#|
 (define-configuration web-buffer
   ((gtk-extensions-path
     (make-instance 'gtk-extensions-data-path
@@ -14,3 +15,4 @@
 
 (define-configuration web-buffer
   ((default-modes `(beastify ,@%slot-default%))))
+|#
