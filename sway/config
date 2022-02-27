@@ -244,8 +244,8 @@ mode "nag" {
 #
 # Screenshot:
 #
-    bindsym Print exec grimshot copy screen
-    bindsym $mod+Print exec grimshot copy area
+    bindsym Print exec grimshot copy screen && wl-paste > /tmp/screenshot.png
+    bindsym $mod+Print exec grimshot copy area && wl-paste > /tmp/screenshot.png
 
 #
 # Edit everywhere:
