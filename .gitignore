@@ -1,5 +1,5 @@
 cargo/*
-!cargo/config
+!cargo/config.toml
 nvim/plugin
 
 fish/*
