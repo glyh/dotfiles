@@ -93,7 +93,7 @@ require('packer').startup({function(use)
   use {'kmonad/kmonad-vim', ft = 'kbd'}
 
   use { 'vlime/vlime', ft = 'lisp',
-    -- disable = true,
+    disable = true,
     config = function()
       vim.g.vlime_cl_impl = "ros"
       vim.cmd([[
@@ -324,8 +324,7 @@ require('packer').startup({function(use)
     end
   }
 
-  use { 'zeertzjq/symbols-outline.nvim',
-    branch = 'patch-1',
+  use { 'simrat39/symbols-outline.nvim',
     -- disable = true,
     config = function()
       vim.api.nvim_set_keymap(
@@ -467,7 +466,7 @@ require('packer').startup({function(use)
         bypass_session_save_file_types = {}
       }
     end,
-    -- disable = true
+    disable = true
   }
 
   use { 'nathom/filetype.nvim',
