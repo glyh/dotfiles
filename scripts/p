@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# Make proxychains respect your shell aliases
+
+if [ "$#" -ne 0 ]; then
+    proxychains -q $SHELL -c "$*"
+fi
+
