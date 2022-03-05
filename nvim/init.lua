@@ -18,8 +18,8 @@ utils.ensure('nvim-lua', 'plenary.nvim')
 
 -- General
 
-_G.LISP_FILE_TYPES = 'clojure,fennel,janet,racket,hy,lisp'
-_G.LISP_FILE_TYPES_TABLE = {'clojure', 'fennel', 'hy', 'lisp', 'racket'}
+_G.LISP_FILE_TYPES = 'clojure,fennel,hy'
+_G.LISP_FILE_TYPES_TABLE = {'clojure', 'fennel', 'hy'}
 
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
@@ -311,14 +311,14 @@ require('packer').startup({function(use)
     config = function()
       require('yabs'):setup({
         languages = { -- List of languages in vim's `filetype` format
-          lisp = {
+          --[[lisp = {
             tasks = {
               swank = {
                 command = 'ros_swank',
                 output = 'terminal'
               }
             }
-          }
+          }]]
         },
       })
     end
@@ -333,9 +333,9 @@ require('packer').startup({function(use)
   }
 
 
-  use { 'glyh/conjure',
+  use { 'Olical/conjure',
     lock = true,
-    ft = {'clojure', 'fennel', 'hy', 'lua', 'racket'}, -- disable for lisp at the moment for it's buggy
+    ft = LISP_FILE_TYPES_TABLE,
     config = function()
       vim.g['conjure#log#hud#border'] = 'none'
       vim.g['conjure#extract#tree_sitter#enabled'] = true
@@ -474,8 +474,8 @@ require('packer').startup({function(use)
       require("filetype").setup({
         overrides = {
           extensions = {
-            asd = "lisp",
-            ros = "lisp",
+            -- asd = "lisp",
+            -- ros = "lisp",
             jimple = "java", 
             jimp = "java",
             fnl = "fennel"
