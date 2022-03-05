@@ -25,7 +25,7 @@ set $term kitty
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.config/wallpapers/blackonly.jpg fill
+output * bg ~/Pictures/Wallpapers/blackonly.jpg fill
 #
 # Example configuration:
 #
@@ -317,3 +317,6 @@ exec mako
 exec v2raya --lite
 exec --no-startup-id fcitx5 -d
 exec kmonad ~/.config/kmonad/kmonad.kbd
+
+# Test
+bindsym $mod+s exec swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.pid and .visible) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp 

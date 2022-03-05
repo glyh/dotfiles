@@ -6,7 +6,7 @@
     # Window manager
     ~/.config/sway: sway
     ~/.config/swaylock: swaylock
-    ~/.config/wallpapers: wallpapers
+    ~/Pictures/Wallpapers: wallpapers
     ~/.config/waybar: waybar
     # Shell
     ~/.config/fish: fish
