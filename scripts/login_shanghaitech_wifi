@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
+
 echo -n "UserName: "
 read username
 echo -n "Password: "
