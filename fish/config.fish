@@ -27,22 +27,21 @@ alias ew="$EDITOR ~/.config/sway/config" # Window manager
 
 # Tools
 alias g="git"
-alias l="ls"
+alias l="exa"
+alias ls="exa"
 alias c="cd"
 function f
   ranger --choosedir=$HOME/.rangerdir
   set LASTDIR (cat $HOME/.rangerdir)
   cd $LASTDIR
 end
-alias p="proxychains"
-alias pg="proxychains git"
-alias pa="proxychains paru"
 alias a="paru"
 alias rm="rm -i"
 alias tp="trash-put"
 alias tl="trash-list"
 alias te="trash-empty"
 alias rt="trash-restore"
+alias pg="page"
 
 # Languages
 alias py="ptpython"
