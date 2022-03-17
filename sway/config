@@ -319,4 +319,4 @@ exec --no-startup-id fcitx5 -d
 exec kmonad ~/.config/kmonad/kmonad.kbd
 
 # Test
-bindsym $mod+s exec swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.pid and .visible) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp 
+# bindsym $mod+s exec swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.pid and .visible) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp 
