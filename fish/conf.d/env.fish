@@ -39,6 +39,10 @@ set -gx XMODIFIERS               \@im=fcitx
 # GTK themes
 set -gx  GTK_THEME           Adwaita:dark
 
+# go
+set -gx  GO111MODULE         on
+set -gx  GOPROXY             https://goproxy.cn
+
 # Spawning sway
 set TTY1 (tty)
 [ "$TTY1" = "/dev/tty1" ] && exec sway

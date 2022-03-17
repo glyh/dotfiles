@@ -42,10 +42,10 @@ alias tl="trash-list"
 alias te="trash-empty"
 alias rt="trash-restore"
 alias pg="page"
+alias op="rifle"
 
 # Languages
 alias py="ptpython"
-alias cl="rlwrap ros run"
+#alias cl="rlwrap ros run"
 alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m reply.main"
-alias ppip="pypy3 -m pip"
-alias op="rifle"
+#alias ppip="pypy3 -m pip"
