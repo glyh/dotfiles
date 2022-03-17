@@ -83,7 +83,9 @@ require('packer').startup({function(use)
   ----- FileType Support -----
 
   use { 'tylerw/zinit-vim-syntax', ft = 'zsh'}
-  use { 'clones/vim-zsh', ft = 'zsh'}
+  use { 'justinmk/vim-syntax-extra'}
+  use { 'earthly/earthly.vim' }
+  -- use { 'clones/vim-zsh', ft = 'zsh'}
   -- use {'zah/nim.vim', ft = 'nim' }
   -- use { 'bakpakin/fennel.vim', ft = 'fennel' } -- Have treesitter syntax, can disable
   use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
@@ -275,6 +277,17 @@ require('packer').startup({function(use)
 
   ----- Tools -----
 
+  use { 'junegunn/vim-easy-align',
+    config = function ()
+      vim.cmd([[
+        " Start interactive EasyAlign in visual mode (e.g. vipga)
+        xmap ga <Plug>(EasyAlign)
+
+        " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+        nmap ga <Plug>(EasyAlign)
+      ]])
+    end
+  }
   use { 'kevinhwang91/rnvimr',
     disable = true,
     config = function ()
@@ -476,12 +489,18 @@ require('packer').startup({function(use)
           extensions = {
             -- asd = "lisp",
             -- ros = "lisp",
-            jimple = "java", 
-            jimp = "java",
-            fnl = "fennel"
+            -- jimple = "java", 
+            -- jimp = "java",
+            fnl = "fennel",
+            luajit = "lua",
           },
           shebang = {
             bb = "clojure",
+          },
+          literal = {
+            ["CMakeCommon.txt"] = "cmake",
+            ["Earthfile"] = "Earthfile",
+            ["build.earth"] = "Earthfile"
           }
         },
     })
