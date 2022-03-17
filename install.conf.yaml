@@ -34,6 +34,7 @@
     # Electron
     ~/.config/electron-flags.conf: electron/electron-flags.conf
     ~/.config/electron12-flags.conf: electron/electron-flags.conf
+    ~/.config/electron13-flags.conf: electron/electron-flags.conf
     ~/.config/chrome-flags.conf: electron/electron-flags.conf
     ~/.config/chromium-flags.conf: electron/electron-flags.conf
     ~/.inputrc: readline/.inputrc
