@@ -43,10 +43,18 @@ alias te="trash-empty"
 alias rt="trash-restore"
 alias pg="page"
 alias op="rifle"
+alias nf="neofetch"
+alias plz="sudo"
+alias cls="clear"
+alias rpt="eval (history --max=1)"
+alias k="kitty +kitten"
+alias m="man"
 
 # Languages
 alias py="ptpython"
 #alias cl="rlwrap ros run"
 alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m reply.main"
 #alias ppip="pypy3 -m pip"
-alias nf="neofetch"
+# alias wasi-clang="$WASI_SDK_PATH/bin/clang --sysroot=$WASI_SDK_PATH/share/wasi-sysroot"
+
+thefuck --alias | source
