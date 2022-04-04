@@ -20,15 +20,6 @@ set -gx GTK_IM_MODULE            fcitx
 set -gx QT_IM_MODULE             fcitx
 set -gx XMODIFIERS               \@im=fcitx
 
-# CL
-# set -gx  CL_SOURCE_REGISTRY  ~/Documents/CS/projects/cl
-
-# Carp
-# set -gx  CARP_DIR            ~/.carp
-# set -gxa PATH                "$CARP_DIR/bin"
-
-# CFLAGS && CXXFLAGS
-
 # GTK themes
 set -gx  GTK_THEME           Adwaita:dark
 
