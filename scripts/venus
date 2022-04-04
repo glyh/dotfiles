@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+SCRIPT=`realpath -s $0`
+SCRIPTPATH=`dirname $SCRIPT`
+java -jar $SCRIPTPATH/venus-jvm-latest.jar "$@"
