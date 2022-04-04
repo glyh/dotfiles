@@ -25,16 +25,6 @@ return function()
       },
   }
 
-  parser_configs.commonlisp = {
-    install_info = {
-      url = "https://github.com/theHamsta/tree-sitter-commonlisp",
-      files = { "src/parser.c" },
-      generate_requires_npm = true,
-    },
-    filetype = "lisp",
-    maintainers = { "@theHamsta" },
-  }
-
   for _, p in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
     p.install_info.url = p.install_info.url:gsub('github.com', _G.GITHUB_CDN)
   end
@@ -42,7 +32,7 @@ return function()
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
       'c', 'cpp', 'rust', 'lua', 'python', 'norg', 'norg_meta', 'norg_table',
-      'fennel', 'query', 'commonlisp', 'fish'
+      'fennel', 'query', 'fish', 
     },
     highlight = {
       enable = true,
