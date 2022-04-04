@@ -1,15 +1,6 @@
 # Basic info
 set -gx HOME_LANG            zh
 
-# Path
-fish_add_path -gp            ~/Scripts
-set -gxa PATH                ~/.local/bin
-# set -gxa PATH                ~/.nimble/bin
-set -gxa PATH                ~/.yarn/bin
-set -gxa PATH                ~/.cargo/bin
-set -gxa PATH                ~/.roswell/bin
-# set -gxa PATH                /usr/lib/emscripten
-
 # XDG
 set -gx  XDG_CONFIG_HOME     ~/.config
 set -gx  XDG_USER_CONFIG_DIR ~/.config
@@ -46,9 +37,17 @@ set -gx  GO111MODULE         on
 set -gx  GOPROXY             https://goproxy.cn
 set -gx  GOPATH              ~/.config/go
 
+# gerbil
+set -gx  GERBIL_HOME         /opt/gerbil-scheme
+
 # WASI
 set -gx WASI_SDK_PATH       /opt/wasi-sdk
 
-# Spawning sway
-set TTY1 (tty)
-[ "$TTY1" = "/dev/tty1" ] && exec sway
+# Path
+fish_add_path -gp            ~/Scripts
+set -gxa PATH                ~/.local/bin
+set -gxa PATH                ~/.yarn/bin
+set -gxa PATH                ~/.cargo/bin
+set -gxa PATH                ~/.roswell/bin
+set -gxa PATH                /usr/lib/emscripten
+set -gxa PATH                $GERBIL_HOME/bin
