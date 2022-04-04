@@ -85,14 +85,16 @@ require('packer').startup({function(use)
   use { 'tylerw/zinit-vim-syntax', ft = 'zsh'}
   use { 'justinmk/vim-syntax-extra'}
   use { 'earthly/earthly.vim' }
+  use { 'Glench/Vim-Jinja2-Syntax' }
   -- use { 'clones/vim-zsh', ft = 'zsh'}
   -- use {'zah/nim.vim', ft = 'nim' }
   -- use { 'bakpakin/fennel.vim', ft = 'fennel' } -- Have treesitter syntax, can disable
   use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
-  -- use {'janet-lang/janet.vim', ft = 'janet'}
+  use {'janet-lang/janet.vim', ft = 'janet'}
   use { 'wlangstroth/vim-racket', ft = 'racket' }
   use {'hylang/vim-hy', ft = 'hy'}
   use {'kmonad/kmonad-vim', ft = 'kbd'}
+  use {'ziglang/zig.vim'}
 
   use { 'vlime/vlime', ft = 'lisp',
     disable = true,
