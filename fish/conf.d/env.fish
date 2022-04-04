@@ -39,6 +39,7 @@ set -gx  GOPATH              ~/.config/go
 
 # gerbil
 set -gx  GERBIL_HOME         /opt/gerbil-scheme
+set -gx  GERBIL_GSC          (which gambitc)
 
 # WASI
 set -gx WASI_SDK_PATH       /opt/wasi-sdk
