@@ -18,8 +18,8 @@ utils.ensure('nvim-lua', 'plenary.nvim')
 
 -- General
 
-_G.LISP_FILE_TYPES = 'clojure,fennel,hy'
-_G.LISP_FILE_TYPES_TABLE = {'clojure', 'fennel', 'hy'}
+_G.LISP_FILE_TYPES = 'clojure,fennel,hy,racket,lisp'
+_G.LISP_FILE_TYPES_TABLE = {'clojure', 'fennel', 'hy', 'racket', 'lisp'}
 
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
@@ -349,7 +349,7 @@ require('packer').startup({function(use)
 
 
   use { 'Olical/conjure',
-    lock = true,
+    branch = "develop",
     ft = LISP_FILE_TYPES_TABLE,
     config = function()
       vim.g['conjure#log#hud#border'] = 'none'
@@ -444,8 +444,7 @@ require('packer').startup({function(use)
     run = ':TSUpdate',
     config = require('plugins.treesitter')
   }
-  use { 'stephenprater/playground',
-    branch = 'fix-display-highlight-groups',
+  use { 'nvim-treesitter/playground',
     requires = 'nvim-treesitter/nvim-treesitter',
     config = require('plugins.treesitter')
   }
