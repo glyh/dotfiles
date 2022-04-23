@@ -490,7 +490,7 @@ require('packer').startup({function(use)
           extensions = {
             -- asd = "lisp",
             -- ros = "lisp",
-            -- jimple = "java", 
+            -- jimple = "java",
             -- jimp = "java",
             fnl = "fennel",
             luajit = "lua",
