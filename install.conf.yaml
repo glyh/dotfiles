@@ -27,7 +27,7 @@
     ~/.aria2/aria2.conf:
       path: aria2/aria2.conf
     # Developments
-    ~/.cargo: cargo
+    ~/.cargo/config.toml: cargo/config.toml
     ~/.roswell/init.lisp: roswell/init.lisp
     # Scripts
     ~/Scripts: scripts
