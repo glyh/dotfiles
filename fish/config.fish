@@ -10,6 +10,7 @@ set fish_vi_force_cursor
 # Plugins
 starship init fish | source # Use starship
 zoxide init fish | source
+# pyenv init - | source
 
 # Editor commands
 alias e=$EDITOR
@@ -59,4 +60,16 @@ alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m
 #alias ppip="pypy3 -m pip"
 # alias wasi-clang="$WASI_SDK_PATH/bin/clang --sysroot=$WASI_SDK_PATH/share/wasi-sysroot"
 
-thefuck --alias | source
+# thefuck --alias | source
+function man
+  if test (count $argv) -lt 2
+    set -l prog $argv[1]
+    page "man://"$prog
+  else
+    set -l sect $argv[-2]
+    set -l prog $argv[-1]
+    page "man://"$prog"("$sect")"
+  end
+end
+
+alias s="kitty +kitten ssh"

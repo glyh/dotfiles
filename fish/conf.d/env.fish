@@ -10,6 +10,7 @@ set -gx  XDG_CURRENT_DESKTOP sway # https://github.com/GermainZ/xdg-desktop-port
 set -gx  VISUAL              nvim
 set -gx  EDITOR              nvim
 set -gx  PAGER               page
+set -gx  MANPAGER            "page -t man"
 set -gx  TERM                kitty
 
 # Firefox
@@ -33,7 +34,7 @@ set -gx  GERBIL_HOME         /opt/gerbil-scheme
 set -gx  GERBIL_GSC          (which gambitc)
 
 # WASI
-set -gx WASI_SDK_PATH       /opt/wasi-sdk
+set -gx WASI_SDK_PATH        /opt/wasi-sdk
 
 # Path
 fish_add_path -gp            ~/Scripts
@@ -43,3 +44,4 @@ set -gxa PATH                ~/.cargo/bin
 set -gxa PATH                ~/.roswell/bin
 set -gxa PATH                /usr/lib/emscripten
 set -gxa PATH                $GERBIL_HOME/bin
+set -gxa PATH                /opt/jython/bin

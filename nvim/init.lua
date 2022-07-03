@@ -3,8 +3,8 @@ _G.GITHUB_CDN = (
   -- 'gitclone.com/github.com'
   -- 'mirrors.tuna.tsinghua.edu.cn/git'
   -- 'hub.fastgit.org'
-  'hub.gitfast.tk'
-  -- 'ghproxy.com/https://github.com'
+  -- 'hub.gitfast.tk'
+  'ghproxy.com/https://github.com'
   -- 'github.com'
   )
 _G.HOME_LANG = 'zh'
@@ -18,8 +18,8 @@ utils.ensure('nvim-lua', 'plenary.nvim')
 
 -- General
 
-_G.LISP_FILE_TYPES = 'clojure,fennel,hy,racket,lisp'
-_G.LISP_FILE_TYPES_TABLE = {'clojure', 'fennel', 'hy', 'racket', 'lisp'}
+_G.LISP_FILE_TYPES = 'clojure,fennel,hy,racket,lisp,scheme'
+_G.LISP_FILE_TYPES_TABLE = {'clojure', 'fennel', 'hy', 'racket', 'lisp', 'scheme'}
 
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
@@ -38,6 +38,8 @@ vim.opt.splitbelow = false
 vim.opt.splitright = true
 vim.opt.updatetime = 500
 vim.opt.wrap = true
+vim.opt.cmdheight = 0
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 vim.g.did_load_filetypes = true -- Use plugin to load filetypes
@@ -83,9 +85,9 @@ require('packer').startup({function(use)
   ----- FileType Support -----
 
   use { 'tylerw/zinit-vim-syntax', ft = 'zsh'}
-  use { 'justinmk/vim-syntax-extra'}
-  use { 'earthly/earthly.vim' }
-  use { 'Glench/Vim-Jinja2-Syntax' }
+  -- use { 'justinmk/vim-syntax-extra'}
+  -- use { 'earthly/earthly.vim' }
+  -- use { 'Glench/Vim-Jinja2-Syntax', ft = 'j2' }
   -- use { 'clones/vim-zsh', ft = 'zsh'}
   -- use {'zah/nim.vim', ft = 'nim' }
   -- use { 'bakpakin/fennel.vim', ft = 'fennel' } -- Have treesitter syntax, can disable
@@ -94,7 +96,7 @@ require('packer').startup({function(use)
   use { 'wlangstroth/vim-racket', ft = 'racket' }
   use {'hylang/vim-hy', ft = 'hy'}
   use {'kmonad/kmonad-vim', ft = 'kbd'}
-  use {'ziglang/zig.vim'}
+  use {'ziglang/zig.vim', ft = 'zig'}
 
   use { 'vlime/vlime', ft = 'lisp',
     disable = true,
@@ -216,15 +218,25 @@ require('packer').startup({function(use)
 
   use { 'windwp/nvim-autopairs',
     config = function()
-      local autopairs = require('nvim-autopairs')
-      autopairs.setup({
+      local npairs = require('nvim-autopairs')
+      local Rule = require('nvim-autopairs.rule')
+      npairs.setup({
         disable_filetype = { 'TelescopePrompt' , 'vim' },
       })
-      require('utils').augroup('autopairs-custom',
+      --[[ require('utils').augroup('autopairs-custom',
         {{'FileType', LISP_FILE_TYPES, function()
-          autopairs.remove_rule('`')
-          autopairs.remove_rule("'")
-      end}})
+          npairs.remove_rule('`')
+          npairs.remove_rule("'")
+      end}}) ]]
+      npairs.remove_rule('`')
+      npairs.remove_rule("'")
+      -- FIXME:
+      npairs.add_rules({
+        Rule("`", "`", {"-lisp", "-clojure"})
+      })
+      npairs.add_rules({
+        Rule("'", "'", {"-lisp", "-clojure"})
+      })
     end
   }
 
@@ -349,12 +361,15 @@ require('packer').startup({function(use)
 
 
   use { 'Olical/conjure',
-    branch = "develop",
     ft = LISP_FILE_TYPES_TABLE,
     config = function()
       vim.g['conjure#log#hud#border'] = 'none'
       vim.g['conjure#extract#tree_sitter#enabled'] = true
       vim.g['conjure#mapping#eval_visual'] = 'e'
+
+      vim.g['conjure#client#scheme#stdio#command'] = 'chez'
+      vim.g['conjure#client#scheme#stdio#prompt_pattern'] = '> $'
+      vim.g['conjure#client#scheme#stdio#value_prefix_pattern'] = false
       -- vim.g['conjure#filetype#lisp'] = 'conjure.client.common-lisp.nrepl'
       -- vim.g['conjure#client#fennel#aniseed#aniseed_module_prefix'] = 'aniseed.'
     end,
@@ -494,6 +509,8 @@ require('packer').startup({function(use)
             -- jimp = "java",
             fnl = "fennel",
             luajit = "lua",
+            -- NOTE: This a workaround on vim-racket
+            -- rkt = "racket",
           },
           shebang = {
             bb = "clojure",
@@ -508,10 +525,19 @@ require('packer').startup({function(use)
     end
   }
 
-  use { 'lilydjwg/fcitx.vim' }
+  -- use { 'lilydjwg/fcitx.vim' }
 
 end,config = {
   git = { default_url_format = 'https://' .. _G.GITHUB_CDN .. '/%s' }
 }})
 
 require('mappings')
+
+-- fixes
+
+--[[ vim.api.nvim_create_autocmd({"VimEnter"}, {
+  callback = function()
+    local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
+    vim.defer_fn(function() vim.loop.kill(pid, WINCH) end, 20)
+  end
+}) ]]
