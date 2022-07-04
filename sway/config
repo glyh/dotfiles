@@ -308,9 +308,9 @@ seat seat0 hide_cursor 3000
 
 include /etc/sway/config.d/*
 
-exec autotiling &
+# exec autotiling &
 exec aria2c -D
-exec gammastep &
+# exec gammastep &
 exec waybar &
 exec ulauncher --hide-window 1 &
 exec mako
