@@ -3,6 +3,7 @@
         create: true
         force: true
 - link:
+    /etc/nixos/configuration.nix: nix/configuration.nix
     # Window manager
     ~/.config/sway: sway
     ~/.config/swaylock: swaylock

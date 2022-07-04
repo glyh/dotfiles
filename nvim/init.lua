@@ -3,8 +3,8 @@ _G.GITHUB_CDN = (
   -- 'gitclone.com/github.com'
   -- 'mirrors.tuna.tsinghua.edu.cn/git'
   -- 'hub.fastgit.org'
-  -- 'hub.gitfast.tk'
-  'ghproxy.com/https://github.com'
+  'hub.gitfast.tk'
+  -- 'ghproxy.com/https://github.com'
   -- 'github.com'
   )
 _G.HOME_LANG = 'zh'
@@ -38,7 +38,7 @@ vim.opt.splitbelow = false
 vim.opt.splitright = true
 vim.opt.updatetime = 500
 vim.opt.wrap = true
-vim.opt.cmdheight = 0
+-- vim.opt.cmdheight = 0
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
