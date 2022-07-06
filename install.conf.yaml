@@ -3,7 +3,6 @@
         create: true
         force: true
 - link:
-    /etc/nixos/configuration.nix: nix/configuration.nix
     # Window manager
     ~/.config/sway: sway
     ~/.config/swaylock: swaylock
@@ -11,7 +10,6 @@
     ~/.config/waybar: waybar
     # Shell
     ~/.config/fish: fish
-    ~/.config/omf: omf
     # Applications
     ~/.config/nvim: nvim
     ~/.config/git: git
@@ -23,6 +21,7 @@
     ~/.config/ulauncher: ulauncher
     ~/.config/nyxt : nyxt
 - shell:
+    - [rm -rf ~/.aria2]
     - [git clone https://github.com/P3TERX/aria2.conf.git ~/.aria2]
 - link:
     ~/.aria2/aria2.conf:
@@ -46,7 +45,6 @@
     ~/.config/bat: bat
     ~/.config/kmonad: kmonad
 - shell:
+    - [rm -rf ~/.config/kitty/kitty-themes]
     - [git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes]
-    - [ln -s ~/.config/kitty/kitty-themes/themes/Apprentice.conf ~/.config/kitty/theme.conf]
-    - [mkdir -p ~/.local/share/applications]
-    - [cp ./entries/* ~/.local/share/applications]
+    - [rm -rf ~/.config/kitty/theme.conf && ln -s ~/.config/kitty/kitty-themes/themes/Apprentice.conf ~/.config/kitty/theme.conf]
