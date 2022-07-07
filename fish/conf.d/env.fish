@@ -17,9 +17,9 @@ set -gx  TERM                kitty
 set -gx MOZ_ENABLE_WAYLAND   1
 
 # IME
-set -gx GTK_IM_MODULE            fcitx
-set -gx QT_IM_MODULE             fcitx
-set -gx XMODIFIERS               \@im=fcitx
+set -gx GTK_IM_MODULE            fcitx5
+set -gx QT_IM_MODULE             fcitx5
+set -gx XMODIFIERS               \@im=fcitx5
 
 # GTK themes
 set -gx  GTK_THEME           Adwaita:dark
@@ -30,8 +30,8 @@ set -gx  GOPROXY             https://goproxy.cn
 set -gx  GOPATH              ~/.config/go
 
 # gerbil
-set -gx  GERBIL_HOME         /opt/gerbil-scheme
-set -gx  GERBIL_GSC          (which gambitc)
+# set -gx  GERBIL_HOME         /opt/gerbil-scheme
+# set -gx  GERBIL_GSC          (which gambitc)
 
 # WASI
 set -gx WASI_SDK_PATH        /opt/wasi-sdk

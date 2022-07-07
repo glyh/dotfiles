@@ -29,5 +29,5 @@
 	g = clone
 	b = branch
 	r = restore
-[url "https://hub.gitfast.tk/"]
+[url "https://ghproxy.com/https://github.com/"]
 	insteadof = https://github.com/

@@ -308,15 +308,15 @@ seat seat0 hide_cursor 3000
 
 include /etc/sway/config.d/*
 
-# exec autotiling &
-exec aria2c -D
-# exec gammastep &
-exec waybar &
-exec ulauncher --hide-window 1 &
-exec mako
-exec v2raya --lite
-exec --no-startup-id fcitx5 -d
-exec kmonad ~/.config/kmonad/kmonad.kbd
+exec pgrep autotiling || autotiling &
+exec pgrep aria2c || aria2c -D
+exec pgrep gammastep || gammastep &
+exec pgrep waybar || waybar &
+exec pgrep ulauncher || ulauncher --hide-window 1 &
+exec pgrep mako || mako
+exec pgrep v2raya || v2raya --lite
+exec --no-startup-id pgrep fcitx5 || fcitx5 -d
+exec pgrep kmonad || kmonad ~/.config/kmonad/kmonad.kbd
 
 # Test
 # bindsym $mod+s exec swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.pid and .visible) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp 

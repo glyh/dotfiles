@@ -23,6 +23,7 @@
 - shell:
     - [rm -rf ~/.aria2]
     - [git clone https://github.com/P3TERX/aria2.conf.git ~/.aria2]
+    - [touch ~/.aria2/aria2.session]
 - link:
     ~/.aria2/aria2.conf:
       path: aria2/aria2.conf

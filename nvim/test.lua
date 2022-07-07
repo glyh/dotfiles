@@ -27,23 +27,15 @@ local function load_plugins()
     require("packer").startup({
         {
             "wbthomason/packer.nvim",
-            { 'hrsh7th/nvim-cmp',
-              config = function()
-	        local cmp = require("cmp")
-	        cmp.setup.cmdline(':', {
-                  sources = cmp.config.sources({
-                  }, {
-                    { name = 'cmdline' }
-                  })
-                })
-
-	      end,
-	      event = {'InsertEnter', 'CmdlineEnter'},
+            {'nvim-treesitter/nvim-treesitter',
+              config = function() 
+                local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+                for _, p in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
+                  p.install_info.url = p.install_info.url:gsub('github.com', 'hub.0z.gs')
+                end
+                require('nvim-treesitter.configs').setup({ ensure_installed = { 'cpp' }})
+              end
             },
-
-            { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }
-
-
         },
         config = {
             package_root = package_root,
