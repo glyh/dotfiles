@@ -15,7 +15,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -310,6 +310,8 @@ include /etc/sway/config.d/*
 
 exec pgrep autotiling || autotiling &
 exec pgrep aria2c || aria2c -D
+# gammastep requires geoclue agent
+exec pgrep agent || /usr/lib/geoclue-2.0/demos/agent
 exec pgrep gammastep || gammastep &
 exec pgrep waybar || waybar &
 exec pgrep ulauncher || ulauncher --hide-window 1 &
