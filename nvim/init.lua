@@ -46,23 +46,19 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 vim.g.did_load_filetypes = true -- Use plugin to load filetypes
 
--- Auto Reload
-utils.augroup('LuaAutoConfReload',
-  {{'BufWritePost', '*.lua', function()
-    local path = vim.fn.expand('%:p')
-    local file = require('plenary.path').new(path)
-    local parents = file:parents()
-    local rtps = vim.api.nvim_list_runtime_paths()
-    for _, parent in ipairs(parents) do
-        for _, rtp in ipairs(rtps) do
-            if parent == rtp or parent == "/home/lyh/Documents/CS/dotfiles" then
-                vim.cmd("luafile %")
-                vim.cmd("PackerCompile")
-                return
-            end
-        end
+vim.api.nvim_create_augroup('LuaAutoConfReload', {})
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = 'init.lua',
+  group = 'LuaAutoConfReload',
+  callback = function()
+    local main_config = vim.fn.resolve(vim.fn.expand('~/.config/nvim/init.lua'))
+    local current_file = vim.fn.resolve(vim.fn.expand('%:p'))
+    if main_config == current_file then
+      vim.cmd("luafile %")
+      vim.cmd("PackerCompile")
     end
-  end}})
+  end
+})
 
 -- Set up packer
 require('packer').startup({function(use)
@@ -391,7 +387,7 @@ require('packer').startup({function(use)
 
 
   use { 'Olical/conjure',
-    ft = LISP_FILE_TYPES_TABLE,
+    ft = vim.fn.add(LISP_FILE_TYPES_TABLE, 'lua'),
     config = function()
       vim.g['conjure#log#hud#border'] = 'none'
       vim.g['conjure#extract#tree_sitter#enabled'] = true
@@ -477,7 +473,11 @@ require('packer').startup({function(use)
         },
         on_attach = function(client)
           if client.resolved_capabilities.document_formatting then
-            vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()')
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              pattern = '<buffer>',
+              callback = vim.lsp.buf.formatting
+            })
+            -- vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()')
           end
         end
       }

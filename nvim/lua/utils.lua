@@ -4,6 +4,7 @@ local _M = {}
 
 -- Lua & Vim interop
 
+--[=[
 function _M.bridge(f, category)
   BRIDGE_ID = BRIDGE_ID and (BRIDGE_ID + 1) or 1
   local id_gen = 'lua_bridge_function' .. BRIDGE_ID
@@ -31,8 +32,9 @@ function _M.bridge(f, category)
     return 'VimFunctionBridge' .. BRIDGE_ID .. '()'
   end
 end
+--]=]
 
-function _M.augroup(group_name, definition)
+--[[ function _M.augroup(group_name, definition)
   vim.cmd('augroup ' .. group_name)
   vim.cmd('autocmd!')
   for _, def in ipairs(definition) do
@@ -45,6 +47,7 @@ function _M.augroup(group_name, definition)
   end
   vim.cmd('augroup end')
 end
+ ]]
 
 -- Bootstrapping
 
