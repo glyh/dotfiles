@@ -90,6 +90,21 @@ require('packer').startup({function(use)
     end
   }
 
+  use { 'WhoIsSethDaniel/mason-tool-installer.nvim',
+    requires = 'williamboman/mason.nvim',
+    config = function()
+      require('mason-tool-installer').setup({
+        ensure_installed = {
+          -- LSPs
+          'lua-language-server',
+          'pyright',
+          'efm'
+        },
+        auto_update = true
+      })
+    end
+  }
+
   ----- Base library -----
 
   use 'nvim-lua/plenary.nvim'
@@ -110,19 +125,19 @@ require('packer').startup({function(use)
   use {'kmonad/kmonad-vim', ft = 'kbd'}
   use {'ziglang/zig.vim', ft = 'zig'}
 
-  use { 'vlime/vlime', ft = 'lisp',
-    disable = true,
-    config = function()
-      vim.g.vlime_cl_impl = "ros"
-      vim.cmd([[
-        function! VlimeBuildServerCommandFor_ros(vlime_loader, vlime_eval)
-            return ["ros", "run",
-                        \ "--load", a:vlime_loader,
-                        \ "--eval", a:vlime_eval]
-        endfunction
-      ]])
-    end
-  }
+  -- use { 'vlime/vlime', ft = 'lisp',
+  --   disable = true,
+  --   config = function()
+  --     vim.g.vlime_cl_impl = "ros"
+  --     vim.cmd([[
+  --       function! VlimeBuildServerCommandFor_ros(vlime_loader, vlime_eval)
+  --           return ["ros", "run",
+  --                       \ "--load", a:vlime_loader,
+  --                       \ "--eval", a:vlime_eval]
+  --       endfunction
+  --     ]])
+  --   end
+  -- }
 
   use { 'nvim-neorg/neorg',
     after = 'nvim-treesitter',
@@ -448,16 +463,6 @@ require('packer').startup({function(use)
   use { 'PaterJason/cmp-conjure', after = {"nvim-cmp", "conjure"} }
 
   use { 'neovim/nvim-lspconfig', config = require('plugins.lspconfig') }
-  -- Buggy LSP, to figure out some day
-
-  use { 'williamboman/mason-lspconfig.nvim',
-    requires = {'williamboman/mason.nvim', 'neovim/nvim-lspconfig'},
-    config = function()
-      require('mason-lspconfig').setup({
-        ensure_installed = { 'sumneko_lua' }
-      })
-    end
-  }
 
   use { 'jose-elias-alvarez/null-ls.nvim',
     disable = true,

@@ -55,7 +55,7 @@ return function()
     capabilities = capabilities
   }
 
-  lspconfig.nimls.setup { capabilities = capabilities }
+  -- lspconfig.nimls.setup { capabilities = capabilities }
   lspconfig.pyright.setup { capabilities = capabilities }
 
   -- lspconfig.efm.setup(require('plugins.efm'))
