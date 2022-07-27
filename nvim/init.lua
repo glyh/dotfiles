@@ -4,10 +4,10 @@ _G.GITHUB_CDN = (
   -- 'mirrors.tuna.tsinghua.edu.cn/git'
   -- 'hub.fastgit.org'
   -- 'hub.gitfast.tk'
-  -- 'ghproxy.com/https://github.com'
+  'ghproxy.com/https://github.com'
   -- 'github.com'
   -- 'hub.fastgit.xyz'
-  'hub.0z.gs'
+  -- 'hub.0z.gs'
   )
 _G.HOME_LANG = 'zh'
 
@@ -77,6 +77,16 @@ require('packer').startup({function(use)
           'n', '<leader>ps', '<cmd>PackerStatus<CR>', {noremap = true})
         vim.api.nvim_set_keymap(
           'n', '<leader>pc', '<cmd>PackerCompile<CR>', {noremap = true})
+    end
+  }
+
+  use { 'williamboman/mason.nvim',
+    config = function()
+      require('mason').setup({
+        github = {
+          download_url_template = "https://" .. _G.GITHUB_CDN .. "/%s/releases/download/%s/%s",
+        }
+      })
     end
   }
 
@@ -295,13 +305,16 @@ require('packer').startup({function(use)
 
   use { 'junegunn/vim-easy-align',
     config = function ()
+      vim.api.nvim_set_keymap("x", "ga", "<Plug>(EasyAlign)", {})
+      vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", {})
+      --[==[
       vim.cmd([[
         " Start interactive EasyAlign in visual mode (e.g. vipga)
         xmap ga <Plug>(EasyAlign)
 
         " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-        nmap ga <Plug>(EasyAlign)
-      ]])
+        nmap ga <Plug>(EasyAlign) ]])
+      --]==]
     end
   }
   use { 'kevinhwang91/rnvimr',
@@ -437,6 +450,15 @@ require('packer').startup({function(use)
   use { 'neovim/nvim-lspconfig', config = require('plugins.lspconfig') }
   -- Buggy LSP, to figure out some day
 
+  use { 'williamboman/mason-lspconfig.nvim',
+    requires = {'williamboman/mason.nvim', 'neovim/nvim-lspconfig'},
+    config = function()
+      require('mason-lspconfig').setup({
+        ensure_installed = { 'sumneko_lua' }
+      })
+    end
+  }
+
   use { 'jose-elias-alvarez/null-ls.nvim',
     disable = true,
     requires = 'nvim-lua/plenary.nvim',
@@ -458,7 +480,7 @@ require('packer').startup({function(use)
   }
 
   use { 'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    -- run = ':TSUpdate',
     config = require('plugins.treesitter')
   }
   use { 'nvim-treesitter/playground',
@@ -534,12 +556,3 @@ end,config = {
 }})
 
 require('mappings')
-
--- fixes
-
---[[ vim.api.nvim_create_autocmd({"VimEnter"}, {
-  callback = function()
-    local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
-    vim.defer_fn(function() vim.loop.kill(pid, WINCH) end, 20)
-  end
-}) ]]
