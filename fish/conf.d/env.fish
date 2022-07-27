@@ -11,7 +11,7 @@ set -gx  VISUAL              nvim
 set -gx  EDITOR              nvim
 set -gx  PAGER               page
 set -gx  MANPAGER            "page -t man"
-set -gx  TERM                kitty
+set -gx  TERM                alacritty
 
 # Firefox
 set -gx MOZ_ENABLE_WAYLAND   1
