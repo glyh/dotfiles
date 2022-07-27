@@ -31,3 +31,5 @@
 	r = restore
 [url "https://ghproxy.com/https://github.com/"]
 	insteadof = https://github.com/
+[gpg]
+	program = gpg2
