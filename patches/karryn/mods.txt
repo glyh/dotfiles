@@ -1,0 +1,40 @@
+// Follow the instructions by the mod authors on how to add their mods to this list.
+// One line per file.
+
+// The format is {"name":"[filename of mod]","status":[true or false],"description":"[description for the end user so they know which mod to disable or enable]","parameters":{[Don't use this if you're unsure]}},
+// If you want to disable a certain mod, change their ["status":true] to ["status":false]
+
+var $mods =
+[
+// Do not edit above this line
+// FPSLimit is provided as a sample of how to add a mod to this list
+{"name":"FPSLimit","status":false,"description":"An alternative way of limiting FPS for fast monitors, turn off FPS Sync in the ingame Settings if you want to enable this mod.","parameters":{"FPS Limit":"60"}},
+
+
+// Start adding mods below this line
+{"name":"CC_Config","status":true,"description":"","parameters":{}},
+{"name":"CC_ConfigOverride","status":true,"description":"","parameters":{}},
+{"name":"CC_Mod","status":true,"description":"","parameters":{}},
+{"name":"CC_Tweaks","status":true,"description":"","parameters":{}},
+{"name":"CC_SideJobs","status":true,"description":"","parameters":{}},
+{"name":"CC_SideJobs_Waitress","status":true,"description":"","parameters":{}},
+{"name":"CC_SideJobs_Receptionist","status":true,"description":"","parameters":{}},
+{"name":"CC_SideJobs_GloryHole","status":true,"description":"","parameters":{}},
+{"name":"CC_Exhibitionist","status":true,"description":"","parameters":{}},
+{"name":"CC_PregMod","status":true,"description":"","parameters":{}},
+{"name":"CC_Gyaru","status":true,"description":"","parameters":{}},
+{"name":"CC_Discipline","status":true,"description":"","parameters":{}},
+{"name":"CC_BitmapCache","status":true,"description":"","parameters":{}},
+{"name":"CC_Condom","status":true,"description":"","parameters":{}},
+{"name":"CC_Texts","status":true,"description":"","parameters":{}}
+
+{
+	"name":"Aziiens_RPGMV_CheatMenu",
+	"status":true,
+	"description":"(~)Open external cheat window, for easy item and variable modification. https://f95zone.to/threads/rpg-maker-mv-cheatmenu-v2-0-2.12121",
+	"parameters":{}
+},
+
+
+// Do not edit below this line
+];

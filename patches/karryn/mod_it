@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+for mod in ~/.local/share/Steam/steamapps/workshop/content/1619750/*/ ; do
+    cp ${mod}/www/* /home/lyh/.local/share/Steam/steamapps/common/Karryn\'s\ Prison/www -vir
+done
+
+cp ./mods.txt /home/lyh/.local/share/Steam/steamapps/common/Karryn\'s\ Prison/www -vi
