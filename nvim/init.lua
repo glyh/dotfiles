@@ -480,16 +480,16 @@ require('packer').startup({function(use)
   }
 
   use { 'nvim-treesitter/nvim-treesitter',
-    -- run = ':TSUpdate',
+    run = ':TSUpdate',
     config = require('plugins.treesitter')
   }
   use { 'nvim-treesitter/playground',
     requires = 'nvim-treesitter/nvim-treesitter',
-    config = require('plugins.treesitter')
+    -- config = require('plugins.treesitter')
   }
   use { 'nvim-treesitter/nvim-treesitter-textobjects',
     requires = 'nvim-treesitter/nvim-treesitter',
-    config = require('plugins.treesitter')
+    -- config = require('plugins.treesitter')
   }
 
   use { 'mbbill/undotree',
