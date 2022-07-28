@@ -15,6 +15,7 @@
     ~/.config/git: git
     ~/.config/alacritty: alacritty
     ~/.config/ranger: ranger
+    ~/.config/tealdeer: tealdeer
     ~/.config/zathura: zathura
     ~/.proxychains: proxychains
     ~/.config/mako: mako
