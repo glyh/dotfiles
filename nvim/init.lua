@@ -6,7 +6,7 @@ vim.env["GITHUB"] = vim.env["GITHUB"] or "www.github.com"
 -- Bootstrapping
 
 utils.ensure('wbthomason', 'packer.nvim')
-utils.ensure('nvim-lua', 'plenary.nvim')
+-- utils.ensure('nvim-lua', 'plenary.nvim')
 
 -- General
 
