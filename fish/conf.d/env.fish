@@ -1,9 +1,8 @@
 # Basic info
 set -gx HOME_LANG            zh
-set -gx GITHUB               'hub.0z.gs'
+set -gx GITHUB               'hub.gitfast.tk'
 # 'github.com.cnpmjs.org'
 # 'gitclone.com/github.com'
-# 'mirrors.tuna.tsinghua.edu.cn/git'
 # 'hub.fastgit.org'
 # 'hub.gitfast.tk'
 # 'github.com'

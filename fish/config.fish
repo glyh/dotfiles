@@ -14,16 +14,11 @@ zoxide init fish | source
 
 # Editor commands
 alias e=$EDITOR
+alias pe="p GITHUB=github.com $EDITOR"
 alias er="sudoedit"
-function en
-  if test $EDITOR = "nvim"
-    nvim -u NONE
-  else
-    echo "Not implemented"
-  end
-end
 alias ee="$EDITOR ~/.config/nvim/init.lua" # editor
 alias es="$EDITOR ~/.config/fish/config.fish" # shell
+alias eenv="$EDITOR ~/.config/fish/conf.d/env.fish" # environment variables
 alias ew="$EDITOR ~/.config/sway/config" # Window manager
 
 # Tools
