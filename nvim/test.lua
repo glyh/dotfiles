@@ -1,7 +1,7 @@
 -- this template is borrowed from nvim-lspconfig
 local on_windows = vim.loop.os_uname().version:match("Windows")
 
-_G.GITHUB_CDN = 'ghproxy.com/https://github.com'
+vim.env['GITHUB'] = vim.env['GITHUB'] or 'www.github.com'
 
 local function join_paths(...)
     local path_sep = on_windows and "\\" or "/"
@@ -29,77 +29,18 @@ local function load_plugins()
     require("packer").startup({
         {
             "wbthomason/packer.nvim",
-            { 'nvim-treesitter/nvim-treesitter',
-              config = function()
-  local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-
-
-  for _, p in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
-    p.install_info.url = p.install_info.url:gsub('github.com', _G.GITHUB_CDN)
-  end
-
-  require('nvim-treesitter.configs').setup({
-    ensure_installed = {
-      'c', 'cpp', 'rust', 'lua', 'python', 
-      'fennel', 'query', 'fish', 'elixir'
-    },
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = '<localleader>v',
-        node_incremental = 'go',
-        node_decremental = 'gi',
-      }
-    },
-    playground = {
-      enable = true,
-      disable = {},
-      updatetime = 25,
-      persist_queries = false,
-      keybindings = {
-        toggle_query_editor = 'o',
-        toggle_hl_groups = 'i',
-        toggle_injected_languages = 't',
-        toggle_anonymous_nodes = 'a',
-        toggle_language_display = 'i',
-        focus_language = 'f',
-        unfocus_language = 'f',
-        update = 'r',
-        goto_node = '<CR>',
-        show_help = '?',
-      }
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        lookahead = true,
-        keymaps = {
-          ['af'] = '@function.outer',
-          ['if'] = '@function.inner',
-          ['ac'] = '@class.outer',
-          ['ic'] = '@class.inner',
-        }
-      },
-    },
-  })
-              end
-            }
 
         },
         config = {
             package_root = package_root,
             compile_path = compile_path,
-            git = { default_url_format = 'https://' .. _G.GITHUB_CDN .. '/%s' }
+            git = { default_url_format = 'https://' .. vim.env['GITHUB'] .. '/%s' }
         },
     })
 end
 
 if vim.fn.isdirectory(install_path) == 0 then
-    vim.fn.system({ "git", "clone", 'https://' .. _G.GITHUB_CDN .. '/wbthomason/packer.nvim', install_path })
+    vim.fn.system({ "git", "clone", 'https://' .. vim.env['GITHUB'] .. '/wbthomason/packer.nvim', install_path })
 end
 load_plugins()
 -- require("packer").sync()
