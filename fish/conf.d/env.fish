@@ -1,5 +1,14 @@
 # Basic info
 set -gx HOME_LANG            zh
+set -gx GITHUB               'ghproxy.com/https://github.com'
+# 'github.com.cnpmjs.org'
+# 'gitclone.com/github.com'
+# 'mirrors.tuna.tsinghua.edu.cn/git'
+# 'hub.fastgit.org'
+# 'hub.gitfast.tk'
+# 'github.com'
+# 'hub.fastgit.xyz'
+# 'hub.0z.gs'
 
 # XDG
 set -gx  XDG_CONFIG_HOME     ~/.config

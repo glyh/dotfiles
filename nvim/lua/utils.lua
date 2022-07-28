@@ -60,7 +60,7 @@ function _M.ensure(user, repo)
   string.format('%s/packer/start/%s', pack_path, repo, repo)
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.cmd(
-      string.format('!git clone https://' .. _G.GITHUB_CDN .. '/%s/%s %s',
+      string.format('!git clone https://' .. vim.env["GITHUB"] .. '/%s/%s %s',
       user, repo, install_path))
     vim.cmd(string.format('packadd %s', repo))
   end

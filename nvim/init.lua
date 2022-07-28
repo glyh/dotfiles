@@ -1,21 +1,12 @@
-_G.GITHUB_CDN = (
-  -- 'github.com.cnpmjs.org'
-  -- 'gitclone.com/github.com'
-  -- 'mirrors.tuna.tsinghua.edu.cn/git'
-  -- 'hub.fastgit.org'
-  -- 'hub.gitfast.tk'
-  'ghproxy.com/https://github.com'
-  -- 'github.com'
-  -- 'hub.fastgit.xyz'
-  -- 'hub.0z.gs'
-  )
-_G.HOME_LANG = 'zh'
-
 local utils = require('utils')
+
+-- Fallback for environment variables
+vim.env["GITHUB"] = vim.env["GITHUB"] or "www.github.com"
 
 -- Bootstrapping
 
 utils.ensure('wbthomason', 'packer.nvim')
+utils.ensure('nvim-lua', 'plenary.nvim')
 
 -- General
 
@@ -78,7 +69,7 @@ require('packer').startup({function(use)
     config = function()
       require('mason').setup({
         github = {
-          download_url_template = "https://" .. _G.GITHUB_CDN .. "/%s/releases/download/%s/%s",
+          download_url_template = "https://" .. vim.env["GITHUB"] .. "/%s/releases/download/%s/%s",
         }
       })
     end
@@ -548,7 +539,7 @@ require('packer').startup({function(use)
   -- use { 'lilydjwg/fcitx.vim' }
 
 end,config = {
-  git = { default_url_format = 'https://' .. _G.GITHUB_CDN .. '/%s' }
+  git = { default_url_format = 'https://' .. vim.env["GITHUB"] .. '/%s' }
 }})
 
 require('mappings')
