@@ -1,6 +1,6 @@
 # Basic info
 set -gx HOME_LANG            zh
-set -gx GITHUB               'ghproxy.com/https://github.com'
+set -gx GITHUB               'hub.0z.gs'
 # 'github.com.cnpmjs.org'
 # 'gitclone.com/github.com'
 # 'mirrors.tuna.tsinghua.edu.cn/git'
