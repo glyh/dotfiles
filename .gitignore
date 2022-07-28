@@ -2,10 +2,11 @@ cargo/*
 !cargo/config.toml
 nvim/plugin
 
-fish/*
-!fish/config.fish
-!fish/fish_plugins
-!fish/conf.d/env.fish
+fish/fish_variables
+# fish/*
+# !fish/config.fish
+# !fish/fish_plugins
+# !fish/conf.d/env.fish
 
 kitty/kitty-themes
 kitty/theme.conf
