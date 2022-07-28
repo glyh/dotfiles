@@ -16,9 +16,11 @@ zoxide init fish | source
 alias e=$EDITOR
 alias pe="p GITHUB=github.com $EDITOR"
 alias er="sudoedit"
-alias ee="$EDITOR ~/.config/nvim/init.lua" # editor
+alias ee="nvim ~/.config/nvim/init.lua" # editor
 alias es="$EDITOR ~/.config/fish/config.fish" # shell
 alias eenv="$EDITOR ~/.config/fish/conf.d/env.fish" # environment variables
+alias ert="nvim -u ~/.config/nvim/test.lua" # environment variables
+alias et="nvim ~/.config/nvim/test.lua" # environment variables
 alias ew="$EDITOR ~/.config/sway/config" # Window manager
 
 # Tools
