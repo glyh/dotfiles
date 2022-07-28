@@ -16,12 +16,10 @@ local utils = require('utils')
 -- Bootstrapping
 
 utils.ensure('wbthomason', 'packer.nvim')
-utils.ensure('nvim-lua', 'plenary.nvim')
 
 -- General
 
-_G.LISP_FILE_TYPES = 'clojure,fennel,hy,racket,lisp,scheme'
-_G.LISP_FILE_TYPES_TABLE = {'clojure', 'fennel', 'hy', 'racket', 'lisp', 'scheme'}
+_G.LISP_FILE_TYPES = {'clojure', 'fennel', 'hy', 'racket', 'lisp', 'scheme'}
 
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
@@ -46,7 +44,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 vim.g.did_load_filetypes = true -- Use plugin to load filetypes
 
-vim.api.nvim_create_augroup('LuaAutoConfReload', {})
+vim.api.nvim_create_augroup('LuaAutoConfReload', {}) -- Clear old group if this config is reloaded
 vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = 'init.lua',
   group = 'LuaAutoConfReload',
@@ -246,20 +244,13 @@ require('packer').startup({function(use)
       npairs.setup({
         disable_filetype = { 'TelescopePrompt' , 'vim' },
       })
-      --[[ require('utils').augroup('autopairs-custom',
-        {{'FileType', LISP_FILE_TYPES, function()
-          npairs.remove_rule('`')
-          npairs.remove_rule("'")
-      end}}) ]]
-      npairs.remove_rule('`')
-      npairs.remove_rule("'")
-      -- FIXME:
-      npairs.add_rules({
-        Rule("`", "`", {"-lisp", "-clojure"})
-      })
-      npairs.add_rules({
-        Rule("'", "'", {"-lisp", "-clojure"})
-      })
+
+      local exclude_lisps = vim.tbl_map(function(ft) return '-' .. ft end, _G.LISP_FILE_TYPES)
+      local exclude_patterns = {"'", '`'}
+      for _, pattern in ipairs(exclude_patterns) do
+        npairs.remove_rule(pattern)
+        npairs.add_rule(Rule(pattern, pattern, exclude_lisps))
+      end
     end
   }
 
@@ -282,17 +273,17 @@ require('packer').startup({function(use)
   }
 
   use { 'eraserhd/parinfer-rust',
-    ft = LISP_FILE_TYPES_TABLE,
+    ft = LISP_FILE_TYPES,
     run = 'cargo build --release',
   }
   use { 'guns/vim-sexp',
-    ft = LISP_FILE_TYPES_TABLE,
+    ft = LISP_FILE_TYPES,
     config = function()
       vim.g.sexp_filetypes = LISP_FILE_TYPES
     end
   }
   use { 'tpope/vim-sexp-mappings-for-regular-people',
-    ft = LISP_FILE_TYPES_TABLE,
+    ft = LISP_FILE_TYPES,
     requires = 'guns/vim-sexp',
   }
 
@@ -387,7 +378,7 @@ require('packer').startup({function(use)
 
 
   use { 'Olical/conjure',
-    ft = vim.fn.add(LISP_FILE_TYPES_TABLE, 'lua'),
+    ft = vim.fn.add(LISP_FILE_TYPES, 'lua'),
     config = function()
       vim.g['conjure#log#hud#border'] = 'none'
       vim.g['conjure#extract#tree_sitter#enabled'] = true
