@@ -29,6 +29,8 @@ local function load_plugins()
     require("packer").startup({
         {
             "wbthomason/packer.nvim",
+            'nvim-treesitter/nvim-treesitter',
+
 
         },
         config = {

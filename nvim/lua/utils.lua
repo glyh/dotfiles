@@ -56,8 +56,7 @@ local pack_path = vim.fn.stdpath('data') .. '/site/pack'
 function _M.ensure(user, repo)
   -- Ensures a given github.com/user/repo is cloned in the
   -- Pack/packer/start directory.
-  local install_path =
-  string.format('%s/packer/start/%s', pack_path, repo, repo)
+  local install_path = string.format('%s/packer/start/%s', pack_path, repo)
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.cmd(
       string.format('!git clone https://' .. vim.env["GITHUB"] .. '/%s/%s %s',

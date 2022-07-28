@@ -83,7 +83,6 @@ require('packer').startup({function(use)
           -- LSPs
           'lua-language-server',
           'pyright',
-          'efm'
         },
         auto_update = true
       })
@@ -471,11 +470,11 @@ require('packer').startup({function(use)
     config = require('plugins.treesitter')
   }
   use { 'nvim-treesitter/playground',
-    requires = 'nvim-treesitter/nvim-treesitter',
+    -- requires = 'nvim-treesitter/nvim-treesitter',
     -- config = require('plugins.treesitter')
   }
   use { 'nvim-treesitter/nvim-treesitter-textobjects',
-    requires = 'nvim-treesitter/nvim-treesitter',
+    -- requires = 'nvim-treesitter/nvim-treesitter',
     -- config = require('plugins.treesitter')
   }
 
@@ -527,9 +526,9 @@ require('packer').startup({function(use)
             bb = "clojure",
           },
           literal = {
-            ["CMakeCommon.txt"] = "cmake",
-            ["Earthfile"] = "Earthfile",
-            ["build.earth"] = "Earthfile"
+            -- ["CMakeCommon.txt"] = "cmake",
+            -- ["Earthfile"] = "Earthfile",
+            -- ["build.earth"] = "Earthfile"
           }
         },
     })
