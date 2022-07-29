@@ -17,7 +17,7 @@ return function()
     mapping = {
       ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
       ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-Space>'] = cmp.mapping(cmp.complete({}), { 'i', 'c' }),
       ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
       ['<C-e>'] = cmp.mapping({
         i = cmp.mapping.abort(),
@@ -90,6 +90,6 @@ return function()
   if neorg.is_loaded() then
     load_completion()
   else -- Otherwise wait until Neorg gets started and load the completion module then
-    neorg.callbacks.on_event("core.started", load_completion)
+    neorg.callbacks.on_event("core.started", load_completion, nil)
   end
 end

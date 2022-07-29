@@ -319,26 +319,26 @@ require('packer').startup({function(use)
     end
   }
 
-  use { 'skywind3000/asyncrun.vim',
-    disable = true,
-    config = function()
-      vim.g.asyncrun_open = 6
-      vim.api.nvim_set_keymap('c', '!,', 'AsyncRun ', {noremap = true})
-    end
-  }
-  use { 'skywind3000/asynctasks.vim',
-    disable = true,
-    config = function()
-      vim.g.asyncrun_rootmarks = {
-        '.git', '.svn', '.root', '.project', '.hg', 'Cargo.toml', '.nimble'
-      }
-      vim.g.asynctask_template = "~/.config/nvim/task_template.ini"
-      vim.api.nvim_set_keymap(
-        'n', '<localleader>ab', '<cmd>AsyncTask build<CR>', {noremap = true})
-      vim.api.nvim_set_keymap(
-        'n', '<localleader>ar', '<cmd>AsyncTask run<CR>', {noremap = true})
-    end
-  }
+  -- use { 'skywind3000/asyncrun.vim',
+  --   disable = true,
+  --   config = function()
+  --     vim.g.asyncrun_open = 6
+  --     vim.api.nvim_set_keymap('c', '!,', 'AsyncRun ', {noremap = true})
+  --   end
+  -- }
+  -- use { 'skywind3000/asynctasks.vim',
+  --   disable = true,
+  --   config = function()
+  --     vim.g.asyncrun_rootmarks = {
+  --       '.git', '.svn', '.root', '.project', '.hg', 'Cargo.toml', '.nimble'
+  --     }
+  --     vim.g.asynctask_template = "~/.config/nvim/task_template.ini"
+  --     vim.api.nvim_set_keymap(
+  --       'n', '<localleader>ab', '<cmd>AsyncTask build<CR>', {noremap = true})
+  --     vim.api.nvim_set_keymap(
+  --       'n', '<localleader>ar', '<cmd>AsyncTask run<CR>', {noremap = true})
+  --   end
+  -- }
 
   use { 'pianocomposer321/yabs.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
