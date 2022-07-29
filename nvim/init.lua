@@ -250,15 +250,22 @@ require('packer').startup({function(use)
       vim.api.nvim_set_keymap('n', 'f', '<cmd>HopChar2<CR>', {noremap = true})
       vim.api.nvim_set_keymap('v', 'f', '<cmd>HopChar2<CR>', {noremap = true})
       vim.api.nvim_set_keymap('o', 'f', '<cmd>HopChar2<CR>', {noremap = true})
-      vim.api.nvim_set_keymap('n', 'F',
-        "<cmd>lua require('hop').hint_patterns({case_insensitive = false})<CR>",
-        {noremap = true})
-      vim.api.nvim_set_keymap('v', 'F',
-        "<cmd>lua require('hop').hint_patterns({case_insensitive = false})<CR>",
-        {noremap = true})
-      vim.api.nvim_set_keymap('o', 'F',
-        "<cmd>lua require('hop').hint_patterns({case_insensitive = false})<CR>",
-        {noremap = true})
+
+      vim.api.nvim_set_keymap('n', 'F', '',
+        {callback = function()
+          require('hop').hint_patterns({case_insensitive = false})
+         end,
+         noremap = true})
+      vim.api.nvim_set_keymap('v', 'F', '',
+        {callback = function()
+          require('hop').hint_patterns({case_insensitive = false})
+         end,
+         noremap = true})
+      vim.api.nvim_set_keymap('o', 'F', '',
+        {callback = function()
+          require('hop').hint_patterns({case_insensitive = false})
+         end,
+         noremap = true})
     end
   }
 
@@ -277,13 +284,7 @@ require('packer').startup({function(use)
     requires = 'guns/vim-sexp',
   }
 
-  -- use 'tpope/vim-commentary'
   use 'b3nj5m1n/kommentary'
-  -- use { 'numToStr/Comment.nvim',
-  --   config = function()
-  --     require('Comment').setup()
-  --   end
-  -- }
 
   use 'tpope/vim-sleuth'
 
