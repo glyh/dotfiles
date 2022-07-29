@@ -1,5 +1,0 @@
-#!/usr/bin/env hy
-(import random)
-
-(let [alphabet "~!@#$%^&*()_+`1234567890-=QWERTYUIOP{}|qwertyuiop[]\\ASDFGHJKL:\"asdfghjkl;'ZXCVBNM<>?zxcvbnm,./"]
-  (print (.join "" (lfor i (range 1000) (random.choice alphabet)))))
