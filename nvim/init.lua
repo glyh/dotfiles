@@ -1,7 +1,7 @@
 local utils = require('utils')
 
 -- Fallback for environment variables
-vim.env["GITHUB"] = vim.env["GITHUB"] or "www.github.com"
+_G.GITHUB = vim.env["GITHUB"] or "www.github.com"
 
 -- Bootstrapping
 
@@ -69,7 +69,7 @@ require('packer').startup({function(use)
     config = function()
       require('mason').setup({
         github = {
-          download_url_template = "https://" .. vim.env["GITHUB"] .. "/%s/releases/download/%s/%s",
+          download_url_template = "https://" .. GITHUB .. "/%s/releases/download/%s/%s",
         }
       })
     end
@@ -235,7 +235,7 @@ require('packer').startup({function(use)
         disable_filetype = { 'TelescopePrompt' , 'vim' },
       })
 
-      local exclude_lisps = vim.tbl_map(function(ft) return '-' .. ft end, _G.LISP_FILE_TYPES)
+      local exclude_lisps = vim.tbl_map(function(ft) return '-' .. ft end, LISP_FILE_TYPES)
       local exclude_patterns = {"'", '`'}
       for _, pattern in ipairs(exclude_patterns) do
         npairs.remove_rule(pattern)
@@ -368,7 +368,7 @@ require('packer').startup({function(use)
 
 
   use { 'Olical/conjure',
-    ft = vim.fn.add(LISP_FILE_TYPES, 'lua'),
+    -- ft = vim.fn.add(LISP_FILE_TYPES, 'lua'),
     config = function()
       vim.g['conjure#log#hud#border'] = 'none'
       vim.g['conjure#extract#tree_sitter#enabled'] = true
@@ -538,7 +538,7 @@ require('packer').startup({function(use)
   -- use { 'lilydjwg/fcitx.vim' }
 
 end,config = {
-  git = { default_url_format = 'https://' .. vim.env["GITHUB"] .. '/%s' }
+  git = { default_url_format = 'https://' .. GITHUB .. '/%s' }
 }})
 
 require('mappings')

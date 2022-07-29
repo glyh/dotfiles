@@ -26,7 +26,7 @@ return function()
   }
 
   for _, p in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
-    p.install_info.url = p.install_info.url:gsub('github.com', vim.env["GITHUB"])
+    p.install_info.url = p.install_info.url:gsub('github.com', GITHUB)
   end
 
   require('nvim-treesitter.configs').setup({
