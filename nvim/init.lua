@@ -99,7 +99,7 @@ require('packer').startup({function(use)
   -- use { 'justinmk/vim-syntax-extra'}
   -- use { 'earthly/earthly.vim' }
   -- use { 'Glench/Vim-Jinja2-Syntax', ft = 'j2' }
-  -- use { 'clones/vim-zsh', ft = 'zsh'}
+  use { 'clones/vim-zsh', ft = 'zsh'}
   -- use {'zah/nim.vim', ft = 'nim' }
   -- use { 'bakpakin/fennel.vim', ft = 'fennel' } -- Have treesitter syntax, can disable
   use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
@@ -290,7 +290,7 @@ require('packer').startup({function(use)
 
   use 'mg979/vim-visual-multi'
 
-  use 'kana/vim-arpeggio'
+  -- use 'kana/vim-arpeggio'
 
   use 'tpope/vim-repeat'
 

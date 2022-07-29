@@ -25,9 +25,9 @@ vim.api.nvim_set_keymap('n', 'g<leader>', '2g;', {noremap = true})
 -- Normal
 -- In case arpeggio is not installed
 -- Conflicts with luasnip in visual select mode
-pcall(function() 
-  vim.fn["arpeggio#map"]('i', '', 0, 'jk', '<Esc>')
-end)
+-- pcall(function()
+--   vim.fn["arpeggio#map"]('i', '', 0, 'jk', '<Esc>')
+-- end)
 
 -- Terminal
 vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], {noremap = true})
