@@ -1,7 +1,3 @@
-local utils = require('utils')
-local api, cmd = utils.api, vim.cmd
-local fmt = string.format
-
 -- Some general mappings
 -- Principle: Avoid Ctrl, Meta, Esc and keys that are fucking hard to touch!
 
@@ -14,6 +10,7 @@ vim.api.nvim_set_keymap('n', '<leader>v', '<cmd>vsplit<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>j', '<C-f>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>k', '<C-b>', {noremap = true})
 
+local fmt = string.format
 for fr, to in pairs({h = 'h', j = 'j', k = 'k', l = 'l'}) do
   vim.api.nvim_set_keymap('t', fmt('<A-%s>', fr), fmt([[<C-\><C-N><C-w>%s]], to), {noremap = true})
   vim.api.nvim_set_keymap('n', fmt('<A-%s>', fr), fmt([[<C-w>%s]], to), {noremap = true})
