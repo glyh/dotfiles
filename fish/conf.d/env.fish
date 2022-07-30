@@ -42,7 +42,7 @@ set -gx  GOPATH              ~/.config/go
 # set -gx  GERBIL_GSC          (which gambitc)
 
 # WASI
-set -gx WASI_SDK_PATH        /opt/wasi-sdk
+# set -gx WASI_SDK_PATH        /opt/wasi-sdk
 
 # Path
 fish_add_path -gp            ~/Scripts
@@ -50,6 +50,6 @@ set -gxa PATH                ~/.local/bin
 set -gxa PATH                ~/.yarn/bin
 set -gxa PATH                ~/.cargo/bin
 set -gxa PATH                ~/.roswell/bin
-set -gxa PATH                /usr/lib/emscripten
-set -gxa PATH                $GERBIL_HOME/bin
-set -gxa PATH                /opt/jython/bin
+# set -gxa PATH                /usr/lib/emscripten
+# set -gxa PATH                $GERBIL_HOME/bin
+# set -gxa PATH                /opt/jython/bin
