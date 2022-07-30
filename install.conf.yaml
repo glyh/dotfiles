@@ -44,8 +44,6 @@
     ~/.config/chromium-flags.conf: electron/electron-flags.conf
     ~/.inputrc: readline/.inputrc
     ~/.config/kitty: kitty
-    # ~/.zshenv: zsh/.zshenv.home
-    # ~/.config/zsh: zsh
     ~/.config/starship: starship
     ~/.config/bat: bat
     ~/.config/kmonad: kmonad
