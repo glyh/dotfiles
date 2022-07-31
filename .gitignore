@@ -3,10 +3,10 @@ cargo/*
 nvim/plugin
 
 fish/fish_variables
-# fish/*
-# !fish/config.fish
-# !fish/fish_plugins
-# !fish/conf.d/env.fish
+fish/*
+!fish/config.fish
+!fish/fish_plugins
+!fish/conf.d/env.fish
 
 kitty/kitty-themes
 kitty/theme.conf
