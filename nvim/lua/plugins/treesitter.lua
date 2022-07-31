@@ -32,7 +32,7 @@ return function()
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
       'c', 'cpp', 'rust', 'lua', 'python', 'norg', 'norg_meta', 'norg_table',
-      'fennel', 'query', 'fish', 'elixir'
+      'fennel', 'query', 'fish', 'elixir', 'clojure'
     },
     highlight = {
       enable = true,
@@ -71,8 +71,9 @@ return function()
         keymaps = {
           ['af'] = '@function.outer',
           ['if'] = '@function.inner',
-          ['ac'] = '@class.outer',
-          ['ic'] = '@class.inner',
+          ['ac'] = '@comment.outer',
+          ['ic'] = '@comment.inner',
+          ['as'] = '@statement.outer',
         }
       },
     },

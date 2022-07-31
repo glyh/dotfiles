@@ -14,7 +14,7 @@ _G.LISP_FILE_TYPES = {'clojure', 'fennel', 'hy', 'racket', 'lisp', 'scheme'}
 
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
-vim.opt.guifont="FiraCode Nerd Font:h12"
+-- vim.opt.guifont="FiraCode Nerd Font:h12"
 vim.opt.hidden = true
 vim.opt.laststatus = 2
 vim.opt.lazyredraw = true
@@ -290,8 +290,6 @@ require('packer').startup({function(use)
 
   use 'mg979/vim-visual-multi'
 
-  -- use 'kana/vim-arpeggio'
-
   use 'tpope/vim-repeat'
 
   ----- Tools -----
@@ -310,6 +308,7 @@ require('packer').startup({function(use)
       --]==]
     end
   }
+
   use { 'kevinhwang91/rnvimr',
     disable = true,
     config = function ()
@@ -317,45 +316,6 @@ require('packer').startup({function(use)
       vim.g.rnvimr_enable_picker = 1
       vim.api.nvim_set_keymap(
         'n', '<A-o>', '<cmd>RnvimrToggle<CR>', {noremap = true})
-    end
-  }
-
-  -- use { 'skywind3000/asyncrun.vim',
-  --   disable = true,
-  --   config = function()
-  --     vim.g.asyncrun_open = 6
-  --     vim.api.nvim_set_keymap('c', '!,', 'AsyncRun ', {noremap = true})
-  --   end
-  -- }
-  -- use { 'skywind3000/asynctasks.vim',
-  --   disable = true,
-  --   config = function()
-  --     vim.g.asyncrun_rootmarks = {
-  --       '.git', '.svn', '.root', '.project', '.hg', 'Cargo.toml', '.nimble'
-  --     }
-  --     vim.g.asynctask_template = "~/.config/nvim/task_template.ini"
-  --     vim.api.nvim_set_keymap(
-  --       'n', '<localleader>ab', '<cmd>AsyncTask build<CR>', {noremap = true})
-  --     vim.api.nvim_set_keymap(
-  --       'n', '<localleader>ar', '<cmd>AsyncTask run<CR>', {noremap = true})
-  --   end
-  -- }
-
-  use { 'pianocomposer321/yabs.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('yabs'):setup({
-        languages = { -- List of languages in vim's `filetype` format
-          --[[lisp = {
-            tasks = {
-              swank = {
-                command = 'ros_swank',
-                output = 'terminal'
-              }
-            }
-          }]]
-        },
-      })
     end
   }
 
@@ -369,7 +329,7 @@ require('packer').startup({function(use)
 
 
   use { 'Olical/conjure',
-    -- ft = vim.fn.add(LISP_FILE_TYPES, 'lua'),
+    branch = "develop",
     config = function()
       vim.g['conjure#log#hud#border'] = 'none'
       vim.g['conjure#extract#tree_sitter#enabled'] = true
