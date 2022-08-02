@@ -49,6 +49,7 @@ alias cls="clear"
 alias rpt="eval (history --max=1)"
 alias k="kitty +kitten"
 alias m="man"
+alias bc="bottles-cli"
 
 # Languages
 alias py="ptpython"

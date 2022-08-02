@@ -109,19 +109,19 @@ require('packer').startup({function(use)
   use {'kmonad/kmonad-vim', ft = 'kbd'}
   use {'ziglang/zig.vim', ft = 'zig'}
 
-  -- use { 'vlime/vlime', ft = 'lisp',
-  --   disable = true,
-  --   config = function()
-  --     vim.g.vlime_cl_impl = "ros"
-  --     vim.cmd([[
-  --       function! VlimeBuildServerCommandFor_ros(vlime_loader, vlime_eval)
-  --           return ["ros", "run",
-  --                       \ "--load", a:vlime_loader,
-  --                       \ "--eval", a:vlime_eval]
-  --       endfunction
-  --     ]])
-  --   end
-  -- }
+  --[=[ use { 'vlime/vlime', ft = 'lisp',
+    disable = true,
+    config = function()
+      vim.g.vlime_cl_impl = "ros"
+      vim.cmd([[
+        function! VlimeBuildServerCommandFor_ros(vlime_loader, vlime_eval)
+            return ["ros", "run",
+                        \ "--load", a:vlime_loader,
+                        \ "--eval", a:vlime_eval]
+        endfunction
+      ]])
+    end
+  } ]=]
 
   use { 'nvim-neorg/neorg',
     after = 'nvim-treesitter',
@@ -151,26 +151,33 @@ require('packer').startup({function(use)
     end
   }
 
-  use { 'lark-parser/vim-lark-syntax', ft = 'lark' }
+  -- use { 'lark-parser/vim-lark-syntax', ft = 'lark' }
 
   ----- UI -----
 
-  -- use { 'chrisbra/Colorizer' }
-
-
-  use { 'itchyny/lightline.vim',
-    config = function()
-      vim.g.lightline = { colorscheme = 'nord' }
-    end
-  }
-
   use { 'shaunsingh/nord.nvim',
     config = function()
-      vim.cmd([[
-         colorscheme nord
-         syntax enable
-      ]])
+      -- vim.cmd[[colors nord]]
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = false
+      vim.g.nord_disable_background = false
+      vim.g.nord_italic = false
+      vim.g.nord_uniform_diff_background = true
+      require('nord').set()
     end,
+  }
+
+  use { 'nvim-lualine/lualine.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('lualine').setup({
+        options = { 
+          theme = 'nord',
+          component_separators = { left = '', right = ''},
+          section_separators = {left = '', right = ''},
+        }
+      })
+    end
   }
 
   use { 'beauwilliams/focus.nvim',
@@ -496,7 +503,18 @@ require('packer').startup({function(use)
     end
   }
 
-  -- use { 'lilydjwg/fcitx.vim' }
+  -- use {
+  --   'tonyfettes/fcitx5.nvim',
+  --   tag = 'v0.0.1-alpha',
+  --   rocks = {'dbus_proxy', 'lgi'},
+  --   config = function()
+  --     vim.api.nvim_set_keymap('i', '<M-Tab>', '',
+  --       {callback = function()
+  --         require('fcitx5').toggle()
+  --        end,
+  --        noremap = true})
+  --   end
+  -- }
 
 end,config = {
   git = { default_url_format = 'https://' .. GITHUB .. '/%s' }
