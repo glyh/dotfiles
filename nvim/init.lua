@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     local current_file = vim.fn.resolve(vim.fn.expand('%:p'))
     if main_config == current_file then
       vim.cmd("luafile %")
-      vim.cmd("PackerCompile")
+      require('packer').compile()
     end
   end
 })
@@ -157,25 +157,16 @@ require('packer').startup({function(use)
 
   use { 'shaunsingh/nord.nvim',
     config = function()
-      -- vim.cmd[[colors nord]]
-      vim.g.nord_contrast = true
-      vim.g.nord_borders = false
-      vim.g.nord_disable_background = false
-      vim.g.nord_italic = false
-      vim.g.nord_uniform_diff_background = true
       require('nord').set()
     end,
   }
 
   use { 'nvim-lualine/lualine.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
+    after = 'nord.nvim',
     config = function()
       require('lualine').setup({
-        options = { 
-          theme = 'nord',
-          component_separators = { left = '', right = ''},
-          section_separators = {left = '', right = ''},
-        }
+        options = { theme = 'nord' }
       })
     end
   }

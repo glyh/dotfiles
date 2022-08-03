@@ -60,7 +60,9 @@ alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m
 
 # thefuck --alias | source
 function man
-  if test (count $argv) -lt 2
+  if test (count $argv) -lt 1
+    echo "What manual page do you want? For example, try 'man man'."
+  else if test (count $argv) -lt 2
     set -l prog $argv[1]
     page "man://"$prog
   else
