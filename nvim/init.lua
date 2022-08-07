@@ -151,8 +151,6 @@ require('packer').startup({function(use)
     end
   }
 
-  -- use { 'lark-parser/vim-lark-syntax', ft = 'lark' }
-
   ----- UI -----
 
   use { 'shaunsingh/nord.nvim',
@@ -326,7 +324,7 @@ require('packer').startup({function(use)
   }
 
 
-  use { 'Olical/conjure',
+  use { 'glyh/conjure',
     branch = "develop",
     config = function()
       vim.g['conjure#log#hud#border'] = 'none'
@@ -336,6 +334,8 @@ require('packer').startup({function(use)
       vim.g['conjure#client#scheme#stdio#command'] = 'chez'
       vim.g['conjure#client#scheme#stdio#prompt_pattern'] = '> $'
       vim.g['conjure#client#scheme#stdio#value_prefix_pattern'] = false
+
+      -- vim.g['conjure#client#lua#neovim#persistent'] = "none"
       -- vim.g['conjure#filetype#lisp'] = 'conjure.client.common-lisp.nrepl'
       -- vim.g['conjure#client#fennel#aniseed#aniseed_module_prefix'] = 'aniseed.'
     end,
