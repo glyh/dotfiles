@@ -292,16 +292,10 @@ require('packer').startup({function(use)
 
   use { 'junegunn/vim-easy-align',
     config = function ()
+      -- Start interactive EasyAlign in visual mode (e.g. vipga)
       vim.api.nvim_set_keymap("x", "ga", "<Plug>(EasyAlign)", {})
+      -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
       vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", {})
-      --[==[
-      vim.cmd([[
-        " Start interactive EasyAlign in visual mode (e.g. vipga)
-        xmap ga <Plug>(EasyAlign)
-
-        " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-        nmap ga <Plug>(EasyAlign) ]])
-      --]==]
     end
   }
 
@@ -417,7 +411,6 @@ require('packer').startup({function(use)
               pattern = '<buffer>',
               callback = vim.lsp.buf.formatting
             })
-            -- vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()')
           end
         end
       }
@@ -429,11 +422,11 @@ require('packer').startup({function(use)
     config = require('plugins.treesitter')
   }
   use { 'nvim-treesitter/playground',
-    -- requires = 'nvim-treesitter/nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
     -- config = require('plugins.treesitter')
   }
   use { 'nvim-treesitter/nvim-treesitter-textobjects',
-    -- requires = 'nvim-treesitter/nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
     -- config = require('plugins.treesitter')
   }
 
@@ -494,18 +487,18 @@ require('packer').startup({function(use)
     end
   }
 
-  -- use {
-  --   'tonyfettes/fcitx5.nvim',
-  --   tag = 'v0.0.1-alpha',
-  --   rocks = {'dbus_proxy', 'lgi'},
-  --   config = function()
-  --     vim.api.nvim_set_keymap('i', '<M-Tab>', '',
-  --       {callback = function()
-  --         require('fcitx5').toggle()
-  --        end,
-  --        noremap = true})
-  --   end
-  -- }
+  --[[ use {
+    'tonyfettes/fcitx5.nvim',
+    tag = 'v0.0.1-alpha',
+    rocks = {'dbus_proxy', 'lgi'},
+    config = function()
+      vim.api.nvim_set_keymap('i', '<M-Tab>', '',
+        {callback = function()
+          require('fcitx5').toggle()
+         end,
+         noremap = true})
+    end
+  } ]]
 
 end,config = {
   git = { default_url_format = 'https://' .. GITHUB .. '/%s' }
