@@ -159,12 +159,24 @@ require('packer').startup({function(use)
     end,
   }
 
+  --[[ use { 'itchyny/lightline.vim',
+    config = function()
+      vim.g.lightline = { colorscheme = 'nord' }
+    end
+  } ]]
+
   use { 'nvim-lualine/lualine.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     after = 'nord.nvim',
     config = function()
       require('lualine').setup({
-        options = { theme = 'nord' }
+        options = { 
+          theme = 'nord',
+          refresh = {
+            statusline = 200,
+          }
+
+        }
       })
     end
   }
