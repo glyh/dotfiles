@@ -83,6 +83,8 @@ require('packer').startup({function(use)
           -- LSPs
           'lua-language-server',
           'pyright',
+          'emmet-ls',
+          'rust-analyzer'
         },
         auto_update = true
       })

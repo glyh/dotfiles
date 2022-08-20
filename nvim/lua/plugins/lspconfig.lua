@@ -56,4 +56,5 @@ return function()
   }
 
   lspconfig.pyright.setup { capabilities = capabilities }
+  lspconfig.emmet_ls.setup {}
 end

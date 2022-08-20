@@ -1,6 +1,6 @@
 # Basic info
 set -gx HOME_LANG            zh
-set -gx GITHUB               'hub.gitfast.tk'
+# set -gx GITHUB               'hub.gitfast.tk'
 # 'github.com.cnpmjs.org'
 # 'gitclone.com/github.com'
 # 'hub.fastgit.org'
@@ -44,12 +44,22 @@ set -gx  GOPATH              ~/.config/go
 # WASI
 # set -gx WASI_SDK_PATH        /opt/wasi-sdk
 
+# Lua
+luarocks path | source
+
+# # Flutter
+# set -gx FLUTTER_STORAGE_BASE_URL https://mirrors.tuna.tsinghua.edu.cn/flutter
+# set -gx PUB_HOSTED_URL https://mirrors.tuna.tsinghua.edu.cn/dart-pub
+# set -gx CHROME_EXECUTABLE chromium
+
 # Path
 fish_add_path -gp            ~/Scripts
 set -gxa PATH                ~/.local/bin
-set -gxa PATH                ~/.yarn/bin
+# set -gxa PATH                ~/.yarn/bin
 set -gxa PATH                ~/.cargo/bin
-set -gxa PATH                ~/.roswell/bin
+# set -gxa PATH                ~/.bun/bin
+# set -gxa PATH                ~/.roswell/bin
 # set -gxa PATH                /usr/lib/emscripten
 # set -gxa PATH                $GERBIL_HOME/bin
 # set -gxa PATH                /opt/jython/bin
+

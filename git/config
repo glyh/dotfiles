@@ -30,7 +30,7 @@
 	b = branch
 	r = restore
 	root = rev-parse --show-toplevel
-[url "https://ghproxy.com/https://github.com/"]
-	insteadof = https://github.com/
+# [url "https://ghproxy.com/https://github.com/"]
+# 	insteadof = https://github.com/
 [gpg]
 	program = gpg2

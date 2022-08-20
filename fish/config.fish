@@ -10,7 +10,7 @@ set fish_vi_force_cursor
 # Plugins
 starship init fish | source # Use starship
 zoxide init fish | source
-# pyenv init - | source
+source /opt/asdf-vm/asdf.fish
 
 # Editor commands
 alias e=$EDITOR
@@ -73,3 +73,8 @@ function man
 end
 
 alias s="kitty +kitten ssh"
+
+# pnpm
+set -gx PNPM_HOME "/home/lyh/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end
