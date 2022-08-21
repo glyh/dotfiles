@@ -1,7 +1,7 @@
 local utils = require('utils')
 
 -- Fallback for environment variables
-_G.GITHUB = vim.env["GITHUB"] or "www.github.com"
+_G.GITHUB = vim.env["GITHUB"] or "github.com"
 
 -- Bootstrapping
 
