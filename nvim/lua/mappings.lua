@@ -34,3 +34,11 @@ vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], {noremap = true})
 
 -- Command
 vim.api.nvim_set_keymap('n', ';', ':', {noremap = true})
+
+-- LSP
+-- vim.api.nvim_set_keymap('n', ';', ':', {noremap = true})
+vim.api.nvim_set_keymap('n', 'K', '',
+  {callback = function()
+    vim.lsp.buf.hover()
+   end,
+   noremap = true})

@@ -21,6 +21,9 @@ set -gx  PAGER               page
 set -gx  MANPAGER            "page -t man"
 set -gx  TERM                alacritty
 
+# Intellij 
+set -gx  _JAVA_AWT_WM_NONREPARENTING 1
+
 # Firefox
 set -gx MOZ_ENABLE_WAYLAND   1
 
@@ -63,3 +66,4 @@ set -gxa PATH                ~/.cargo/bin
 # set -gxa PATH                $GERBIL_HOME/bin
 # set -gxa PATH                /opt/jython/bin
 
+source /home/lyh/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true

@@ -84,7 +84,9 @@ require('packer').startup({function(use)
           'lua-language-server',
           'pyright',
           'emmet-ls',
-          'rust-analyzer'
+          'rust-analyzer',
+          'jdtls',
+          'ocaml-lsp'
         },
         auto_update = true
       })
@@ -110,6 +112,7 @@ require('packer').startup({function(use)
   use {'hylang/vim-hy', ft = 'hy'}
   use {'kmonad/kmonad-vim', ft = 'kbd'}
   use {'ziglang/zig.vim', ft = 'zig'}
+  use {'vim-crystal/vim-crystal', ft = 'cr'}
 
   --[=[ use { 'vlime/vlime', ft = 'lisp',
     disable = true,
@@ -241,16 +244,26 @@ require('packer').startup({function(use)
     config = function()
       local npairs = require('nvim-autopairs')
       local Rule = require('nvim-autopairs.rule')
+      local ts_conds = require('nvim-autopairs.ts-conds')
+
       npairs.setup({
         disable_filetype = { 'TelescopePrompt' , 'vim' },
       })
 
-      local exclude_lisps = vim.tbl_map(function(ft) return '-' .. ft end, LISP_FILE_TYPES)
-      local exclude_patterns = {"'", '`'}
-      for _, pattern in ipairs(exclude_patterns) do
-        npairs.remove_rule(pattern)
-        npairs.add_rule(Rule(pattern, pattern, exclude_lisps))
-      end
+      --[[ local exclude_lisps = vim.tbl_map(function(ft) return '-' .. ft end, LISP_FILE_TYPES)
+      local exclude_patterns = {"'", '`'} ]]
+
+      --[[ npairs.remove_rule ("`")
+      npairs.add_rule(Rule("`", "`", {"-clojure"})) ]]
+
+      -- npairs.remove_rule ("'")
+      -- npairs.add_rule(Rule("'", "'", {"-clojure", "-rust"}))
+
+
+      -- npairs.add_rule(Rule("'", "'", {"rust"}):with_pair(ts_conds.is_not_ts_node({"type_parameters"})))
+
+      -- For rust lifetimes
+
     end
   }
 
@@ -332,12 +345,13 @@ require('packer').startup({function(use)
   }
 
 
-  use { 'glyh/conjure',
+  use { 'Olical/conjure',
     branch = "develop",
     config = function()
       vim.g['conjure#log#hud#border'] = 'none'
       vim.g['conjure#extract#tree_sitter#enabled'] = true
       vim.g['conjure#mapping#eval_visual'] = 'e'
+      vim.g['conjure#mapping#doc_word'] = false
 
       vim.g['conjure#client#scheme#stdio#command'] = 'chez'
       vim.g['conjure#client#scheme#stdio#prompt_pattern'] = '> $'

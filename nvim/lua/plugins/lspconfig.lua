@@ -57,4 +57,6 @@ return function()
 
   lspconfig.pyright.setup { capabilities = capabilities }
   lspconfig.emmet_ls.setup {}
+  lspconfig.jdtls.setup {}
+  lspconfig.ocamllsp.setup{}
 end

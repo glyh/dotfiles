@@ -1,8 +1,6 @@
 -- this template is borrowed from nvim-lspconfig
 local on_windows = vim.loop.os_uname().version:match("Windows")
 
-vim.env['GITHUB'] = vim.env['GITHUB'] or 'www.github.com'
-
 local function join_paths(...)
     local path_sep = on_windows and "\\" or "/"
     local result = table.concat({ ... }, path_sep)
@@ -36,13 +34,13 @@ local function load_plugins()
         config = {
             package_root = package_root,
             compile_path = compile_path,
-            git = { default_url_format = 'https://' .. vim.env['GITHUB'] .. '/%s' }
+            git = { default_url_format = 'https://www.github.com/%s' }
         },
     })
 end
 
 if vim.fn.isdirectory(install_path) == 0 then
-    vim.fn.system({ "git", "clone", 'https://' .. vim.env['GITHUB'] .. '/wbthomason/packer.nvim', install_path })
+    vim.fn.system({ "git", "clone", 'https://www.github.com/wbthomason/packer.nvim', install_path })
 end
 load_plugins()
 -- require("packer").sync()
