@@ -28,7 +28,7 @@ vim.opt.shiftwidth = 4
 vim.opt.splitbelow = false
 vim.opt.splitright = true
 vim.opt.updatetime = 500
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.cmdheight = 0
 
 vim.g.mapleader = ' '
