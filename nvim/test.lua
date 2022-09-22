@@ -27,9 +27,6 @@ local function load_plugins()
     require("packer").startup({
         {
             "wbthomason/packer.nvim",
-            {"Olical/conjure", branch = 'develop'},
-
-
         },
         config = {
             package_root = package_root,

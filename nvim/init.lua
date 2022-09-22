@@ -93,11 +93,11 @@ require('packer').startup({function(use)
     end
   }
 
-  ----- Base library -----
+  -- ----- Base library -----
 
-  use 'nvim-lua/plenary.nvim'
+  -- use 'nvim-lua/plenary.nvim'
 
-  ----- FileType Support -----
+  -- ----- FileType Support -----
 
   use { 'tylerw/zinit-vim-syntax', ft = 'zsh'}
   -- use { 'justinmk/vim-syntax-extra'}
@@ -145,6 +145,7 @@ require('packer').startup({function(use)
         }
       })
     end,
+    tag = "0.0.12",
     requires = 'nvim-lua/plenary.nvim'
   }
 
@@ -408,17 +409,17 @@ require('packer').startup({function(use)
 
   use { 'L3MON4D3/LuaSnip', event = 'InsertEnter' }
 
-  use { 'hrsh7th/nvim-cmp',
-    after = 'neorg', -- LuaSnip dispatches in runtime
-    event = {'InsertEnter', 'CmdlineEnter'},
-    config = require('plugins.cmp'),
-  }
-  use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
-  use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
-  use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }
-  use { 'saadparwaiz1/cmp_luasnip', after = "nvim-cmp" }
-  use { 'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp" }
-  use { 'PaterJason/cmp-conjure', after = {"nvim-cmp", "conjure"} }
+  -- use { 'hrsh7th/nvim-cmp',
+  --   after = 'neorg', -- LuaSnip dispatches in runtime
+  --   event = {'InsertEnter', 'CmdlineEnter'},
+  --   config = require('plugins.cmp'),
+  -- }
+  -- use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
+  -- use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
+  -- use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }
+  -- use { 'saadparwaiz1/cmp_luasnip', after = "nvim-cmp" }
+  -- use { 'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp" }
+  -- use { 'PaterJason/cmp-conjure', after = {"nvim-cmp", "conjure"} }
 
   use { 'neovim/nvim-lspconfig', config = require('plugins.lspconfig') }
 
@@ -476,7 +477,7 @@ require('packer').startup({function(use)
     end
   }
 
-  -- use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   use { 'rmagatti/auto-session',
     config = function()
