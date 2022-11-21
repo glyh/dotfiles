@@ -20,8 +20,8 @@
   allow-cmd true)
 
 (defalias 
-  cdh-on  (layer-add colemak-dh)
-  cdh-off  (layer-rem colemak-dh)
+  cdh-on  (layer-add colemak-dhm)
+  cdh-off  (layer-rem colemak-dhm)
   escs (tap-next esc lsft))
 
 (defsrc
@@ -45,10 +45,10 @@
 ;;   lsft x    c    d    v    z    k    h    ,    .    /    rsft
 ;;   lctl lmet lalt           spc            ralt @qwe)
 
-(deflayer colemak-dh
+(deflayer colemak-dhm
 ;; Finger l5  l4    l3    l2    r2     r3   r4   r5
    _     _ _   _     _    _ _   _ _    _    _    _ _       _  
       _   q   w f    p    b      j l   u    y    ;        _ _   _
       _   a    r     s    t g    m n   e    i    o '       _
-      _        x     c    d v   z k h  ,    .    /         _
+      _   z    x     c    d v    k h  ,    .    /         _
   _     _      _             _              _ @cdh-off)
