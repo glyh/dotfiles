@@ -1,0 +1,27 @@
+set -x
+# Of course we have to get network ready before this
+
+# Get file system ready 
+cfdisk 
+parted /dev/sda set 1 esp on
+mkdir -p ~/.config/guix/
+cp etc/guix/channels.scm ~/.config/guix/channels.scm
+guix pull
+hash guix
+
+guix install e2fsprogs btrfs-progs
+GUIX_PROFILE="/root/.guix-profile"
+. "$GUIX_PROFILE/etc/profile"
+
+mkfs.fat -F32 -n BOOT /dev/sda1
+mkfs.ext4 -L ROOT /dev/sda2
+mount LABEL=ROOT /mnt
+mkdir -p /mnt/{etc,boot/efi}
+mount LABEL=BOOT /mnt/boot/efi
+
+# Install the system
+herd start cow-store /mnt
+mkdir -p ~/.config/guix/ # enable channel for nonguix
+guix archive --authorize < etc/signing-key.pub
+cp etc/* /mnt/etc -r
+guix system init /mnt/etc/config.scm /mnt --substitute-urls='https://ci.guix.gnu.org https://bordeaux.guix.gnu.org https://substitutes.nonguix.org'
