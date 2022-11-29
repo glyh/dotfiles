@@ -33,7 +33,7 @@ vim.opt.cmdheight = 0
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
-vim.g.did_load_filetypes = true -- Use plugin to load filetypes
+-- vim.g.did_load_filetypes = true -- Use plugin to load filetypes
 
 vim.api.nvim_create_augroup('LuaAutoConfReload', {}) -- Clear old group if this config is reloaded
 vim.api.nvim_create_autocmd('BufWritePost', {
@@ -128,7 +128,8 @@ require('packer').startup({function(use)
     end
   } ]=]
 
-  use { 'nvim-neorg/neorg',
+  --[[ use { 'nvim-neorg/neorg',
+    disable = true,
     after = 'nvim-treesitter',
     config = function()
       require('neorg').setup({
@@ -147,7 +148,7 @@ require('packer').startup({function(use)
     end,
     tag = "0.0.12",
     requires = 'nvim-lua/plenary.nvim'
-  }
+  } ]]
 
   use { 'lervag/vimtex',
     ft = 'tex',
@@ -347,6 +348,7 @@ require('packer').startup({function(use)
 
 
   use { 'Olical/conjure',
+    disable = true,
     branch = "develop",
     config = function()
       vim.g['conjure#log#hud#border'] = 'none'
@@ -372,6 +374,11 @@ require('packer').startup({function(use)
     requires = 'mfussenegger/nvim-dap',
     config = require('plugins.dapui')
   }
+  
+  --[[ use {'puremourning/vimspector',
+    config = require('plugins.vimspector')
+  } ]]
+
   use 'jbyuki/one-small-step-for-vimkind'
 
   use { 'nvim-telescope/telescope.nvim',
@@ -468,6 +475,7 @@ require('packer').startup({function(use)
   }
 
   use { 'voldikss/vim-translator',
+    disable = true,
     config = function()
       -- g.translator_window_type = 'preview'
       vim.g.translator_target_lang = 'zh'
@@ -489,7 +497,7 @@ require('packer').startup({function(use)
     disable = true
   }
 
-  use { 'nathom/filetype.nvim',
+  --[[ use { 'nathom/filetype.nvim',
     config = function()
       require("filetype").setup({
         overrides = {
@@ -514,7 +522,7 @@ require('packer').startup({function(use)
         },
     })
     end
-  }
+  }]]
 
   --[[ use {
     'tonyfettes/fcitx5.nvim',

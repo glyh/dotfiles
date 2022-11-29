@@ -10,10 +10,10 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
+set $left n
+set $down e
+set $up i
+set $right o
 # Your preferred terminal emulator
 set $term alacritty
 # Your preferred application launcher
@@ -121,7 +121,7 @@ mode "nag" {
 
     # Start your launcher
     #bindsym $mod+d exec rofi -no-lazy-grab -show drun -modi drun
-    bindsym $mod+d exec ulauncher-toggle
+    bindsym $mod+s exec ulauncher-toggle
     #| xargs swaymsg exec --
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -135,7 +135,7 @@ mode "nag" {
     bindsym $mod+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+e $nag -t "warning" -m "Exit Sway?" -b "Exit" "swaymsg exit" -b "Reload" "swaymsg reload"
+    bindsym $mod+k $nag -t "warning" -m "Exit Sway?" -b "Exit" "swaymsg exit" -b "Reload" "swaymsg reload"
 #
 # Moving around:
 #

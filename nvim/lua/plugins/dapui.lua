@@ -8,5 +8,5 @@ return function()
   dap.listeners.before.event_exited.dapui_config =
     function() dapui.close({}) end
   vim.api.nvim_set_keymap(
-    'n', '<leader>d', "<cmd>lua require('dapui').toggle()<CR>", {noremap = true})
+    'n', 'tt', "<cmd>lua require('dapui').toggle()<CR>", {noremap = true})
 end

@@ -88,4 +88,56 @@ return function()
     }
   }
 
+  dap.adapters.haskell = {
+    type = 'executable';
+    command = 'haskell-debug-adapter';
+    args = {'--hackage-version=0.0.33.0'};
+  }
+  dap.configurations.haskell = {
+    {
+      type = 'haskell',
+      request = 'launch',
+      name = 'Debug',
+      workspace = '${workspaceFolder}',
+      startup = "${file}",
+      stopOnEntry = true,
+      logFile = vim.fn.stdpath('data') .. '/haskell-dap.log',
+      logLevel = 'WARNING',
+      ghciEnv = vim.empty_dict(),
+      ghciPrompt = "λ: ",
+      -- Adjust the prompt to the prompt you see when you invoke the stack ghci command below 
+      ghciInitialPrompt = "λ: ",
+      ghciCmd= "stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show",
+    },
+  }
+
+
+  vim.api.nvim_set_keymap('n', 'tb', '',
+    {callback = function()
+      require('dap').toggle_breakpoint()
+     end,
+     noremap = true})
+  vim.api.nvim_set_keymap('n', 'tc', '',
+    {callback = function()
+      require('dap').continue()
+     end,
+     noremap = true})
+  vim.api.nvim_set_keymap('n', 'to', '',
+    {callback = function()
+      require('dap').step_over()
+     end,
+     noremap = true})
+  vim.api.nvim_set_keymap('n', 'ti', '',
+    {callback = function()
+      require('dap').step_into()
+     end,
+     noremap = true})
+  vim.api.nvim_set_keymap('n', 'tr', '',
+    {callback = function()
+      require('dap').step_into()
+     end,
+     noremap = true})
+  --[[ vim.api.nvim_set_keymap(
+    'n', '<leader>t', '<cmd>TroubleToggle<CR>', {noremap = true}) ]]
+
 end

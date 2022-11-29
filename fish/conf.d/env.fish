@@ -61,7 +61,7 @@ set -gxa PATH                ~/.local/bin
 # set -gxa PATH                ~/.yarn/bin
 set -gxa PATH                ~/.cargo/bin
 # set -gxa PATH                ~/.bun/bin
-# set -gxa PATH                ~/.roswell/bin
+set -gxa PATH                ~/.roswell/bin
 # set -gxa PATH                /usr/lib/emscripten
 # set -gxa PATH                $GERBIL_HOME/bin
 # set -gxa PATH                /opt/jython/bin

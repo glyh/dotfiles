@@ -1,7 +1,7 @@
 return function()
   local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
-  parser_configs.norg = {
+  --[[ parser_configs.norg = {
       install_info = {
           url = "https://github.com/nvim-neorg/tree-sitter-norg",
           files = { "src/parser.c", "src/scanner.cc" },
@@ -23,7 +23,7 @@ return function()
           files = { "src/parser.c" },
           branch = "main"
       },
-  }
+  } ]]
 
   for _, p in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
     p.install_info.url = p.install_info.url:gsub('github.com', GITHUB)
@@ -31,7 +31,7 @@ return function()
 
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
-      'c', 'cpp', 'rust', 'lua', 'python', 'norg', 'norg_meta', 'norg_table',
+      'c', 'cpp', 'rust', 'lua', 'python', -- 'norg', 'norg_meta', 'norg_table',
       'fennel', 'query', 'fish', 'elixir', 'clojure'
     },
     highlight = {
