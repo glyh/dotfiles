@@ -48,7 +48,7 @@ set -gx  GOPATH              ~/.config/go
 # set -gx WASI_SDK_PATH        /opt/wasi-sdk
 
 # Lua
-luarocks path | source
+# luarocks path | source
 
 # # Flutter
 # set -gx FLUTTER_STORAGE_BASE_URL https://mirrors.tuna.tsinghua.edu.cn/flutter

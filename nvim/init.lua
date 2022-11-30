@@ -80,13 +80,13 @@ require('packer').startup({function(use)
     config = function()
       require('mason-tool-installer').setup({
         ensure_installed = {
-          -- LSPs
+          --[[ -- LSPs
           'lua-language-server',
           'pyright',
           'emmet-ls',
           'rust-analyzer',
           'jdtls',
-          'ocaml-lsp'
+          'ocaml-lsp' ]]
         },
         auto_update = true
       })

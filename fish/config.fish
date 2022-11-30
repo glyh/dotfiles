@@ -10,7 +10,7 @@ set fish_vi_force_cursor
 # Plugins
 starship init fish | source # Use starship
 zoxide init fish | source
-source /opt/asdf-vm/asdf.fish
+# source /opt/asdf-vm/asdf.fish
 
 # Editor commands
 alias e=$EDITOR
