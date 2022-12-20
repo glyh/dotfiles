@@ -5,6 +5,7 @@
 - link:
     # Window manager
     ~/.config/sway: sway
+    ~/.config/hypr: hypr
     ~/.config/swaylock: swaylock
     ~/Pictures/Wallpapers: wallpapers
     ~/.config/waybar: waybar
