@@ -16,6 +16,11 @@
 - link:
     # Applications
     ~/.config/nvim: nvim
+- shell:
+    - 
+      command: ~/.config/nvim/bin/nyoom install
+      stdout: true
+- link:
     ~/.config/git: git
     ~/.config/alacritty: alacritty
     ~/.config/ranger: ranger
