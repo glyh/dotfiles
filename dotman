@@ -1,0 +1,3 @@
+#!/usr/bin/env bb
+;; vim: set ft=clojure:
+(print "Hello world")
