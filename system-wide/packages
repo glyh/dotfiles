@@ -23,7 +23,10 @@ adobe-source-han-sans-cn-fonts ttf-firacode-nerd ttf-liberation otf-openmoji
 fcitx5-im fcitx5-chinese-addons
 
 # Tools
-aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer
+aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer atool
 
 # Games
 steam
+
+# VMs
+bottles
