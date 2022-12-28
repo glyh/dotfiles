@@ -82,11 +82,7 @@ require('packer').startup({ function(use)
                 ensure_installed = {
                     -- LSPs
                     'lua-language-server',
-                    -- 'pyright',
-                    -- 'emmet-ls',
                     'rust-analyzer',
-                    --[[ 'jdtls',
-          'ocaml-lsp' ]]
                 },
                 auto_update = true
             })
