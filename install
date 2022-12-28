@@ -11,4 +11,4 @@ else
     sudo /tmp/dotfiles/installbb --dir /usr/bin
 fi
 
-./dotman
+./cfgman
