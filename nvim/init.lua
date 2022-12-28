@@ -472,10 +472,10 @@ require('packer').startup({ function(use)
                     null_ls.builtins.diagnostics.clj_kondo,
                 },
                 on_attach = function(client)
-                    if client.resolved_capabilities.document_formatting then
+                    if client.server_capabilities.documentFormattingProvider then
                         vim.api.nvim_create_autocmd('BufWritePre', {
                             pattern = '<buffer>',
-                            callback = vim.lsp.buf.formatting
+                            callback = vim.lsp.buf.format
                         })
                     end
                 end
