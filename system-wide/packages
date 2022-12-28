@@ -1,0 +1,32 @@
+# Linux
+base linux-zen linux-firmware base-devel amd-ucode
+
+# Network
+networkmanager efibootmgr
+
+# Boot
+grub
+
+# Basic tools
+man-db git clang mold neovim fish geoclue paru
+
+# Display stuff
+wayland xorg wl-clipboard-rs
+
+# DE
+sddm sway waybar autotiling swaynagmode ulauncher mako gammastep kitty imv firefox 
+
+# Fonts
+adobe-source-han-sans-cn-fonts ttf-firacode-nerd ttf-liberation otf-openmoji
+
+# IME
+fcitx5-im fcitx5-chinese-addons
+
+# Tools
+aria2 
+
+# Additional tools
+exa fzf ranger starship zoxide kmonad-bin page-git
+
+# Games
+steam
