@@ -82,11 +82,7 @@ require('packer').startup({ function(use)
                 ensure_installed = {
                     -- LSPs
                     'lua-language-server',
-                    -- 'pyright',
-                    -- 'emmet-ls',
                     'rust-analyzer',
-                    --[[ 'jdtls',
-          'ocaml-lsp' ]]
                 },
                 auto_update = true
             })
@@ -329,7 +325,7 @@ require('packer').startup({ function(use)
         -- disable = true,
         ft = LISP_FILE_TYPES,
         config = function()
-            vim.g.sexp_filetypes = vim.fn.join(LISP_FILE_TYPES, ",")
+            vim.g.sexp_filetypes = LISP_FILE_TYPES
         end
     }
     use { 'tpope/vim-sexp-mappings-for-regular-people',

@@ -1,14 +1,14 @@
-cargo/*
-!cargo/config.toml
-nvim/plugin
+dots/cargo/*
+!dots/cargo/config.toml
+dots/nvim/plugin
 
-fish/fish_variables
-fish/*
-!fish/config.fish
-!fish/fish_plugins
-!fish/conf.d/env.fish
+dots/fish/fish_variables
+dots/fish/*
+!dots/fish/config.fish
+!dots/fish/fish_plugins
+!dots/fish/conf.d/env.fish
 
-kitty/kitty-themes
-kitty/theme.conf
+dots/kitty/kitty-themes
+dots/kitty/theme.conf
 
 __pycache__

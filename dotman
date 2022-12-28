@@ -1,3 +1,112 @@
 #!/usr/bin/env bb
 ;; vim: set ft=clojure:
-(print "Hello world")
+
+(require '[babashka.fs :as fs])
+(require '[babashka.process :refer [shell]])
+
+; (fs/create-dirs "/home/lyh/.config/kitty")
+
+(defn ensure-parent-delete-file [path]
+  (let [par (fs/parent path)]
+    (when-not (fs/exists? par)
+      (println "Creating parent folders for " (.toString path))
+      (fs/create-dirs (fs/parent path))))
+  ;; TODO: backup
+  (cond 
+    (fs/sym-link? path) (do (println "Deleting" (.toString path)) (fs/delete path))
+    (fs/exists? path) (do (println "Deleting" (.toString path)) (fs/delete-tree path))))
+
+(defn link [lnk src]
+  (ensure-parent-delete-file lnk)
+  (println "Creating link" (.toString lnk) "of" (.toString src))
+  (fs/create-sym-link lnk src))
+(defn links [map]
+  (doseq [[lnk src] map]
+    (link lnk src)))
+
+(defn clone [url dest]
+  (ensure-parent-delete-file dest)
+  (shell "git clone" url dest))
+
+(def env #(System/getenv %1))
+
+(def config-dir
+  (or (env "XDG_CONFIG_HOME") 
+      (str (env "HOME") "/.config")))
+
+(def | fs/path)
+(defn hom [name] (| (env "HOME") name))
+(defn cfg [name] (| config-dir name))
+(defn dot [name] (| (fs/cwd) "dots" name))
+(defn res [name] (| (fs/cwd) "res" name))
+
+
+;; ---- Individual softwares ----
+
+(defn fish []
+  (link (cfg "fish") (dot "fish"))
+  (shell  
+    "fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'"))
+
+(defn aria2 []
+  (clone "https://github.com/P3TERX/aria2.conf.git" (hom ".aria2"))
+  (shell "touch " (str (env "HOME") "/.aria2/aria2.session"))
+  (link (hom ".aria2/aria2.conf") (dot "aria2/aria2.conf")))
+
+(defn electron []
+  (links
+    {(cfg "electron-flags.conf")   (dot "electron/electron-flags.conf")
+     (cfg "electron12-flags.conf") (dot "electron/electron-flags.conf")
+     (cfg "electron13-flags.conf") (dot "electron/electron-flags.conf")}))
+
+(defn kitty []
+  (link (cfg "kitty") (dot "kitty"))
+  (clone "https://github.com/dexpota/kitty-themes.git" (cfg "kitty/kitty-themes"))
+  (link (cfg "kitty/theme.conf") (cfg "kitty/kitty-themes/themes/Apprentice.conf")))
+
+;; ---- Groups ----
+
+(defn base []
+  (println "Setting up base")
+  (links 
+    {(hom "Scripts")  (dot "scripts")
+     (cfg "nvim")     (dot "neovim")
+     (cfg "fish")     (dot "fish")
+     (cfg "git")      (dot "git")
+     (hom ".inputrc") (dot "readline/.inputrc")})
+  (fish) (electron))
+
+(defn de []
+  (println "Setting up DE")
+  (links 
+    {(hom "Pictures/Wallpapers") (res "wallpapers")
+     (cfg "sway")                (dot "sway")
+     (cfg "swaylock")            (dot "swaylock")
+     (cfg "waybar")              (dot "waybar")
+     (cfg "mako")                (dot "mako")
+     (cfg "ulauncher")           (dot "ulauncher")
+     (cfg "zathura")             (dot "zathura")})
+  (kitty))
+
+(defn tools []
+  (println "Setting up tools")
+  (links
+    {(cfg "ranger")       (dot "ranger")
+     (cfg "tealdeer")     (dot "tealdeer")
+     (cfg "bat")          (dot "bat")
+     (cfg "starship")     (dot "starship")
+     (hom ".proxychains") (dot "proxychains")
+     (cfg "kmonad")       (dot "kmonad")})
+  (aria2))
+
+(defn package-managers []
+  (println "Setting up package-managers")
+  (links 
+    {(cfg "cargo/config.toml") (dot "cargo/config.toml")}))
+
+(do 
+  (base) 
+  (de) 
+  (tools) 
+  (package-managers)
+  (println "All set, good to go!"))

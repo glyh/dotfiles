@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+# Bootstraps babashka 
 if which bb; then
     echo "babashka already installed, skipping installation"
 else
