@@ -1,35 +1,41 @@
-# Linux
-base linux-zen linux-firmware base-devel amd-ucode
+#!/usr/bin/env bb
+;; vim: set ft=clojure:
+(def packages 
+  (->>
+    '[;; Linux
+      base linux-zen linux-firmware base-devel amd-ucode
 
-# Network
-networkmanager efibootmgr
+      ;; Network
+      networkmanager efibootmgr
 
-# Boot
-grub
+      ;; Boot
+      grub
 
-# Basic tools
-man-db git clang mold neovim fish geoclue paru openssh bb
+      ;; Basic tools
+      man-db git clang mold neovim fish geoclue paru openssh bb
 
-# Display stuff
-wayland xorg wl-clipboard-rs
+      ;; Display stuff
+      wayland xorg wl-clipboard-rs
 
-# DE
-sddm sway waybar autotiling swaynagmode ulauncher mako gammastep kitty imv firefox zathura 
+      ;; DE
+      sddm sway waybar autotiling swaynagmode ulauncher mako gammastep kitty imv firefox zathura 
 
-# Fonts
-adobe-source-han-sans-cn-fonts ttf-firacode-nerd ttf-liberation otf-openmoji
+      ;; Fonts
+      adobe-source-han-sans-cn-fonts ttf-firacode-nerd ttf-liberation otf-openmoji
 
-# IME
-fcitx5-im fcitx5-chinese-addons
+      ;; IME
+      fcitx5-im fcitx5-chinese-addons
 
-# Tools
-aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer atool unzip tealdeer proxychains-ng bat
+      ;; Tools
+      aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer atool unzip tealdeer proxychains-ng bat
 
-# Games
-steam
+      ;; Games
+      steam
 
-# VMs
-bottles
+      ;; VMs
+      bottles
 
-# Language 
-clj-kondo
+      ;; Language 
+      clj-kondo]
+    (map str)))
+packages
