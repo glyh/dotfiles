@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-curl -L0 archfi.sf.net/archfi
-# curl -LO matmoul.github.io/archfi
-bash archfi
