@@ -4,8 +4,6 @@
 (require '[babashka.fs :as fs])
 (require '[babashka.process :refer [shell]])
 
-; (fs/create-dirs "/home/lyh/.config/kitty")
-
 (defn ensure-parent-delete-file [path]
   (let [par (fs/parent path)]
     (when-not (fs/exists? par)
