@@ -1,6 +1,6 @@
 dots/cargo/*
 !dots/cargo/config.toml
-dots/nvim/plugin
+dots/neovim/plugin
 
 dots/fish/fish_variables
 dots/fish/*
