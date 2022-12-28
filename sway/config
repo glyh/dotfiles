@@ -316,7 +316,7 @@ exec pgrep gammastep || gammastep &
 exec pgrep waybar || waybar &
 exec pgrep ulauncher || ulauncher --hide-window 1 &
 exec pgrep mako || mako
-exec pgrep v2raya || v2raya --lite
+# exec pgrep v2raya || v2raya --lite
 exec --no-startup-id pgrep fcitx5 || fcitx5 -d
 exec pgrep kmonad || kmonad ~/.config/kmonad/kmonad.kbd
 
