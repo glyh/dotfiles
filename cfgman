@@ -104,9 +104,10 @@
   (links 
     {(cfg "cargo/config.toml") (dot "cargo/config.toml")}))
 
-(do 
-  (base) 
-  (de) 
-  (tools) 
-  (package-managers)
-  (println "All set, good to go!"))
+(defn dots []
+  (println "Setting up all dotfiles")
+  (base) (de) (tools) (package-managers))
+
+(defn package [])
+
+(dots) (package)
