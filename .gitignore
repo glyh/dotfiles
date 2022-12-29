@@ -1,6 +1,7 @@
 dots/cargo/*
 !dots/cargo/config.toml
 dots/neovim/plugin
+dots/fcitx5/conf/cached_layouts
 
 dots/fish/fish_variables
 dots/fish/*

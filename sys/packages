@@ -27,7 +27,7 @@ aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer
 atool unzip tealdeer proxychains-ng bat ripgrep
 
 # Softwares
-steam kitty imv firefox zathura mpv
+steam kitty imv firefox zathura mpv logseq-desktop-bin
 
 # Containers
 bottles docker
