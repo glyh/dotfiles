@@ -24,7 +24,7 @@ fcitx5-im fcitx5-chinese-addons
 
 # Tools
 aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer 
-atool unzip tealdeer proxychains-ng bat ripgrep git-delta-git
+atool unzip tealdeer proxychains-ng bat ripgrep git-delta-git neofetch
 
 # Softwares
 steam kitty imv firefox zathura zathura-pdf-mupdf mpv logseq-desktop-bin
