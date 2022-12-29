@@ -309,7 +309,6 @@ require('packer').startup({ function(use)
     }
 
     use { 'simrat39/symbols-outline.nvim',
-        -- disable = true,
         config = function()
             vim.api.nvim_set_keymap(
                 'n', '<leader>o', '<cmd>SymbolsOutline<CR>', { noremap = true })
@@ -389,7 +388,6 @@ require('packer').startup({ function(use)
     use { 'neovim/nvim-lspconfig', config = require('plugins.lspconfig') }
 
     use { 'jose-elias-alvarez/null-ls.nvim',
-        -- disable = true,
         requires = 'nvim-lua/plenary.nvim',
         config = function()
             local null_ls = require('null-ls')
@@ -417,11 +415,9 @@ require('packer').startup({ function(use)
     }
     use { 'nvim-treesitter/playground',
         requires = 'nvim-treesitter/nvim-treesitter',
-        -- config = require('plugins.treesitter')
     }
     use { 'nvim-treesitter/nvim-treesitter-textobjects',
         requires = 'nvim-treesitter/nvim-treesitter',
-        -- config = require('plugins.treesitter')
     }
 
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
