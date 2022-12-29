@@ -18,7 +18,7 @@
       wayland xorg wl-clipboard-rs
 
       ;; DE
-      sddm sway waybar autotiling swaynagmode ulauncher mako gammastep kitty imv firefox zathura 
+      sddm sway waybar autotiling swaynagmode ulauncher mako gammastep
 
       ;; Fonts
       adobe-source-han-sans-cn-fonts ttf-firacode-nerd ttf-liberation otf-openmoji
@@ -30,8 +30,8 @@
       aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer 
       atool unzip tealdeer proxychains-ng bat ripgrep
 
-      ;; Games
-      steam
+      ;; Softwares
+      steam kitty imv firefox zathura mpv
 
       ;; VMs
       bottles
