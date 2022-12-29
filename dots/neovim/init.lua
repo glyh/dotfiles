@@ -33,7 +33,7 @@ vim.opt.cmdheight = 0
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
--- vim.g.did_load_filetypes = true -- Use plugin to load filetypes
+vim.g.did_load_filetypes = true -- Use plugin to load filetypes
 
 vim.api.nvim_create_augroup('LuaAutoConfReload', {}) -- Clear old group if this config is reloaded
 vim.api.nvim_create_autocmd('BufWritePost', {
@@ -480,7 +480,6 @@ require('packer').startup({ function(use)
     }
 
     use { 'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
         config = require('plugins.treesitter')
     }
     use { 'nvim-treesitter/playground',
@@ -523,7 +522,7 @@ require('packer').startup({ function(use)
         disable = true
     }
 
-    --[[ use { 'nathom/filetype.nvim',
+    use { 'nathom/filetype.nvim',
     config = function()
       require("filetype").setup({
         overrides = {
@@ -548,7 +547,7 @@ require('packer').startup({ function(use)
         },
     })
     end
-  }]]
+  }
 
     --[[ use {
     'tonyfettes/fcitx5.nvim',

@@ -62,17 +62,25 @@
   (clone "https://github.com/dexpota/kitty-themes.git" (cfg "kitty/kitty-themes"))
   (link (cfg "kitty/theme.conf") (cfg "kitty/kitty-themes/themes/Apprentice.conf")))
 
+(defn neovim []
+  (link (cfg "nvim") (dot "neovim"))
+  (fs/delete-tree (| (env "HOME") ".local/share/nvim"))
+  (fs/delete-tree (| (env "HOME") ".cache/nvim"))
+  (fs/delete-tree (cfg "nvim/plugin"))
+  (println "PackerSyncing")
+  (shell "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"))
+  ;;(shell "nvim -c 'TSUpdate' -c q"))
+
 ;; ---- Groups ----
 
 (defn base []
   (println "Setting up base")
   (links 
     {(hom "Scripts")  (dot "scripts")
-     (cfg "nvim")     (dot "neovim")
      (cfg "fish")     (dot "fish")
      (cfg "git")      (dot "git")
      (hom ".inputrc") (dot "readline/.inputrc")})
-  (fish) (electron))
+  (neovim) (fish) (electron))
 
 (defn de []
   (println "Setting up DE")
