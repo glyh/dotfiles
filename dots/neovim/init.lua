@@ -35,10 +35,10 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 vim.g.did_load_filetypes = true -- Use plugin to load filetypes
 
-vim.api.nvim_create_augroup('LuaAutoConfReload', {}) -- Clear old group if this config is reloaded
+-- vim.api.nvim_create_augroup('LuaAutoConfReload', {}) -- Clear old group if this config is reloaded
 vim.api.nvim_create_autocmd('BufWritePost', {
     pattern = 'init.lua',
-    group = 'LuaAutoConfReload',
+    -- group = 'LuaAutoConfReload',
     callback = function()
         local main_config = vim.fn.resolve(vim.fn.expand('~/.config/nvim/init.lua'))
         local current_file = vim.fn.resolve(vim.fn.expand('%:p'))
@@ -47,6 +47,16 @@ vim.api.nvim_create_autocmd('BufWritePost', {
             require('packer').compile()
         end
     end
+})
+
+-- vim.api.nvim_create_augroup('Help', {})
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'help' },
+    -- group = 'Help',
+    callback = function()
+        vim.cmd("wincmd L")
+    end
+
 })
 
 -- Set up packer
@@ -412,25 +422,6 @@ require('packer').startup({ function(use)
     use { 'nvim-treesitter/nvim-treesitter-textobjects',
         requires = 'nvim-treesitter/nvim-treesitter',
         -- config = require('plugins.treesitter')
-    }
-
-    use { 'mbbill/undotree',
-        disable = true,
-        config = function()
-            vim.api.nvim_set_keymap(
-                'n', '<leader>u', '<cmd>UndotreeToggle<CR>', { noremap = true })
-        end
-    }
-
-    use { 'voldikss/vim-translator',
-        disable = true,
-        config = function()
-            -- g.translator_window_type = 'preview'
-            vim.g.translator_target_lang = 'zh'
-            vim.g.translator_default_engines = { 'bing' }
-            vim.api.nvim_set_keymap("n", "t", "<Plug>TranslateW", {})
-            vim.api.nvim_set_keymap("v", "t", "<Plug>TranslateWV", {})
-        end
     }
 
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }

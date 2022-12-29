@@ -2,7 +2,7 @@
 -- Principle: Avoid Ctrl, Meta, Esc and keys that are fucking hard to touch!
 
 -- Layout
-vim.api.nvim_set_keymap('c', 'hv', 'vert help', {noremap = true})
+vim.api.nvim_set_keymap('c', 'hp', 'help', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>s', '<cmd>split<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>v', '<cmd>vsplit<CR>', {noremap = true})
 
