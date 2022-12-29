@@ -3,7 +3,7 @@
 
 (require '[babashka.fs :as fs])
 (require '[clojure.string :as str])
-(require '[babashka.process :refer [shell]])
+(require '[babashka.process :refer [shell sh]])
 
 (defn ensure-parent-delete-file [path]
   (let [par (fs/parent path)]
@@ -82,13 +82,16 @@
 
 ;; ---- Groups ----
 
+
+;; (defn dot [name] (| script-dir "dots" name))
 (defn base []
   (println "Setting up base")
   (links 
-    {(hom "Scripts")  (dot "scripts")
+    {(hom "Binaries")  (| script-dir "bin")
      (cfg "fish")     (dot "fish")
      (cfg "git")      (dot "git")
-     (hom ".inputrc") (dot "readline/.inputrc")})
+     (hom ".inputrc") (dot "readline/.inputrc")
+     (hom ".profile") (dot "session/.profile")})
   (neovim) (fish) (electron))
 
 (defn de []
@@ -149,8 +152,17 @@
   (let [services (read-list (sys "services"))]
     (apply shell "systemctl enable " services)))
 
-(defn grps [])
+(defn grps [& {:keys [maybe-user] :or {maybe-user nil}}]
+  (let [user (if (nil? maybe-user) (:out (sh "whoami")) maybe-user)
+        [primary-group & rest-groups :as all-groups] (read-list (sys "groups"))]
+    (doseq [g all-groups]
+      (shell (str "sudo groupadd " g " | true")))
+    (shell "sudo usermod -g" primary-group user)
+    (doseq [g rest-groups]
+      (shell "sudo usermod -a -G" g user))))
 
 (defn sysfiles [])
 
-(pkgs) (dots) (svs) (grps) (sysfiles)
+(dots)
+;;(pkgs) (dots) (svs) (sysfiles)
+;; (grps)

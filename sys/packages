@@ -14,7 +14,7 @@ man-db git clang mold neovim fish geoclue paru openssh babashka-bin
 wayland xorg wl-clipboard-rs
 
 # DE
-sddm sway waybar autotiling swaynagmode ulauncher mako gammastep
+sddm sway swaylock waybar autotiling swaynagmode ulauncher mako gammastep
 
 # Fonts
 adobe-source-han-sans-cn-fonts ttf-firacode-nerd ttf-liberation otf-openmoji
