@@ -134,10 +134,10 @@
 
 (defn ensure-paru []
   (when-not (installed? "paru")
-    (let [tmp-dir (.toString (fs/create-temp-dir))]
+    (let [paru-src (.toString (fs/create-temp-dir))]
       (shell "sudo pacman -S --needed --noconfirm base-devel")
-      (shell "git clone https://aur.archlinux.org/paru.git" tmp-dir)
-      (shell {:dir tmp-dir} "makepkg -si"))))
+      (shell "git clone https://aur.archlinux.org/paru.git" paru-src)
+      (shell {:dir paru-src} "makepkg -si"))))
 
 (defn pkgs []
   (shell "sudo pacman -Sy")
