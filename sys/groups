@@ -1,4 +1,8 @@
-'[
-    wheel ;; ofc
-    network ;; networkmanager
-]
+#!/usr/bin/env bb
+;; vim: set ft=clojure:
+(def groups 
+  (->>
+    '[wheel
+      network ;; networkmanager
+      ]
+   (map str)))

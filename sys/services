@@ -1,4 +1,9 @@
-bluetooth
-sddm
-NetworkManager
-docker
+#!/usr/bin/env bb
+;; vim: set ft=clojure:
+(def services 
+  (->>
+    '[bluetooth
+      sddm
+      NetworkManager
+      docker]
+   (map str)))
