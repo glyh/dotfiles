@@ -1,7 +1,14 @@
 #!/usr/bin/env sh
 
+# Bootsraps pkgman requirements
+if pacman -Qi git curl &> /dev/null; then
+    echo "Requirements for pkgman met"
+else
+    sudo pacman -S git curl
+fi
+
 # Bootstraps babashka 
-if which bb; then
+if pacman -Qi babashka-bin &> /dev/null; then
     echo "babashka already installed, skipping installation"
     ./cfgman
 else

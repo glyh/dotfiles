@@ -99,7 +99,6 @@
      (cfg "waybar")              (dot "waybar")
      (cfg "mako")                (dot "mako")
      (cfg "ulauncher")           (dot "ulauncher")})
-     
   (kitty))
 
 (defn tools []
@@ -127,12 +126,22 @@
   (println "Setting up all dotfiles")
   (base) (de) (tools) (softwares) (package-managers))
 
-(defn ensure-paru [])
-(defn pkgs []
-  (ensure-paru)
-  (let [packages (read-list (sys "packages"))
-        cmd (str "paru -S --needed " (str/join " " packages))]
-    (shell cmd)))
+(defn installed? [package]
+  (try (shell {:out nil} "pacman -Qi " package) 
+    true
+    (catch Exception _ false)))
 
-(dots) 
-(pkgs)
+(defn ensure-paru []
+  (when-not (installed? "paru")
+    (let [tmp-dir (.toString (fs/create-temp-dir))]
+      (shell "sudo pacman -S --needed --noconfirm base-devel")
+      (shell "git clone https://aur.archlinux.org/paru.git" tmp-dir)
+      (shell {:dir tmp-dir} "makepkg -si"))))
+
+(defn pkgs []
+  (shell "sudo pacman -Sy")
+  (ensure-paru)
+  (let [packages (read-list (sys "packages"))]
+    (apply shell "paru -S --needed --noconfirm" packages)))
+
+(pkgs) (dots) 
