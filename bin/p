@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+# Make proxychains respect your shell aliases
+
+if [ $# -ne 0 ]; then
+    proxychains -q $SHELL -c "$*"
+else
+    echo "Testing if proxy is available!"
+    IP_RAW=`curl -s https://ifconfig.me`
+    IP_RAW_ADDRESS=`curl -s https://api.myip.com/ | jq .country -r`
+    echo "Raw IP: $IP_RAW $IP_RAW_ADDRESS"
+    IP_PROXIED=`proxychains -q curl -s ifconfig.me`
+    IP_PROXIED_ADDRESS=`proxychains -q curl -s https://api.myip.com/ | jq .country -r`
+    if [ $? -eq 0 ]; then
+        echo "Proxied IP: $IP_PROXIED $IP_PROXIED_ADDRESS"
+    else
+        echo "Proxy Failed!"
+    fi
+fi
+

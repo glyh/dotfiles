@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+if pgrep gammastep
+then
+    exec pkill gammastep
+else
+    exec gammastep
+fi
