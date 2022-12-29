@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+
 # Bootsraps pkgman requirements
 if pacman -Qi git curl &> /dev/null; then
     echo "Requirements for pkgman met"
@@ -10,13 +12,13 @@ fi
 # Bootstraps babashka 
 if pacman -Qi babashka-bin &> /dev/null; then
     echo "babashka already installed, skipping installation"
-    ./cfgman
+    $SCRIPTPATH/cfm
 else
     echo "installing babashka..."
     mkdir -p /tmp/dotfiles
     curl -o /tmp/dotfiles/installbb https://raw.githubusercontent.com/babashka/babashka/master/install
     chmod +x /tmp/dotfiles/installbb
     /tmp/dotfiles/installbb --dir /tmp/dotfiles
-    /tmp/dotfiles/bb ./cfgman
+    /tmp/dotfiles/bb $SCRIPTPATH/cfm
 fi
 

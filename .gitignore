@@ -12,4 +12,4 @@ dots/fish/*
 dots/kitty/kitty-themes
 dots/kitty/theme.conf
 
-__pycache__
+.nrepl-port

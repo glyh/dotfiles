@@ -34,11 +34,12 @@
       (str (env "HOME") "/.config")))
 
 (def | fs/path)
+(def script-dir (fs/parent *file*))
 (defn hom [name] (| (env "HOME") name))
 (defn cfg [name] (| config-dir name))
-(defn dot [name] (| (fs/cwd) "dots" name))
-(defn sys [name] (| (fs/cwd) "sys" name))
-(defn res [name] (| (fs/cwd) "res" name))
+(defn dot [name] (| script-dir "dots" name))
+(defn sys [name] (| script-dir "sys" name))
+(defn res [name] (| script-dir "res" name))
 
 (defn read-list [path]
   (->> path
