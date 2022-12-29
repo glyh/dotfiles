@@ -64,6 +64,7 @@
 
 (defn neovim []
   (link (cfg "nvim") (dot "neovim"))
+  (println "Clearing neovim cache")
   (fs/delete-tree (| (env "HOME") ".local/share/nvim"))
   (fs/delete-tree (| (env "HOME") ".cache/nvim"))
   (fs/delete-tree (cfg "nvim/plugin"))
