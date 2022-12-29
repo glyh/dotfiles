@@ -487,10 +487,10 @@ require('packer').startup({ function(use)
         requires = 'nvim-treesitter/nvim-treesitter',
         -- config = require('plugins.treesitter')
     }
-    use { 'nvim-treesitter/nvim-treesitter-textobjects',
-        requires = 'nvim-treesitter/nvim-treesitter',
-        -- config = require('plugins.treesitter')
-    }
+    -- use { 'nvim-treesitter/nvim-treesitter-textobjects',
+    --     requires = 'nvim-treesitter/nvim-treesitter',
+    --     -- config = require('plugins.treesitter')
+    -- }
 
     use { 'mbbill/undotree',
         disable = true,

@@ -1,47 +1,42 @@
-#!/usr/bin/env bb
-;; vim: set ft=clojure:
-(def packages 
-  (->>
-    '[;; Linux
-      base linux-zen linux-firmware base-devel amd-ucode
+# Linux
+base linux-zen linux-firmware base-devel amd-ucode
 
-      ;; Network
-      networkmanager efibootmgr
+# Network
+networkmanager efibootmgr
 
-      ;; Boot
-      grub
+# Boot
+grub
 
-      ;; Basic tools
-      man-db git clang mold neovim fish geoclue paru openssh bb
+# Basic tools
+man-db git clang mold neovim fish geoclue paru openssh bb
 
-      ;; Display stuff
-      wayland xorg wl-clipboard-rs
+# Display stuff
+wayland xorg wl-clipboard-rs
 
-      ;; DE
-      sddm sway waybar autotiling swaynagmode ulauncher mako gammastep
+# DE
+sddm sway waybar autotiling swaynagmode ulauncher mako gammastep
 
-      ;; Fonts
-      adobe-source-han-sans-cn-fonts ttf-firacode-nerd ttf-liberation otf-openmoji
+# Fonts
+adobe-source-han-sans-cn-fonts ttf-firacode-nerd ttf-liberation otf-openmoji
 
-      ;; IME
-      fcitx5-im fcitx5-chinese-addons
+# IME
+fcitx5-im fcitx5-chinese-addons
 
-      ;; Tools
-      aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer 
-      atool unzip tealdeer proxychains-ng bat ripgrep
+# Tools
+aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer 
+atool unzip tealdeer proxychains-ng bat ripgrep
 
-      ;; Softwares
-      steam kitty imv firefox zathura mpv
+# Softwares
+steam kitty imv firefox zathura mpv
 
-      ;; Containers
-      bottles docker
+# Containers
+bottles docker
 
-      ;; Programming Language 
-      clj-kondo
-      ;; Audio
-      pulseaudio pavucontrol pulsemixer pulseaudio-alsa pulseaudio-bluetooth
-      ;; Bluetooth]
-      bluez bluez-utils]
-      
-    (map str)))
-packages
+# Programming Language 
+clj-kondo
+
+# Audio
+pulseaudio pavucontrol pulsemixer pulseaudio-alsa pulseaudio-bluetooth
+
+# Bluetooth
+bluez bluez-utils

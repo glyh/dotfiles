@@ -25,7 +25,7 @@ return function()
       },
   } ]]
 
-  for _, p in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
+  for _, p in pairs(parser_configs) do
     p.install_info.url = p.install_info.url:gsub('github.com', GITHUB)
   end
 
@@ -64,7 +64,7 @@ return function()
         show_help = '?',
       }
     },
-    textobjects = {
+    --[[ textobjects = {
       select = {
         enable = true,
         lookahead = true,
@@ -76,6 +76,6 @@ return function()
           ['as'] = '@statement.outer',
         }
       },
-    },
+    }, ]]
   })
 end
