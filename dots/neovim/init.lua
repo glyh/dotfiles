@@ -366,7 +366,6 @@ require('packer').startup({ function(use)
     use { 'L3MON4D3/LuaSnip', event = 'InsertEnter' }
 
     use { 'hrsh7th/nvim-cmp',
-      after = 'neorg', -- LuaSnip dispatches in runtime
       event = {'InsertEnter', 'CmdlineEnter'},
       config = require('plugins.cmp'),
     }
