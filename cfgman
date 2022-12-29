@@ -70,7 +70,6 @@
   (fs/delete-tree (cfg "nvim/plugin"))
   (println "PackerSyncing")
   (shell "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"))
-  ;;(shell "nvim -c 'TSUpdate' -c q"))
 
 ;; ---- Groups ----
 
