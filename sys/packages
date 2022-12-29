@@ -33,7 +33,11 @@ steam kitty imv firefox zathura zathura-pdf-mupdf mpv logseq-desktop-bin
 bottles docker
 
 # Programming Language 
-clj-kondo
+## Common Lisp
+roswell 
+
+## Clojure
+clj-kondo 
 
 # Audio
 pulseaudio pavucontrol pulsemixer pulseaudio-alsa pulseaudio-bluetooth

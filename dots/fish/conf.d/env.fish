@@ -19,7 +19,7 @@ set -gx  VISUAL              nvim
 set -gx  EDITOR              nvim
 set -gx  PAGER               page
 set -gx  MANPAGER            "page -t man"
-# set -gx  TERM                alacritty
+set -gx  TERM                kitty
 
 # Intellij 
 set -gx  _JAVA_AWT_WM_NONREPARENTING 1

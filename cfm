@@ -82,8 +82,6 @@
 
 ;; ---- Groups ----
 
-
-;; (defn dot [name] (| script-dir "dots" name))
 (defn base []
   (println "Setting up base")
   (links 
@@ -139,7 +137,7 @@
   (when-not (installed? "paru")
     (let [paru-src (.toString (fs/create-temp-dir))]
       (shell "sudo pacman -S --needed --noconfirm base-devel")
-      (shell "git clone https://aur.archlinux.org/paru.git" paru-src)
+      (clone "https://aur.archlinux.org/paru.git" paru-src)
       (shell {:dir paru-src} "makepkg -si"))))
 
 (defn pkgs []
@@ -152,17 +150,15 @@
   (let [services (read-list (sys "services"))]
     (apply shell "systemctl enable " services)))
 
-(defn grps [& {:keys [maybe-user] :or {maybe-user nil}}]
-  (let [user (if (nil? maybe-user) (:out (sh "whoami")) maybe-user)
-        [primary-group & rest-groups :as all-groups] (read-list (sys "groups"))]
-    (doseq [g all-groups]
-      (shell (str "sudo groupadd " g " | true")))
-    (shell "sudo usermod -g" primary-group user)
-    (doseq [g rest-groups]
-      (shell "sudo usermod -a -G" g user))))
+(defn grps []
+  #_(let [user (:out (sh "whoami"))
+          [primary-group & rest-groups :as all-groups] (read-list (sys "groups"))]
+      (doseq [g all-groups]
+        (shell (str "sudo groupadd " g " | true")))
+      (shell "sudo usermod -g" primary-group user)
+      (doseq [g rest-groups]
+        (shell "sudo usermod -a -G" g user))))
 
 (defn sysfiles [])
 
-(dots)
-;;(pkgs) (dots) (svs) (sysfiles)
-;; (grps)
+(sysfiles) (grps) (pkgs) (dots) (svs)

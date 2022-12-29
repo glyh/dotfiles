@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-$WASI_SDK_PATH/bin/clang --sysroot=$WASI_SDK_PATH/share/wasi-sysroot "$@"
