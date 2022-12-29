@@ -89,10 +89,6 @@ require('packer').startup({ function(use)
         end
     }
 
-    -- ----- Base library -----
-
-    -- use 'nvim-lua/plenary.nvim'
-
     -- ----- FileType Support -----
 
     use { 'tylerw/zinit-vim-syntax', ft = 'zsh' }
@@ -123,28 +119,6 @@ require('packer').startup({ function(use)
       ]])
     end
   } ]=]
-
-    --[[ use { 'nvim-neorg/neorg',
-    disable = true,
-    after = 'nvim-treesitter',
-    config = function()
-      require('neorg').setup({
-         load = {
-           ["core.defaults"] = {}, -- Load all the default modules
-           ["core.norg.concealer"] = {}, -- Allows for use of icons
-           ["core.norg.dirman"] = { -- Manage your directories with Neorg
-             config = {
-               workspaces = {
-                 my_workspace = "~/Documents/Neorg"
-               }
-             }
-           },
-        }
-      })
-    end,
-    tag = "0.0.12",
-    requires = 'nvim-lua/plenary.nvim'
-  } ]]
 
     use { 'lervag/vimtex',
         ft = 'tex',
@@ -486,10 +460,10 @@ require('packer').startup({ function(use)
         requires = 'nvim-treesitter/nvim-treesitter',
         -- config = require('plugins.treesitter')
     }
-    -- use { 'nvim-treesitter/nvim-treesitter-textobjects',
-    --     requires = 'nvim-treesitter/nvim-treesitter',
-    --     -- config = require('plugins.treesitter')
-    -- }
+    use { 'nvim-treesitter/nvim-treesitter-textobjects',
+        requires = 'nvim-treesitter/nvim-treesitter',
+        -- config = require('plugins.treesitter')
+    }
 
     use { 'mbbill/undotree',
         disable = true,
