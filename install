@@ -2,9 +2,9 @@
 
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-# Bootsraps pkgman requirements
+# Bootsraps cfm requirements
 if pacman -Qi git curl &> /dev/null; then
-    echo "Requirements for pkgman met"
+    echo "Requirements for cfm met"
 else
     sudo pacman -S git curl
 fi
