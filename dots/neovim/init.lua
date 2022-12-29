@@ -89,36 +89,15 @@ require('packer').startup({ function(use)
         end
     }
 
-    -- ----- FileType Support -----
+    ----- FileType Support -----
 
     use { 'tylerw/zinit-vim-syntax', ft = 'zsh' }
-    -- use { 'justinmk/vim-syntax-extra'}
-    -- use { 'earthly/earthly.vim' }
-    -- use { 'Glench/Vim-Jinja2-Syntax', ft = 'j2' }
     use { 'clones/vim-zsh', ft = 'zsh' }
-    -- use {'zah/nim.vim', ft = 'nim' }
-    -- use { 'bakpakin/fennel.vim', ft = 'fennel' } -- Have treesitter syntax, can disable
     use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
     use { 'janet-lang/janet.vim', ft = 'janet' }
     use { 'wlangstroth/vim-racket', ft = 'racket' }
-    -- use {'hylang/vim-hy', ft = 'hy'}
     use { 'kmonad/kmonad-vim', ft = 'kbd' }
     use { 'ziglang/zig.vim', ft = 'zig' }
-    -- use {'vim-crystal/vim-crystal', ft = 'cr'}
-
-    --[=[ use { 'vlime/vlime', ft = 'lisp',
-    disable = true,
-    config = function()
-      vim.g.vlime_cl_impl = "ros"
-      vim.cmd([[
-        function! VlimeBuildServerCommandFor_ros(vlime_loader, vlime_eval)
-            return ["ros", "run",
-                        \ "--load", a:vlime_loader,
-                        \ "--eval", a:vlime_eval]
-        endfunction
-      ]])
-    end
-  } ]=]
 
     use { 'lervag/vimtex',
         ft = 'tex',
@@ -242,26 +221,10 @@ require('packer').startup({ function(use)
     use { 'windwp/nvim-autopairs',
         config = function()
             local npairs = require('nvim-autopairs')
-            local Rule = require('nvim-autopairs.rule')
-            local ts_conds = require('nvim-autopairs.ts-conds')
 
             npairs.setup({
                 disable_filetype = { 'TelescopePrompt', 'vim' },
             })
-
-            --[[ local exclude_lisps = vim.tbl_map(function(ft) return '-' .. ft end, LISP_FILE_TYPES)
-      local exclude_patterns = {"'", '`'} ]]
-
-            --[[ npairs.remove_rule ("`")
-      npairs.add_rule(Rule("`", "`", {"-clojure"})) ]]
-
-            -- npairs.remove_rule ("'")
-            -- npairs.add_rule(Rule("'", "'", {"-clojure", "-rust"}))
-
-
-            -- npairs.add_rule(Rule("'", "'", {"rust"}):with_pair(ts_conds.is_not_ts_node({"type_parameters"})))
-
-            -- For rust lifetimes
 
         end
     }
@@ -296,14 +259,12 @@ require('packer').startup({ function(use)
         run = 'cargo build --release',
     }
     use { 'guns/vim-sexp',
-        -- disable = true,
         ft = LISP_FILE_TYPES,
         config = function()
             vim.g.sexp_filetypes = vim.fn.join(LISP_FILE_TYPES, ",")
         end
     }
     use { 'tpope/vim-sexp-mappings-for-regular-people',
-        -- disable = true,
         ft = LISP_FILE_TYPES,
         requires = 'guns/vim-sexp',
     }
@@ -347,8 +308,6 @@ require('packer').startup({ function(use)
 
 
     use { 'Olical/conjure',
-        -- disable = true,
-        branch = "develop",
         config = function()
             vim.g['conjure#log#hud#border'] = 'none'
             vim.g['conjure#extract#tree_sitter#enabled'] = true
@@ -358,12 +317,7 @@ require('packer').startup({ function(use)
             vim.g['conjure#client#scheme#stdio#command'] = 'chez'
             vim.g['conjure#client#scheme#stdio#prompt_pattern'] = '> $'
             vim.g['conjure#client#scheme#stdio#value_prefix_pattern'] = false
-
-            -- vim.g['conjure#client#lua#neovim#persistent'] = "none"
-            -- vim.g['conjure#filetype#lisp'] = 'conjure.client.common-lisp.nrepl'
-            -- vim.g['conjure#client#fennel#aniseed#aniseed_module_prefix'] = 'aniseed.'
         end,
-        -- requires = 'Olical/aniseed'
     }
 
     use { 'mfussenegger/nvim-dap',
@@ -373,10 +327,6 @@ require('packer').startup({ function(use)
         requires = 'mfussenegger/nvim-dap',
         config = require('plugins.dapui')
     }
-
-    --[[ use {'puremourning/vimspector',
-    config = require('plugins.vimspector')
-  } ]]
 
     use 'jbyuki/one-small-step-for-vimkind'
 
@@ -415,17 +365,17 @@ require('packer').startup({ function(use)
 
     use { 'L3MON4D3/LuaSnip', event = 'InsertEnter' }
 
-    -- use { 'hrsh7th/nvim-cmp',
-    --   after = 'neorg', -- LuaSnip dispatches in runtime
-    --   event = {'InsertEnter', 'CmdlineEnter'},
-    --   config = require('plugins.cmp'),
-    -- }
-    -- use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
-    -- use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
-    -- use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }
-    -- use { 'saadparwaiz1/cmp_luasnip', after = "nvim-cmp" }
-    -- use { 'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp" }
-    -- use { 'PaterJason/cmp-conjure', after = {"nvim-cmp", "conjure"} }
+    use { 'hrsh7th/nvim-cmp',
+      after = 'neorg', -- LuaSnip dispatches in runtime
+      event = {'InsertEnter', 'CmdlineEnter'},
+      config = require('plugins.cmp'),
+    }
+    use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
+    use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
+    use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }
+    use { 'saadparwaiz1/cmp_luasnip', after = "nvim-cmp" }
+    use { 'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp" }
+    use { 'PaterJason/cmp-conjure', after = {"nvim-cmp", "conjure"} }
 
     use { 'neovim/nvim-lspconfig', config = require('plugins.lspconfig') }
 
@@ -486,25 +436,13 @@ require('packer').startup({ function(use)
 
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-    use { 'rmagatti/auto-session',
-        config = function()
-            require('auto-session').setup {
-                log_level = 'info',
-                bypass_session_save_file_types = {}
-            }
-        end,
-        disable = true
-    }
-
     use { 'nathom/filetype.nvim',
     config = function()
       require("filetype").setup({
         overrides = {
           extensions = {
-            -- asd = "lisp",
-            -- ros = "lisp",
-            -- jimple = "java",
-            -- jimp = "java",
+            asd = "lisp",
+            ros = "lisp",
             fnl = "fennel",
             luajit = "lua",
             -- NOTE: This a workaround on vim-racket
@@ -514,7 +452,7 @@ require('packer').startup({ function(use)
             bb = "clojure",
           },
           literal = {
-            -- ["CMakeCommon.txt"] = "cmake",
+            ["CMakeCommon.txt"] = "cmake",
             -- ["Earthfile"] = "Earthfile",
             -- ["build.earth"] = "Earthfile"
           }
