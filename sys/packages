@@ -8,7 +8,7 @@ networkmanager efibootmgr
 grub
 
 # Basic tools
-man-db git clang mold neovim fish geoclue paru openssh bb
+man-db git clang mold neovim fish geoclue paru openssh babashka-bin
 
 # Display stuff
 wayland xorg wl-clipboard-rs

@@ -3,12 +3,13 @@
 # Bootstraps babashka 
 if which bb; then
     echo "babashka already installed, skipping installation"
+    ./cfgman
 else
     echo "installing babashka..."
     mkdir -p /tmp/dotfiles
     curl -o /tmp/dotfiles/installbb https://raw.githubusercontent.com/babashka/babashka/master/install
     chmod +x /tmp/dotfiles/installbb
-    sudo /tmp/dotfiles/installbb --dir /usr/bin
+    /tmp/dotfiles/installbb --dir /tmp/dotfiles
+    /tmp/dotfiles/bb ./cfgman
 fi
 
-./cfgman

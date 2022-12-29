@@ -2,6 +2,7 @@
 ;; vim: set ft=clojure:
 
 (require '[babashka.fs :as fs])
+(require '[clojure.string :as str])
 (require '[babashka.process :refer [shell]])
 
 (defn ensure-parent-delete-file [path]
@@ -36,8 +37,15 @@
 (defn hom [name] (| (env "HOME") name))
 (defn cfg [name] (| config-dir name))
 (defn dot [name] (| (fs/cwd) "dots" name))
+(defn sys [name] (| (fs/cwd) "sys" name))
 (defn res [name] (| (fs/cwd) "res" name))
 
+(defn read-list [path]
+  (->> path
+    fs/read-all-lines
+    (str/join "\n")
+    (#(str/split %1 #"( |(#.*)?\n)+"))
+    (filter (partial not= ""))))
 
 ;; ---- Individual softwares ----
 
@@ -119,6 +127,12 @@
   (println "Setting up all dotfiles")
   (base) (de) (tools) (softwares) (package-managers))
 
-(defn package [])
+(defn ensure-paru [])
+(defn pkgs []
+  (ensure-paru)
+  (let [packages (read-list (sys "packages"))
+        cmd (str "paru -S --needed " (str/join " " packages))]
+    (shell cmd)))
 
-(dots) (package)
+(dots) 
+(pkgs)
