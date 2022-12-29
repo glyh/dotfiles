@@ -11,7 +11,8 @@
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal Super P spawn kitty
+riverctl map normal Super Space spawn kitty
+riverctl map normal Super S spawn 'tofi-drun --drun-launch=true'
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
@@ -98,7 +99,7 @@ riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
 # Super+Space to toggle float
-riverctl map normal Super Space toggle-float
+riverctl map normal Super+Shift Space toggle-float
 
 # Super+F to toggle fullscreen
 riverctl map normal Super F toggle-fullscreen
@@ -160,4 +161,14 @@ riverctl float-filter-add title "popup title with spaces"
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+rivertile -view-padding 3 -outer-padding 3 &
+
+pgrep kanshi || kanshi &
+pgrep waybar || waybar &
+# gammastep requires geoclue agent
+pgrep agent || /usr/lib/geoclue-2.0/demos/agent
+pgrep gammastep || gammastep &
+pgrep mako || mako
+pgrep fcitx5 || fcitx5 -d
+# pgrep kmonad || kmonad ~/.config/kmonad/kmonad.kbd
+# pgrep aria2c || aria2c -D

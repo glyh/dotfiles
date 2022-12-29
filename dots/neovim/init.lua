@@ -103,7 +103,7 @@ require('packer').startup({ function(use)
 
     use { 'tylerw/zinit-vim-syntax', ft = 'zsh' }
     use { 'clones/vim-zsh', ft = 'zsh' }
-    use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
+    -- use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
     use { 'janet-lang/janet.vim', ft = 'janet' }
     use { 'wlangstroth/vim-racket', ft = 'racket' }
     use { 'kmonad/kmonad-vim', ft = 'kbd' }
