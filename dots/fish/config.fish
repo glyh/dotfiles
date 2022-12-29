@@ -72,9 +72,4 @@ function man
   end
 end
 
-alias s="kitty +kitten ssh"
-
-# pnpm
-set -gx PNPM_HOME "/home/lyh/.local/share/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
-# pnpm end
+# alias s="kitty +kitten ssh"

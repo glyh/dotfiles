@@ -56,7 +56,7 @@ set -gx  GOPATH              ~/.config/go
 # set -gx CHROME_EXECUTABLE chromium
 
 # Path
-fish_add_path -gp            ~/Scripts
+fish_add_path -gp            ~/Binaries
 set -gxa PATH                ~/.local/bin
 # set -gxa PATH                ~/.yarn/bin
 set -gxa PATH                ~/.cargo/bin
