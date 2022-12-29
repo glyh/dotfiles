@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-rm ~/.local/share/nvim/sessions -rf
