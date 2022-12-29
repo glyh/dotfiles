@@ -144,4 +144,12 @@
   (let [packages (read-list (sys "packages"))]
     (apply shell "paru -S --needed --noconfirm" packages)))
 
-(pkgs) (dots) 
+(defn svs []
+  (let [services (read-list (sys "services"))]
+    (apply shell "systemctl enable " services)))
+
+(defn grps [])
+
+(defn sysfiles [])
+
+(pkgs) (dots) (svs) (grps) (sysfiles)
