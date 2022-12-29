@@ -97,6 +97,7 @@
   (links 
     {(hom "Pictures/Wallpapers") (res "wallpapers")
      (cfg "sway")                (dot "sway")
+     (cfg "river")               (dot "river")
      (cfg "swaylock")            (dot "swaylock")
      (cfg "waybar")              (dot "waybar")
      (cfg "mako")                (dot "mako")
@@ -161,4 +162,5 @@
 
 (defn sysfiles [])
 
-(sysfiles) (grps) (pkgs) (dots) (svs)
+(dots)
+;;(sysfiles) (grps) (pkgs) (dots) (svs)

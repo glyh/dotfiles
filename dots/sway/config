@@ -216,9 +216,9 @@ mode "nag" {
 #
 # Function keys:
 #
-     bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume 10
-     bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -10
-     bindsym XF86AudioMute exec "pulsemixer --toggle-mute"
+     bindsym XF86AudioRaiseVolume exec pamixer -i 10
+     bindsym XF86AudioLowerVolume exec pamixer -d 10
+     bindsym XF86AudioMute exec "pamixer --toggle-mute"
 
      bindsym XF86MonBrightnessUp exec light -A 10
      bindsym XF86MonBrightnessDown exec light -U 10
