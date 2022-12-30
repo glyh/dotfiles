@@ -12,7 +12,8 @@ set -gx HOME_LANG            zh
 # XDG
 set -gx  XDG_CONFIG_HOME     ~/.config
 set -gx  XDG_USER_CONFIG_DIR ~/.config
-set -gx  XDG_CURRENT_DESKTOP river # https://github.com/GermainZ/xdg-desktop-portal-termfilechooser
+set -gx  XDG_CURRENT_DESKTOP sway 
+# https://github.com/GermainZ/xdg-desktop-portal-termfilechooser
 
 # Default utils
 set -gx  VISUAL              nvim

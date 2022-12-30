@@ -97,6 +97,8 @@
   (links 
     {(hom "Pictures/Wallpapers") (res "wallpapers")
      (cfg "sway")                (dot "sway")
+     (cfg "kanshi")              (dot "kanshi")
+     (cfg "tofi")                (dot "tofi")
      (cfg "river")               (dot "river")
      (cfg "swaylock")            (dot "swaylock")
      (cfg "waybar")              (dot "waybar")
@@ -135,11 +137,11 @@
     (catch Exception _ false)))
 
 (defn ensure-paru []
-  (when-not (installed? "paru")
-    (let [paru-src (.toString (fs/create-temp-dir))]
+  (when-not (installed? "paru-bin")
+    (let [paru-bin (.toString (fs/create-temp-dir))]
       (shell "sudo pacman -S --needed --noconfirm base-devel")
-      (clone "https://aur.archlinux.org/paru.git" paru-src)
-      (shell {:dir paru-src} "makepkg -si"))))
+      (clone "https://aur.archlinux.org/paru-bin.git" paru-bin)
+      (shell {:dir paru-bin} "makepkg -si --noconfirm"))))
 
 (defn pkgs []
   (shell "sudo pacman -Sy")
@@ -162,5 +164,4 @@
 
 (defn sysfiles [])
 
-(dots)
-;;(sysfiles) (grps) (pkgs) (dots) (svs)
+(sysfiles) (grps) (pkgs) (dots) (svs)

@@ -169,6 +169,9 @@ pgrep waybar || waybar &
 pgrep agent || /usr/lib/geoclue-2.0/demos/agent
 pgrep gammastep || gammastep &
 pgrep mako || mako
-pgrep fcitx5 || fcitx5 -d
+
+# BUG: Fcitx5 is not supported
+# pgrep fcitx5 || fcitx5 -d
+
 # pgrep kmonad || kmonad ~/.config/kmonad/kmonad.kbd
 # pgrep aria2c || aria2c -D

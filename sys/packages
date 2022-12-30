@@ -8,7 +8,7 @@ networkmanager efibootmgr
 grub
 
 # Basic tools
-man-db git clang mold neovim fish geoclue paru openssh babashka-bin
+man-db git clang mold neovim fish geoclue paru-bin openssh babashka-bin
 
 # Display stuff
 wayland xorg wl-clipboard-rs
@@ -18,7 +18,8 @@ sddm sway swaylock waybar autotiling swaynagmode ulauncher mako gammastep
 river kanshi tofi
 
 # Fonts
-adobe-source-han-sans-cn-fonts ttf-firacode-nerd ttf-liberation otf-openmoji
+adobe-source-han-sans-cn-fonts ttf-firacode-nerd  otf-openmoji noto-fonts 
+lib32-fontconfig wqy-zenhei # fonts for steam 
 
 # IME
 fcitx5-im fcitx5-chinese-addons
@@ -28,7 +29,8 @@ aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer
 atool unzip tealdeer proxychains-ng bat ripgrep git-delta-git neofetch
 
 # Softwares
-steam kitty imv firefox zathura zathura-pdf-mupdf mpv logseq-desktop-bin
+kitty imv firefox zathura zathura-pdf-mupdf mpv logseq-desktop-bin
+steam gamescope baidunetdisk-bin
 
 # Containers
 bottles docker
@@ -39,6 +41,9 @@ roswell
 
 ## Clojure
 clj-kondo 
+
+## Rust 
+rustup
 
 # Audio
 pulseaudio pavucontrol pamixer pulseaudio-alsa pulseaudio-bluetooth

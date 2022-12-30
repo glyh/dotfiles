@@ -19,7 +19,8 @@
     "height": 30,
 
     "modules-left": [
-        "river/tags"
+        "sway/mode",
+        "sway/workspaces"
     ],
     "modules-center": [],
     "modules-right": [
