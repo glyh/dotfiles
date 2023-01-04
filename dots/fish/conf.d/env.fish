@@ -59,7 +59,7 @@ set -gx  GOPATH              ~/.config/go
 # Path
 fish_add_path -gp            ~/Binaries
 set -gxa PATH                ~/.local/bin
-# set -gxa PATH                ~/.yarn/bin
+set -gxa PATH                ~/.yarn/bin
 set -gxa PATH                ~/.cargo/bin
 # set -gxa PATH                ~/.bun/bin
 set -gxa PATH                ~/.roswell/bin

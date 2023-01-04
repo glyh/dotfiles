@@ -25,28 +25,42 @@ lib32-fontconfig wqy-zenhei # fonts for steam
 fcitx5-im fcitx5-chinese-addons
 
 # Tools
-aria2 exa fzf ranger starship zoxide kmonad-bin page-git nodejs-terminalizer 
-atool unzip tealdeer proxychains-ng bat ripgrep git-delta-git neofetch
+aria2 exa fzf ranger starship zoxide kmonad-bin page-git 
+unzip tealdeer proxychains-ng bat ripgrep git-delta-git neofetch
+atool2-git # zstd
 
 # Softwares
 kitty imv firefox zathura zathura-pdf-mupdf mpv logseq-desktop-bin
 steam gamescope baidunetdisk-bin
 
 # Containers
-bottles docker
+bottles lib32-alsa-plugins lib32-libpulse lib32-openal
+docker
 
 # Programming Language 
 ## Common Lisp
 roswell 
 
 ## Clojure
-clj-kondo 
+clojure clj-kondo rlwrap
 
 ## Rust 
-rustup
+rustup rust-analyzer-nightly-bin
+
+## flutter
+flutter dart
+
+## lua
+lua-language-server
+
+## JS
+yarn
 
 # Audio
 pulseaudio pavucontrol pamixer pulseaudio-alsa pulseaudio-bluetooth
 
 # Bluetooth
 bluez bluez-utils
+
+## Yarn managed
+terminalizer shadow-cljs

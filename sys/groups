@@ -1,2 +1,3 @@
 wheel # First in the list is the primary group
 network # NetworkManager
+flutterusers # Flutter

@@ -7,8 +7,8 @@ return function()
 
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
-      'c', 'cpp', 'rust', 'lua', 'python', -- 'norg', 'norg_meta', 'norg_table',
-      'fennel', 'query', 'fish', 'elixir', 'clojure', 'agda'
+      'c', 'cpp', 'rust', 'lua', 'python', 'fennel', 'query', 'fish', 
+      'elixir', 'clojure', 'agda', 'dart'
     },
     highlight = {
       enable = true,
