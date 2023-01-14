@@ -60,6 +60,12 @@
   (shell "touch " (str (env "HOME") "/.aria2/aria2.session"))
   (link (hom ".aria2/aria2.conf") (dot "aria2/aria2.conf")))
 
+(defn mpd []
+  (let [mpd-dir (dot "mpd")]
+    (link (cfg "mpd") mpd-dir)
+    (shell "mkdir " (| mpd-dir "playlists"))
+    (shell "touch " (| mpd-dir "database"))))
+
 (defn electron []
   (links
     {(cfg "electron-flags.conf")   (dot "electron/electron-flags.conf")
@@ -115,7 +121,7 @@
      (cfg "starship")     (dot "starship")
      (hom ".proxychains") (dot "proxychains")
      (cfg "kmonad")       (dot "kmonad")})
-  (aria2))
+  (aria2) (mpd))
 
 (defn softwares []
   (println "Setting up softwares")
@@ -162,6 +168,8 @@
       (doseq [g rest-groups]
         (shell "sudo usermod -a -G" g user))))
 
-(defn sysfiles [])
+;; (defn sysfiles [])
 
-(sysfiles) (grps) (pkgs) (dots) (svs)
+;; (sysfiles) (grps) (pkgs) (dots) (svs)
+; (dots)
+(mpd)

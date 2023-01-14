@@ -20,3 +20,7 @@ export XMODIFIERS=@im=fcitx5
 export GTK_THEME=Adwaita:dark
 
 export PATH=~/Binaries:$PATH
+
+# >>> xmake >>>
+[[ -s "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile" # load xmake profile
+# <<< xmake <<<

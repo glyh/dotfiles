@@ -12,4 +12,7 @@ dots/fish/*
 dots/kitty/kitty-themes
 dots/kitty/theme.conf
 
+dots/mpd/database
+
 .nrepl-port
+
