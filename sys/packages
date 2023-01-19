@@ -1,5 +1,5 @@
 # Linux
-base linux-zen linux-firmware base-devel amd-ucode
+base linux linux-firmware base-devel amd-ucode
 
 # Network
 networkmanager efibootmgr
@@ -12,9 +12,10 @@ man-db git clang mold neovim fish geoclue paru-bin openssh babashka-bin
 
 # Display stuff
 wayland xorg wl-clipboard-rs
+xorg-xwayland-hidpi-xprop wlroots-hidpi-xprop-git
 
 # DE
-sddm sway swaylock waybar autotiling swaynagmode ulauncher mako gammastep
+sddm sway-git swaylock waybar autotiling swaynagmode ulauncher mako gammastep
 river kanshi tofi
 
 # Fonts
@@ -28,6 +29,7 @@ fcitx5-im fcitx5-chinese-addons
 aria2 exa fzf ranger starship zoxide kmonad-bin page-git 
 unzip tealdeer proxychains-ng bat ripgrep git-delta-git neofetch
 atool2-git # zstd
+mpd ncmpcpp yt-dlp
 
 # Softwares
 kitty imv firefox zathura zathura-pdf-mupdf mpv logseq-desktop-bin
@@ -42,19 +44,19 @@ docker
 roswell 
 
 ## Clojure
-clojure clj-kondo rlwrap
+clojure clj-kondo rlwrap leiningen nodejs-shadow-cljs
 
 ## Rust 
 rustup rust-analyzer-nightly-bin
-
-## flutter
-flutter dart
 
 ## lua
 lua-language-server
 
 ## JS
-yarn
+npm node
+
+## C/C++
+xmake bear 
 
 # Audio
 pulseaudio pavucontrol pamixer pulseaudio-alsa pulseaudio-bluetooth
