@@ -108,6 +108,8 @@ require('packer').startup({ function(use)
     use { 'wlangstroth/vim-racket', ft = 'racket' }
     use { 'kmonad/kmonad-vim', ft = 'kbd' }
     use { 'ziglang/zig.vim', ft = 'zig' }
+    use { 'zah/nim.vim', ft = 'nim' }
+    use { 'hylang/vim-hy', ft = 'hy' }
 
     use { 'lervag/vimtex',
         ft = 'tex',

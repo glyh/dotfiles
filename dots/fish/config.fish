@@ -50,7 +50,8 @@ alias rpt="eval (history --max=1)"
 alias k="kitty +kitten"
 alias m="man"
 alias bc="bottles-cli"
-alias ytdlx="yt-dlp -x "
+alias ytdlx="yt-dlp -x"
+alias nc="ncmpcpp"
 
 # Languages
 alias py="ptpython"

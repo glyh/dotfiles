@@ -23,7 +23,7 @@ set -gx  MANPAGER            "page -t man"
 set -gx  TERM                kitty
 
 # Intellij 
-set -gx  _JAVA_AWT_WM_NONREPARENTING 1
+# set -gx  _JAVA_AWT_WM_NONREPARENTING 1
 
 # Firefox
 set -gx MOZ_ENABLE_WAYLAND   1
@@ -37,8 +37,8 @@ set -gx XMODIFIERS               \@im=fcitx5
 set -gx  GTK_THEME           Adwaita:dark
 
 # go
-set -gx  GO111MODULE         on
-set -gx  GOPROXY             https://goproxy.cn
+# set -gx  GO111MODULE         on
+# set -gx  GOPROXY             https://goproxy.cn
 set -gx  GOPATH              ~/.config/go
 
 # gerbil
@@ -55,6 +55,9 @@ set -gx  GERBIL_GSC          (which gambitc)
 # set -gx FLUTTER_STORAGE_BASE_URL https://mirrors.tuna.tsinghua.edu.cn/flutter
 # set -gx PUB_HOSTED_URL https://mirrors.tuna.tsinghua.edu.cn/dart-pub
 # set -gx CHROME_EXECUTABLE chromium
+
+# JAVA
+set -gx JAVA_HOME            /usr/lib/jvm/default
 
 # Path
 fish_add_path -gp            ~/Binaries

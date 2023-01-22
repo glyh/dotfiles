@@ -320,6 +320,7 @@ exec pgrep mako || mako
 exec --no-startup-id pgrep fcitx5 || fcitx5 -d
 exec pgrep kmonad || kmonad ~/.config/kmonad/kmonad.kbd
 exec pgrep mpd || mpd --no-daemon --stdout --verbose
+# exec_always 'xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2'
 
 # Test
 # bindsym $mod+s exec swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.pid and .visible) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp 
