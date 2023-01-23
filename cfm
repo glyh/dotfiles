@@ -70,7 +70,8 @@
   (links
     {(cfg "electron-flags.conf")   (dot "electron/electron-flags.conf")
      (cfg "electron12-flags.conf") (dot "electron/electron-flags.conf")
-     (cfg "electron13-flags.conf") (dot "electron/electron-flags.conf")}))
+     (cfg "electron13-flags.conf") (dot "electron/electron-flags.conf")
+     (cfg "chromium-flags.conf") (dot "electron/electron-flags.conf")}))
 
 (defn kitty []
   (link (cfg "kitty") (dot "kitty"))
@@ -171,5 +172,5 @@
 ;; (defn sysfiles [])
 
 ;; (sysfiles) (grps) (pkgs) (dots) (svs)
-; (dots)
-(mpd)
+(dots)
+;; (mpd)
