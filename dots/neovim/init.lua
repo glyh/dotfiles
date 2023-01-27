@@ -14,6 +14,7 @@ _G.LISP_FILE_TYPES = { 'clojure', 'fennel', 'hy', 'racket', 'lisp', 'scheme' }
 
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
+vim.opt.tabstop = 4
 -- vim.opt.guifont="FiraCode Nerd Font:h12"
 vim.opt.hidden = true
 vim.opt.laststatus = 2
@@ -449,6 +450,19 @@ require('packer').startup({ function(use)
     end
   }
 
+  use {
+      'chipsenkbeil/distant.nvim',
+      config = function()
+        require('distant').setup {
+          -- Applies Chip's personal settings to every machine you connect to
+          --
+          -- 1. Ensures that distant servers terminate with no connections
+          -- 2. Provides navigation bindings for remote directories
+          -- 3. Provides keybinding to jump into a remote file's parent directory
+          ['*'] = require('distant.settings').chip_default()
+        }
+      end
+    }
     --[[ use {
     'tonyfettes/fcitx5.nvim',
     tag = 'v0.0.1-alpha',

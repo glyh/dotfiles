@@ -8,7 +8,7 @@ networkmanager efibootmgr
 grub
 
 # Basic tools
-man-db git clang mold neovim fish geoclue paru-bin openssh babashka-bin
+man-db git clang mold neovim fish geoclue yay-bin openssh babashka-bin
 
 # Display stuff
 wayland xorg wl-clipboard-rs
@@ -57,6 +57,9 @@ npm node
 
 ## C/C++
 xmake bear 
+
+## go 
+gopls
 
 # Audio
 pulseaudio pavucontrol pamixer pulseaudio-alsa pulseaudio-bluetooth

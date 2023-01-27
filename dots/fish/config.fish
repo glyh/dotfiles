@@ -35,7 +35,7 @@ function f
   set LASTDIR (cat $HOME/.rangerdir)
   cd $LASTDIR
 end
-alias a="paru"
+alias y="yay"
 alias rm="rm -i"
 alias tp="trash-put"
 alias tl="trash-list"

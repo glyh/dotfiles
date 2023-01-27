@@ -62,5 +62,6 @@ return function()
     root_dir = lspconfig.util.root_pattern(".git")
   }
   lspconfig.hls.setup {} ]]
-  lspconfig.dartls.setup {}
+  -- lspconfig.dartls.setup {}
+  lspconfig.gopls.setup{}
 end
