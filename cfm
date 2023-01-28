@@ -143,18 +143,18 @@
     true
     (catch Exception _ false)))
 
-(defn ensure-yay []
-  (when-not (installed? "yay-bin")
-    (let [yay-bin (.toString (fs/create-temp-dir))]
+(defn ensure-paru []
+  (when-not (installed? "paru-bin")
+    (let [paru-bin (.toString (fs/create-temp-dir))]
       ; (shell "sudo pacman -S --needed --noconfirm base-devel")
-      (clone "https://aur.archlinux.org/yay-bin.git" yay-bin)
-      (shell {:dir yay-bin} "makepkg -si --noconfirm"))))
+      (clone "https://aur.archlinux.org/paru-bin.git" paru-bin)
+      (shell {:dir paru-bin} "makepkg -si --noconfirm"))))
 
 (defn pkgs []
   (shell "sudo pacman -Sy")
-  (ensure-yay)
+  (ensure-paru)
   (let [packages (read-list (sys "packages"))]
-    (apply shell "yay -S --needed --noconfirm" packages)))
+    (apply shell "paru -S --needed --noconfirm" packages)))
 
 (defn svs []
   (let [services (read-list (sys "services"))]

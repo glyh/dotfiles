@@ -46,6 +46,7 @@ return function()
         },
         workspace = {
           library = vim.api.nvim_get_runtime_file('', true),
+          checkThirdParty = false,
         },
         telemetry = {
           enable = false,
@@ -57,11 +58,11 @@ return function()
 
   -- lspconfig.pyright.setup { capabilities = capabilities }
   -- lspconfig.emmet_ls.setup {}
-  --[[ lspconfig.jdtls.setup {}
+  -- lspconfig.jdtls.setup {}
   lspconfig.ocamllsp.setup {
     root_dir = lspconfig.util.root_pattern(".git")
   }
-  lspconfig.hls.setup {} ]]
+  -- lspconfig.hls.setup {}
   -- lspconfig.dartls.setup {}
   lspconfig.gopls.setup{}
 end

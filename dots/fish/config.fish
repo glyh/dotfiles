@@ -29,13 +29,13 @@ alias l="exa"
 alias ls="exa"
 alias la="exa -la"
 alias c="cd"
-# alias f="nnn"
-function f
-  ranger --choosedir=$HOME/.rangerdir
-  set LASTDIR (cat $HOME/.rangerdir)
-  cd $LASTDIR
-end
-alias y="yay"
+alias f="xplr"
+# function f
+#   ranger --choosedir=$HOME/.rangerdir
+#   set LASTDIR (cat $HOME/.rangerdir)
+#   cd $LASTDIR
+# end
+alias a="paru"
 alias rm="rm -i"
 alias tp="trash-put"
 alias tl="trash-list"
