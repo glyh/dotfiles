@@ -63,7 +63,7 @@
 (defn mpd []
   (let [mpd-dir (dot "mpd")]
     (link (cfg "mpd") mpd-dir)
-    (shell "mkdir " (| mpd-dir "playlists"))
+    ; (shell "mkdir " (| mpd-dir "playlists"))
     (shell "touch " (| mpd-dir "database"))))
 
 (defn electron []
@@ -116,7 +116,7 @@
 (defn tools []
   (println "Setting up tools")
   (links
-    {(cfg "ranger")       (dot "ranger")
+    {(cfg "xplr")         (dot "xplr")
      (cfg "tealdeer")     (dot "tealdeer")
      (cfg "bat")          (dot "bat")
      (cfg "starship")     (dot "starship")
