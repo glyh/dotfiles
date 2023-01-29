@@ -28,13 +28,7 @@ alias g="git"
 alias l="exa"
 alias ls="exa"
 alias la="exa -la"
-alias c="cd"
-alias f="xplr"
-# function f
-#   ranger --choosedir=$HOME/.rangerdir
-#   set LASTDIR (cat $HOME/.rangerdir)
-#   cd $LASTDIR
-# end
+alias f="cd (xplr (pwd) --print-pwd-as-result)"
 alias a="paru"
 alias rm="rm -i"
 alias tp="trash-put"
