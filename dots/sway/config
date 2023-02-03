@@ -112,7 +112,7 @@ mode "nag" {
 # Basics:
 #
     # Lock the screen
-    bindsym $mod+x exec swaylock
+    bindsym $mod+c exec swaylock
     # Start a terminal
     bindsym $mod+space exec $term
 
@@ -132,7 +132,7 @@ mode "nag" {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+c reload
+    bindsym $mod+w reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+k $nag -t "warning" -m "Exit Sway?" -b "Exit" "swaymsg exit" -b "Reload" "swaymsg reload"
@@ -324,3 +324,6 @@ exec pgrep mpd || mpd --no-daemon --stdout --verbose
 
 # Test
 # bindsym $mod+s exec swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.pid and .visible) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp 
+
+bindsym $mod+z exec warpd --hint --click 1
+bindsym $mod+x exec warpd --normal 

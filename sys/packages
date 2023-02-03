@@ -11,12 +11,12 @@ grub
 man-db git clang mold neovim fish geoclue yay-bin openssh babashka-bin
 
 # Display stuff
-wayland xorg wl-clipboard-rs
+wayland xorg wl-clipboard
 xorg-xwayland-hidpi-xprop wlroots-hidpi-xprop-git
 
 # DE
-sddm sway-git swaylock waybar autotiling swaynagmode ulauncher mako gammastep
-river kanshi tofi
+sddm sway-git swaylock waybar autotiling swaynagmode ulauncher mako gammastep light
+river kanshi tofi warpd
 
 # Fonts
 adobe-source-han-sans-cn-fonts ttf-firacode-nerd  otf-openmoji noto-fonts 
