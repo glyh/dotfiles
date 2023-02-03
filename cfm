@@ -116,7 +116,7 @@
 (defn tools []
   (println "Setting up tools")
   (links
-    {(cfg "xplr")         (dot "xplr")
+    {(cfg "ranger")       (dot "ranger")
      (cfg "tealdeer")     (dot "tealdeer")
      (cfg "bat")          (dot "bat")
      (cfg "starship")     (dot "starship")
