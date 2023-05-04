@@ -69,6 +69,8 @@ alias nc="ncmpcpp"
 # alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m reply.main"
 # alias ppip="pypy3 -m pip"
 # alias wasi-clang="$WASI_SDK_PATH/bin/clang --sysroot=$WASI_SDK_PATH/share/wasi-sysroot"
+alias st="stack"
+alias cg="cargo"
 
 # thefuck --alias | source
 function man
@@ -83,5 +85,3 @@ function man
     page "man://"$prog"("$sect")"
   end
 end
-
-# alias s="kitty +kitten ssh"

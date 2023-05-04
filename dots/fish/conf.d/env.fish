@@ -42,8 +42,8 @@ set -gx  GTK_THEME           Adwaita:dark
 set -gx  GOPATH              ~/.config/go
 
 # gerbil
-set -gx  GERBIL_HOME         /opt/gerbil-scheme
-set -gx  GERBIL_GSC          (which gambitc)
+# set -gx  GERBIL_HOME         /opt/gerbil-scheme
+# set -gx  GERBIL_GSC          (which gambitc)
 
 # WASI
 # set -gx WASI_SDK_PATH        /opt/wasi-sdk
@@ -68,7 +68,7 @@ set -gxa PATH                ~/.cargo/bin
 set -gxa PATH                ~/.roswell/bin
 set -gxa PATH                ~/.config/nvim/bin
 # set -gxa PATH                /usr/lib/emscripten
-set -gxa PATH                $GERBIL_HOME/bin
-# set -gxa PATH                /opt/jython/bin
+# set -gxa PATH                $GERBIL_HOME/bin
+set -gxa PATH                ~/.config/emacs/bin
 
 source /home/lyh/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
