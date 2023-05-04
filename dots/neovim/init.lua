@@ -34,7 +34,7 @@ vim.opt.cmdheight = 0
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
-vim.g.did_load_filetypes = true -- Use plugin to load filetypes
+-- vim.g.did_load_filetypes = true -- Use plugin to load filetypes
 
 -- vim.api.nvim_create_augroup('LuaAutoConfReload', {}) -- Clear old group if this config is reloaded
 vim.api.nvim_create_autocmd('BufWritePost', {
@@ -106,7 +106,7 @@ require('packer').startup({ function(use)
     use { 'clones/vim-zsh', ft = 'zsh' }
     -- use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
     use { 'janet-lang/janet.vim', ft = 'janet' }
-    use { 'wlangstroth/vim-racket', ft = 'racket' }
+    -- use { 'wlangstroth/vim-racket', ft = 'racket' }
     use { 'kmonad/kmonad-vim', ft = 'kbd' }
     use { 'ziglang/zig.vim', ft = 'zig' }
     use { 'zah/nim.vim', ft = 'nim' }
@@ -425,7 +425,7 @@ require('packer').startup({ function(use)
 
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-    use { 'nathom/filetype.nvim',
+    --[[ use { 'nathom/filetype.nvim',
     config = function()
       require("filetype").setup({
         overrides = {
@@ -448,7 +448,7 @@ require('packer').startup({ function(use)
         },
     })
     end
-  }
+  } ]]
 
   use {
       'chipsenkbeil/distant.nvim',

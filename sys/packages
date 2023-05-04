@@ -16,7 +16,7 @@ xorg-xwayland-hidpi-xprop wlroots-hidpi-xprop-git
 
 # DE
 sddm sway-git swaylock waybar autotiling swaynagmode ulauncher mako gammastep light
-river kanshi tofi warpd
+river kanshi tofi warpd game-scope-git
 
 # Fonts
 adobe-source-han-sans-cn-fonts ttf-firacode-nerd  otf-openmoji noto-fonts 
@@ -28,7 +28,7 @@ fcitx5-im fcitx5-chinese-addons
 # Tools
 aria2 exa fzf xplr-bin starship zoxide kmonad-bin page-git 
 unzip tealdeer proxychains-ng bat ripgrep git-delta-git neofetch
-atool2-git # zstd
+atool2-git zstd unrar p7zip unzip
 mpd ncmpcpp yt-dlp
 
 # Softwares
