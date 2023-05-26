@@ -1,0 +1,13 @@
+{
+    "preferences": {
+        "terminal": "kitty --hold"
+    },
+    "triggers": {
+        "keyword": {
+            "keyword": "r"
+        },
+        "keyword_terminal": {
+            "keyword": "t"
+        }
+    }
+}

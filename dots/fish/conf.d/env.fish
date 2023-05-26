@@ -1,6 +1,6 @@
 # Basic info
 set -gx HOME_LANG            zh
-# set -gx GITHUB               'hub.gitfast.tk'
+# set -gx GITHUB               'gitclone.com/github.com'
 # 'github.com.cnpmjs.org'
 # 'gitclone.com/github.com'
 # 'hub.fastgit.org'
@@ -8,6 +8,10 @@ set -gx HOME_LANG            zh
 # 'github.com'
 # 'hub.fastgit.xyz'
 # 'hub.0z.gs'
+
+# SCALE 
+set -gx GDK_SCALE 2
+set -gx XCURSOR_SIZE 32
 
 # XDG
 set -gx  XDG_CONFIG_HOME     ~/.config
@@ -28,6 +32,9 @@ set -gx  TERM                kitty
 # Firefox
 set -gx MOZ_ENABLE_WAYLAND   1
 
+# Qutebrowser
+set -gx QUTE_QT_WRAPPER          PyQt6
+
 # IME
 set -gx GTK_IM_MODULE            fcitx5
 set -gx QT_IM_MODULE             fcitx5
@@ -40,16 +47,6 @@ set -gx  GTK_THEME           Adwaita:dark
 # set -gx  GO111MODULE         on
 # set -gx  GOPROXY             https://goproxy.cn
 set -gx  GOPATH              ~/.config/go
-
-# gerbil
-# set -gx  GERBIL_HOME         /opt/gerbil-scheme
-# set -gx  GERBIL_GSC          (which gambitc)
-
-# WASI
-# set -gx WASI_SDK_PATH        /opt/wasi-sdk
-
-# Lua
-# luarocks path | source
 
 # # Flutter
 # set -gx FLUTTER_STORAGE_BASE_URL https://mirrors.tuna.tsinghua.edu.cn/flutter
@@ -64,11 +61,6 @@ fish_add_path -gp            ~/Binaries
 set -gxa PATH                ~/.local/bin
 set -gxa PATH                ~/.yarn/bin
 set -gxa PATH                ~/.cargo/bin
-# set -gxa PATH                ~/.bun/bin
-set -gxa PATH                ~/.roswell/bin
-set -gxa PATH                ~/.config/nvim/bin
-# set -gxa PATH                /usr/lib/emscripten
-# set -gxa PATH                $GERBIL_HOME/bin
-set -gxa PATH                ~/.config/emacs/bin
-
-source /home/lyh/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+if type -q racket
+  set -gxa PATH                ~/.local/share/racket/(racket -v | grep -o '[0-9.]\+[0-9]')/bin
+end

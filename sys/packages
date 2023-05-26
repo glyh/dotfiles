@@ -33,7 +33,8 @@ mpd ncmpcpp yt-dlp
 
 # Softwares
 kitty imv firefox zathura zathura-pdf-mupdf mpv logseq-desktop-bin
-steam gamescope baidunetdisk-bin
+steam gamescope baidunetdisk-bin 
+qutebrowser-git pyqt6 qt6-wayland
 
 # Containers
 bottles lib32-alsa-plugins lib32-libpulse lib32-openal
