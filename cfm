@@ -1,4 +1,5 @@
-#!/usr/bin/env bb
+#!/usr/bin/env nix-shell
+#!nix-shell -i bb -p babashka
 ;; vim: set ft=clojure:
 
 (require '[babashka.fs :as fs])
@@ -52,7 +53,7 @@
 
 (defn fish []
   (link (cfg "fish") (dot "fish"))
-  (shell  
+  #_(shell  
     "fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'"))
 
 (defn aria2 []
@@ -106,7 +107,7 @@
      (cfg "sway")                (dot "sway")
      (cfg "kanshi")              (dot "kanshi")
      (cfg "tofi")                (dot "tofi")
-     (cfg "river")               (dot "river")
+     (cfg "hypr")                (dot "hyprland")
      (cfg "swaylock")            (dot "swaylock")
      (cfg "waybar")              (dot "waybar")
      (cfg "mako")                (dot "mako")

@@ -277,7 +277,7 @@ require('packer').startup({ function(use)
 
     use { 'eraserhd/parinfer-rust',
         ft = LISP_FILE_TYPES,
-        run = 'cargo build --release',
+        -- run = 'nix-shell -p cargo --run "cargo build --release"',
     }
     use { 'guns/vim-sexp',
         ft = LISP_FILE_TYPES,

@@ -9,7 +9,7 @@ set fish_vi_force_cursor
 
 # Plugins
 starship init fish | source # Use starship
-zoxide init fish | source
+# zoxide init fish | source
 # source /opt/asdf-vm/asdf.fish
 
 # Editor commands
@@ -26,7 +26,7 @@ alias ew="$EDITOR ~/.config/sway/config" # Window manager
 # Tools
 alias g="git"
 alias l="exa"
-alias ls="exa"
+#alias ls="exa"
 alias la="exa -la"
 
 # https://github.com/ranger/ranger/wiki/Integration-with-other-programs#changing-directories
