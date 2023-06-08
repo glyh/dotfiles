@@ -94,6 +94,9 @@ require('packer').startup({ function(use)
                     -- LSPs
                     'lua-language-server',
                     'rust-analyzer',
+                    -- 'fsautocomplete',
+                    -- 'ocaml-lsp',
+                    'elixir-ls',
                 },
                 auto_update = true
             })
@@ -109,8 +112,12 @@ require('packer').startup({ function(use)
     -- use { 'wlangstroth/vim-racket', ft = 'racket' }
     use { 'kmonad/kmonad-vim', ft = 'kbd' }
     use { 'ziglang/zig.vim', ft = 'zig' }
-    use { 'zah/nim.vim', ft = 'nim' }
+    use { 'zah/nim.vim' }
+    -- use { 'ionide/Ionide-vim' }
+    use { 'kongo2002/fsharp-vim' }
     use { 'hylang/vim-hy', ft = 'hy' }
+    use { 'vim-crystal/vim-crystal' }
+    -- use { 'jdonaldson/vaxe' }
 
     use { 'lervag/vimtex',
         ft = 'tex',
@@ -194,6 +201,7 @@ require('packer').startup({ function(use)
 
     use {
       "folke/noice.nvim",
+      disable = true,
       config = function()
         require("noice").setup({
           lsp = {
@@ -292,12 +300,63 @@ require('packer').startup({ function(use)
 
     ----- Tools -----
 
-    use { 'junegunn/vim-easy-align',
+    --[[ use { 'junegunn/vim-easy-align',
         config = function()
             -- Start interactive EasyAlign in visual mode (e.g. vipga)
             vim.api.nvim_set_keymap("x", "ga", "<Plug>(EasyAlign)", {})
             -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
             vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", {})
+        end
+    } ]]
+    use { 'Vonr/align.nvim',
+        config = function()
+            -- align_to_char(length, reverse, preview, marks)
+            -- align_to_string(is_pattern, reverse, preview, marks)
+            -- align(str, reverse, marks)
+            -- operator(fn, opts)
+            -- Where:
+            --      length: integer
+            --      reverse: boolean
+            --      preview: boolean
+            --      marks: table (e.g. {1, 0, 23, 15})
+            --      str: string (can be plaintext or Lua pattern if is_pattern is true)
+
+            local NS = { noremap = true, silent = true }
+
+            vim.keymap.set('x', 'gaa', function() require'align'.align_to_char(1, true)             end, NS) -- Aligns to 1 character, looking left
+            vim.keymap.set('x', 'gas', function() require'align'.align_to_char(2, true, true)       end, NS) -- Aligns to 2 characters, looking left and with previews
+            vim.keymap.set('x', 'gaw', function() require'align'.align_to_string(false, true, true) end, NS) -- Aligns to a string, looking left and with previews
+            vim.keymap.set('x', 'gar', function() require'align'.align_to_string(true, true, true)  end, NS) -- Aligns to a Lua pattern, looking left and with previews
+
+            -- Example gawip to align a paragraph to a string, looking left and with previews
+            vim.keymap.set(
+                'n',
+                'gaw',
+                function()
+                    local a = require'align'
+                    a.operator(
+                        a.align_to_string,
+                        { is_pattern = false, reverse = true, preview = true }
+                    )
+                end,
+                NS
+            )
+
+            -- Example gaaip to aling a paragraph to 1 character, looking left
+            vim.keymap.set(
+                'n',
+                'gaa',
+                function()
+                    local a = require'align'
+                    a.operator(
+                        a.align_to_char,
+                        { length = 1, reverse = true }
+                    )
+                end,
+                NS
+            )
+
+
         end
     }
 
@@ -399,7 +458,7 @@ require('packer').startup({ function(use)
                     -- general
                     null_ls.builtins.formatting.trim_newlines,
                     null_ls.builtins.formatting.trim_whitespace,
-                    null_ls.builtins.diagnostics.clj_kondo,
+                    -- null_ls.builtins.diagnostics.clj_kondo,
                 },
                 on_attach = function(client)
                     if client.server_capabilities.documentFormattingProvider then

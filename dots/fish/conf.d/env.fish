@@ -10,8 +10,8 @@ set -gx HOME_LANG            zh
 # 'hub.0z.gs'
 
 # SCALE 
-set -gx GDK_SCALE 2
-set -gx XCURSOR_SIZE 32
+# set -gx GDK_SCALE 2
+# set -gx XCURSOR_SIZE 32
 
 # XDG
 set -gx  XDG_CONFIG_HOME     ~/.config
@@ -61,6 +61,17 @@ fish_add_path -gp            ~/Binaries
 set -gxa PATH                ~/.local/bin
 set -gxa PATH                ~/.yarn/bin
 set -gxa PATH                ~/.cargo/bin
-if type -q racket
-  set -gxa PATH                ~/.local/share/racket/(racket -v | grep -o '[0-9.]\+[0-9]')/bin
+set -gxa PATH                ~/.nimble/bin
+set -gxa PATH                /usr/share/perl6/site/bin/
+
+if status --is-interactive
+  type -q opam; and eval (opam env) 
 end
+# if type -q racket
+#   set -gxa PATH                ~/.local/share/racket/(racket -v | grep -o '[0-9.]\+[0-9]')/bin
+# end
+
+# if type -q rbenv 
+#   status --is-interactive; and rbenv init - fish | source
+# end
+

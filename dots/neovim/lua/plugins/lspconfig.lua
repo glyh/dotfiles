@@ -59,10 +59,13 @@ return function()
   -- lspconfig.pyright.setup { capabilities = capabilities }
   -- lspconfig.emmet_ls.setup {}
   -- lspconfig.jdtls.setup {}
-  lspconfig.ocamllsp.setup {
+  --[[ lspconfig.ocamllsp.setup {
     root_dir = lspconfig.util.root_pattern(".git")
-  }
+  } ]]
   -- lspconfig.hls.setup {}
   -- lspconfig.dartls.setup {}
-  lspconfig.gopls.setup{}
+  -- lspconfig.gopls.setup{}
+  lspconfig.elixirls.setup {
+    cmd = { "elixir-ls" }
+  }
 end

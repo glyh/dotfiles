@@ -116,13 +116,14 @@
 (defn tools []
   (println "Setting up tools")
   (links
-    {(cfg "ranger")       (dot "ranger")
-     (cfg "tealdeer")     (dot "tealdeer")
-     (cfg "bat")          (dot "bat")
-     (cfg "starship")     (dot "starship")
-     (hom ".proxychains") (dot "proxychains")
-     (cfg "kmonad")       (dot "kmonad")
-     (hom ".haskeline")   (dot "ghc/.haskeline")})
+    {(cfg "ranger")        (dot "ranger")
+     (cfg "tealdeer")      (dot "tealdeer")
+     (cfg "bat")           (dot "bat")
+     (cfg "starship")      (dot "starship")
+     (hom ".proxychains")  (dot "proxychains")
+     (cfg "kmonad")        (dot "kmonad")
+     (hom ".default-gems") (dot "ruby/.default-gems")
+     (hom ".haskeline")    (dot "ghc/.haskeline")})
   (aria2) (mpd))
 
 (defn softwares []
