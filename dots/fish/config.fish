@@ -46,7 +46,11 @@ function f
     command rm -f -- $tempfile
     return $return_value
 end
-alias a="dnf"
+
+alias pad="pamac install --no-confirm"
+alias pup="pamac checkupdates"
+alias prm="pamac remove"
+
 alias rm="rm -i"
 alias tp="trash-put"
 alias tl="trash-list"

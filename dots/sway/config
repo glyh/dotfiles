@@ -314,11 +314,11 @@ exec pgrep aria2c || aria2c -D
 exec pgrep agent || /usr/lib/geoclue-2.0/demos/agent
 exec pgrep gammastep || gammastep &
 exec pgrep waybar || waybar -c ~/.config/waybar/conf_sway &
-exec pgrep ulauncher || ulauncher --no-window &
+exec pgrep ulauncher || ulauncher --hide-window &
 exec pgrep mako || mako
-exec pgrep v2raya || v2raya --lite
+# exec pgrep v2raya || v2raya --lite
 exec --no-startup-id pgrep fcitx5 || fcitx5 -d
-exec pgrep kmonad || kmonad ~/.config/kmonad/kmonad.kbd
+# exec pgrep kmonad || kmonad ~/.config/kmonad/kmonad.kbd
 exec pgrep mpd || mpd --no-daemon --stdout --verbose
 # exec_always 'xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2'
 
