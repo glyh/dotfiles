@@ -93,11 +93,11 @@
   (println "Setting up base")
   (links 
     {(hom "Binaries")  (| script-dir "bin")
-     (cfg "fish")     (dot "fish")
+     ; (cfg "fish")     (dot "fish")
      (cfg "git")      (dot "git")
      (hom ".inputrc") (dot "readline/.inputrc")
      (hom ".profile") (dot "session/.profile")})
-  (neovim) (fish) (electron))
+  #_(neovim) #_(fish) (electron))
 
 (defn de []
   (println "Setting up DE")

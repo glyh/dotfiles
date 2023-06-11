@@ -8,8 +8,8 @@ set -x fish_cursor_visual block
 set fish_vi_force_cursor
 
 # Plugins
-starship init fish | source # Use starship
-zoxide init fish | source
+type -q starship; and starship init fish | source # Use starship
+type -q zoxide; and zoxide init fish | source
 # source /opt/asdf-vm/asdf.fish
 
 # Editor commands
@@ -25,8 +25,9 @@ alias ew="$EDITOR ~/.config/sway/config" # Window manager
 
 # Tools
 alias g="git"
+alias gr="cd (git root)"
 alias l="exa"
-alias ls="exa"
+# alias ls="exa"
 alias la="exa -la"
 
 # https://github.com/ranger/ranger/wiki/Integration-with-other-programs#changing-directories
@@ -45,7 +46,7 @@ function f
     command rm -f -- $tempfile
     return $return_value
 end
-alias a="paru"
+alias a="dnf"
 alias rm="rm -i"
 alias tp="trash-put"
 alias tl="trash-list"
