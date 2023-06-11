@@ -121,7 +121,7 @@ mode "nag" {
 
     # Start your launcher
     #bindsym $mod+d exec rofi -no-lazy-grab -show drun -modi drun
-    bindsym $mod+s exec ulauncher-toggle
+    bindsym $mod+s exec tofi-drun --fuzzy-match true | bash -e
     #| xargs swaymsg exec --
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -279,7 +279,7 @@ bindsym $mod+r mode "resize"
 
 #for_window [app_id="Google-chrome"] border none
 
-for_window [app_id="ulauncher"] border none
+# for_window [app_id="ulauncher"] border none
 for_window [app_id="floating"] floating enabled
 for_window [app_id="ghosttext"], floating enable, move scratchpad
 #for_window [title="Adobe Photoshop CC 2018"] border normal
@@ -314,7 +314,7 @@ exec pgrep aria2c || aria2c -D
 exec pgrep agent || /usr/lib/geoclue-2.0/demos/agent
 exec pgrep gammastep || gammastep &
 exec pgrep waybar || waybar -c ~/.config/waybar/conf_sway &
-exec pgrep ulauncher || ulauncher --hide-window &
+# exec pgrep ulauncher || ulauncher --hide-window &
 exec pgrep mako || mako
 # exec pgrep v2raya || v2raya --lite
 exec --no-startup-id pgrep fcitx5 || fcitx5 -d
