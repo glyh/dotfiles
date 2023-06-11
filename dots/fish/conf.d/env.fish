@@ -25,9 +25,22 @@ if type -q nvim;
     set -gx  EDITOR              nvim
 end
 
-if type -q starship; 
+if type -q page; 
     set -gx  PAGER               page
     set -gx  MANPAGER            "page -t man"
+
+    function man
+        if test (count $argv) -lt 1
+            echo "What manual page do you want? For example, try 'man man'."
+        else if test (count $argv) -lt 2
+            set -l prog $argv[1]
+            page "man://"$prog
+        else
+            set -l sect $argv[-2]
+            set -l prog $argv[-1]
+            page "man://"$prog"("$sect")"
+        end
+    end
 end
 if type -q kitty; 
     set -gx  TERM                kitty

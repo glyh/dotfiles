@@ -72,17 +72,3 @@ alias nc="ncmpcpp"
 # alias wasi-clang="$WASI_SDK_PATH/bin/clang --sysroot=$WASI_SDK_PATH/share/wasi-sysroot"
 alias st="stack"
 alias cg="cargo"
-
-# thefuck --alias | source
-function man
-  if test (count $argv) -lt 1
-    echo "What manual page do you want? For example, try 'man man'."
-  else if test (count $argv) -lt 2
-    set -l prog $argv[1]
-    page "man://"$prog
-  else
-    set -l sect $argv[-2]
-    set -l prog $argv[-1]
-    page "man://"$prog"("$sect")"
-  end
-end
