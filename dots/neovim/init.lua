@@ -405,12 +405,12 @@ require('packer').startup({ function(use)
         requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' },
         config = require('plugins.telescope')
     }
-    --[[ use { 'nvim-telescope/telescope-frecency.nvim',
+    use { 'nvim-telescope/telescope-frecency.nvim',
         requires = { 'tami5/sql.nvim' },
         config = function()
             require"telescope".load_extension("frecency")
         end
-    } ]]
+    }
     use { 'nvim-telescope/telescope-fzf-native.nvim',
         requires = 'nvim-telescope/telescope.nvim',
         run = 'make'
