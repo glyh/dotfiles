@@ -16,15 +16,22 @@ set -gx HOME_LANG            zh
 # XDG
 set -gx  XDG_CONFIG_HOME     ~/.config
 set -gx  XDG_USER_CONFIG_DIR ~/.config
-set -gx  XDG_CURRENT_DESKTOP sway 
+set -gx  XDG_CURRENT_DESKTOP gnome 
 # https://github.com/GermainZ/xdg-desktop-portal-termfilechooser
 
 # Default utils
-set -gx  VISUAL              nvim
-set -gx  EDITOR              nvim
-set -gx  PAGER               page
-set -gx  MANPAGER            "page -t man"
-set -gx  TERM                kitty
+if type -q nvim; 
+    set -gx  VISUAL              nvim
+    set -gx  EDITOR              nvim
+end
+
+if type -q starship; 
+    set -gx  PAGER               page
+    set -gx  MANPAGER            "page -t man"
+end
+if type -q kitty; 
+    set -gx  TERM                kitty
+end
 
 # Intellij 
 # set -gx  _JAVA_AWT_WM_NONREPARENTING 1
@@ -46,7 +53,7 @@ set -gx  GTK_THEME           Adwaita:dark
 # go
 # set -gx  GO111MODULE         on
 # set -gx  GOPROXY             https://goproxy.cn
-set -gx  GOPATH              ~/.config/go
+set -gx  GOPATH                ~/.config/go
 
 # # Flutter
 # set -gx FLUTTER_STORAGE_BASE_URL https://mirrors.tuna.tsinghua.edu.cn/flutter
@@ -64,9 +71,7 @@ set -gxa PATH                ~/.cargo/bin
 set -gxa PATH                ~/.nimble/bin
 set -gxa PATH                /usr/share/perl6/site/bin/
 
-if status --is-interactive
-  type -q opam; and eval (opam env) 
-end
+type -q opam; and eval (opam env) 
 # if type -q racket
 #   set -gxa PATH                ~/.local/share/racket/(racket -v | grep -o '[0-9.]\+[0-9]')/bin
 # end
