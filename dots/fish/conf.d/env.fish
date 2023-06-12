@@ -33,14 +33,17 @@ if type -q page;
         if test (count $argv) -lt 1
             echo "What manual page do you want? For example, try 'man man'."
         else 
-            if man -f $argv[1] > /dev/null
-                if test (count $argv) -lt 2
-                    set -l prog $argv[1]
-                    page "man://"$prog
-                else
-                    set -l sect $argv[-2]
-                    set -l prog $argv[-1]
+            if test (count $argv) -lt 2
+                set -f prog $argv[1]
+            else
+                set -f sect $argv[-2]
+                set -f prog $argv[-1]
+            end
+            if man -f $argv[1] &> /dev/null
+                if set -q sect 
                     page "man://"$prog"("$sect")"
+                else
+                    page "man://"$prog""
                 end
             else
                 echo "$prog: nothing appropriate."
