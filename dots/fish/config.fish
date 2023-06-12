@@ -21,7 +21,7 @@ alias es="$EDITOR ~/.config/fish/config.fish" # shell
 alias eenv="$EDITOR ~/.config/fish/conf.d/env.fish" # environment variables
 alias ert="nvim -u ~/.config/nvim/test.lua" # environment variables
 alias et="nvim ~/.config/nvim/test.lua" # environment variables
-alias ew="$EDITOR ~/.config/sway/config" # Window manager
+alias ew="$EDITOR ~/.config/hypr/hyprland.conf" # Window manager
 
 # Tools
 alias g="git"

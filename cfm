@@ -97,7 +97,7 @@
      (cfg "git")      (dot "git")
      (hom ".inputrc") (dot "readline/.inputrc")
      (hom ".profile") (dot "session/.profile")})
-  (neovim) (fish) (electron))
+  #_(neovim) #_(fish) (electron))
 
 (defn de []
   (println "Setting up DE")
@@ -105,13 +105,13 @@
     {(hom "Pictures/Wallpapers") (res "wallpapers")
      (cfg "sway")                (dot "sway")
      (cfg "kanshi")              (dot "kanshi")
-     (cfg "tofi")                (dot "tofi")
-     (cfg "river")               (dot "river")
+     ;;(cfg "tofi")                (dot "tofi")
+     (cfg "hypr")                (dot "hyprland")
      (cfg "swaylock")            (dot "swaylock")
      (cfg "waybar")              (dot "waybar")
      (cfg "mako")                (dot "mako")
      (cfg "ulauncher")           (dot "ulauncher")})
-  (kitty))
+  #_(kitty))
 
 (defn tools []
   (println "Setting up tools")
@@ -124,7 +124,7 @@
      (cfg "kmonad")        (dot "kmonad")
      (hom ".default-gems") (dot "ruby/.default-gems")
      (hom ".haskeline")    (dot "ghc/.haskeline")})
-  (aria2) (mpd))
+  #_(aria2) #_(mpd))
 
 (defn softwares []
   (println "Setting up softwares")

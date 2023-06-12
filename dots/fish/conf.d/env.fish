@@ -9,7 +9,7 @@ set -gx HOME_LANG            zh
 # 'hub.fastgit.xyz'
 # 'hub.0z.gs'
 
-# SCALE 
+# SCALE, done in hyprland side
 # set -gx GDK_SCALE 2
 # set -gx XCURSOR_SIZE 32
 
