@@ -110,7 +110,7 @@
      (cfg "swaylock")            (dot "swaylock")
      (cfg "waybar")              (dot "waybar")
      (cfg "mako")                (dot "mako")
-     (cfg "ulauncher")           (dot "ulauncher")})
+     (cfg "tofi")                (dot "tofi")})
   #_(kitty))
 
 (defn tools []
