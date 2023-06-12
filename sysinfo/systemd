@@ -1,0 +1,13 @@
+UNIT FILE                          STATE   PRESET
+bluetooth.service                  enabled disabled
+getty@.service                     enabled enabled
+mpd.service                        enabled disabled
+NetworkManager-dispatcher.service  enabled disabled
+NetworkManager-wait-online.service enabled disabled
+NetworkManager.service             enabled disabled
+sddm.service                       enabled disabled
+v2raya.service                     enabled disabled
+mpd.socket                         enabled disabled
+remote-fs.target                   enabled enabled
+
+10 unit files listed.
