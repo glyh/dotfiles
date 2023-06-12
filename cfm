@@ -124,7 +124,7 @@
      (cfg "starship")      (dot "starship")
      (hom ".proxychains")  (dot "proxychains")
      (cfg "kmonad")        (dot "kmonad")
-     (hom ".default-gems") (dot "ruby/.default-gems")
+     ;;(hom ".default-gems") (dot "ruby/.default-gems")
      (hom ".haskeline")    (dot "ghc/.haskeline")})
   #_(aria2) #_(mpd))
 

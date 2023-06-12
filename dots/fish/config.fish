@@ -13,22 +13,24 @@ type -q zoxide; and zoxide init fish | source
 # source /opt/asdf-vm/asdf.fish
 
 # Editor commands
-alias e=$EDITOR
-alias pe="p GITHUB=github.com $EDITOR"
-alias er="sudoedit"
-alias ee="nvim ~/.config/nvim/init.lua" # editor
-alias es="$EDITOR ~/.config/fish/config.fish" # shell
-alias eenv="$EDITOR ~/.config/fish/conf.d/env.fish" # environment variables
-alias ert="nvim -u ~/.config/nvim/test.lua" # environment variables
-alias et="nvim ~/.config/nvim/test.lua" # environment variables
-alias ew="$EDITOR ~/.config/hypr/hyprland.conf" # Window manager
+abbr --add e $EDITOR
+abbr --add vi $EDITOR
+abbr --add vim $EDITOR
+abbr --add pe "proxychains4 GITHUB=github.com $EDITOR"
+abbr --add er "sudoedit"
+abbr --add ee "nvim ~/.config/nvim/init.lua" # editor
+abbr --add es "$EDITOR ~/.config/fish/config.fish" # shell
+abbr --add eenv "$EDITOR ~/.config/fish/conf.d/env.fish" # environment variables
+abbr --add ert "nvim -u ~/.config/nvim/test.lua" # environment variables
+abbr --add et "nvim ~/.config/nvim/test.lua" # environment variables
+abbr --add ew "$EDITOR ~/.config/hypr/hyprland.conf" # Window manager
 
 # Tools
-alias g="git"
-alias gr="cd (git root)"
-alias l="exa"
+abbr --add g "git"
+abbr --add gr "cd (git root)"
+abbr --add l "exa"
 # alias ls="exa"
-alias la="exa -la"
+abbr --add la "exa -la"
 
 # https://github.com/ranger/ranger/wiki/Integration-with-other-programs#changing-directories
 function f
@@ -47,24 +49,25 @@ function f
     return $return_value
 end
 
-alias y="yay"
+abbr --add --position anywhere y "yay"
 
-alias rm="rm -i"
-alias tp="trash-put"
-alias tl="trash-list"
-alias te="trash-empty"
-alias rt="trash-restore"
-alias pg="page"
-alias op="rifle"
-alias nf="neofetch"
-alias plz="sudo"
-alias cls="clear"
-alias rpt="eval (history --max=1)"
-alias k="kitty +kitten"
+abbr --add rm "rm -i"
+abbr --add tp "trash-put"
+abbr --add tp "trash-put"
+abbr --add tl "trash-list"
+abbr --add te "trash-empty"
+abbr --add rt "trash-restore"
+abbr --add pg "page"
+abbr --add op "rifle"
+abbr --add nf "neofetch"
+abbr --add plz "sudo"
+abbr --add cls "clear"
+abbr --add rpt "eval (history --max=1)"
+abbr --add k "kitty +kitten"
 # alias m="man"
-alias bc="bottles-cli"
-alias ytdlx="yt-dlp -x"
-alias nc="ncmpcpp"
+abbr --add bc "bottles-cli"
+abbr --add ytdlx "yt-dlp -x"
+abbr --add mu "ncmpcpp"
 
 # Languages
 # alias py="ptpython"
@@ -72,5 +75,6 @@ alias nc="ncmpcpp"
 # alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m reply.main"
 # alias ppip="pypy3 -m pip"
 # alias wasi-clang="$WASI_SDK_PATH/bin/clang --sysroot=$WASI_SDK_PATH/share/wasi-sysroot"
-alias st="stack"
-alias cg="cargo"
+abbr --add st "stack"
+abbr --add cg "cargo"
+abbr --add p "proxychains4"
