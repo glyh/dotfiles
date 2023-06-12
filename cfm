@@ -40,6 +40,7 @@
 (defn dot [name] (| script-dir "dots" name))
 (defn sys [name] (| script-dir "sys" name))
 (defn res [name] (| script-dir "res" name))
+(def app-dir (| (env "HOME") ".local" "share" "applications"))
 
 (defn read-list [path]
   (->> path
@@ -111,6 +112,7 @@
      (cfg "waybar")              (dot "waybar")
      (cfg "mako")                (dot "mako")
      (cfg "tofi")                (dot "tofi")})
+  (shell (str "sh -c 'desktop-file-install --dir=" app-dir " " (dot "applications") "/*'"))
   #_(kitty))
 
 (defn tools []

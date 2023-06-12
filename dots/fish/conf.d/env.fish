@@ -29,16 +29,22 @@ if type -q page;
     set -gx  PAGER               page
     set -gx  MANPAGER            "page -t man"
 
-    function man
+    function m
         if test (count $argv) -lt 1
             echo "What manual page do you want? For example, try 'man man'."
-        else if test (count $argv) -lt 2
-            set -l prog $argv[1]
-            page "man://"$prog
-        else
-            set -l sect $argv[-2]
-            set -l prog $argv[-1]
-            page "man://"$prog"("$sect")"
+        else 
+            if man -f $argv[1] > /dev/null
+                if test (count $argv) -lt 2
+                    set -l prog $argv[1]
+                    page "man://"$prog
+                else
+                    set -l sect $argv[-2]
+                    set -l prog $argv[-1]
+                    page "man://"$prog"("$sect")"
+                end
+            else
+                echo "$prog: nothing appropriate."
+            end
         end
     end
 end
@@ -64,8 +70,8 @@ set -gx XMODIFIERS               \@im=fcitx5
 set -gx  GTK_THEME           Adwaita:dark
 
 # go
-# set -gx  GO111MODULE         on
-# set -gx  GOPROXY             https://goproxy.cn
+set -gx  GO111MODULE         on
+set -gx  GOPROXY             https://goproxy.cn
 set -gx  GOPATH                ~/.config/go
 
 # # Flutter
