@@ -47,9 +47,7 @@ function f
     return $return_value
 end
 
-alias pad="pamac install --no-confirm"
-alias pup="pamac checkupdates"
-alias prm="pamac remove"
+alias y="yay"
 
 alias rm="rm -i"
 alias tp="trash-put"

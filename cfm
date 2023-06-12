@@ -84,8 +84,8 @@
   (fs/delete-tree (| (env "HOME") ".local/share/nvim"))
   (fs/delete-tree (| (env "HOME") ".cache/nvim"))
   (fs/delete-tree (cfg "nvim/plugin"))
-  (println "PackerSyncing")
-  (shell "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"))
+  #_(println "PackerSyncing")
+  #_(shell "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"))
 
 ;; ---- Groups ----
 
