@@ -19,6 +19,7 @@
     "height": 30,
 
     "modules-left": [
+        "wlr/workspaces",
         "hyprland/window"
     ],
     "modules-center": [],
@@ -135,8 +136,19 @@
     // },
 
     "hyprland/window": {
-        "format": "-> {}",
+        "format": "$ {}",
         "separate-outputs": true,
+    },
+
+    "wlr/workspaces": {
+      "format": "{icon} {name}",
+      "on-click": "activate",
+      "format-icons": {
+        "urgent": "",
+        "active": "",
+        "default": ""
+      },
+      "sort-by-number": true
     },
 
     "pulseaudio": {
