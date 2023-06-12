@@ -2,7 +2,7 @@
 # Make proxychains respect your shell aliases
 
 if [ $# -ne 0 ]; then
-    proxychains -q fish -c "$*"
+    proxychains -q $SHELL -c "$*"
 else
     echo "Testing if proxy is available!"
     IP_RAW=`curl -s https://ifconfig.me`
