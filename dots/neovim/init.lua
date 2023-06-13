@@ -129,11 +129,22 @@ require('packer').startup({ function(use)
 
     ----- UI -----
 
+    use {
+        'brenoprata10/nvim-highlight-colors'
+    }
+
+    use 'ap/vim-css-color'
+
     use { 'shaunsingh/nord.nvim',
         config = function()
             require('nord').set()
         end,
     }
+    --[[ use { 'nyoom-engineering/oxocarbon.nvim',
+        config = function()
+            vim.cmd.colorscheme "oxocarbon"
+        end
+    } ]]
 
     use { 'nvim-lualine/lualine.nvim',
         requires = 'kyazdani42/nvim-web-devicons',

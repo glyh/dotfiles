@@ -109,32 +109,6 @@
         "tooltip-format": "{ifname}: {ipaddr}"
     },
 
-    // "sway/mode": {
-    //     "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
-    //     "tooltip": false
-    // },
-
-    //"sway/window": {
-    //    "format": "{}",
-    //    "max-length": 120
-    //},
-
-    // "sway/workspaces": {
-    //     "all-outputs": false,
-    //     "disable-scroll": true,
-    //     "format": "{icon} {name}",
-    //     "format-icons": {
-    //         "1:www": "龜", // Icon: firefox-browser
-    //         "2:mail": "", // Icon: mail
-    //         "3:editor": "", // Icon: code
-    //         "4:terminals": "", // Icon: terminal
-    //         "5:portal": "", // Icon: terminal
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
-
     "hyprland/window": {
         "format": "$ {}",
         "separate-outputs": true,

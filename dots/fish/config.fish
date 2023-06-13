@@ -16,7 +16,7 @@ type -q zoxide; and zoxide init fish | source
 abbr --add e $EDITOR
 abbr --add vi $EDITOR
 abbr --add vim $EDITOR
-abbr --add pe "proxychains4 GITHUB=github.com $EDITOR"
+abbr --add pe "GITHUB=github.com proxychains4 $EDITOR"
 abbr --add er "sudoedit"
 abbr --add ee "nvim ~/.config/nvim/init.lua" # editor
 abbr --add es "$EDITOR ~/.config/fish/config.fish" # shell

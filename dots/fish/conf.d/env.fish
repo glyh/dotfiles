@@ -53,6 +53,7 @@ if type -q page;
 end
 if type -q kitty; 
     set -gx  TERM                kitty
+    set -gx  TERMINAL            kitty
 end
 
 # Intellij 
@@ -88,10 +89,9 @@ set -gx JAVA_HOME            /usr/lib/jvm/default
 # Path
 fish_add_path -gp            ~/Binaries
 set -gxa PATH                ~/.local/bin
-set -gxa PATH                ~/.yarn/bin
 set -gxa PATH                ~/.cargo/bin
 set -gxa PATH                ~/.nimble/bin
-set -gxa PATH                /usr/share/perl6/site/bin/
+set -gxa PATH                ~/.roswell/bin
 
 type -q opam; and eval (opam env) 
 # if type -q racket
