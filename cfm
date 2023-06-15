@@ -80,13 +80,14 @@
   (link (cfg "kitty/theme.conf") (cfg "kitty/kitty-themes/themes/Apprentice.conf")))
 
 (defn neovim []
-  (link (cfg "nvim") (dot "neovim"))
   (println "Clearing neovim cache")
   (fs/delete-tree (| (env "HOME") ".local/share/nvim"))
   (fs/delete-tree (| (env "HOME") ".cache/nvim"))
   (fs/delete-tree (cfg "nvim/plugin"))
-  #_(println "PackerSyncing")
-  #_(shell "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"))
+  (println "Downloading NvChad")
+  (clone "https://github.com/NvChad/NvChad" (cfg "nvim"))
+  (fs/delete-tree (cfg "nvim/lua/custom"))
+  (link (cfg "nvim/lua/custom") (dot "nvchad")))
 
 ;; ---- Groups ----
 
@@ -98,7 +99,7 @@
      (cfg "git")      (dot "git")
      (hom ".inputrc") (dot "readline/.inputrc")
      (hom ".profile") (dot "session/.profile")})
-  #_(neovim) #_(fish) (electron))
+  (neovim) #_(fish) (electron))
 
 (defn de []
   (println "Setting up DE")
