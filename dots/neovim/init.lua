@@ -105,18 +105,18 @@ require('packer').startup({ function(use)
 
     ----- FileType Support -----
 
-    use { 'tylerw/zinit-vim-syntax', ft = 'zsh' }
-    use { 'clones/vim-zsh', ft = 'zsh' }
+    -- use { 'tylerw/zinit-vim-syntax', ft = 'zsh' }
+    -- use { 'clones/vim-zsh', ft = 'zsh' }
     -- use { 'ajouellette/sway-vim-syntax', ft = 'sway' }
-    use { 'janet-lang/janet.vim', ft = 'janet' }
+    -- use { 'janet-lang/janet.vim', ft = 'janet' }
     -- use { 'wlangstroth/vim-racket', ft = 'racket' }
-    use { 'kmonad/kmonad-vim', ft = 'kbd' }
+    -- use { 'kmonad/kmonad-vim', ft = 'kbd' }
     use { 'ziglang/zig.vim', ft = 'zig' }
-    use { 'zah/nim.vim' }
+    -- use { 'zah/nim.vim' }
     -- use { 'ionide/Ionide-vim' }
-    use { 'kongo2002/fsharp-vim' }
-    use { 'hylang/vim-hy', ft = 'hy' }
-    use { 'vim-crystal/vim-crystal' }
+    -- use { 'kongo2002/fsharp-vim' }
+    -- use { 'hylang/vim-hy', ft = 'hy' }
+    -- use { 'vim-crystal/vim-crystal' }
     -- use { 'jdonaldson/vaxe' }
 
     use { 'lervag/vimtex',
