@@ -99,7 +99,7 @@
      (cfg "git")      (dot "git")
      (hom ".inputrc") (dot "readline/.inputrc")
      (hom ".profile") (dot "session/.profile")})
-  (neovim) #_(fish) (electron))
+  (neovim) #_(fish))
 
 (defn de []
   (println "Setting up DE")
@@ -112,8 +112,10 @@
      (cfg "swaylock")            (dot "swaylock")
      (cfg "waybar")              (dot "waybar")
      (cfg "mako")                (dot "mako")
-     (cfg "tofi")                (dot "tofi")})
+     (cfg "tofi")                (dot "tofi")
+     (cfg "doom")                (dot "doom")})
   (shell (str "sh -c 'desktop-file-install --dir=" app-dir " " (dot "applications") "/*'"))
+  (electron)
   #_(kitty))
 
 (defn tools []
@@ -139,9 +141,12 @@
   (links 
     {(cfg "cargo/config.toml") (dot "cargo/config.toml")}))
 
+(defn common-lisp []
+  (links {(hom ".roswell/init.lisp") (dot "roswell/init.lisp")}))
+  
 (defn dots []
   (println "Setting up all dotfiles")
-  (base) (de) (tools) (softwares) (package-managers))
+  (base) (de) (tools) (softwares) (package-managers) (common-lisp))
 
 (defn installed? [package]
   (try (shell {:out nil} "pacman -Qi " package) 
