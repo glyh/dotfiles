@@ -83,11 +83,11 @@
   (println "Clearing neovim cache")
   (fs/delete-tree (| (env "HOME") ".local/share/nvim"))
   (fs/delete-tree (| (env "HOME") ".cache/nvim"))
-  (fs/delete-tree (cfg "nvim/plugin"))
-  (println "Downloading NvChad")
-  (clone "https://github.com/NvChad/NvChad" (cfg "nvim"))
-  (fs/delete-tree (cfg "nvim/lua/custom"))
-  (link (cfg "nvim/lua/custom") (dot "nvchad")))
+  (fs/delete-tree (cfg "nvim"))
+  ;; (println "Downloading NvChad")
+  ;; (clone "https://github.com/NvChad/NvChad" (cfg "nvim"))
+  ;; (fs/delete-tree (cfg "nvim/lua/custom"))
+  (link (cfg "nvim") (dot "neovim_lazy")))
 
 ;; ---- Groups ----
 
