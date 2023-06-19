@@ -15,4 +15,4 @@ dots/kitty/theme.conf
 dots/mpd/database
 
 .nrepl-port
-
+dots/neovim_lazy/lazy-lock.json

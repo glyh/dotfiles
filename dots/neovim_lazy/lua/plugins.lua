@@ -59,22 +59,6 @@ return {
     end
   },
 
-  { 'beauwilliams/focus.nvim',
-    cmd = {
-      'FocusDisable', 'FocusEnable', 'FocusToggle', 'FocusSplitNicely',
-      'FocusSplitCycle', 'FocusDisableWindow', 'FocusEnableWindow',
-      'FocusToggleWindow', 'FocusGetDisabledWindows', 'FocusSplitLeft',
-      'FocusSplitDown', 'FocusSplitUp', 'FocusSplitRight', 'FocusEqualise',
-      'FocusMaximise', 'FocusMaxOrEqual'
-    },
-    config = function()
-      require('focus').setup({
-        enable = true,
-        width = math.floor(0.6 * vim.o.columns)
-      })
-    end,
-  },
-
   { 'lewis6991/gitsigns.nvim',
     lazy = false,
     dependencies = 'nvim-lua/plenary.nvim',
@@ -223,6 +207,10 @@ return {
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'PaterJason/cmp-conjure' },
   { 'saadparwaiz1/cmp_luasnip' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-path' },
+  { 'hrsh7th/cmp-cmdline' },
   -- telescope extensions
   { 'nvim-telescope/telescope-ui-select.nvim', 
     init = function()
