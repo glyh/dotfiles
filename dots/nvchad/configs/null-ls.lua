@@ -17,6 +17,9 @@ local sources = {
 
   -- cpp
   b.formatting.clang_format,
+
+  -- clojure
+  b.diagnostics.clj_kondo,
 }
 
 null_ls.setup {
