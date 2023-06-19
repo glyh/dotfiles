@@ -37,12 +37,10 @@ return {
   },
   -- }}}
   -- UI {{{
-  { 'glyh/oxocarbon.nvim',
-    branch = 'lualine-support',
+  { 'shaunsingh/nord.nvim',
     lazy = false,
     config = function()
-      vim.opt.background = 'dark'
-      vim.cmd.colorscheme('oxocarbon')
+      vim.cmd.colorscheme('nord')
     end
   },
   { 'nvim-lualine/lualine.nvim',
@@ -50,7 +48,7 @@ return {
     config = function()
       require('lualine').setup({
         options = {
-          theme = 'oxocarbon',
+          theme = 'nord',
           refresh = {
             statusline = 200,
           }
@@ -105,6 +103,7 @@ return {
       end
     end
   },
+  { 'onsails/lspkind.nvim' },
   -- }}}
   -- Editing {{{
   { 'machakann/vim-sandwich',
@@ -207,7 +206,6 @@ return {
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'PaterJason/cmp-conjure' },
   { 'saadparwaiz1/cmp_luasnip' },
-  { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/cmp-buffer' },
   { 'hrsh7th/cmp-path' },
   { 'hrsh7th/cmp-cmdline' },

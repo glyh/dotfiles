@@ -1,24 +1,94 @@
-local function has_words_before()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
+-- https://github.com/NvChad/NvChad/blob/v2.0/lua/plugins/configs/cmp.lua
+local function get_opts()
 
-local function config_cmp()
-  local cmp = require('cmp')
-  local luasnip = require("luasnip")
+  local cmp = require "cmp"
 
-  cmp.setup({
+  local cmp_ui = {
+      icons = true,
+      lspkind_text = true,
+      style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+      border_color = "grey_fg", -- only applicable for "default" style, use color names from base30 variables
+      selected_item_bg = "colored", -- colored / simple
+  }
+
+  local cmp_style = cmp_ui.style
+
+  local field_arrangement = {
+    atom = { "kind", "abbr", "menu" },
+    atom_colored = { "kind", "abbr", "menu" },
+  }
+
+  local formatting_style = {
+    -- default fields order i.e completion word + item.kind + item.kind icons
+    fields = field_arrangement[cmp_style] or { "abbr", "kind", "menu" },
+
+    format = function(_, item)
+      local icons = require("icons").lspkind
+      local icon = (cmp_ui.icons and icons[item.kind]) or ""
+
+      if cmp_style == "atom" or cmp_style == "atom_colored" then
+        icon = " " .. icon .. " "
+        item.menu = cmp_ui.lspkind_text and "   (" .. item.kind .. ")" or ""
+        item.kind = icon
+      else
+        icon = cmp_ui.lspkind_text and (" " .. icon .. " ") or icon
+        item.kind = string.format("%s %s", icon, cmp_ui.lspkind_text and item.kind or "")
+      end
+
+      return item
+    end,
+  }
+
+  -- local function border(hl_name)
+  --   return {
+  --     { "╭", hl_name },
+  --     { "─", hl_name },
+  --     { "╮", hl_name },
+  --     { "│", hl_name },
+  --     { "╯", hl_name },
+  --     { "─", hl_name },
+  --     { "╰", hl_name },
+  --     { "│", hl_name },
+  --   }
+  -- end
+
+  local options = {
+    completion = {
+      completeopt = "menu,menuone",
+    },
+
+    window = {
+      completion = {
+        -- side_padding = (cmp_style ~= "atom" and cmp_style ~= "atom_colored") and 1 or 0,
+        -- winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
+        scrollbar = false,
+      },
+      documentation = {
+        -- border = border "CmpDocBorder",
+        winhighlight = "Normal:CmpDoc",
+      },
+    },
     snippet = {
-      -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        require("luasnip").lsp_expand(args.body)
       end,
     },
-    window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
+
+    -- formatting = formatting_style,
+    formatting = {
+      format = function(entry, vim_item)
+        if vim.tbl_contains({ 'path' }, entry.source.name) then
+          local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+          if icon then
+            vim_item.kind = icon
+            vim_item.kind_hl_group = hl_group
+            return vim_item
+          end
+        end
+        return require('lspkind').cmp_format({ with_text = false })(entry, vim_item)
+      end
     },
+
     mapping = {
       ["<C-p>"] = cmp.mapping.select_prev_item(),
       ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -38,7 +108,10 @@ local function config_cmp()
         else
           fallback()
         end
-      end, { "i", "s", }),
+      end, {
+        "i",
+        "s",
+      }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -47,51 +120,33 @@ local function config_cmp()
         else
           fallback()
         end
-      end, { "i", "s", }),
+      end, {
+        "i",
+        "s",
+      }),
     },
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' }, -- For luasnip users.
-      { name = 'conjure' },
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'buffer' }
-    }
-  })
+      { name = "nvim_lsp" },
+      { name = "conjure" },
+      { name = "luasnip" },
+      { name = "buffer" },
+      { name = "path" },
+      { name = "cmdline" },
+      { name = "nvim_lua" },
+    },
+  }
 
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
+  -- if cmp_style ~= "atom" and cmp_style ~= "atom_colored" then
+  --   options.window.completion.border = border "CmpBorder"
+  -- end
 
-  -- -- Set up lspconfig.
-  -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  -- -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-  --   capabilities = capabilities
-  -- }
+  return options
 end
+
+local function config_cmp()
+  require('cmp').setup(get_opts())
+end
+
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
