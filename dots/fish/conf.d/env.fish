@@ -1,6 +1,6 @@
 # Basic info
 set -gx HOME_LANG            zh
-# set -gx GITHUB               'gitclone.com/github.com'
+set -gx GITHUB               https://hub.fgit.ml/
 # 'github.com.cnpmjs.org'
 # 'gitclone.com/github.com'
 # 'hub.fastgit.org'

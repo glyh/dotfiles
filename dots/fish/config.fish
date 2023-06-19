@@ -17,6 +17,7 @@ abbr --add e $EDITOR
 abbr --add vi $EDITOR
 abbr --add vim $EDITOR
 abbr --add pe "GITHUB=github.com proxychains4 $EDITOR"
+abbr --add eu "nvim -u NONE"
 abbr --add er "sudoedit"
 abbr --add ee "nvim ~/.config/nvim/lua/custom/plugins.lua" # editor
 abbr --add es "$EDITOR ~/.config/fish/config.fish" # shell

@@ -121,125 +121,121 @@ local plugins = {
 
 
   -- Lisp
-  { 'eraserhd/parinfer-rust',
-    ft = lisps,
-    build = 'cargo build --release',
-  },
-  { 'guns/vim-sexp',
-    enabled = false,
-    ft = lisps,
-    config = function()
-      vim.g.sexp_filetypes = vim.fn.join(lisps, ",")
-    end
-  },
-  { 'tpope/vim-sexp-mappings-for-regular-people',
-    enabled = false,
-    ft = lisps,
-    dependencies = { 'guns/vim-sexp' },
-  },
+  -- { 'eraserhd/parinfer-rust',
+  --   ft = lisps,
+  --   build = 'cargo build --release',
+  -- },
+  -- { 'guns/vim-sexp',
+  --   enabled = false,
+  --   ft = lisps,
+  --   config = function()
+  --     vim.g.sexp_filetypes = vim.fn.join(lisps, ",")
+  --   end
+  -- },
+  -- { 'tpope/vim-sexp-mappings-for-regular-people',
+  --   enabled = false,
+  --   ft = lisps,
+  --   dependencies = { 'guns/vim-sexp' },
+  -- },
 
   -- Clojure
   -- Iced
-  { 'liquidz/vim-iced',
-    enabled = false,
-    ft = 'clojure',
-    config = function()
-      vim.g.iced_enable_default_key_mappings = true
-      vim.g.iced_default_key_mapping_leader = '<LocalLeader>'
-    end
-  },
-  { 'liquidz/vim-iced-telescope-selector',
-    enabled = false,
-    ft = 'clojue',
-    dependencies = { 'liquidz/vim-iced' },
-    config = function()
-      vim.g['iced#selector#search_order'] = { 'telescope' }
-    end
-  },
-  { 'lamp/cmp-iced',
-    enabled = false,
-    ft = 'clojure',
-    dependencies = { 'liquidz/vim-iced', 'hrsh7th/nvim-cmp' },
-    config = function()
-      require('cmp').config.sources({ name = 'iced' })
-    end
-  },
+  -- { 'liquidz/vim-iced',
+  --   enabled = false,
+  --   ft = 'clojure',
+  --   config = function()
+  --     vim.g.iced_enable_default_key_mappings = true
+  --     vim.g.iced_default_key_mapping_leader = '<LocalLeader>'
+  --   end
+  -- },
+  -- { 'liquidz/vim-iced-telescope-selector',
+  --   enabled = false,
+  --   ft = 'clojue',
+  --   dependencies = { 'liquidz/vim-iced' },
+  --   config = function()
+  --     vim.g['iced#selector#search_order'] = { 'telescope' }
+  --   end
+  -- },
+  -- { 'lamp/cmp-iced',
+  --   enabled = false,
+  --   ft = 'clojure',
+  --   dependencies = { 'liquidz/vim-iced', 'hrsh7th/nvim-cmp' },
+  --   config = function()
+  --     require('cmp').config.sources({ name = 'iced' })
+  --   end
+  -- },
 
-  { 'Olical/conjure',
-    ft = 'clojure',
-    config = function()
-        vim.g['conjure#log#hud#border'] = 'none'
-        vim.g['conjure#extract#tree_sitter#enabled'] = true
-        vim.g['conjure#mapping#eval_visual'] = 'e'
-        vim.g['conjure#mapping#doc_word'] = false
+  -- { 'Olical/conjure',
+  --   ft = 'clojure',
+  --   config = function()
+  --       vim.g['conjure#log#hud#border'] = 'none'
+  --       vim.g['conjure#extract#tree_sitter#enabled'] = true
+  --       vim.g['conjure#mapping#eval_visual'] = 'e'
+  --       vim.g['conjure#mapping#doc_word'] = false
 
-        vim.g['conjure#client#scheme#stdio#command'] = 'chez'
-        vim.g['conjure#client#scheme#stdio#prompt_pattern'] = '> $'
-        vim.g['conjure#client#scheme#stdio#value_prefix_pattern'] = false
+  --       vim.g['conjure#client#scheme#stdio#command'] = 'chez'
+  --       vim.g['conjure#client#scheme#stdio#prompt_pattern'] = '> $'
+  --       vim.g['conjure#client#scheme#stdio#value_prefix_pattern'] = false
 
-        require('overseer').register_template({
-            name = "Start Lein nREPL",
-            builder = function()
-              return {
-                name = 'cljjack',
-                cmd = { "lein", "update-in", ":plugins", "conj", '[cider/cider-nrepl "0.24.0"]', '--', 'repl' },
-              }
-            end,
-            condition = {
-              filetype = { "clojure" },
-            },
-        })
-    end,
-  },
-  { 'PaterJason/cmp-conjure', dependencies = {'nvim-cmp', 'conjure'} },
-  { 'hrsh7th/nvim-cmp',
-    config = function(_, opts)
-      opts.sources[#opts.sources + 1] = { name = 'conjure' }
-      require("cmp").setup(opts)
-    end
-  },
+  --       require('overseer').register_template({
+  --           name = "Start Lein nREPL",
+  --           builder = function()
+  --             return {
+  --               name = 'cljjack',
+  --               cmd = { "lein", "update-in", ":plugins", "conj", '[cider/cider-nrepl "0.24.0"]', '--', 'repl' },
+  --             }
+  --           end,
+  --           condition = {
+  --             filetype = { "clojure" },
+  --           },
+  --       })
+  --   end,
+  -- },
+  -- { 'PaterJason/cmp-conjure', dependencies = {'nvim-cmp', 'conjure'} },
+  -- { 'hrsh7th/nvim-cmp',
+  --   config = function(_, opts)
+  --     opts.sources[#opts.sources + 1] = { name = 'conjure' }
+  --     require("cmp").setup(opts)
+  --   end
+  -- },
 
-  { 'stevearc/overseer.nvim',
-    lazy = false,
-    config = function()
-      require('overseer').setup({
-        templates = { 'builtin' },
-      })
-    end
-  },
+  -- { 'stevearc/overseer.nvim',
+  --   lazy = false,
+  --   config = function()
+  --     require('overseer').setup({
+  --       templates = { 'builtin' },
+  --     })
+  --   end
+  -- },
 
-  { 'nvim-telescope/telescope-ui-select.nvim' },
+  -- { 'nvim-telescope/telescope-ui-select.nvim', disable = true },
 
-  { 'toppair/reach.nvim',
-    config = function()
-      require('reach').setup({
-        notifications = true
-      })
-    end
-  },
+  -- { 'toppair/reach.nvim',
+  --   disable = true,
+  --   config = function()
+  --     require('reach').setup({
+  --       notifications = true
+  --     })
+  --   end
+  -- },
 
-  { 'rcarriga/nvim-notify',
-    lazy = false,
-    config = function ()
-      vim.notify = require('notify')
-    end
-  },
+  -- { 'rcarriga/nvim-notify',
+  --   disable = true,
+  --   lazy = false,
+  --   config = function ()
+  --     vim.notify = require('notify')
+  --   end
+  -- },
 
-  { 'nvim-telescope/telescope.nvim',
-    opts = {
-      extensions_list = { 'themes', 'terms', 'ui-select', 'projects' }
-    }
-    
-  },
-
-  { 'ahmedkhalf/project.nvim',
-    -- lazy = false,
-    config = function()
-      require("project_nvim").setup{
-        patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "project.clj" },
-      }
-    end
-  },
+  -- { 'ahmedkhalf/project.nvim',
+  --   disable = true,
+  --   lazy = false,
+  --   config = function()
+  --     require("project_nvim").setup{
+  --       patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "project.clj" },
+  --     }
+  --   end
+  -- },
 }
 
 return plugins
