@@ -16,7 +16,9 @@ M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
 
-    ["<leader>v"] = {vsplit_new_file , "New vertical split with a file" },
+    ["<leader>v"] = { vsplit_new_file , "New vertical split with a file" },
+    ["<leader>u"] = { "<Cmd>NvChadUpdate<CR>" , "Update NvChad" },
+    ["<leader>fp"] = { "<Cmd>Telescope projects<CR>", "Find projects" },
     ["<leader>tt"] = {"<Cmd>NvimTreeFocus<CR>", "Focus nvimtree" },
     ["<leader>fb"] = {function() require('reach').buffers() end, "Find buffers" },
 

@@ -208,12 +208,7 @@ local plugins = {
     end
   },
 
-  { 'nvim-telescope/telescope-ui-select.nvim',
-    lazy = false,
-    config = function()
-      require('telescope').load_extension('ui-select')
-    end
-  },
+  { 'nvim-telescope/telescope-ui-select.nvim' },
 
   { 'toppair/reach.nvim',
     config = function()
@@ -230,6 +225,21 @@ local plugins = {
     end
   },
 
+  { 'nvim-telescope/telescope.nvim',
+    opts = {
+      extensions_list = { 'themes', 'terms', 'ui-select', 'projects' }
+    }
+    
+  },
+
+  { 'ahmedkhalf/project.nvim',
+    -- lazy = false,
+    config = function()
+      require("project_nvim").setup{
+        patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "project.clj" },
+      }
+    end
+  },
 }
 
 return plugins

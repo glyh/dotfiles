@@ -1,5 +1,9 @@
 local M = {}
 
+for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
+  config.install_info.url = config.install_info.url:gsub("https://github.com/", _G.GITHUB)
+end
+
 M.treesitter = {
   ensure_installed = {
     'c',
@@ -30,7 +34,7 @@ M.mason = {
   providers = { 'mason.providers.client' },
   -- registries = { 'github:mason-org/mason-registry@latest' },
   github = {
-    download_url_template = 'https://hub.yzuu.cf/%s/releases/download/%s/%s',
+    download_url_template = 'https://' .. _G.GITHUB .. '/%s/releases/download/%s/%s',
   }
 }
 
@@ -50,8 +54,8 @@ M.nvimtree = {
   },
 }
 
-M.telescope = {
-  extension_list = { 'themes', 'terms', 'ui-select' },
-}
+-- M.telescope = {
+--   extensions_list = { 'themes', 'terms', 'ui-select', 'projects' },
+-- }
 
 return M

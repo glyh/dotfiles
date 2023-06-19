@@ -9,3 +9,5 @@
 vim.opt.termguicolors = true
 
 vim.g.maplocalleader = ','
+
+_G.GITHUB = vim.env["GITHUB"] or "github.com"
