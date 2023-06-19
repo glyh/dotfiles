@@ -47,8 +47,16 @@ local plugins = {
   -- }}}
 
   -- UI {{{
+  { "folke/which-key.nvim",
+    -- lazy = false,
+    keys = { "<leader>", '"', "'", "`", "c", "v", ";" },
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "whichkey")
+      require("which-key").setup(opts)
+      require 'custom.configs.whichkey'
+    end,
+  },
 
-  -- UI
   { 'folke/todo-comments.nvim',
       dependencies = { 'nvim-lua/plenary.nvim' },
       lazy = false,
