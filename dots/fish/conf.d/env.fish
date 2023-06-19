@@ -25,6 +25,9 @@ if type -q nvim;
     set -gx  EDITOR              nvim
 end
 
+# Emacs
+set -gx DOOMGITCONFIG ~/.config/git/config
+
 if type -q page; 
     set -gx  PAGER               page
     set -gx  MANPAGER            "page -t man"
@@ -59,8 +62,9 @@ end
 # Intellij 
 # set -gx  _JAVA_AWT_WM_NONREPARENTING 1
 
-# Firefox
+# Wayland
 set -gx MOZ_ENABLE_WAYLAND   1
+set -gx QT_QPA_PLATFORM          wayland
 
 # Qutebrowser
 set -gx QUTE_QT_WRAPPER          PyQt6
@@ -91,12 +95,14 @@ fish_add_path -gp            ~/Binaries
 set -gxa PATH                ~/.local/bin
 set -gxa PATH                ~/.cargo/bin
 set -gxa PATH                ~/.nimble/bin
-set -gxa PATH                ~/.roswell/bin
+# set -gxa PATH                ~/.roswell/bin
+set -gxa PATH                ~/.config/emacs/bin
+set -gxa PATH                ~/.local/share/nvim/lazy/vim-iced/bin
 
 type -q opam; and eval (opam env) 
-# if type -q racket
-#   set -gxa PATH                ~/.local/share/racket/(racket -v | grep -o '[0-9.]\+[0-9]')/bin
-# end
+if type -q racket
+  set -gxa PATH                ~/.local/share/racket/(racket -v | grep -o '[0-9.]\+[0-9]')/bin
+end
 
 # if type -q rbenv 
 #   status --is-interactive; and rbenv init - fish | source
