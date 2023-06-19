@@ -1,8 +1,8 @@
 local M = {}
 
-for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
-  config.install_info.url = config.install_info.url:gsub("https://github.com/", _G.GITHUB)
-end
+--  for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
+--    config.install_info.url = config.install_info.url:gsub("https://github.com/", _G.GITHUB)
+--  end
 
 M.treesitter = {
   ensure_installed = {
@@ -31,7 +31,7 @@ M.mason = {
     'clj-kondo',
     'clojure-lsp',
   },
-  providers = { 'mason.providers.client' },
+  -- providers = { 'mason.providers.client' },
   -- registries = { 'github:mason-org/mason-registry@latest' },
   github = {
     download_url_template = 'https://' .. _G.GITHUB .. '/%s/releases/download/%s/%s',
@@ -54,7 +54,6 @@ M.nvimtree = {
   },
 }
 
--- M.telescope = {}
 M.telescope = {
   extensions_list = { 'themes', 'terms', 'ui-select', 'projects' },
 }

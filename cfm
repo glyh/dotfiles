@@ -84,10 +84,14 @@
   (fs/delete-tree (| (env "HOME") ".local/share/nvim"))
   (fs/delete-tree (| (env "HOME") ".cache/nvim"))
   (fs/delete-tree (cfg "nvim"))
-  ;; (println "Downloading NvChad")
-  ;; (clone "https://github.com/NvChad/NvChad" (cfg "nvim"))
-  ;; (fs/delete-tree (cfg "nvim/lua/custom"))
-  (link (cfg "nvim") (dot "neovim_lazy")))
+
+  ;; NvChad
+  (println "Downloading NvChad")
+  (clone "https://github.com/NvChad/NvChad" (cfg "nvim"))
+  (fs/delete-tree (cfg "nvim/lua/custom"))
+  (link (cfg "nvim/lua/custom") (dot "nvchad")))
+
+  ;; (link (cfg "nvim") (dot "neovim_lazy")))
 
 ;; ---- Groups ----
 

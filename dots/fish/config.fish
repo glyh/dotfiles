@@ -15,15 +15,15 @@ type -q zoxide; and zoxide init fish | source
 # Editor commands
 abbr --add e $EDITOR
 abbr --add vi $EDITOR
-abbr --add vim $EDITOR
 abbr --add pe "GITHUB=github.com proxychains4 $EDITOR"
 abbr --add eu "nvim -u NONE"
 abbr --add er "sudoedit"
-abbr --add ee "nvim ~/.config/nvim/lua/plugins.lua" # editor
+# abbr --add ee "lvim ~/.config/lvim/config.lua" # editor
+abbr --add ee "nvim ~/.config/nvim" # editor
 abbr --add es "$EDITOR ~/.config/fish/config.fish" # shell
 abbr --add eenv "$EDITOR ~/.config/fish/conf.d/env.fish" # environment variables
-abbr --add ert "nvim -u ~/.config/nvim/test.lua" # environment variables
-abbr --add et "nvim ~/.config/nvim/test.lua" # environment variables
+abbr --add ert "$EDITOR -u ~/.config/nvim/test.lua" # environment variables
+abbr --add et "$EDITOR ~/.config/nvim/test.lua" # environment variables
 abbr --add ew "$EDITOR ~/.config/hypr/hyprland.conf" # Window manager
 
 # Tools
