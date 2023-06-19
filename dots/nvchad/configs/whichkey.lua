@@ -8,14 +8,6 @@ local function ssplit_new_file()
   require('telescope.builtin').find_files()
 end
 
-local function focus_toggle_nvim_tree()
-  if vim.regex('NvimTree.*'):match_str(vim.fn.bufname()) then
-    vim.cmd('NvimTreeClose')
-  else
-    vim.cmd('NvimTreeFocus')
-  end
-end
-
 local wk = require('which-key')
 
 wk.register({
@@ -33,20 +25,28 @@ wk.register({
   v = { vsplit_new_file , 'New vertical split with a file' },
   s = { ssplit_new_file , 'New horizontal split with a file' },
 
-  u = { '<Cmd>NvChadUpdate<CR>' , 'Update NvChad' },
+  u = { '<Cmd>NvChadUpdate<CR>' , 'Update ueovim' },
 
-  e = { focus_toggle_nvim_tree , "Focus toggle nvim tree" },
+  f = {
+    name = 'finder',
+    p = { '<Cmd>Telescope projects<CR>', 'Find projects' },
+    f = { '<Cmd>Telescope find_files<CR>', 'Find files' },
+    m = { '<Cmd>Telescope marks<CR>', 'Find bookmarks' },
+    b = { function() require('reach').buffers() end, 'Find buffers' },
+  },
 
-  fp = { '<Cmd>Telescope projects<CR>', 'Find projects' },
-  ff = { '<Cmd>Telescope find_files<CR>', 'Find files' },
-  fb = { function() require('reach').buffers() end, 'Find buffers' },
+  m = {
+    name = 'make',
+    o = {'<Cmd>OverseerRun<CR>', 'Run an overseer command' },
+    t = {'<Cmd>OverseerToggle<CR>', 'Toggle overseer output' },
+  },
 
-  oo = {'<Cmd>OverseerRun<CR>', 'Run an overseer command' },
-  ot = {'<Cmd>OverseerToggle<CR>', 'Toggle overseer output' },
-
-  qq = { '<cmd>qa<CR>', 'Close all buffer' },
-  qb = { '<cmd>q<CR>', 'Close current buffer' },
-  qw = { '<cmd>wq<CR>', 'Save and quit' }
+  q = {
+    name = 'quit',
+    q = { '<cmd>qa<CR>', 'Close all buffer' },
+    b = { '<cmd>q<CR>', 'Close current buffer' },
+    w = { '<cmd>wq<CR>', 'Save and quit' },
+  },
 
 }, { prefix = '<leader>' })
 
