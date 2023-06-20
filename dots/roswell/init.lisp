@@ -6,6 +6,7 @@
       (pushnew system-root ql:*local-project-directories*)
       (ql:register-local-projects)
       (ql:quickload system-name))) 
-  (error (_)
-    (format t "No system loaded")))
+ (error (_)
+   (format t "No system loaded")))
 
+(push "~/quicklisp/local-projects" asdf:*central-registry*)

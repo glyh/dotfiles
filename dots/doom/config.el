@@ -106,3 +106,5 @@
        #'evil-op-sly-eval)))
 
 (fset 'rainbow-delimiters-mode #'ignore)
+
+(setq +latex-viewers '(zathura))

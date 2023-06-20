@@ -80,7 +80,12 @@ local plugins = {
   },
 
   { 'rcarriga/nvim-notify',
-    lazy = false,
+    init = function()
+      vim.notify = function(...)
+        vim.notify = require('notify')
+        return vim.notify(...)
+      end
+    end,
     config = function ()
       vim.notify = require('notify')
     end
@@ -124,7 +129,6 @@ local plugins = {
   -- Tools {{{
 
   { 'stevearc/overseer.nvim',
-    lazy = false,
     config = function()
       require('overseer').setup({
         templates = { 'builtin' },
@@ -133,6 +137,8 @@ local plugins = {
   },
 
   { 'toppair/reach.nvim',
+    lazy = false,
+    dependencies = 'nvim-web-devicons',
     config = function()
       require('reach').setup({
         notifications = true
@@ -140,6 +146,7 @@ local plugins = {
     end
   },
   { 'ahmedkhalf/project.nvim',
+    -- BUG: project.nvim doesn't run well if we lazy load it
     lazy = false,
     config = function()
       require("project_nvim").setup{

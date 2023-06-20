@@ -34,8 +34,8 @@ wk.register({
   oo = {'<Cmd>OverseerRun<CR>', 'Run an overseer command' },
   ot = {'<Cmd>OverseerToggle<CR>', 'Toggle overseer output' },
 
-  qq = { '<cmd>qa<CR>', 'Close all buffer' },
-  qb = { '<cmd>q<CR>', 'Close current buffer' },
+  qa = { '<cmd>qa<CR>', 'Close all buffer' },
+  qq = { '<cmd>q<CR>', 'Close current buffer' },
   qw = { '<cmd>wq<CR>', 'Save and quit' }
 
 }, { prefix = '<leader>' })

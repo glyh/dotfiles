@@ -19,7 +19,7 @@ abbr --add pe "GITHUB=github.com proxychains4 $EDITOR"
 abbr --add eu "nvim -u NONE"
 abbr --add er "sudoedit"
 # abbr --add ee "lvim ~/.config/lvim/config.lua" # editor
-abbr --add ee "nvim ~/.config/nvim" # editor
+abbr --add ee "nvim ~/.config/nvim/lua/custom" # editor
 abbr --add es "$EDITOR ~/.config/fish/config.fish" # shell
 abbr --add eenv "$EDITOR ~/.config/fish/conf.d/env.fish" # environment variables
 abbr --add ert "$EDITOR -u ~/.config/nvim/test.lua" # environment variables
