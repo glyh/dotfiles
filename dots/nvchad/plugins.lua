@@ -128,7 +128,13 @@ local plugins = {
 
   -- Tools {{{
 
+  { 'folke/trouble.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    cmd = "TroubleToggle",
+  },
+
   { 'stevearc/overseer.nvim',
+    lazy = false,
     config = function()
       require('overseer').setup({
         templates = { 'builtin' },
@@ -191,7 +197,7 @@ local plugins = {
             name = "Start Lein nREPL",
             builder = function()
               return {
-                name = 'cljjack',
+                name = 'clj-lein-jack',
                 cmd = { "lein", "update-in", ":plugins", "conj", '[cider/cider-nrepl "0.24.0"]', '--', 'repl' },
               }
             end,
@@ -213,7 +219,14 @@ local plugins = {
 
   -- Extensions {{{
   { 'PaterJason/cmp-conjure' },
-  { 'nvim-telescope/telescope-ui-select.nvim' },
+  { 'nvim-telescope/telescope-ui-select.nvim',
+    init = function()
+      vim.ui.select = function(...)
+        require('telescope').load_extension('ui-select')
+        return vim.ui.select(...)
+      end
+    end
+  },
   -- }}}
 }
 

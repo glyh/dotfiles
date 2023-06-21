@@ -98,6 +98,7 @@ set -gxa PATH                ~/.nimble/bin
 # set -gxa PATH                ~/.roswell/bin
 set -gxa PATH                ~/.config/emacs/bin
 # set -gxa PATH                ~/.local/share/nvim/lazy/vim-iced/bin
+# set -gxa PATH /opt/texlive/bin
 
 type -q opam; and eval (opam env) 
 if type -q racket

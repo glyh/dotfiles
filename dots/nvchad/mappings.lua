@@ -4,6 +4,7 @@
 return {
   disabled = {
     n = {
+      ['<leader>b'] = '', -- new buffer
       ['<leader>e'] = '',
       ['<leader>v'] = '',
       ['<leader>ls'] = '',
@@ -15,8 +16,14 @@ return {
       ['<leader>wr'] = '',
       ['<leader>ma'] = '',
       ['<leader>fm'] = '',
-      ['<leader>rn'] = '',
-      ['<leader>n'] = '',
+      ['<leader>rn'] = '', -- Toggle relative number
+      ['<leader>n'] = '', -- Toggle line number
+      ['<leader>th'] = '', -- Nvchad themes 
+      ['<leader>td'] = '', -- Toggle deleted
+      ['<leader>cm'] = '', -- Git commits
+      ['<leader>pt'] = '', -- Pick hidden term
+      ['<leader>ph'] = '', -- Preview hunk
+      ['<leader>rh'] = '', -- Reset hunk
     }
   }
 }
