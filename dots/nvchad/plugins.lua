@@ -102,14 +102,11 @@ local plugins = {
       { 'sr', mode = { 'n', 'v' } },
     }
   },
-  { 'echasnovski/mini.ai',
+  { 'wellle/targets.vim',
     keys = {
       { 'a', mode = { 'x', 'o' } },
       { 'i', mode = { 'x', 'o' } },
     },
-    config = function()
-      require('mini.ai').setup {}
-    end,
   },
   { 'phaazon/hop.nvim',
     keys = {
@@ -128,13 +125,16 @@ local plugins = {
 
   -- Tools {{{
 
+  { 'mfussenegger/nvim-dap',
+    config = function() require 'custom.configs.dap' end,
+  },
+
   { 'folke/trouble.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     cmd = "TroubleToggle",
   },
 
   { 'stevearc/overseer.nvim',
-    lazy = false,
     config = function()
       require('overseer').setup({
         templates = { 'builtin' },
@@ -143,7 +143,6 @@ local plugins = {
   },
 
   { 'toppair/reach.nvim',
-    lazy = false,
     dependencies = 'nvim-web-devicons',
     config = function()
       require('reach').setup({
@@ -180,19 +179,17 @@ local plugins = {
     dependencies = { 'guns/vim-sexp' },
   },
 
-  -- Clojure
+  -- Clojure & Conjure {{{
   { 'Olical/conjure',
     ft = 'clojure',
+    -- enabled = false,
     config = function()
         vim.g['conjure#log#hud#border'] = 'none'
         vim.g['conjure#extract#tree_sitter#enabled'] = true
         vim.g['conjure#mapping#eval_visual'] = 'e'
         vim.g['conjure#mapping#doc_word'] = false
 
-        vim.g['conjure#client#scheme#stdio#command'] = 'chez'
-        vim.g['conjure#client#scheme#stdio#prompt_pattern'] = '> $'
-        vim.g['conjure#client#scheme#stdio#value_prefix_pattern'] = false
-
+        -- For lein
         require('overseer').register_template({
             name = "Start Lein nREPL",
             builder = function()
@@ -205,9 +202,39 @@ local plugins = {
               filetype = { "clojure" },
             },
         })
+
+        -- For shadow-cljs
+        vim.cmd [[
+        function! AutoConjureSelect()
+        let shadow_build=system("ps aux | grep 'shadow-cljs watch' | head -1 | sed -E 's/.*?shadow-cljs watch //' | tr -d '\n'")
+        let cmd='ConjureShadowSelect ' . shadow_build
+        execute cmd
+      endfunction
+      command! AutoConjureSelect call AutoConjureSelect()
+      autocmd BufReadPost *.cljs :AutoConjureSelect
+
+        ]]
+
+        require('which-key').register({
+          ['k'] = { require('conjure.eval')["doc-word"], 'Get document under cursor'}
+        }, { prefix = '<localleader>' })
+
     end,
   },
-  { 'PaterJason/cmp-conjure', dependencies = {'nvim-cmp', 'conjure'} },
+  { 'PaterJason/cmp-conjure',
+    -- enabled = false, 
+    dependencies = {'nvim-cmp', 'conjure'} },
+  -- }}}
+
+  -- Clojure & Iced {{{
+  { 'liquidz/vim-iced', 
+    ft = 'clojure',
+    enabled = false,
+    config = function()
+    end
+  },
+  -- }}}
+
   { 'hrsh7th/nvim-cmp',
     config = function(_, opts)
       opts.sources[#opts.sources + 1] = { name = 'conjure' }

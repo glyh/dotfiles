@@ -49,7 +49,9 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(disable-packages! evil-snipe)
+;(disable-packages! evil-snipe)
 
-;; For lisp
-(package! sly-asdf)
+;;For lisp
+;(package! sly-asdf)
+
+;(package! avy)

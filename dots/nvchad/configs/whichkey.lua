@@ -55,6 +55,7 @@ wk.register({
     b = { function() require('reach').buffers() end, 'Find buffers' },
     u = { '<Cmd>NvChadUpdate<CR>' , 'Update NvChad' },
     l = { '<Cmd>Lazy<CR>' , 'Show Lazy' },
+    m = { '<Cmd>Mason<CR>' , 'Show Mason' },
   },
 
   g = {

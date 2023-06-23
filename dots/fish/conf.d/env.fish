@@ -54,10 +54,13 @@ if type -q page;
         end
     end
 end
+
 if type -q kitty; 
-    set -gx  TERM                kitty
     set -gx  TERMINAL            kitty
 end
+
+# For better experience on ssh
+set -gx TERM xterm-256color
 
 # Intellij 
 # set -gx  _JAVA_AWT_WM_NONREPARENTING 1
@@ -80,7 +83,7 @@ set -gx  GTK_THEME           Adwaita:dark
 # go
 set -gx  GO111MODULE         on
 set -gx  GOPROXY             https://goproxy.cn
-set -gx  GOPATH                ~/.config/go
+set -gx  GOPATH                ~/.cache/go
 
 # # Flutter
 # set -gx FLUTTER_STORAGE_BASE_URL https://mirrors.tuna.tsinghua.edu.cn/flutter

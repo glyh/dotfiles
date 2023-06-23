@@ -28,6 +28,7 @@ abbr --add ew "$EDITOR ~/.config/hypr/hyprland.conf" # Window manager
 
 # Tools
 abbr --add g "git"
+abbr --add g2 "GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519_2' git"
 abbr --add gr "cd (git root)"
 abbr --add l "exa"
 # alias ls="exa"

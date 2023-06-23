@@ -87,8 +87,8 @@
 
 ;; Some global keybinds
 (after! evil 
-  (evil-define-key 'normal 'global (kbd ";") 'evil-ex)
-  (evil-define-key 'normal 'global (kbd ":") 'eval-expression)
+  ;(evil-define-key 'normal 'global (kbd ";") 'evil-ex)
+  ;(evil-define-key 'normal 'global (kbd ":") 'eval-expression)
   (evil-define-key 'normal 'global (kbd "SPC d r") 'doom/reload))
 
 ;; Configuration for Common Lisp's Sly IDE
