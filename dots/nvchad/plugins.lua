@@ -222,22 +222,42 @@ local plugins = {
     end,
   },
   { 'PaterJason/cmp-conjure',
-    -- enabled = false, 
+    -- enabled = false,
     dependencies = {'nvim-cmp', 'conjure'} },
   -- }}}
 
   -- Clojure & Iced {{{
-  { 'liquidz/vim-iced', 
+  { 'liquidz/vim-iced',
     ft = 'clojure',
     enabled = false,
-    config = function()
+    config = function(plugin, _)
+
+      vim.g['iced_enable_default_key_mappings'] = true
+
+      require('overseer').register_template({
+          name = 'Start Iced nREPL',
+          builder = function()
+            return {
+              name = 'iced-jack',
+              cmd = { plugin.dir .. '/bin/iced', 'repl' },
+            }
+          end,
+          condition = {
+            filetype = { 'clojure' },
+          },
+      })
     end
+  },
+  { 'lamp/cmp-iced',
+    ft = 'clojure',
+    enabled = false
   },
   -- }}}
 
   { 'hrsh7th/nvim-cmp',
     config = function(_, opts)
       opts.sources[#opts.sources + 1] = { name = 'conjure' }
+      -- opts.sources[#opts.sources + 1] = { name = 'iced' }
       require("cmp").setup(opts)
     end
   },
