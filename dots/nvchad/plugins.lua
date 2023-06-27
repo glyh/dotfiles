@@ -161,7 +161,7 @@ local plugins = {
   },
 
   { 'nvim-neorg/neorg',
-    enabled = false,
+    -- enabled = false,
     cmd = "Neorg",
     ft = 'neorg',
     build = ':Neorg sync-parsers',
