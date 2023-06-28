@@ -162,8 +162,9 @@ local plugins = {
 
   { 'nvim-neorg/neorg',
     -- enabled = false,
-    cmd = "Neorg",
-    ft = 'neorg',
+    lazy = false,
+    -- cmd = "Neorg",
+    ft = 'norg',
     build = ':Neorg sync-parsers',
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
