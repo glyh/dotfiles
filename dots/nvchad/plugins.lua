@@ -161,7 +161,7 @@ local plugins = {
   },
 
   { 'nvim-neorg/neorg',
-    -- enabled = false,
+    enabled = false,
     lazy = false,
     -- cmd = "Neorg",
     ft = 'norg',
