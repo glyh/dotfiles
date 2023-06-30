@@ -81,4 +81,4 @@ abbr --add st "stack"
 abbr --add cg "cargo"
 abbr --add p "proxychains4"
 
-abbr --add gacu "fish -c 'cd (git root); git add .; git commit -m \'update\''; git push"
+abbr --add gacu "git add -A; git commit -m 'update'; git push"
