@@ -10,3 +10,5 @@ read -s password
                "userName=$username&password=$password" \
                 https://controller.shanghaitech.edu.cn:8445/PortalServer//Webauth/webAuthAction\!login.action
 } &> /dev/null
+
+# echo "$username$password\n" | nmcli dev wifi con Shanghaitech -a

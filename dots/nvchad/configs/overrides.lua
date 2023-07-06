@@ -30,6 +30,7 @@ M.mason = {
     -- clojure stuff,
     'clj-kondo',
     'clojure-lsp',
+    'zls',
   },
   -- providers = { 'mason.providers.client' },
   -- registries = { 'github:mason-org/mason-registry@latest' },
