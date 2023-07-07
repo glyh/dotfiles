@@ -95,6 +95,14 @@ local plugins = {
 
   -- Editing {{{
 
+  { 'hrsh7th/nvim-cmp',
+    config = function(_, opts)
+      opts.sources[#opts.sources + 1] = { name = 'conjure' }
+      -- opts.sources[#opts.sources + 1] = { name = 'iced' }
+      require("cmp").setup(opts)
+    end
+  },
+
   { 'machakann/vim-sandwich',
     keys = {
       { 'sa', mode = { 'n', 'v' } },
@@ -228,16 +236,16 @@ local plugins = {
         })
 
         -- For shadow-cljs
-        vim.cmd [[
-        function! AutoConjureSelect()
-        let shadow_build=system("ps aux | grep 'shadow-cljs watch' | head -1 | sed -E 's/.*?shadow-cljs watch //' | tr -d '\n'")
-        let cmd='ConjureShadowSelect ' . shadow_build
-        execute cmd
-      endfunction
-      command! AutoConjureSelect call AutoConjureSelect()
-      autocmd BufReadPost *.cljs :AutoConjureSelect
-
-        ]]
+      --   vim.cmd [[
+      --   function! AutoConjureSelect()
+      --   let shadow_build=system("ps aux | grep 'shadow-cljs watch' | head -1 | sed -E 's/.*?shadow-cljs watch //' | tr -d '\n'")
+      --   let cmd='ConjureShadowSelect ' . shadow_build
+      --   execute cmd
+      -- endfunction
+      -- command! AutoConjureSelect call AutoConjureSelect()
+      -- autocmd BufReadPost *.cljs :AutoConjureSelect
+      --
+      --   ]]
 
         require('which-key').register({
           ['k'] = { require('conjure.eval')["doc-word"], 'Get document under cursor'}
@@ -278,12 +286,20 @@ local plugins = {
   },
   -- }}}
 
-  { 'hrsh7th/nvim-cmp',
-    config = function(_, opts)
-      opts.sources[#opts.sources + 1] = { name = 'conjure' }
-      -- opts.sources[#opts.sources + 1] = { name = 'iced' }
-      require("cmp").setup(opts)
-    end
+  -- }}}
+
+  -- Markdown {{{
+  { 'iamcco/markdown-preview.nvim',
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    config = function()
+      require('which-key').register({
+        ['p'] = { '<cmd>MarkdownPreviewToggle<CR>', 'Toggle markdown preview'}
+      }, { prefix = '<localleader>' })
+      vim.g.mkdp_browser = 'qutebrowser'
+    end,
+    ft = 'markdown'
   },
 
   -- }}}
