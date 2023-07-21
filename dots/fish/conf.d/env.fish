@@ -1,13 +1,9 @@
 # Basic info
 set -gx HOME_LANG            zh
-set -gx GITHUB               hub.fgit.ml
-# 'github.com.cnpmjs.org'
-# 'gitclone.com/github.com'
-# 'hub.fastgit.org'
-# 'hub.gitfast.tk'
-# 'github.com'
-# 'hub.fastgit.xyz'
-# 'hub.0z.gs'
+set -gx GITHUB               hub.nuaa.cf
+# 'hub.nuaa.cf'
+# 'hub.yzuu.cf'
+# 'hub.njuu.cf'
 
 # SCALE, done in hyprland side
 # set -gx GDK_SCALE 2
@@ -103,6 +99,8 @@ set -gxa PATH                ~/.config/emacs/bin
 set -gxa PATH                ~/.zvm/bin
 # set -gxa PATH                ~/.local/share/nvim/lazy/vim-iced/bin
 # set -gxa PATH /opt/texlive/bin
+
+set -gxa PATH ~/.ghcup/bin
 
 type -q opam; and eval (opam env) 
 if type -q racket

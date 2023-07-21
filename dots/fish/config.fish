@@ -69,6 +69,7 @@ abbr --add k "kitty +kitten"
 # alias m="man"
 abbr --add bc "bottles-cli"
 abbr --add ytdlx "yt-dlp -x"
+abbr --add ytdlxp "yt-dlp --proxy socks5://127.0.0.1:20170 -x"
 abbr --add mu "ncmpcpp"
 
 # Languages
@@ -82,3 +83,6 @@ abbr --add cg "cargo"
 abbr --add p "proxychains4"
 
 abbr --add gacu "git add -A; git commit -m 'update'; git push"
+
+# opam configuration
+source /home/lyh/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
