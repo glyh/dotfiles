@@ -98,7 +98,6 @@ local plugins = {
   { 'hrsh7th/nvim-cmp',
     config = function(_, opts)
       opts.sources[#opts.sources + 1] = { name = 'conjure' }
-      -- opts.sources[#opts.sources + 1] = { name = 'iced' }
       require("cmp").setup(opts)
     end
   },
@@ -303,6 +302,10 @@ local plugins = {
   },
 
   -- }}}
+
+  -- Go {{
+  { 'fatih/vim-go', ft = 'go' },
+  -- }}
 
   -- Extensions {{{
   { 'PaterJason/cmp-conjure' },

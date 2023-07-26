@@ -8,7 +8,9 @@ M.treesitter = {
   ensure_installed = {
     'c',
     'clojure',
-    'kotlin',
+    'haskell',
+    'go',
+    'lua',
   },
   indent = {
     enable = true,
@@ -35,8 +37,8 @@ M.mason = {
     -- zig
     'zls',
 
-    -- kotlin
-    'kotlin_language_server'
+    -- go 
+    'gopls',
   },
   -- providers = { 'mason.providers.client' },
   -- registries = { 'github:mason-org/mason-registry@latest' },
