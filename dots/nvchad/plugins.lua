@@ -303,8 +303,14 @@ local plugins = {
 
   -- }}}
 
+  -- Fuck go: parser generator hard to use
   -- Go {{
-  { 'fatih/vim-go', ft = 'go' },
+  -- { 'fatih/vim-go', ft = 'go' },
+  -- }}
+
+  -- Fuck Crystal: shitty ADT support
+  -- Crystal {{
+  -- { 'jlcrochet/vim-crystal', ft = 'crystal' },
   -- }}
 
   -- Extensions {{{

@@ -8,9 +8,14 @@ M.treesitter = {
   ensure_installed = {
     'c',
     'clojure',
-    'haskell',
+    -- 'haskell',
     'go',
     'lua',
+    'ocaml',
+    'ocamllex',
+    'ocaml_interface',
+    -- 'crystal',
+    -- crystal is not included
   },
   indent = {
     enable = true,
@@ -39,6 +44,7 @@ M.mason = {
 
     -- go 
     'gopls',
+    'crystalline',
   },
   -- providers = { 'mason.providers.client' },
   -- registries = { 'github:mason-org/mason-registry@latest' },
