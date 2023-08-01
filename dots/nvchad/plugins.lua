@@ -26,12 +26,16 @@ local plugins = {
   },
 
   { 'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/playground'
+    },
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "syntax")
-      for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
-        config.install_info.url = config.install_info.url:gsub("github.com", _G.GITHUB)
+      dofile(vim.g.base46_cache .. 'syntax')
+      for _, config in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
+        config.install_info.url = config.install_info.url:gsub('github.com', _G.GITHUB)
       end
-      require("nvim-treesitter.configs").setup(opts)
+      opts.playground = { enabled = true }
+      require('nvim-treesitter.configs').setup(opts)
     end
   },
 
@@ -312,6 +316,30 @@ local plugins = {
   -- Crystal {{
   -- { 'jlcrochet/vim-crystal', ft = 'crystal' },
   -- }}
+
+
+-- Filetype {{
+  { 'nathom/filetype.nvim',
+    lazy = false,
+    config = function()
+      require("filetype").setup({
+          overrides = {
+              extensions = {
+                  -- Set the filetype of *.pn files to potion
+                  mll = "ocamllex",
+                  mly = "menhir"
+              },
+
+              complex = {
+                  -- Set the filetype of any full filename matching the regex to gitconfig
+                  [".*git/config"] = "gitconfig", -- Included in the plugin
+              },
+
+          },
+      })
+    end
+  },
+-- }}
 
   -- Extensions {{{
   { 'PaterJason/cmp-conjure' },

@@ -1,4 +1,5 @@
-
 [Default Applications]
-application/pdf=org.pwmt.zathura.desktop
-application/epub+zip=org.pwmt.zathura.desktop
+application/pdf=sioyek.desktop
+application/epub+zip=sioyek.desktop
+text/plain=nvim.desktop
+x-scheme-handler/baiduyunguanjia=baidunetdisk.desktop

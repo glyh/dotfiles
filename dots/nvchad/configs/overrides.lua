@@ -11,10 +11,12 @@ M.treesitter = {
     -- 'haskell',
     'go',
     'lua',
+
     'ocaml',
     'ocamllex',
     'ocaml_interface',
-    -- 'crystal',
+    'menhir'
+
     -- crystal is not included
   },
   indent = {
