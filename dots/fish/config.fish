@@ -33,6 +33,8 @@ abbr --add gr "cd (git root)"
 abbr --add l "exa"
 # alias ls="exa"
 abbr --add la "exa -la"
+# abbr --add ncmdl "pyncmdel --load ~/.netease --save-m3u (basename \$PWD).m3u "
+abbr --add ncmdl "pyncmdel --quality hires --output NetEase/{album} --save-m3u NetEase/PLAYLIST.m3u "
 
 # https://github.com/ranger/ranger/wiki/Integration-with-other-programs#changing-directories
 function f

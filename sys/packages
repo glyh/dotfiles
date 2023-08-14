@@ -70,3 +70,6 @@ bluez bluez-utils
 
 ## Yarn managed
 terminalizer shadow-cljs
+
+## record 
+libva-mesa-driver wl-screenrec

@@ -8,14 +8,14 @@ M.treesitter = {
   ensure_installed = {
     'c',
     'clojure',
-    -- 'haskell',
+    'haskell',
     'go',
     'lua',
 
     'ocaml',
     'ocamllex',
     'ocaml_interface',
-    'menhir'
+    'menhir',
 
     -- crystal is not included
   },
@@ -45,8 +45,10 @@ M.mason = {
     'zls',
 
     -- go 
-    'gopls',
-    'crystalline',
+    -- 'gopls',
+
+    -- crystal
+    -- 'crystalline',
   },
   -- providers = { 'mason.providers.client' },
   -- registries = { 'github:mason-org/mason-registry@latest' },

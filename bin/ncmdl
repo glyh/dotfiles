@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+from pyncm.apis import user
+from pyncm.__main__ import parse_args ,PLACEHOLDER_URL,__main__
+from pyncm import GetCurrentSession,SetCurrentSession,LoadSessionFromString
+from pyncm.utils.helper import UserHelper
+
+args, _ = parse_args(quit_on_empty_args=False)
+print("[-] 读取登陆信息: %s" % args.load)
+SetCurrentSession(LoadSessionFromString(open(args.load).read()))
+uid = GetCurrentSession().uid
+print("[*] 用户: %s" % UserHelper(uid).UserName)
+
+playlist_ids = [
+    pl['id'] for pl in user.GetUserPlaylists(uid)['playlist'] if pl['creator']['userId'] == UserHelper(uid).ID
+]
+
+try:
+    output = args.output[:args.output.index('{')]
+except IndexError:
+    output = args.output
+print("[*] 输出文件夹起点 : %s" % output)
+
+normalize = lambda path: path.replace('\\', '/')
+file_tree = [normalize(path.join(root, file)) for root, dirs, files in walk(output, topdown=False) for file in files]
+
+

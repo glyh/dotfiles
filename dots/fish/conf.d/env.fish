@@ -100,6 +100,7 @@ set -gxa PATH                ~/.cargo/bin
 # set -gxa PATH                ~/.luarocks/bin
 # set -gxa PATH                ~/.local/share/nvim/lazy/vim-iced/bin
 # set -gxa PATH /opt/texlive/bin
+set -gxa PATH ~/Documents/CS/3rdparty/kics2/bin
 
 set -gxa PATH ~/.ghcup/bin
 

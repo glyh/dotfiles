@@ -216,7 +216,8 @@ local plugins = {
 
   -- Clojure & Conjure {{{
   { 'Olical/conjure',
-    ft = 'clojure',
+    -- ft = lisps,
+    lazy = false,
     -- enabled = false,
     config = function()
         vim.g['conjure#log#hud#border'] = 'none'
@@ -301,6 +302,7 @@ local plugins = {
         ['p'] = { '<cmd>MarkdownPreviewToggle<CR>', 'Toggle markdown preview'}
       }, { prefix = '<localleader>' })
       vim.g.mkdp_browser = 'qutebrowser'
+      vim.g.mkdp_theme = 'dark'
     end,
     ft = 'markdown'
   },
@@ -317,7 +319,12 @@ local plugins = {
   -- { 'jlcrochet/vim-crystal', ft = 'crystal' },
   -- }}
 
+  -- Racket {{
+  { 'wlangstroth/vim-racket', lazy = false },
+  -- }}
 
+
+-- WARN: turn this on conjure will raise error
 -- Filetype {{
   { 'nathom/filetype.nvim',
     lazy = false,
@@ -327,7 +334,7 @@ local plugins = {
               extensions = {
                   -- Set the filetype of *.pn files to potion
                   mll = "ocamllex",
-                  mly = "menhir"
+                  mly = "menhir",
               },
 
               complex = {
@@ -340,6 +347,25 @@ local plugins = {
     end
   },
 -- }}
+
+-- Coq {{{
+  {'whonore/Coqtail', ft='coq',
+    config=function()
+      -- local enable_providers = {
+      --   "python3_provider",
+      --   -- "node_provider",
+      --   -- and so on
+      -- }
+
+      vim.g['loaded_python3_provider'] = nil
+      vim.cmd('runtime python3_provider')
+      -- for _, plugin in pairs(enable_providers) do
+      --   vim.g["loaded_" .. plugin] = nil
+      --   vim.cmd("runtime " .. plugin)
+      -- end
+
+    end},
+  -- }}}
 
   -- Extensions {{{
   { 'PaterJason/cmp-conjure' },
