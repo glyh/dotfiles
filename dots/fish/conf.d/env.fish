@@ -100,9 +100,11 @@ set -gxa PATH                ~/.zvm/bin
 # set -gxa PATH                ~/.luarocks/bin
 # set -gxa PATH                ~/.local/share/nvim/lazy/vim-iced/bin
 # set -gxa PATH /opt/texlive/bin
-set -gxa PATH ~/Documents/CS/3rdparty/kics2/bin
+# set -gxa PATH ~/Documents/CS/3rdparty/kics2/bin
 
 set -gxa PATH ~/.ghcup/bin
+
+# set -gxa PATH /usr/share/perl6/site/bin
 
 type -q opam; and eval (opam env) 
 if type -q racket

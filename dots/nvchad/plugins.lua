@@ -323,11 +323,16 @@ local plugins = {
   { 'wlangstroth/vim-racket', lazy = false },
   -- }}
 
+  -- Oil {{
+  -- { 'glyh/vim-oil', lazy = false },
+  -- { 'Raku/vim-raku', ft = 'raku' },
+  -- }}
+
 
 -- WARN: turn this on conjure will raise error
 -- Filetype {{
   { 'nathom/filetype.nvim',
-    enabled = false,
+    -- enabled = false,
     lazy = false,
     config = function()
       require("filetype").setup({
@@ -343,6 +348,9 @@ local plugins = {
                   [".*git/config"] = "gitconfig", -- Included in the plugin
               },
 
+              shebang = {
+                raku = "raku",
+              },
           },
       })
     end
