@@ -86,5 +86,7 @@ abbr --add p "proxychains4"
 
 abbr --add gacu "git add -A; git commit -m 'update'; git push"
 
+abbr --add ov "eval (opam env)"
+
 # opam configuration
 source /home/lyh/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true

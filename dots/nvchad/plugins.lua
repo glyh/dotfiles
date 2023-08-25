@@ -327,6 +327,7 @@ local plugins = {
 -- WARN: turn this on conjure will raise error
 -- Filetype {{
   { 'nathom/filetype.nvim',
+    enabled = false,
     lazy = false,
     config = function()
       require("filetype").setup({
