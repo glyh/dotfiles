@@ -26,7 +26,7 @@ lib32-fontconfig wqy-zenhei # fonts for steam
 fcitx5-im fcitx5-chinese-addons
 
 # Tools
-aria2 exa fzf xplr-bin starship zoxide kmonad-bin page-git 
+aria2 eza fzf xplr-bin starship zoxide kmonad-bin page-git 
 unzip tealdeer proxychains-ng bat ripgrep git-delta-git neofetch
 atool2-git zstd unrar p7zip unzip
 mpd ncmpcpp yt-dlp
