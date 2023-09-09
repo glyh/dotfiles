@@ -325,8 +325,9 @@ local plugins = {
 
   -- Oil {{
   -- { 'glyh/vim-oil', lazy = false },
-  -- { 'Raku/vim-raku', ft = 'raku' },
   -- }}
+
+  -- { 'Raku/vim-raku', ft = 'raku' },
 
 
 -- WARN: turn this on conjure will raise error
