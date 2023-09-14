@@ -95,8 +95,9 @@ set -gxa PATH                ~/.local/bin
 set -gxa PATH                ~/.cargo/bin
 # set -gxa PATH                ~/.nimble/bin
 # set -gxa PATH                ~/.roswell/bin
-# set -gxa PATH                ~/.config/emacs/bin
+set -gxa PATH                ~/.config/emacs/bin
 set -gxa PATH                ~/.zvm/bin
+set -gxa PATH                ~/.pack/bin # idris
 # set -gxa PATH                ~/.luarocks/bin
 # set -gxa PATH                ~/.local/share/nvim/lazy/vim-iced/bin
 # set -gxa PATH /opt/texlive/bin

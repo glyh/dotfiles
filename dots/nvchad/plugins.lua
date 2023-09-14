@@ -358,6 +358,18 @@ local plugins = {
   },
 -- }}
 
+-- {{ Idris
+  { 'edwinb/idris2-vim', ft = { 'idr', 'ipkg' } },
+
+  -- { 'ShinKage/idris2-nvim',
+  --   dependencies = {'neovim/nvim-lspconfig', 'MunifTanjim/nui.nvim'},
+  --   ft = 'idr',
+  --   config = function()
+  --     require('idris2').setup({})
+  --   end
+  -- },
+-- }}
+
 -- Coq {{{
   {'whonore/Coqtail', ft='coq',
     config=function()

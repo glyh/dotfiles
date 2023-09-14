@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "Yihang Liu"
-      user-mail-address "lyhokia@gmail.com")
+;; (setq user-full-name "John Doe"
+;;       user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -28,15 +28,11 @@
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
-;(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 16 :weight 'semi-light)
-;    doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 18 :weight 'normal))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-sourcerer)
+(setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -78,33 +74,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-;; Some tweak on doom itself
-(setq confirm-kill-emacs nil)
-(fset 'rainbow-delimiters-mode #'ignore)
-
-;; God mod
-
-;; Some global keybinds
-(after! evil 
-  ;(evil-define-key 'normal 'global (kbd ";") 'evil-ex)
-  ;(evil-define-key 'normal 'global (kbd ":") 'eval-expression)
-  (evil-define-key 'normal 'global (kbd "SPC d r") 'doom/reload))
-
-;; Configuration for Common Lisp's Sly IDE
-'(after! sly
-   (setq inferior-lisp-program "ros dynamic-space-size=3gb -Q -- run")
-   (add-to-list 'sly-contribs 'sly-asdf 'append)
-   (after! evil
-     (evil-define-operator evil-op-sly-eval (start end)
-       (interactive "<r>")
-       (sly-eval-with-transcript
-        `(slynk:interactive-eval-region
-          ,(buffer-substring-no-properties start end))))
-
-     (evil-define-key '(normal visual) sly-mode-map (kbd ",e")
-       #'evil-op-sly-eval)))
-
-(fset 'rainbow-delimiters-mode #'ignore)
-
-(setq +latex-viewers '(zathura))

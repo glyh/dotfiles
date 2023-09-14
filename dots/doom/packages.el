@@ -48,10 +48,3 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-
-;(disable-packages! evil-snipe)
-
-;;For lisp
-;(package! sly-asdf)
-
-;(package! avy)
