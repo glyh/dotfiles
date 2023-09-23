@@ -1,6 +1,6 @@
 # Basic info
 set -gx HOME_LANG            zh
-set -gx GITHUB               hub.yzuu.cf
+set -gx GITHUB               hub.nuaa.cf
 # 'hub.nuaa.cf'
 # 'hub.yzuu.cf'
 # 'hub.njuu.cf'
@@ -104,6 +104,7 @@ set -gxa PATH                ~/.pack/bin # idris
 # set -gxa PATH ~/Documents/CS/3rdparty/kics2/bin
 
 set -gxa PATH ~/.ghcup/bin
+set -gxa PATH                ~/repos/fstar/bin
 
 # set -gxa PATH /usr/share/perl6/site/bin
 

@@ -73,3 +73,5 @@ terminalizer shadow-cljs
 
 ## record 
 libva-mesa-driver wl-screenrec
+
+emacs-wayland

@@ -2,7 +2,7 @@
 
 local overrides = require('custom.configs.overrides')
 
-local lisps = { 'clojure', 'fennel', 'hy', 'racket', 'lisp', 'scheme' }
+local lisps = { 'clojure', 'fennel', 'hy', 'racket', 'lisp', 'scheme', 'janet', 'dune' }
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -203,15 +203,11 @@ local plugins = {
     ft = lisps,
     build = 'cargo build --release',
   },
-  { 'guns/vim-sexp',
+  { 'julienvincent/nvim-paredit',
     ft = lisps,
     config = function()
-      vim.g.sexp_filetypes = vim.fn.join(lisps, ",")
+      require("nvim-paredit").setup()
     end
-  },
-  { 'tpope/vim-sexp-mappings-for-regular-people',
-    ft = lisps,
-    dependencies = { 'guns/vim-sexp' },
   },
 
   -- Clojure & Conjure {{{
@@ -349,6 +345,11 @@ local plugins = {
                   [".*git/config"] = "gitconfig", -- Included in the plugin
               },
 
+              literal = {
+                dune = "dune",
+                ["dune-project"] = "dune",
+              },
+
               shebang = {
                 raku = "raku",
               },
@@ -359,15 +360,23 @@ local plugins = {
 -- }}
 
 -- {{ Idris
-  { 'edwinb/idris2-vim', ft = { 'idr', 'ipkg' } },
+  -- { 'edwinb/idris2-vim', lazy = false },
 
+  -- drag my start up time low, shift
   -- { 'ShinKage/idris2-nvim',
   --   dependencies = {'neovim/nvim-lspconfig', 'MunifTanjim/nui.nvim'},
-  --   ft = 'idr',
+  --   -- ft = 'idr',
+  --   lazy = false,
   --   config = function()
   --     require('idris2').setup({})
+  --     vim.cmd [[highlight link LspSemantic_type Include]]
   --   end
   -- },
+-- }}
+
+-- {{ Janet
+  { 'janet-lang/janet.vim', ft='janet' },
+
 -- }}
 
 -- Coq {{{
