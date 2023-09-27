@@ -326,10 +326,10 @@ local plugins = {
   -- { 'Raku/vim-raku', ft = 'raku' },
 
 
--- WARN: turn this on conjure will raise error
+-- WARN: Turn this on to have error with plugins that requires ftplugin
 -- Filetype {{
   { 'nathom/filetype.nvim',
-    -- enabled = false,
+    enabled = false,
     lazy = false,
     config = function()
       require("filetype").setup({

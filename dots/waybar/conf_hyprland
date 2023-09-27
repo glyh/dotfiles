@@ -19,7 +19,7 @@
     "height": 30,
 
     "modules-left": [
-        "wlr/workspaces",
+        "hyprland/workspaces",
         "hyprland/window"
     ],
     "modules-center": [],
