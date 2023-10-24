@@ -17,6 +17,8 @@ M.treesitter = {
     'ocaml_interface',
     'menhir',
 
+    'kotlin',
+
     -- crystal is not included
   },
   indent = {
