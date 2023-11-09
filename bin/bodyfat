@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+chest_skinfold = float(input("Input chest skinfold:"))
+abs_skinfold = float(input("Input abs skinfold:"))
+leg_skinfold = float(input("Input leg skinfold:"))
+
+age = float(input("Age:"))
+
+sum_skinfold = chest_skinfold + abs_skinfold + leg_skinfold
+body_density = 1.10938 - 0.0008267 * sum_skinfold + 0.0000016 * (sum_skinfold ** 2) - 0.0002574 * age
+
+body_fat = 4.97 / body_density - 4.52
+
+print(f"Your body fat rate is {body_fat * 100:.2f}%")

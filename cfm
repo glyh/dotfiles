@@ -52,9 +52,9 @@
 ;; ---- Individual softwares ----
 
 (defn fish []
-  (link (cfg "fish") (dot "fish"))
-  (shell  
-    "fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'"))
+  (link (cfg "fish") (dot "fish")))
+  ;(shell "fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'")
+  
 
 (defn aria2 []
   (clone "https://github.com/P3TERX/aria2.conf.git" (hom ".aria2"))
@@ -144,7 +144,8 @@
 (defn package-managers []
   (println "Setting up package-managers")
   (links 
-    {(cfg "cargo/config.toml") (dot "cargo/config.toml")}))
+    {(cfg "cargo/config.toml") (dot "cargo/config.toml")
+     (cfg "pip") (dot "pip")}))
 
 (defn common-lisp []
   (links {(hom ".roswell/init.lisp") (dot "roswell/init.lisp")}))
