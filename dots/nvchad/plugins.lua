@@ -409,6 +409,14 @@ local plugins = {
     end
   },
   -- }}}
+
+  -- Typst {{{
+  {
+    'kaarmu/typst.vim',
+    ft = 'typst',
+    lazy=false,
+  },
+  -- }}}
 }
 
 return plugins
