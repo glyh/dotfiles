@@ -30,7 +30,7 @@
 	b = branch
 	r = restore
 	root = rev-parse --show-toplevel
-[url "https://hub.nuaa.cf/"]
+[url "https://githubfast.com/"]
 	insteadof = https://github.com/
 [gpg]
 	program = gpg2

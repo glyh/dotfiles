@@ -1,9 +1,11 @@
 # Basic info
 set -gx HOME_LANG            zh
-set -gx GITHUB               hub.nuaa.cf
+set -gx GITHUB               githubfast.com
 # 'hub.nuaa.cf'
 # 'hub.yzuu.cf'
 # 'hub.njuu.cf'
+# 'githubfast.com'
+# 'mirror.ghproxy.com/https://github.com'
 
 # SCALE, done in hyprland side
 # set -gx GDK_SCALE 2
