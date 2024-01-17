@@ -19,7 +19,7 @@ M.treesitter = {
 
     'kotlin',
 
-    -- crystal is not included
+    -- no crystal parser available
   },
   indent = {
     enable = true,
@@ -50,13 +50,13 @@ M.mason = {
     -- 'gopls',
 
     -- crystal
-    -- 'crystalline',
+    'crystalline',
   },
   -- providers = { 'mason.providers.client' },
   -- registries = { 'github:mason-org/mason-registry@latest' },
-  github = {
-    download_url_template = 'https://' .. _G.GITHUB .. '/%s/releases/download/%s/%s',
-  }
+  -- github = {
+  --   download_url_template = 'https://' .. _G.GITHUB .. '/%s/releases/download/%s/%s',
+  -- }
 }
 
 -- git support in nvimtree

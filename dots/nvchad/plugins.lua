@@ -312,7 +312,7 @@ local plugins = {
 
   -- Fuck Crystal: shitty ADT support
   -- Crystal {{
-  -- { 'jlcrochet/vim-crystal', ft = 'crystal' },
+  { 'jlcrochet/vim-crystal', ft = 'crystal' },
   -- }}
 
   -- Racket {{
@@ -417,6 +417,10 @@ local plugins = {
     lazy=false,
   },
   -- }}}
+
+  { 'lervag/vimtex', ft='tex', config = function()
+    vim.g.vimtex_view_method = 'zathura'
+  end},
 }
 
 return plugins
