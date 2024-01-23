@@ -30,7 +30,7 @@
 	b = branch
 	r = restore
 	root = rev-parse --show-toplevel
-[url "https://githubfast.com/"]
+[url "hub.fgit.cf"]
 	insteadof = https://github.com/
 [gpg]
 	program = gpg2
