@@ -110,7 +110,9 @@
 (defn de []
   (println "Setting up DE")
   (links 
-    {(hom "Pictures/Wallpapers") (res "wallpapers")
+    {
+     ; no such need on windows
+     ;(hom "Pictures/Wallpapers") (res "wallpapers")
      (cfg "sway")                (dot "sway")
      (cfg "kanshi")              (dot "kanshi")
      (cfg "mimeapps.list")       (dot "xdg/mimeapps.list")
