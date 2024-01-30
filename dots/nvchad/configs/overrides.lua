@@ -13,7 +13,7 @@ M.treesitter = {
     'lua',
 
     'ocaml',
-    'ocamllex',
+    -- 'ocamllex',
     'ocaml_interface',
     'menhir',
 
