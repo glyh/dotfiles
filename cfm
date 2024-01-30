@@ -101,6 +101,7 @@
     {(hom "Binaries")  (| script-dir "bin")
      (cfg "fish")     (dot "fish")
      (cfg "git")      (dot "git")
+     (hom ".ssh/config")      (dot "ssh/config")
      (hom ".inputrc") (dot "readline/.inputrc")
      (hom ".profile") (dot "session/.profile")})
   (neovim) (fish))

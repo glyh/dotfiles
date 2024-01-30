@@ -107,6 +107,9 @@ set -gxa PATH                ~/.pack/bin # idris
 set -gxa PATH ~/.ghcup/bin
 set -gxa PATH                ~/repos/fstar/bin
 
+# Include scoop along
+set -gxa PATH  /mnt/c/Users/corvo/scoop/shims/
+
 # set -gxa PATH /usr/share/perl6/site/bin
 
 type -q opam; and eval (opam env) 
@@ -117,3 +120,4 @@ end
 # if type -q rbenv 
 #   status --is-interactive; and rbenv init - fish | source
 # end
+

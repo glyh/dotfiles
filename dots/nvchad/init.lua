@@ -5,7 +5,7 @@ vim.opt.termguicolors = true
 vim.g.maplocalleader = ','
 -- vim.g.did_load_filetypes = 1
 
-_G.GITHUB = vim.env["GITHUB"] or "github.com"
+-- _G.GITHUB = vim.env["GITHUB"] or "github.com"
 
 vim.opt.cmdheight = 0
 
@@ -21,13 +21,17 @@ vim.opt.cmdheight = 0
 -- end
 
 
-vim.opt.clipboard = "unnamedplus"
-
-if vim.fn.has('wsl') == 1 then
-  vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('Yank', { clear = true }),
-    callback = function()
-      vim.fn.system('clip.exe', vim.fn.getreg('"'))
-    end,
-  })
+if vim.fn.has('wsl') then
+  vim.g.clipboard = {
+    ["name"] = "wslclipboard",
+    ["copy"] = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    ["paste"] = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+    ["cache_enabled"] = 1,
+  }
 end

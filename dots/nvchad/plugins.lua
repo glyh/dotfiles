@@ -31,9 +31,9 @@ local plugins = {
     },
     config = function(_, opts)
       dofile(vim.g.base46_cache .. 'syntax')
-      for _, config in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
-        config.install_info.url = config.install_info.url:gsub('github.com', _G.GITHUB)
-      end
+      -- for _, config in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
+      --   config.install_info.url = config.install_info.url:gsub('github.com', _G.GITHUB)
+      -- end
       opts.playground = { enabled = true }
       require('nvim-treesitter.configs').setup(opts)
     end
@@ -199,10 +199,12 @@ local plugins = {
 
   -- Lisp {{{
 
-  { 'eraserhd/parinfer-rust',
-    ft = lisps,
-    build = 'cargo build --release',
-  },
+  -- seems broken on Arch WSL
+
+  -- { 'eraserhd/parinfer-rust',
+  --   ft = lisps,
+  --   build = 'cargo build --release',
+  -- },
   { 'julienvincent/nvim-paredit',
     ft = lisps,
     config = function()
@@ -297,7 +299,7 @@ local plugins = {
       require('which-key').register({
         ['p'] = { '<cmd>MarkdownPreviewToggle<CR>', 'Toggle markdown preview'}
       }, { prefix = '<localleader>' })
-      vim.g.mkdp_browser = 'qutebrowser'
+      vim.g.mkdp_browser = 'qutebrowseru'
       vim.g.mkdp_theme = 'dark'
     end,
     ft = 'markdown'

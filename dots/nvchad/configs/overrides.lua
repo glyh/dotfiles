@@ -53,13 +53,14 @@ M.mason = {
 
     -- crystal
     'crystalline',
-    'nimlangserver'
+    -- requires nimble
+    -- 'nimlangserver'
   },
-  providers = { 'mason.providers.client' },
-  registries = { 'github:mason-org/mason-registry@latest' },
-  github = {
-    download_url_template = 'https://' .. _G.GITHUB .. '/%s/releases/download/%s/%s',
-  }
+  -- providers = { 'mason.providers.client' },
+  -- registries = { 'github:mason-org/mason-registry@latest' },
+  -- github = {
+  -- download_url_template = 'https://' .. _G.GITHUB .. '/%s/releases/download/%s/%s',
+  -- }
 }
 
 -- git support in nvimtree
