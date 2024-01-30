@@ -152,7 +152,7 @@
   
 (defn dots []
   (println "Setting up all dotfiles")
-  (base) (de) (tools) (softwares) (package-managers) (common-lisp))
+  (base) #_(de) (tools) (softwares) (package-managers) (common-lisp))
 
 (defn installed? [package]
   (try (shell {:out nil} "pacman -Qi " package) 
