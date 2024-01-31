@@ -82,6 +82,9 @@ set -gx  GO111MODULE         on
 set -gx  GOPROXY             https://goproxy.cn
 set -gx  GOPATH                ~/.cache/go
 
+# starship hide warning
+set -gx STARSHIP_LOG         error
+
 # # Flutter
 # set -gx FLUTTER_STORAGE_BASE_URL https://mirrors.tuna.tsinghua.edu.cn/flutter
 # set -gx PUB_HOSTED_URL https://mirrors.tuna.tsinghua.edu.cn/dart-pub
