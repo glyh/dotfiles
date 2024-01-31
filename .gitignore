@@ -8,6 +8,7 @@ dots/fish/*
 !dots/fish/config.fish
 !dots/fish/fish_plugins
 !dots/fish/conf.d
+dots/fish/conf.d/__*
 
 dots/kitty/kitty-themes
 dots/kitty/theme.conf
