@@ -31,16 +31,16 @@ local plugins = {
     },
     config = function(_, opts)
       dofile(vim.g.base46_cache .. 'syntax')
-      -- for _, config in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
-      --   config.install_info.url = config.install_info.url:gsub('github.com', _G.GITHUB)
-      -- end
+      for _, config in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
+        config.install_info.url = config.install_info.url:gsub('github.com', _G.GITHUB)
+      end
       opts.playground = { enabled = true }
       require('nvim-treesitter.configs').setup(opts)
     end
   },
 
   -- override plugin configs
-  { 'williamboman/mason.nvim', opts = overrides.mason },
+  -- { 'williamboman/mason.nvim', opts = overrides.mason },
 
   { 'nvim-treesitter/nvim-treesitter', opts = overrides.treesitter, },
 
