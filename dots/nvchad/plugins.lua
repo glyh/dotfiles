@@ -299,7 +299,7 @@ local plugins = {
       require('which-key').register({
         ['p'] = { '<cmd>MarkdownPreviewToggle<CR>', 'Toggle markdown preview'}
       }, { prefix = '<localleader>' })
-      vim.g.mkdp_browser = 'qutebrowseru'
+      vim.g.mkdp_browser = 'firefox.exe'
       vim.g.mkdp_theme = 'dark'
     end,
     ft = 'markdown'
