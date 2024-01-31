@@ -115,7 +115,7 @@
      ;(hom "Pictures/Wallpapers") (res "wallpapers")
      (cfg "sway")                (dot "sway")
      (cfg "kanshi")              (dot "kanshi")
-     (cfg "mimeapps.list")       (dot "xdg/mimeapps.list")
+     ; (cfg "mimeapps.list")       (dot "xdg/mimeapps.list")
      (cfg "hypr")                (dot "hyprland")
      (cfg "swaylock")            (dot "swaylock")
      (cfg "waybar")              (dot "waybar")
