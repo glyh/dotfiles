@@ -133,7 +133,7 @@
      (cfg "tealdeer")      (dot "tealdeer")
      (cfg "bat")           (dot "bat")
      (cfg "starship")      (dot "starship")
-     (hom ".proxychains")  (dot "proxychains")
+     ; (hom ".proxychains")  (dot "proxychains")
      (cfg "kmonad")        (dot "kmonad")
      ;;(hom ".default-gems") (dot "ruby/.default-gems")
      (hom ".haskeline")    (dot "ghc/.haskeline")
