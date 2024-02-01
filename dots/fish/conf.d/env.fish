@@ -112,6 +112,7 @@ set -gxa PATH                ~/repos/fstar/bin
 
 # Include scoop along
 set -gxa PATH  /mnt/c/Users/corvo/scoop/shims/
+set -gxa PATH  /mnt/c/Users/corvo/scoop/apps/sioyek/current
 
 # set -gxa PATH /usr/share/perl6/site/bin
 

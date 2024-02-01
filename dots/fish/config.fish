@@ -8,7 +8,8 @@ set -x fish_cursor_visual block
 set fish_vi_force_cursor
 
 # Plugins
-type -q starship; and starship init fish | source # Use starship
+# type -q starship; and starship init fish | source # Use starship
+# starship painfully slow on WSL windows
 type -q zoxide; and zoxide init fish | source
 # source /opt/asdf-vm/asdf.fish
 
@@ -87,5 +88,5 @@ abbr --add gacu "git add -A; git commit -m 'update'; git push"
 
 abbr --add ov "eval (opam env)"
 
-# opam configuration
-source /home/lyh/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+# # opam configuration
+# source /home/lyh/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
