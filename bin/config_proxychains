@@ -9,5 +9,5 @@ cat <<EOF > ~/.proxychains/proxychains.conf
 quiet_mode
 
 [ProxyList]
-socks5 	${HOST_IP} 9050
+socks5 	${HOST_IP} 10808
 EOF
