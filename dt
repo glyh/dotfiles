@@ -2,4 +2,6 @@
 
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
+# WINUSERPROFILE="$(cmd.exe /c 'echo %USERPROFILE%' 2> /dev/null)" WINLINUXHOME="$(wslpath -w ~)"
+
 $SCRIPTPATH/cfm dots
