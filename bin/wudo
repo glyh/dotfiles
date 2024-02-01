@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+# https://github.com/Chronial/wsl-sudo
+
 import argparse
 import fcntl
 import os
