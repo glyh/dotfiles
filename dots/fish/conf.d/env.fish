@@ -111,7 +111,7 @@ set -gxa PATH ~/.ghcup/bin
 set -gxa PATH                ~/repos/fstar/bin
 set -gxa PATH                /opt/cuda/bin
 # GCC 13 not working with CUDA 12
-set -gxa NVCC_PREPEND_FLAGS '-ccbin '(which clang)
+set -gxa NVCC_PREPEND_FLAGS '-ccbin '(which gcc-12)
 
 # Include scoop along
 set -gxa PATH  /mnt/c/Users/corvo/scoop/shims/
