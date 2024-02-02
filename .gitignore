@@ -21,3 +21,5 @@ dots/neovim_lazy/lazy-lock.json
 
 /.lsp
 /.clj-kondo
+
+bin/bb
