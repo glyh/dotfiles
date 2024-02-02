@@ -8,7 +8,7 @@ set fish_greeting
 # set fish_vi_force_cursor
 
 # Plugins
-# type -q starship; and starship init fish | source # Use starship
+type -q starship; and starship init fish | source # Use starship
 # starship painfully slow on WSL windows
 type -q zoxide; and zoxide init fish | source
 # source /opt/asdf-vm/asdf.fish
