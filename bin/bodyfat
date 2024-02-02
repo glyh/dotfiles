@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 chest_skinfold = float(input("Input chest skinfold:"))
 abs_skinfold = float(input("Input abs skinfold:"))

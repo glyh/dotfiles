@@ -148,7 +148,7 @@
 (defn package-managers []
   (println "Setting up package-managers")
   (links 
-    {(cfg "cargo/config.toml") (dot "cargo/config.toml")
+    {(hom ".cargo/config.toml") (dot "cargo/config.toml")
      (cfg "pip") (dot "pip")}))
 
 (defn common-lisp []
