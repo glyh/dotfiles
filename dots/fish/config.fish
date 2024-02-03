@@ -86,6 +86,7 @@ abbr --add cg "cargo"
 abbr --add p "proxychains4"
 
 abbr --add gacu "git add -A; git commit -m 'update'; git push"
+abbr --add pg "proxychains4 git"
 
 abbr --add ov "eval (opam env)"
 
