@@ -1,6 +1,6 @@
 # Basic info
 set -gx HOME_LANG            zh
-set -gx GITHUB               hub.fgit.cf
+set -gx GITHUB               githubfast.com
 # 'hub.nuaa.cf'
 # 'hub.yzuu.cf'
 # 'githubfast.com'
