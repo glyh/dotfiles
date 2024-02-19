@@ -101,6 +101,7 @@ set -gxa PATH                ~/.cargo/bin
 # set -gxa PATH                ~/.roswell/bin
 set -gxa PATH                ~/.config/emacs/bin
 set -gxa PATH                ~/.zvm/bin
+set -gxa PATH                ~/.zvm/self
 set -gxa PATH                ~/.pack/bin # idris
 # set -gxa PATH                ~/.luarocks/bin
 # set -gxa PATH                ~/.local/share/nvim/lazy/vim-iced/bin
@@ -116,6 +117,7 @@ set -gxa NVCC_PREPEND_FLAGS '-ccbin '(which gcc-12)
 # Include scoop along
 set -gxa PATH  /mnt/c/Users/corvo/scoop/shims/
 set -gxa PATH  /mnt/c/Users/corvo/scoop/apps/sioyek/current
+set -gxa PATH  /mnt/c/Users/corvo/scoop/apps/qemu/current
 
 # set -gxa PATH /usr/share/perl6/site/bin
 
