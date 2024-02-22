@@ -8,10 +8,17 @@ set fish_greeting
 # set fish_vi_force_cursor
 
 # Plugins
-type -q starship; and starship init fish | source # Use starship
+# type -q starship; and starship init fish | source # Use starship
 # starship painfully slow on WSL windows
 type -q zoxide; and zoxide init fish | source
 # source /opt/asdf-vm/asdf.fish
+function fish_prompt -d "Write out the prompt"
+    # This shows up as USER@HOST /home/user/ >, with the directory colored
+    # $USER and $hostname are set by fish, so you can just use them
+    # instead of using `whoami` and `hostname`
+    printf '%s%s%s > ' \
+        (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
+end
 
 # Editor commands
 abbr --add e $EDITOR
@@ -53,8 +60,9 @@ function f
     return $return_value
 end
 
-abbr --add --position anywhere ai "apt install"
-abbr --add sau "sudo apt update && sudo apt upgrade"
+# abbr --add --position anywhere ai "apt install"
+# abbr --add sau "sudo apt update && sudo apt upgrade"
+abbr --add y "yay"
 
 abbr --add rm "rm -i"
 abbr --add tp "trash-put"

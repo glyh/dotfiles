@@ -102,7 +102,8 @@ set -gxa PATH                ~/.cargo/bin
 set -gxa PATH                ~/.config/emacs/bin
 set -gxa PATH                ~/.zvm/bin
 set -gxa PATH                ~/.zvm/self
-set -gxa PATH                ~/.pack/bin # idris
+set -gxa PATH                /softwares/zls/bin
+# set -gxa PATH                ~/.pack/bin # idris
 # set -gxa PATH                ~/.luarocks/bin
 # set -gxa PATH                ~/.local/share/nvim/lazy/vim-iced/bin
 # set -gxa PATH /opt/texlive/bin
@@ -112,7 +113,7 @@ set -gxa PATH ~/.ghcup/bin
 set -gxa PATH                ~/repos/fstar/bin
 set -gxa PATH                /opt/cuda/bin
 # GCC 13 not working with CUDA 12
-set -gxa NVCC_PREPEND_FLAGS '-ccbin '(which gcc-12)
+type -q gcc-12; and set -gxa NVCC_PREPEND_FLAGS '-ccbin '(which gcc-12)
 
 # Include scoop along
 set -gxa PATH  /mnt/c/Users/corvo/scoop/shims/
