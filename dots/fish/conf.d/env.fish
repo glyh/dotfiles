@@ -95,37 +95,38 @@ set -gx JAVA_HOME            /usr/lib/jvm/default
 
 # Path
 fish_add_path -gp            ~/Binaries
-set -gxa PATH                ~/.local/bin
-set -gxa PATH                ~/.cargo/bin
+# set -gxa PATH                ~/.local/bin
+# set -gxa PATH                ~/.cargo/bin
 # set -gxa PATH                ~/.nimble/bin
 # set -gxa PATH                ~/.roswell/bin
-set -gxa PATH                ~/.config/emacs/bin
+# set -gxa PATH                ~/.config/emacs/bin
 set -gxa PATH                ~/.zvm/bin
 set -gxa PATH                ~/.zvm/self
-set -gxa PATH                /softwares/zls/bin
+# set -gxa PATH                /softwares/zls/bin
 # set -gxa PATH                ~/.pack/bin # idris
 # set -gxa PATH                ~/.luarocks/bin
 # set -gxa PATH                ~/.local/share/nvim/lazy/vim-iced/bin
 # set -gxa PATH /opt/texlive/bin
 # set -gxa PATH ~/Documents/CS/3rdparty/kics2/bin
 
-set -gxa PATH ~/.ghcup/bin
-set -gxa PATH                ~/repos/fstar/bin
+# set -gxa PATH ~/.ghcup/bin
+# set -gxa PATH                ~/repos/fstar/bin
 set -gxa PATH                /opt/cuda/bin
 # GCC 13 not working with CUDA 12
-type -q gcc-12; and set -gxa NVCC_PREPEND_FLAGS '-ccbin '(which gcc-12)
+# type -q g++-12; and set -gxa CUDAHOSTCXX (which g++-12)
+type -q g++-12; and set -gxa NVCC_PREPEND_FLAGS '-ccbin /opt/cuda/bin/g++'
 
 # Include scoop along
-set -gxa PATH  /mnt/c/Users/corvo/scoop/shims/
-set -gxa PATH  /mnt/c/Users/corvo/scoop/apps/sioyek/current
-set -gxa PATH  /mnt/c/Users/corvo/scoop/apps/qemu/current
+# set -gxa PATH  /mnt/c/Users/corvo/scoop/shims/
+# set -gxa PATH  /mnt/c/Users/corvo/scoop/apps/sioyek/current
+# set -gxa PATH  /mnt/c/Users/corvo/scoop/apps/qemu/current
 
 # set -gxa PATH /usr/share/perl6/site/bin
 
-type -q opam; and eval (opam env) 
-if type -q racket
-  set -gxa PATH                ~/.local/share/racket/(racket -v | grep -o '[0-9.]\+[0-9]')/bin
-end
+# type -q opam; and eval (opam env) 
+# if type -q racket
+#   set -gxa PATH                ~/.local/share/racket/(racket -v | grep -o '[0-9.]\+[0-9]')/bin
+# end
 
 # if type -q rbenv 
 #   status --is-interactive; and rbenv init - fish | source

@@ -12,13 +12,15 @@ set fish_greeting
 # starship painfully slow on WSL windows
 type -q zoxide; and zoxide init fish | source
 # source /opt/asdf-vm/asdf.fish
-function fish_prompt -d "Write out the prompt"
-    # This shows up as USER@HOST /home/user/ >, with the directory colored
-    # $USER and $hostname are set by fish, so you can just use them
-    # instead of using `whoami` and `hostname`
-    printf '%s%s%s > ' \
-        (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
-end
+# function fish_mode_prompt; end
+
+# function fish_prompt 
+#     # This shows up as USER@HOST /home/user/ >, with the directory colored
+#     # $USER and $hostname are set by fish, so you can just use them
+#     # instead of using `whoami` and `hostname`
+#     printf '%s%s%s\n> ' \
+#         (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
+# end
 
 # Editor commands
 abbr --add e $EDITOR

@@ -4,11 +4,11 @@ dots/neovim/plugin
 dots/fcitx5/conf/cached_layouts
 
 dots/fish/fish_variables
-dots/fish/*
-!dots/fish/config.fish
-!dots/fish/fish_plugins
-!dots/fish/conf.d
-dots/fish/conf.d/_*
+# dots/fish/*
+# !dots/fish/config.fish
+# !dots/fish/fish_plugins
+# !dots/fish/conf.d
+# dots/fish/conf.d/_*
 
 dots/kitty/kitty-themes
 dots/kitty/theme.conf
