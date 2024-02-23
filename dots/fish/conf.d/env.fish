@@ -1,8 +1,6 @@
 # Basic info
 set -gx HOME_LANG            zh
-set -gx GITHUB               githubfast.com
-# 'hub.nuaa.cf'
-# 'hub.yzuu.cf'
+set -gx GITHUB               521github.com
 # 'githubfast.com'
 # 'mirror.ghproxy.com/https://github.com'
 
