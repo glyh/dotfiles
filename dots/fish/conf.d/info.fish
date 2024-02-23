@@ -4,10 +4,6 @@ set -gx GITHUB               521github.com
 # 'githubfast.com'
 # 'mirror.ghproxy.com/https://github.com'
 
-# SCALE, done in hyprland side
-# set -gx GDK_SCALE 2
-# set -gx XCURSOR_SIZE 32
-
 set -gx LIBVA_DRIVER_NAME nvidia
 set -gx VDPAU_DRIVER nvidia
 
@@ -23,8 +19,8 @@ if type -q nvim;
     set -gx  EDITOR              nvim
 end
 
-# Emacs
-set -gx DOOMGITCONFIG ~/.config/git/config
+# # Emacs
+# set -gx DOOMGITCONFIG ~/.config/git/config
 
 if type -q page; 
     set -gx  PAGER               page
@@ -67,8 +63,8 @@ set -gx TERM xterm-256color
 set -gx MOZ_ENABLE_WAYLAND   1
 set -gx QT_QPA_PLATFORM          wayland
 
-# Qutebrowser
-set -gx QUTE_QT_WRAPPER          PyQt6
+# # Qutebrowser
+# set -gx QUTE_QT_WRAPPER          PyQt6
 
 # IME
 set -gx GTK_IM_MODULE            fcitx5
@@ -77,11 +73,6 @@ set -gx XMODIFIERS               \@im=fcitx5
 
 # GTK themes
 set -gx  GTK_THEME           Adwaita:dark
-
-# go
-set -gx  GO111MODULE         on
-set -gx  GOPROXY             https://goproxy.cn
-set -gx  GOPATH                ~/.cache/go
 
 # # Flutter
 # set -gx FLUTTER_STORAGE_BASE_URL https://mirrors.tuna.tsinghua.edu.cn/flutter
@@ -93,27 +84,26 @@ set -gx JAVA_HOME            /usr/lib/jvm/default
 
 # Path
 fish_add_path -gp            ~/Binaries
-set -gxa PATH                ~/.local/bin
-set -gxa PATH                ~/.cargo/bin
+# set -gxa PATH                ~/.local/bin
+# set -gxa PATH                ~/.cargo/bin
 # set -gxa PATH                ~/.nimble/bin
 # set -gxa PATH                ~/.roswell/bin
-set -gxa PATH                ~/.config/emacs/bin
-set -gxa PATH                ~/.zvm/bin
-set -gxa PATH                ~/.pack/bin # idris
+# set -gxa PATH                ~/.config/emacs/bin
+# set -gxa PATH                ~/.pack/bin # idris
 # set -gxa PATH                ~/.luarocks/bin
 # set -gxa PATH                ~/.local/share/nvim/lazy/vim-iced/bin
 # set -gxa PATH /opt/texlive/bin
 # set -gxa PATH ~/Documents/CS/3rdparty/kics2/bin
 
-set -gxa PATH ~/.ghcup/bin
-set -gxa PATH                ~/repos/fstar/bin
+# set -gxa PATH ~/.ghcup/bin
+# set -gxa PATH                ~/repos/fstar/bin
 
 # set -gxa PATH /usr/share/perl6/site/bin
 
-type -q opam; and eval (opam env) 
-if type -q racket
-  set -gxa PATH                ~/.local/share/racket/(racket -v | grep -o '[0-9.]\+[0-9]')/bin
-end
+# type -q opam; and eval (opam env) 
+# if type -q racket
+#   set -gxa PATH                ~/.local/share/racket/(racket -v | grep -o '[0-9.]\+[0-9]')/bin
+# end
 
 # if type -q rbenv 
 #   status --is-interactive; and rbenv init - fish | source
