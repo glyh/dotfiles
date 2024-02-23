@@ -48,9 +48,9 @@
             "critical": 15
         },
         // Connected to AC
-        "format": "  {icon}  {capacity}%", // Icon: bolt
+        "format": "  {icon}   {capacity}%", // Icon: bolt
         // Not connected to AC
-        "format-discharging": "{icon}  {capacity}%",
+        "format-discharging": "{icon}   {capacity}%",
         "format-icons": [
             "", // Icon: battery-full
             "", // Icon: battery-three-quarters
@@ -94,7 +94,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "  {}%", // Icon: memory
+        "format": "󰍛  {}%", // Icon: memory
         "states": {
             "warning": 70,
             "critical": 90
@@ -104,7 +104,7 @@
     "network": {
         "interval": 5,
         "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+        "format-ethernet": "󰈀  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}"
     },
@@ -132,8 +132,8 @@
         "format-muted": "",
         "format-icons": {
             "headphones": "",
-            "handsfree": "",
-            "headset": "",
+            "handsfree": "󰥰",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",
