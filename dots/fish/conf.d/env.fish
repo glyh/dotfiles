@@ -10,6 +10,9 @@ set -gx GITHUB               githubfast.com
 # set -gx GDK_SCALE 2
 # set -gx XCURSOR_SIZE 32
 
+set -gx LIBVA_DRIVER_NAME nvidia
+set -gx VDPAU_DRIVER nvidia
+
 # XDG
 set -gx  XDG_CONFIG_HOME     ~/.config
 set -gx  XDG_USER_CONFIG_DIR ~/.config
