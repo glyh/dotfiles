@@ -120,6 +120,7 @@
      (cfg "doom")                (dot "doom")})
   (shell (str "sh -c 'desktop-file-install --dir=" app-dir " " (dot "applications") "/*'"))
   (electron)
+  ;; too slow, do it with proxy manually
   #_(kitty))
 
 (defn tools []

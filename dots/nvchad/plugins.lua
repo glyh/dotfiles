@@ -199,10 +199,10 @@ local plugins = {
 
   -- Lisp {{{
 
-  { 'eraserhd/parinfer-rust',
-    ft = lisps,
-    build = 'cargo build --release',
-  },
+  -- { 'eraserhd/parinfer-rust',
+  --  ft = lisps,
+  --  build = 'cargo build --release',
+  -- },
   { 'julienvincent/nvim-paredit',
     ft = lisps,
     config = function()
