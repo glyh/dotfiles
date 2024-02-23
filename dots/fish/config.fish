@@ -7,11 +7,6 @@ set -x fish_cursor_replace_one underscore
 set -x fish_cursor_visual block
 set fish_vi_force_cursor
 
-# Plugins
-type -q starship; and starship init fish | source # Use starship
-type -q zoxide; and zoxide init fish | source
-# source /opt/asdf-vm/asdf.fish
-
 # Editor commands
 abbr --add e $EDITOR
 abbr --add vi $EDITOR
@@ -67,25 +62,15 @@ abbr --add plz "sudo"
 abbr --add cls "clear"
 abbr --add rpt "eval (history --max=1)"
 abbr --add k "kitty +kitten"
-# alias m="man"
 abbr --add bc "bottles-cli"
 abbr --add ytdlx "yt-dlp -x"
 abbr --add ytdlxp "yt-dlp --proxy socks5://127.0.0.1:20170 -x"
 abbr --add mu "ncmpcpp"
 
 # Languages
-# alias py="ptpython"
-# alias cl="rlwrap ros run"
-# alias clj="clojure -Sdeps '{:deps {reply/reply {:mvn/version \"0.5.0\"}}}' -M -m reply.main"
-# alias ppip="pypy3 -m pip"
-# alias wasi-clang="$WASI_SDK_PATH/bin/clang --sysroot=$WASI_SDK_PATH/share/wasi-sysroot"
-abbr --add st "stack"
-abbr --add cg "cargo"
 abbr --add p "proxychains4"
 
 abbr --add gacu "git add -A; git commit -m 'update'; git push"
-
-abbr --add ov "eval (opam env)"
 
 # opam configuration
 source /home/lyh/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
