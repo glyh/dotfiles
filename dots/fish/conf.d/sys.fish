@@ -49,16 +49,17 @@ if type -q kitty;
 end
 
 # For better experience on ssh
-set -gx TERM xterm-256color
+# set -gx TERM xterm-256color
 
 # Wayland
 set -gx MOZ_ENABLE_WAYLAND   1
 set -gx QT_QPA_PLATFORM          wayland
 
 # IME
-set -gx GTK_IM_MODULE            fcitx5
-set -gx QT_IM_MODULE             fcitx5
-set -gx XMODIFIERS               \@im=fcitx5
+# fcitx5 recommends unset GTK_IM_MODULE
+# set -gx GTK_IM_MODULE            fcitx
+set -gx QT_IM_MODULE             fcitx
+set -gx XMODIFIERS               \@im=fcitx
 
 # GTK themes
 set -gx  GTK_THEME           Adwaita:dark
