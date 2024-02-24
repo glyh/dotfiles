@@ -9,7 +9,6 @@ dots/fish/*
 !dots/fish/fish_plugins
 !dots/fish/conf.d
 
-dots/kitty/kitty-themes
 dots/kitty/theme.conf
 dots/mdc/.mlogs
 

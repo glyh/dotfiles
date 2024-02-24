@@ -76,8 +76,8 @@
 
 (defn kitty []
   (link (cfg "kitty") (dot "kitty"))
-  (clone "https://github.com/dexpota/kitty-themes.git" (cfg "kitty/kitty-themes"))
-  (link (cfg "kitty/theme.conf") (cfg "kitty/kitty-themes/themes/Apprentice.conf")))
+  (clone "https://github.com/dexpota/kitty-themes.git" (cfg "kitty-themes"))
+  (link (cfg "kitty/theme.conf") (cfg "kitty-themes/themes/Apprentice.conf")))
 
 (defn neovim []
   (println "Clearing neovim cache")
