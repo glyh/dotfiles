@@ -1,0 +1,5 @@
+if type -q gamemoderun
+    set -gx GAMEMODERUNEXEC "env DXVK_ASYNC=1  PROTON_ENABLE_NVAPI=1 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
+end
+
+
