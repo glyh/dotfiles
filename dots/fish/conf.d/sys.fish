@@ -1,7 +1,6 @@
 # Basic info
-set -gx GITHUB               521github.com
-# 'githubfast.com'
-# 'mirror.ghproxy.com/https://github.com'
+set -gx GITHUB               github.hscsec.cn
+# See https://coderschool.cn/3724.html
 
 # Nvidia Drivers
 set -gx LIBVA_DRIVER_NAME nvidia
