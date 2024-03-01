@@ -120,7 +120,7 @@
   (shell (str "sh -c 'desktop-file-install --dir=" app-dir " " (dot "applications") "/*'"))
   (electron)
   ;; too slow, do it with proxy manually
-  #_(kitty))
+  (kitty))
 
 (defn tools []
   (println "Setting up tools")
