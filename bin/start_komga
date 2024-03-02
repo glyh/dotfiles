@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -x
+
+mkdir -p /tmp/pikpak/komga/
+
+rclone mount pikpak:komga /tmp/pikpak/komga \
+      --allow-other \
+      --buffer-size 256M \
+      --dir-cache-time 720h \
+      --drive-chunk-size 512M \
+      --log-level INFO \
+      --vfs-read-chunk-size 128M \
+      --vfs-read-chunk-size-limit off \
+      --vfs-cache-mode full &
+
+komga --komga.config-dir=$HOME/Documents/Komga/config

@@ -47,7 +47,7 @@ function f
     return $return_value
 end
 
-abbr --add --position anywhere y "yay"
+abbr --add --position anywhere y "paru"
 
 abbr --add rm "rm -i"
 abbr --add tp "trash-put"
