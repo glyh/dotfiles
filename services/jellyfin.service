@@ -1,0 +1,10 @@
+[Unit]
+Description=Jellyfin
+Requires=pikpak_rclone.service
+After=pikpak_rclone.service
+
+[Service]
+ExecStart=%h/Binaries/start_jellyfin
+
+[Install]
+WantedBy=default.target

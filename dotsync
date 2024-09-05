@@ -1,0 +1,357 @@
+#!/usr/bin/env ysh
+
+# BUG: for now environment variables are mostly loaded in fish, so in order to use them
+# I need to find a shell agnostic way for loading environment variables.
+
+# NOTE: Or, could I use ysh as my login shell?
+
+source $_this_dir/yake/src/yake.ysh
+
+const dotPath = _this_dir
+const credentialPath = "$HOME/Documents/credential"
+
+const XDG_CONFIG_HOME = ${XDG_CONFIG_HOME:-"$HOME/.config"}
+const XDG_STATE_HOME = ${XDG_STATE_HOME:-"$HOME/local/state"}
+const XDG_DATA_HOME = ${XDG_DATA_HOME:-"$HOME/.local/share"}
+
+proc ensure-pacman(...packages) {
+  echo Ensuring 'package(s)' @packages are installed
+  sudo pacman -S --needed --noconfirm @packages
+}
+
+proc pin-pacman(package, version) {
+  echo "Pining package $package to $version"
+  var needDowngrade = false
+  if ! pacman -Qi $package > /dev/null {
+    setvar needDowngrade = true
+  } else {
+    var packageInfo = $(pacman -Q $package)
+    var packageVersion = split(packageInfo)[1]
+    if (packageVersion !== version) {
+      setvar needDowngrade = true
+    }
+  }
+  echo "Needdowngrade for $package? $[needDowngrade]"
+  if (needDowngrade) {
+    sudo downgrade \
+      --ala-only \
+      --ignore always \
+      "$package=$version" \
+      -- --asdeps --noconfirm
+  }
+}
+
+proc ensure-AUR(...packages) {
+  echo Ensuring AUR 'package(s)' @packages are installed
+  for package in (packages) {
+    if ! pacman -Qi $package > /dev/null {
+      var targetPath = $(mktemp -d)
+      git clone https://aur.archlinux.org/${package}.git $targetPath
+      cd $targetPath {
+        makepkg -si --noconfirm
+      }
+    }
+  }
+}
+
+#M dots-common-lisp xdg paru-sync-pkg-list {
+#  ros install qlot
+#}
+
+# TODO: write texlive dotfile
+#M dots-texlive {
+#  ensure-pacman curl
+#  var targetPath = $(mktemp -d)
+#  wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+#}
+
+M dots-kdenlive xdg {
+  ln -sfnv $dotPath/dots/kdenlive/kdenliverc $XDG_CONFIG_HOME/kdenliverc
+}
+
+ M dots-ruby paru-sync-pkg-list {
+   # Ruby, depends on rust 
+   ln -sfnv $dotPath/dots/bundler $XDG_CONFIG_HOME/bundler
+   ln -sfnv $dotPath/dots/gem $XDG_CONFIG_HOME/gem
+   try {                                             
+     # frum panics if ruby is already installed      
+     # TODO: figure out how to redirect errors       
+     frum --ruby-build-mirror=https://cache.ruby-china.com/pub/ruby install 3.3.0
+   }                                                 
+                                                     
+   frum global 3.3.0                                 
+ }
+
+M dots-aconfmgr xdg {
+  ensure-AUR paru-bin
+  ln -sfnv $dotPath/dots/aconfmgr $XDG_CONFIG_HOME/aconfmgr
+  ensure-AUR aconfmgr-git
+  aconfmgr apply -c $dotPath/dots/aconfmgr
+}
+
+M dots-etc dots-aconfmgr {
+  return 0
+}
+
+M paru-sync-pkg-list dots-aconfmgr {
+  return 0
+}
+
+M ensure-paru dots-aconfmgr {
+  return 0
+}
+
+proc install-rustup(...tags) {
+  for tag in (tags) {
+    try {
+      # TODO: figure out how to redirect errors
+      rustup toolchain list | grep $tag > /dev/null
+    }
+    if (_status !== 0) {
+      rustup toolchain install $tag --component rust-analyzer
+    }
+  }
+}
+
+M dots-rust dots-etc {
+  # cargo +nightly install glasgow
+  ensure-pacman rustup clang mold
+  mkdir -p ~/.cargo
+  ln -sfnv $dotPath/dots/cargo/config.toml ~/.cargo/config.toml
+  install-rustup stable nightly-x86_64
+  rustup default stable
+}
+
+M ensure-downgrade ensure-paru  {
+  paru -S --needed --noconfirm downgrade
+}
+
+M pin-packages ensure-downgrade {
+  # https://github.com/fcitx/fcitx5/issues/1031
+  # pin-pacman fcitx5 5.1.8
+  :
+}
+
+#M add-groups paru-sync-pkg-list { # Only installs group when pacman created them
+#  return 0
+#  var groups = join(split("$(cat ./groups.txt)"), ",")
+#  sudo usermod -aG $groups $(whoami)
+#}
+
+M xdg {
+  mkdir -p $XDG_CONFIG_HOME $XDG_STATE_HOME $XDG_DATA_HOME
+    ln -sfnv $dotPath/dots/xdg/mimeapps.list $XDG_CONFIG_HOME/mimeapps.list
+}
+
+M dots-credential xdg {
+  mkdir -p $credentialPath
+  cd $credentialPath {
+    # SSH
+    ln -sfnv $credentialPath/ssh ~/.ssh
+    ln -sfnv $dotPath/dots/ssh/config ~/.ssh/config
+    # Thorium
+    mkdir -p thorium
+    ln -sfnv $credentialPath/thorium $XDG_CONFIG_HOME/thorium
+    ln -sfnv $dotPath/dots/electron/thorium-flags.conf $XDG_CONFIG_HOME/thorium-flags.conf
+    # # Firefox
+    # ln -sfnv $credentialPath/mozilla ~/.mozilla
+    # Mercury
+    ln -sfnv $credentialPath/mercury ~/.mercury
+    # Rclone
+    sudo mkdir -p /mnt/pikpak
+    sudo chown lyh /mnt/pikpak
+    mkdir -p rclone
+    ln -sfnv $credentialPath/rclone $XDG_CONFIG_HOME/rclone
+    # V2rayA
+    ln -sfnv $credentialPath/v2raya $XDG_CONFIG_HOME/v2raya
+  }
+}
+
+M dots-bash xdg {
+  mkdir -p "$XDG_STATE_HOME"/bash
+}
+
+M dots-fish xdg {
+  var fishConfigPath = "$XDG_CONFIG_HOME/fish"
+  if test -L $fishConfigPath {
+    rm -rf $fishConfigPath
+  }
+  ln -sfnv $dotPath/dots/fish $fishConfigPath
+}
+
+M dots-base xdg {
+  echo 'Setting up base'
+  ln -sfnv $dotPath/bin ~/Binaries
+  ln -sfnv ~/Documents/Videos ~/Videos
+  ln -sfnv ~/Documents/Pictures ~/Pictures
+  ln -sfnv $dotPath/dots/git $XDG_CONFIG_HOME/git
+  ln -sfnv $dotPath/dots/readline $XDG_CONFIG_HOME/readline
+  ln -sfnv $dotPath/dots/nvim $XDG_CONFIG_HOME/nvim
+}
+
+M dots-kitty xdg {
+  ln -sfnv $dotPath/dots/kitty $XDG_CONFIG_HOME/kitty
+}
+
+M dots-DE xdg {
+  echo 'Setting up DE'
+  ln -sfnv $dotPath/dots/xdg/mimeapps.list $XDG_CONFIG_HOME/mimeapps.list
+  ln -sfnv $dotPath/dots/hyprland $XDG_CONFIG_HOME/hypr
+  ln -sfnv $dotPath/dots/niri $XDG_CONFIG_HOME/niri
+  ln -sfnv $dotPath/dots/waybar $XDG_CONFIG_HOME/waybar
+  ln -sfnv $dotPath/dots/mako $XDG_CONFIG_HOME/mako
+  ln -sfnv $dotPath/dots/tofi $XDG_CONFIG_HOME/tofi
+  ln -sfnv $dotPath/dots/x11  $XDG_CONFIG_HOME/x11
+  ln -sfnv $dotPath/dots/applications $XDG_DATA_HOME/applications
+  ln -sfnv $dotPath/dots/applications ~/Desktop
+}
+
+M dots-aria2 xdg paru-sync-pkg-list {
+  # https://github.com/aria2/aria2/issues/2215
+  var aria2Config = "$HOME/.aria2"
+  if ! test -d $aria2Config {
+    git clone https://github.com/P3TERX/aria2.conf.git $aria2Config
+  } else {
+    echo "Trying to sync aria2.conf"
+    cd $aria2Config {
+      git pull
+    }
+  }
+  rm $aria2Config/aria2.conf
+  ln -sfnv $dotPath/dots/aria2/aria2.conf $aria2Config/aria2.conf
+  touch $aria2Config/aria2.session
+  $aria2Config/tracker.sh ./dots/aria2/aria2.conf
+}
+
+M dots-jellyfin xdg {
+  ln -sfnv $dotPath/dots/javsp $XDG_CONFIG_HOME/javsp
+}
+
+M dots-tools xdg {
+  echo 'Setting up tools'
+  ln -sfnv $dotPath/dots/ranger $XDG_CONFIG_HOME/ranger
+  ln -sfnv $dotPath/dots/tealdeer $XDG_CONFIG_HOME/tealdeer
+  ln -sfnv $dotPath/dots/bat $XDG_CONFIG_HOME/bat
+  ln -sfnv $dotPath/dots/starship/starship.toml $XDG_CONFIG_HOME/starship.toml
+  ln -sfnv $dotPath/dots/proxychains ~/.proxychains
+  ln -sfnv $dotPath/dots/zathura $XDG_CONFIG_HOME/zathura
+  ln -sfnv $dotPath/dots/sioyek $XDG_CONFIG_HOME/sioyek
+  ln -sfnv $dotPath/dots/fcitx5 $XDG_CONFIG_HOME/fcitx5
+  ln -sfnv $dotPath/dots/mpv $XDG_CONFIG_HOME/mpv
+  ln -sfnv $dotPath/dots/containers $XDG_CONFIG_HOME/containers
+}
+
+M dots-zig xdg paru-sync-pkg-list {
+  zigup 0.13.0-dev.351+64ef45eb0 --install-dir ~/.zig --path-link ~/.zig/zig
+}
+
+# M dots-emacs paru-sync-pkg-list {
+#   ln -sfnv $dotPath/dots/emacs $HOME/.config/emacs
+# } 
+
+ M dots-doom xdg paru-sync-pkg-list {
+   if ! test -d ~/.config/emacs {
+     git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+   }
+   ln -sfnv $dotPath/dots/doom $HOME/.config/doom
+   ~/.config/emacs/bin/doom install -!
+ } 
+
+#M dots-space-emacs xdg paru-sync-pkg-list {
+#   if ! test -d ~/.config/emacs {
+#    git clone https://github.com/syl20bnr/spacemacs ~/.config/emacs
+#   }
+#}
+
+M dots-cuda xdg paru-sync-pkg-list {
+  # CUDA
+  pin-pacman gcc11-libs 11.3.0-5
+  pin-pacman gcc11 11.3.0-5
+  pin-pacman cuda 11.8.0-1
+}
+
+M dots-haskell xdg paru-sync-pkg-list {
+  if ! test -d $ghcupDir {
+    var ghcupDir = "$HOME/.ghcup"
+    mkdir -p $ghcupDir
+    ln -sfnv $dotPath/dots/ghcup/config.yaml $ghcupDir/config.yaml
+
+    mkdir -p $HOME/.cabal
+    ln -sfnv $dotPath/dots/cabal/config $HOME/.cabal/config
+
+    ghcup install ghc
+    ghcup set ghc
+    ghcup install hls
+    ghcup set hls
+    ghcup install cabal
+    ghcup set cabal
+  } else {
+    cabal update
+    cabal install --overwrite-policy=always cabal-gild
+    cabal install --overwrite-policy=always cabal-fmt
+  }
+
+  var ghcRc = "$HOME/.ghc"
+  mkdir -p $ghcRc
+  ln -sfnv $dotPath/dots/ghc/ghci.conf $ghcRc/ghci.conf
+}
+
+M dots-ocaml xdg paru-sync-pkg-list {
+  # OCaml
+  opam init default https://mirrors.sjtug.sjtu.edu.cn/git/opam-repository.git -n
+  opam install -y dune utop # For creating softwares
+  # run in individual switch:
+  # opam install -y dune ocamlformat ocaml-lsp-server
+}
+
+
+M dots-languages xdg paru-sync-pkg-list {
+  echo 'Setting up languages'
+
+  # Python
+  ln -sfnv $dotPath/dots/pip $XDG_CONFIG_HOME/pip
+
+  # Clojure
+  ln -sfnv $dotPath/dots/clojure $XDG_CONFIG_HOME/clojure
+  ln -sfnv $dotPath/dots/lein $XDG_CONFIG_HOME/lein
+  ln -sfnv $dotPath/dots/shadow-cljs $XDG_CONFIG_HOME/shadow-cljs
+
+  # JS & TypeScript
+  ln -sfnv $dotPath/dots/npm $XDG_CONFIG_HOME/npm
+  ln -sfnv $dotPath/dots/bun/bunfig.toml $XDG_CONFIG_HOME/.bunfig.toml
+
+  # FSharp
+  mkdir -p ~/.nuget
+  ln -sfnv $dotPath/dots/NuGet $HOME/.nuget/NuGet
+}
+
+M dots-services xdg {
+  echo 'Setting up services'
+  ln -sfnv $dotPath/dots/environment.d $XDG_CONFIG_HOME/environment.d
+  mkdir -p $XDG_CONFIG_HOME/systemd
+  ln -sfnv $dotPath/services $XDG_CONFIG_HOME/systemd/user
+}
+
+M write-meta-data xdg {
+  echo "Writing metadata"
+  mkdir -p $XDG_DATA_HOME/dotfiles
+  echo "$dotPath" > $XDG_DATA_HOME/dotfiles/path
+}
+
+M go-musicfox xdg {
+  # ln -sfnv $dotPath/services $XDG_CONFIG_HOME/systemd/user
+  ln -sfnv $dotPath/dots/go-musicfox/go-musicfox.ini ~/.config/go-musicfox/go-musicfox.ini
+}
+
+#M dots-guix {
+#  ln -snfv $dotPath/dots/guix/channels.scm $XDG_CONFIG_HOME/guix/channels.scm
+#}
+
+#M dots-nix {
+#  ln -snfv $dotPath/dots/nix $XDG_CONFIG_HOME/nix
+#  ln -snfv $dotPath/dots/nix/nix-channels $HOME/.nix-channels
+#}
+
+cd $dotPath {
+  _yake ($(nproc --all) // 2)
+}

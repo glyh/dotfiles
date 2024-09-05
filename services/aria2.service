@@ -1,0 +1,8 @@
+[Unit]
+Description=Aria2c download tool
+
+[Service]
+ExecStart=aria2c
+
+[Install]
+WantedBy=default.target

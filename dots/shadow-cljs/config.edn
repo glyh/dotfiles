@@ -1,0 +1,8 @@
+{:maven
+ {:mirrors 
+  {"central" {:name "Aliyun"
+              :url "https://maven.aliyun.com/nexus/content/groups/public/"}
+   "clojars" {:name "USTC"
+              :url "https://mirrors.ustc.edu.cn/clojars/"}}
+  :local-repo #shadow/env ["SHADOW_MVN_REPO" :default "~/.cache/m2"]}} 
+ 

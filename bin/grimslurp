@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ "$1" == "area" ]; then
+  grim -g "$(slurp)" ~/Pictures/screenshot.png
+else
+  grim ~/Pictures/screenshot.png
+fi
+
+wl-copy < ~/Pictures/screenshot.png

@@ -1,0 +1,3 @@
+[submodule "yake"]
+	path = yake
+	url = git@github.com:glyh/yake.git

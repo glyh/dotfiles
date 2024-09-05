@@ -1,0 +1,10 @@
+[Unit]
+Description=Komga
+Requires=pikpak_rclone.service
+After=pikpak_rclone.service
+
+[Service]
+ExecStart=komga --komga.config-dir=%h/Documents/self-hosted/Komga/config
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,4 @@
+#!/usr/bin/env osh
+
+cd ~/Documents/self-hosted/Jellyfin/tools/JavSPn
+exec poetry run javspn --auto-exit --config ~/.config/javsp/config.ini

@@ -1,0 +1,45 @@
+[user]
+	email = lyhokia@gmail.com
+	name = glyh
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+[pull]
+	rebase = false
+[alias]
+	l = log --oneline --decorate --graph
+	d = diff
+	a = add
+	c = commit
+	o = checkout
+	s = status
+	f = config
+	i = config --get-regexp alias
+	t = difftool
+	p = pull
+	u = push
+	g = clone --filter=blob:none --recurse-submodules -j8
+	b = branch
+	cf = commit --amend
+	r = restore
+	root = rev-parse --show-toplevel
+[gpg]
+	program = gpg2
+[push]
+	autoSetupRemote = true
+
+[url "https://githubfast.com/"]
+	insteadof = https://github.com/
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

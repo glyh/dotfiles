@@ -1,0 +1,18 @@
+[Unit]
+Description=Rclone mounting Pikpak
+
+[Service]
+ExecStart=rclone mount pikpak:/ /mnt/pikpak \
+      --allow-other \
+      --buffer-size 256m \
+      --dir-cache-time 720h \
+      --drive-chunk-size 512m \
+      --log-level info \
+      --vfs-read-chunk-size 128m \
+      --vfs-read-chunk-size-limit off \
+      --vfs-cache-mode full \
+      --rc
+
+
+[Install]
+WantedBy=default.target

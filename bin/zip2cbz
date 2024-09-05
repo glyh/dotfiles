@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+for f in *.{7z,zip};
+do
+  mv "$f" "$f.cbz"
+done

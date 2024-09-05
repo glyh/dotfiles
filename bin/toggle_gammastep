@@ -1,0 +1,7 @@
+#!/usr/bin/env ysh
+
+if pgrep gammastep {
+  pkill gammastep
+} else {
+  exec gammastep
+}

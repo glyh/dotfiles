@@ -1,0 +1,5 @@
+#!/usr/bin/env ysh
+
+const dotPath = _this_dir
+
+aconfmgr save -c $dotPath/dots/aconfmgr

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -x
+
+JELLYFINDIR=$HOME"/Documents/self-hosted/Jellyfin"
+FFMPEG="/usr/lib/jellyfin-ffmpeg/ffmpeg"
+
+exec jellyfin \
+  -d $JELLYFINDIR/data \
+  -C $XDG_CACHE_HOME/jellyfin \
+  -w /usr/share/jellyfin/web \
+  -c $JELLYFINDIR/config \
+  -l $XDG_CACHE_HOME/jellyfin/log \
+  --ffmpeg $FFMPEG

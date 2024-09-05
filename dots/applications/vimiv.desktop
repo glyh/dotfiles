@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Vimiv
+Exec=vimiv %U
+MimeType=image/*;

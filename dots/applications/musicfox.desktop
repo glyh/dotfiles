@@ -1,0 +1,3 @@
+[Desktop Entry]
+Name=musicfox
+Exec=kitty -e 'musicfox'

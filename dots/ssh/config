@@ -1,0 +1,23 @@
+# Host github.com
+#     Hostname github.com
+#     ServerAliveInterval 55
+#     ForwardAgent yes
+#     ProxyCommand corkscrew 127.0.0.1 20171 %h %p
+#
+# Host gitlab.com
+#     Hostname gitlab.com
+#     ServerAliveInterval 55
+#     ForwardAgent yes
+#     ProxyCommand corkscrew 127.0.0.1 20171 %h %p
+#
+# Host codeberg.org
+#     Hostname codeberg.org
+#     ServerAliveInterval 55
+#     ForwardAgent yes
+#     ProxyCommand corkscrew 127.0.0.1 20171 %h %p
+
+# Host gitlab.freedesktop.org
+#     Hostname gitlab.freedesktop.org
+#     ServerAliveInterval 55
+#     ForwardAgent yes
+#     ProxyCommand corkscrew 127.0.0.1 20171 %h %p
