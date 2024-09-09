@@ -157,8 +157,6 @@ AddPackage --foreign zigup-bin # Download and manage zig compilers
 
 CreateFile /etc/.pwd.lock 600 > /dev/null
 CopyFile /etc/adjtime
-CreateLink /etc/bash_completion.d/guix /var/guix/profiles/per-user/root/current-guix/etc/bash_completion.d/guix
-CreateLink /etc/bash_completion.d/guix-daemon /var/guix/profiles/per-user/root/current-guix/etc/bash_completion.d/guix-daemon
 CreateDir /etc/colord '' colord colord
 CopyFile /etc/default/grub
 CreateLink /etc/fonts/conf.d/10-hinting-slight.conf /usr/share/fontconfig/conf.default/10-hinting-slight.conf
@@ -218,7 +216,6 @@ CopyFile /etc/mkinitcpio.d/linux.preset
 CreateLink /etc/os-release ../usr/lib/os-release
 CopyFile /etc/pacman.conf
 CopyFile /etc/pacman.d/mirrorlist
-CopyFile /etc/profile.d/zzz-guix.sh
 CopyFile /etc/resolv.conf
 CopyFile /etc/shells
 CopyFile /etc/subgid
@@ -260,3 +257,15 @@ SetFileProperty /etc/jellyfin/logging.json owner jellyfin
 SetFileProperty /etc/jellyfin group jellyfin
 SetFileProperty /etc/jellyfin owner jellyfin
 SetFileProperty /etc/v2raya mode 750
+
+
+# Tue Sep 10 02:11:03 CST 2024 - Unknown packages
+
+
+AddPackage pwgen # Password generator for creating easily
+
+
+# Tue Sep 10 02:11:03 CST 2024 - New / changed files
+
+
+CopyFile /etc/v2raya/config.json 600
