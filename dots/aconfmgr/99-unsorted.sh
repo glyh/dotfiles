@@ -269,3 +269,32 @@ AddPackage pwgen # Password generator for creating easily
 
 
 CopyFile /etc/v2raya/config.json 600
+
+
+# Tue Sep 10 02:19:44 CST 2024 - New / changed files
+
+
+CreateLink /etc/bash_completion.d/guix /var/guix/profiles/per-user/root/current-guix/etc/bash_completion.d/guix
+CreateLink /etc/bash_completion.d/guix-daemon /var/guix/profiles/per-user/root/current-guix/etc/bash_completion.d/guix-daemon
+CreateLink /etc/systemd/system/dbus-org.freedesktop.timesync1.service /usr/lib/systemd/system/systemd-timesyncd.service
+CreateLink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service /usr/lib/systemd/system/systemd-timesyncd.service
+CopyFile /etc/adjtime
+CopyFile /etc/pacman.conf
+
+
+# Fri Sep 13 11:08:41 CST 2024 - Unknown packages
+
+
+AddPackage cmake # A cross-platform open-source make system
+
+
+# Fri Sep 13 11:08:41 CST 2024 - Unknown foreign packages
+
+
+AddPackage --foreign baidunetdisk-bin # Baidu Net Disk - a cloud storage client
+
+
+# Fri Sep 13 11:08:41 CST 2024 - New / changed files
+
+
+CopyFile /etc/v2raya/config.json 600

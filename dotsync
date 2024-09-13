@@ -270,9 +270,14 @@ M dots-cuda xdg paru-sync-pkg-list {
   pin-pacman cuda 11.8.0-1
 }
 
+M dots-fix-waybar xdg paru-sync-pkg-list {
+  # https://github.com/Alexays/Waybar/issues/3575
+  pin-pacman tzdata 2024a-1
+}
+
 M dots-haskell xdg paru-sync-pkg-list {
+  var ghcupDir = "$HOME/.ghcup"
   if ! test -d $ghcupDir {
-    var ghcupDir = "$HOME/.ghcup"
     mkdir -p $ghcupDir
     ln -sfnv $dotPath/dots/ghcup/config.yaml $ghcupDir/config.yaml
 

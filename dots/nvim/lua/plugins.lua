@@ -461,15 +461,28 @@ return {
   --   ft = "crystal",
   -- },
   -- }}}
+  -- Moonbit {{{
+  {
+    "tonyfettes/moonbit.nvim",
+    ft = { "moonbit" },
+    dependencies = {
+      "mfussenegger/nvim-lint", -- for linting support
+    },
+    opts = {},
+  },
+  -- }}}
+  -- Haskell {{{
   {
     "mrcjkb/haskell-tools.nvim",
     version = "^4", -- Recommended
     lazy = false, -- This plugin is already lazy
   },
-
   -- }}}
-  -- Coding Competition {{{
-  --Game
 
+  -- Antlr {{{
+  {
+    "dylon/vim-antlr",
+    ft = { "antlr3", "antlr4" },
+  },
   -- }}}
 }

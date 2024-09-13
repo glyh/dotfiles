@@ -25,6 +25,7 @@ require("nvim-treesitter.configs").setup {
     -- "elixir",
     -- "clojure",
     -- "dart",
+    "moonbit",
   },
   highlight = { enable = true },
 }
