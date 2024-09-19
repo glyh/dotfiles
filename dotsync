@@ -310,6 +310,14 @@ M dots-ocaml xdg paru-sync-pkg-list {
 }
 
 
+M dots-js xdg paru-sync-pkg-list {
+  # JS & TypeScript
+  ln -sfnv $dotPath/dots/npm $XDG_CONFIG_HOME/npm
+  ln -sfnv $dotPath/dots/bun/bunfig.toml $XDG_CONFIG_HOME/.bunfig.toml
+
+  npm install -g "@moonbit/moonbit-lsp"
+}
+
 M dots-languages xdg paru-sync-pkg-list {
   echo 'Setting up languages'
 
@@ -320,10 +328,6 @@ M dots-languages xdg paru-sync-pkg-list {
   ln -sfnv $dotPath/dots/clojure $XDG_CONFIG_HOME/clojure
   ln -sfnv $dotPath/dots/lein $XDG_CONFIG_HOME/lein
   ln -sfnv $dotPath/dots/shadow-cljs $XDG_CONFIG_HOME/shadow-cljs
-
-  # JS & TypeScript
-  ln -sfnv $dotPath/dots/npm $XDG_CONFIG_HOME/npm
-  ln -sfnv $dotPath/dots/bun/bunfig.toml $XDG_CONFIG_HOME/.bunfig.toml
 
   # FSharp
   mkdir -p ~/.nuget
