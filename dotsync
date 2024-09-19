@@ -206,14 +206,6 @@ M dots-DE xdg {
   ln -sfnv $dotPath/dots/applications ~/Desktop
 }
 
-M dots-python-default-venv xdg paru-sync-pkg-list {
-  var venv_path = "$HOME/.venv"
-  if ! test -d $venv_path { 
-    python -m venv $venv_path
-  } 
-  ~/.venv/bin/pip install pdfly
-}
-
 M dots-aria2 xdg paru-sync-pkg-list {
   # https://github.com/aria2/aria2/issues/2215
   var aria2Config = "$HOME/.aria2"
