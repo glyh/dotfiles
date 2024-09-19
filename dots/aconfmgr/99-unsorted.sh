@@ -32,7 +32,6 @@ AddPackage git-delta # Syntax-highlighting pager for git and diff
 AddPackage git-lfs # Git extension for versioning large files
 AddPackage go # Core compiler tools for the Go programming
 AddPackage gopass-jsonapi # jsonapi for gopass used for bridging to
-AddPackage graphviz # Graph visualization software
 AddPackage grim # Screenshot utility for Wayland
 AddPackage grub # GNU GRand Unified Bootloader (2)
 AddPackage hyprland # a highly customizable dynamic tiling
@@ -244,7 +243,6 @@ CopyFile /etc/texmf/web2c/updmap.cfg
 CopyFile /etc/v2raya/config.json 600
 CopyFile /etc/vconsole.conf
 CopyFile /etc/xml/catalog
-CreateDir /lost+found 700
 
 
 # Fri Sep  6 11:21:11 CST 2024 - New file properties
@@ -294,7 +292,6 @@ AddPackage cmake # A cross-platform open-source make system
 AddPackage --foreign baidunetdisk-bin # Baidu Net Disk - a cloud storage client
 
 
-# Fri Sep 13 11:08:41 CST 2024 - New / changed files
-
-
+CopyFile /etc/v2raya/config.json 600
+CopyFile /etc/makepkg.conf.d/rust.conf
 CopyFile /etc/v2raya/config.json 600
