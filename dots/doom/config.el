@@ -100,6 +100,7 @@
 ;; ;; (add-to-list 'auto-mode-alist '("\\.ll\\'" . llvm-ts-mode))
 ;;
 
+;; Org Mode
 (after! org
   (plist-put org-format-latex-options :scale 2.5)
   (setq org-file-apps
@@ -108,6 +109,7 @@
        (directory . emacs)
        ("\\.mm\\'" . default)
        ("\\.x?html?\\'" . default)
+       ("\\.pdf::\\([0-9]+\\)?\\'" . "zathura %s -P %1")
        ("\\.pdf\\'" . "zathura %s"))))
 
 ;; Default browser is chrome
