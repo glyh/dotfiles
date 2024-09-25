@@ -18,6 +18,7 @@ IgnorePath '/etc/ca-certificates/*'
 IgnorePath '/etc/passwd.OLD'
 IgnorePath '/etc/v2raya/*.db'
 IgnorePath '/etc/NetworkManager/system-connections'
+IgnorePath '/etc/uu'
 
 # Credentials & Privilege
 IgnorePath '/etc/passwd'

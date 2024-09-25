@@ -295,3 +295,66 @@ AddPackage --foreign baidunetdisk-bin # Baidu Net Disk - a cloud storage client
 CopyFile /etc/v2raya/config.json 600
 CopyFile /etc/makepkg.conf.d/rust.conf
 CopyFile /etc/v2raya/config.json 600
+
+
+# Tue Sep 24 13:39:08 CST 2024 - Unknown packages
+
+
+AddPackage ghostscript # An interpreter for the PostScript language
+AddPackage mupdf # Lightweight PDF and XPS viewer
+AddPackage mupdf-tools # Tools for Lightweight PDF and XPS viewer
+
+
+# Tue Sep 24 13:39:08 CST 2024 - Missing packages
+
+
+RemovePackage python-poetry
+
+
+# Tue Sep 24 13:39:08 CST 2024 - Unknown foreign packages
+
+
+AddPackage --foreign pdf.tocgen # Automatically generate table of contents for PDF documents.
+
+
+# Tue Sep 24 13:39:08 CST 2024 - Extra files
+
+
+RemoveFile /etc/fonts/conf.d/69-urw-z003.conf
+RemoveFile /etc/fonts/conf.d/69-urw-standard-symbols-ps.conf
+RemoveFile /etc/fonts/conf.d/69-urw-p052.conf
+RemoveFile /etc/fonts/conf.d/69-urw-nimbus-sans.conf
+RemoveFile /etc/fonts/conf.d/69-urw-nimbus-roman.conf
+RemoveFile /etc/fonts/conf.d/69-urw-nimbus-mono-ps.conf
+RemoveFile /etc/fonts/conf.d/69-urw-gothic.conf
+RemoveFile /etc/fonts/conf.d/69-urw-fallback-specifics.conf
+RemoveFile /etc/fonts/conf.d/69-urw-fallback-generics.conf
+RemoveFile /etc/fonts/conf.d/69-urw-fallback-backwards.conf
+RemoveFile /etc/fonts/conf.d/69-urw-d050000l.conf
+RemoveFile /etc/fonts/conf.d/69-urw-c059.conf
+RemoveFile /etc/fonts/conf.d/69-urw-bookman.conf
+
+
+# Tue Sep 24 13:39:08 CST 2024 - New / changed files
+
+
+CreateDir /lost+found 700
+CopyFile /etc/v2raya/config.json 600
+
+
+# Tue Sep 24 13:39:49 CST 2024 - Unknown packages
+
+
+AddPackage python-pipx # Install and Run Python Applications in Isolated Environments
+
+
+# Wed Sep 25 15:31:30 CST 2024 - New / changed files
+
+
+CreateDir /etc/cni/net.d 700
+
+
+# Wed Sep 25 15:34:40 CST 2024 - New / changed files
+
+
+CopyFile /.uuplugin_uuid 666
