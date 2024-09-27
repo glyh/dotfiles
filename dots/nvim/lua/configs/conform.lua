@@ -4,6 +4,7 @@ local options = {
     dart = { "dart_format" },
     -- css = { 'prettier' },
     -- html = { 'prettier' },
+    cpp = { "clang-format" },
   },
 
   format_after_save = {

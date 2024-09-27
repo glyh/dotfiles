@@ -179,6 +179,12 @@ M dots-fish xdg {
   ln -sfnv $dotPath/dots/fish $fishConfigPath
 }
 
+M dots-xmake xdg {
+  var xmakeRc = "$HOME/.xmake"
+  mkdir -p $xmakeRc
+  ln -sfnv $dotPath/dots/xmake/xmake.conf $xmakeRc/xmake.conf
+}
+
 M dots-base xdg {
   echo 'Setting up base'
   ln -sfnv $dotPath/bin ~/Binaries

@@ -347,14 +347,7 @@ CopyFile /etc/v2raya/config.json 600
 
 AddPackage python-pipx # Install and Run Python Applications in Isolated Environments
 
-
-# Wed Sep 25 15:31:30 CST 2024 - New / changed files
-
-
 CreateDir /etc/cni/net.d 700
 
 
-# Wed Sep 25 15:34:40 CST 2024 - New / changed files
-
-
-CopyFile /.uuplugin_uuid 666
+CopyFile /etc/v2raya/config.json 600
