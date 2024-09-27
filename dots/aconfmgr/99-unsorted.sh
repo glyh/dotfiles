@@ -351,3 +351,23 @@ CreateDir /etc/cni/net.d 700
 
 
 CopyFile /etc/v2raya/config.json 600
+
+
+# Fri Sep 27 22:27:55 CST 2024 - Unknown packages
+
+
+AddPackage cppcheck # A tool for static C/C++ code analysis
+AddPackage vcpkg # C++ library manager
+
+
+# Fri Sep 27 22:27:55 CST 2024 - Unknown foreign packages
+
+
+AddPackage --foreign cmake-init # The missing CMake project initializer
+
+
+# Fri Sep 27 22:27:55 CST 2024 - New / changed files
+
+
+CopyFile /etc/pacman.d/mirrorlist
+CopyFile /etc/v2raya/config.json 600
