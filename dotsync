@@ -315,6 +315,11 @@ M dots-ocaml xdg paru-sync-pkg-list {
   # opam install -y dune ocamlformat ocaml-lsp-server
 }
 
+M dots-pipx paru-sync-pkg-list {
+  pipx install zipunicode || true
+  pipx install poetry || true
+}
+
 
 M dots-js xdg paru-sync-pkg-list {
   # JS & TypeScript
