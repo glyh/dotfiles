@@ -23,6 +23,7 @@ local servers = {
   "glsl_analyzer",
   "glasgow",
   -- "hls", -- use haskell-tools.nvim instead
+  "eslint",
 }
 
 for _, lsp in ipairs(servers) do
@@ -32,3 +33,11 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.elixirls.setup {
+  -- Unix
+  cmd = { "elixir-ls" },
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+}

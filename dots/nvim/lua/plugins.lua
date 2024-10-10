@@ -102,6 +102,12 @@ return {
           -- "wgsl-analyzer", -- too old, broken
           "glsl_analyzer",
           -- }}}
+          -- Elixir {{{
+          "elixir-ls",
+          -- }}}
+          -- Js {{{
+          "eslint-lsp",
+          -- }}}
         },
 
         auto_update = false,
@@ -474,7 +480,7 @@ return {
   -- }}}
   -- Moonbit {{{
   {
-    "tonyfettes/moonbit.nvim",
+    "moonbit-community/moonbit.nvim",
     ft = { "moonbit" },
     dependencies = {
       "mfussenegger/nvim-lint", -- for linting support

@@ -22,10 +22,11 @@ require("nvim-treesitter.configs").setup {
     -- "ruby",
     -- "kotlin",
     -- "clojure",
-    -- "elixir",
+    "elixir",
     -- "clojure",
     -- "dart",
-    "moonbit",
+    -- "moonbit",
+    "typescript",
   },
   highlight = { enable = true },
 }

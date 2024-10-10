@@ -6,7 +6,6 @@
 AddPackage adobe-source-han-sans-cn-fonts # Adobe Source Han Sans Subset OTF -
 AddPackage adobe-source-han-serif-cn-fonts # Adobe Source Han Serif Subset OTF -
 AddPackage aria2 # Download utility that supports HTTP(S),
-AddPackage atool # A script for managing file archives of
 AddPackage base # Minimal package set to define a basic Arch
 AddPackage base-devel # Basic tools to build Arch Linux packages
 AddPackage bear # A tool to generate compilation database
@@ -370,4 +369,22 @@ AddPackage --foreign cmake-init # The missing CMake project initializer
 
 
 CopyFile /etc/pacman.d/mirrorlist
+CopyFile /etc/v2raya/config.json 600
+
+
+# Tue Oct  8 08:00:55 CST 2024 - Unknown packages
+
+
+AddPackage elixir # a functional meta-programming aware
+AddPackage inotify-tools # inotify-tools is a C library and a set of
+
+
+# Tue Oct  8 08:00:55 CST 2024 - Unknown foreign packages
+
+
+AddPackage --foreign bottles # Easily manage wine and proton prefix
+
+
+CopyFile /etc/pacman.d/mirrorlist
+CopyFile /etc/v2raya/config.json 600
 CopyFile /etc/v2raya/config.json 600
