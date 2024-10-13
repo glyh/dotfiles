@@ -45,7 +45,6 @@ AddPackage kdenlive # A non-linear video editor for Linux using
 AddPackage kitty # A modern, hackable, featureful,
 AddPackage kooha # Elegantly record your screen
 AddPackage lib32-fontconfig # Library for configuring and customizing
-AddPackage lib32-nvidia-utils # NVIDIA drivers utilities (32-bit)
 AddPackage lib32-pipewire # Low-latency audio/video router and
 AddPackage lib32-pipewire-jack # Low-latency audio/video router and
 AddPackage linux # The Linux kernel and modules
@@ -64,7 +63,6 @@ AddPackage noto-fonts # Google Noto TTF fonts
 AddPackage noto-fonts-emoji # Google Noto emoji fonts
 AddPackage npm # JavaScript package manager
 AddPackage ntfs-3g # NTFS filesystem driver and utilities
-AddPackage nvidia # NVIDIA drivers for linux
 AddPackage obs-studio # Free, open source software for live
 AddPackage ollama # Create, run and share large language
 AddPackage opam # OCaml package manager
@@ -388,3 +386,32 @@ AddPackage --foreign bottles # Easily manage wine and proton prefix
 CopyFile /etc/pacman.d/mirrorlist
 CopyFile /etc/v2raya/config.json 600
 CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Oct 13 13:32:57 CST 2024 - New / changed files
+
+
+CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Oct 13 14:36:01 CST 2024 - Unknown packages
+
+
+
+
+# Sun Oct 13 14:36:01 CST 2024 - Unknown foreign packages
+
+
+AddPackage --foreign google-chrome-wayland-vulkan # The popular web browser by Google (Stable Channel) with a binary patch to enable support for Vulkan
+
+
+# Sun Oct 13 14:36:01 CST 2024 - New / changed files
+
+
+CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Oct 13 14:40:58 CST 2024 - New / changed files
+
+
+CopyFile /etc/pacman.conf
