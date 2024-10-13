@@ -398,20 +398,13 @@ CopyFile /etc/v2raya/config.json 600
 
 
 
-
-# Sun Oct 13 14:36:01 CST 2024 - Unknown foreign packages
-
-
-AddPackage --foreign google-chrome-wayland-vulkan # The popular web browser by Google (Stable Channel) with a binary patch to enable support for Vulkan
-
-
-# Sun Oct 13 14:36:01 CST 2024 - New / changed files
-
-
 CopyFile /etc/v2raya/config.json 600
 
 
-# Sun Oct 13 14:40:58 CST 2024 - New / changed files
-
-
 CopyFile /etc/pacman.conf
+
+
+# Sun Oct 13 17:45:59 CST 2024 - Unknown packages
+
+
+AddPackage libva-nvidia-driver # VA-API implementation that uses NVDEC as a backend
