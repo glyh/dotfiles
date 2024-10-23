@@ -13,10 +13,9 @@ local servers = {
   "typst_lsp",
   -- 'dartls', -- other plugin sets up dart for me
   "ocamllsp",
-  -- "ruby_lsp",
-  -- "rubocop",
+  "ruby_lsp",
+  "rubocop",
   -- "sorbet",
-  -- "crystalline",
   "cmake",
   -- "gleam",
   -- "kotlin_language_server",
@@ -37,6 +36,13 @@ end
 lspconfig.elixirls.setup {
   -- Unix
   cmd = { "elixir-ls" },
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+}
+
+lspconfig.crystalline.setup {
+  cmd = { "crystalline", "--stdio" },
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,

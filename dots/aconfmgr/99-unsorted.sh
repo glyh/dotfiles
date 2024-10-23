@@ -138,14 +138,12 @@ AddPackage --foreign quickemu # Quickly create and run optimised Windows,
 AddPackage --foreign rar # A command-line port of the rar compression
 AddPackage --foreign sioyek # PDF viewer for research papers and
 AddPackage --foreign texlive-full # This packages provides texlive-full in
-AddPackage --foreign thorium-browser-bin # Chromium fork focused on high performance
 AddPackage --foreign tofi # Tiny rofi / dmenu replacement for
 AddPackage --foreign uuplugin-bin # UU Steam Deck Plugin for General Linux
 AddPackage --foreign v2raya-bin # A web GUI client of Project V which
 AddPackage --foreign ventoy-bin # A new bootable USB solution
 AddPackage --foreign wechat-universal-bwrap # WeChat (Universal) with bwrap sandbox
 AddPackage --foreign wl-gammarelay # A client and daemon for changing color
-AddPackage --foreign zigup-bin # Download and manage zig compilers
 
 
 # Fri Sep  6 11:21:10 CST 2024 - New / changed files
@@ -407,4 +405,77 @@ CopyFile /etc/pacman.conf
 # Sun Oct 13 17:45:59 CST 2024 - Unknown packages
 
 
-AddPackage libva-nvidia-driver # VA-API implementation that uses NVDEC as a backend
+# Mon Oct 14 13:10:06 CST 2024 - Unknown packages
+
+
+AddPackage crystal # The Crystal Programming Language
+AddPackage ruby-rake # Make-like build tool implemented in Ruby
+AddPackage shards # The package manager for the Crystal
+
+
+AddPackage --foreign frum-bin # A little bit fast and modern Ruby version
+
+
+# Mon Oct 14 13:11:02 CST 2024 - New / changed files
+
+
+CopyFile /etc/default/grub
+CopyFile /etc/pacman.d/mirrorlist
+CopyFile /etc/v2raya/config.json 600
+
+
+CopyFile /etc/v2raya/config.json 600
+
+
+AddPackage --foreign mercury-browser-avx2-bin # Compiler optimized, private Firefox fork
+
+
+CopyFile /etc/v2raya/config.json 600
+
+
+# Tue Oct 15 15:48:55 CST 2024 - Unknown packages
+
+
+AddPackage libva-utils # Intel VA-API Media Applications and Scripts for libva
+
+
+# Tue Oct 15 15:48:55 CST 2024 - Unknown foreign packages
+
+
+AddPackage --foreign google-chrome # The popular web browser by Google (Stable Channel)
+
+
+# Tue Oct 15 15:48:55 CST 2024 - New / changed files
+
+
+CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Oct 20 11:42:34 CST 2024 - Unknown packages
+
+
+AddPackage gdb # The GNU Debugger
+
+
+# Sun Oct 20 11:42:34 CST 2024 - New / changed files
+
+
+CreateLink /etc/systemd/system/systemd-hibernate.service.wants/nvidia-hibernate.service /usr/lib/systemd/system/nvidia-hibernate.service
+CreateLink /etc/systemd/system/systemd-hibernate.service.wants/nvidia-resume.service /usr/lib/systemd/system/nvidia-resume.service
+CreateLink /etc/systemd/system/systemd-suspend.service.wants/nvidia-resume.service /usr/lib/systemd/system/nvidia-resume.service
+CreateLink /etc/systemd/system/systemd-suspend.service.wants/nvidia-suspend.service /usr/lib/systemd/system/nvidia-suspend.service
+CopyFile /etc/v2raya/config.json 600
+
+
+# Wed Oct 23 18:31:27 CST 2024 - Unknown packages
+
+
+AddPackage zig # a general-purpose programming language and
+
+
+# Wed Oct 23 18:31:27 CST 2024 - New / changed files
+
+
+CopyFile /etc/makepkg.conf
+CopyFile /etc/pacman.d/mirrorlist
+CopyFile /etc/v2raya/config.json 600

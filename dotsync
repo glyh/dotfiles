@@ -155,6 +155,8 @@ M dots-credential xdg {
     ln -sfnv $dotPath/dots/electron/thorium-flags.conf $XDG_CONFIG_HOME/thorium-flags.conf
     # # Firefox
     # ln -sfnv $credentialPath/mozilla ~/.mozilla
+    # Edge
+    ln -sfnv $dotPath/dots/electron/microsoft-edge-stable-flags.conf $XDG_CONFIG_HOME/microsoft-edge-stable-flags.conf
     # Mercury
     ln -sfnv $credentialPath/mercury ~/.mercury
     # Rclone
@@ -247,9 +249,9 @@ M dots-tools xdg {
   ln -sfnv $dotPath/dots/containers $XDG_CONFIG_HOME/containers
 }
 
-M dots-zig xdg paru-sync-pkg-list {
-  zigup 0.13.0-dev.351+64ef45eb0 --install-dir ~/.zig --path-link ~/.zig/zig
-}
+#M dots-zig xdg paru-sync-pkg-list {
+#  zigup 0.13.0-dev.351+64ef45eb0 --install-dir ~/.zig --path-link ~/.zig/zig
+#}
 
 # M dots-emacs paru-sync-pkg-list {
 #   ln -sfnv $dotPath/dots/emacs $HOME/.config/emacs

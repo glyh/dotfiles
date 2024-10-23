@@ -23,6 +23,7 @@ require("nvim-treesitter.configs").setup {
     -- "kotlin",
     -- "clojure",
     "elixir",
+    "heex",
     -- "clojure",
     -- "dart",
     -- "moonbit",

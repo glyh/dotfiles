@@ -102,11 +102,12 @@ return {
           -- "wgsl-analyzer", -- too old, broken
           "glsl_analyzer",
           -- }}}
-          -- Elixir {{{
-          "elixir-ls",
-          -- }}}
           -- Js {{{
           "eslint-lsp",
+          -- }}}
+          -- Crystal {{{
+          -- need to match crystalline version and crystal version
+          -- "crystalline",
           -- }}}
         },
 
@@ -393,8 +394,13 @@ return {
   -- Typesetting {{{
   {
     "iamcco/markdown-preview.nvim",
-    build = function()
-      vim.fn["mkdp#util#install"]()
+    build = function(plugin)
+      if vim.fn.executable "npx" then
+        vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install")
+      else
+        vim.cmd [[Lazy load markdown-preview.nvim]]
+        vim.fn["mkdp#util#install"]()
+      end
     end,
     config = function()
       require("which-key").add {
@@ -473,10 +479,13 @@ return {
   -- Don't use crystal:
   -- 1. bad ADT support
   -- 2. bad LSP support
-  -- {
-  --   "jlcrochet/vim-crystal",
-  --   ft = "crystal",
-  -- },
+  {
+    "vim-crystal/vim-crystal",
+    ft = "crystal",
+    config = function()
+      vim.g.crystal_auto_format = 1
+    end,
+  },
   -- }}}
   -- Moonbit {{{
   {

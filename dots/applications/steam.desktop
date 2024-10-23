@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Steam
 Comment=Application for managing and playing games on Steam
-Exec=sh -c "/usr/bin/steam -forcedesktopscaling 1.6"
+Exec=fish -c "/usr/bin/steam -forcedesktopscaling 1.6"
 Icon=steam
 Terminal=false
 Type=Application
