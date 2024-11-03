@@ -1,8 +1,7 @@
 [Default Applications]
+application/vnd.comicbook+zip=mcomix.desktop
 application/pdf=org.pwmt.zathura.desktop
 application/epub+zip=org.pwmt.zathura.desktop
-; application/pdf=sioyek.desktop
-; application/epub+zip=sioyek.desktop
 text/plain=nvim.desktop
 x-scheme-handler/baiduyunguanjia=baidunetdisk.desktop
 text/html=mercury-browser-avx2.desktop
@@ -16,4 +15,3 @@ image/png=vimiv.desktop
 image/bmp=vimiv.desktop
 image/svg+xml=vimiv.desktop
 image/svg+xml=vimiv.desktop
-image/gif=vimiv.desktop

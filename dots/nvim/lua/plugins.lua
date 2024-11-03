@@ -406,7 +406,7 @@ return {
       require("which-key").add {
         { "<localleader>p", "<cmd>MarkdownPreviewToggle<CR>", desc = "Toggle markdown preview" },
       }
-      vim.g.mkdp_browser = "thorium-browser"
+      vim.g.mkdp_browser = "mercury-browser-avx2"
       vim.g.mkdp_theme = "dark"
     end,
     ft = "markdown",

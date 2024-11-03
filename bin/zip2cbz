@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-for f in *.{7z,zip};
+for f in *.{7z,zip,rar};
 do
   mv "$f" "$f.cbz"
 done

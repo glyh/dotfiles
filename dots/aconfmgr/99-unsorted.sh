@@ -479,3 +479,35 @@ AddPackage zig # a general-purpose programming language and
 CopyFile /etc/makepkg.conf
 CopyFile /etc/pacman.d/mirrorlist
 CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Oct 27 18:44:02 CST 2024 - New / changed files
+
+
+CopyFile /etc/v2raya/config.json 600
+
+
+# Sat Nov  2 21:54:26 CST 2024 - Unknown packages
+
+
+AddPackage perl-file-mimeinfo # Determine file type, includes mimeopen and
+
+
+# Sat Nov  2 21:54:26 CST 2024 - Unknown foreign packages
+
+
+AddPackage --foreign google-chrome-dev # The popular web browser by Google (Dev
+AddPackage --foreign mcomix # GTK comic book viewer
+AddPackage --foreign wasm-tools # Low level tooling for WebAssembly in Rust
+
+
+# Sat Nov  2 21:54:27 CST 2024 - New / changed files
+
+
+CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Nov  3 17:29:42 CST 2024 - Missing packages
+
+
+RemovePackage ollama
