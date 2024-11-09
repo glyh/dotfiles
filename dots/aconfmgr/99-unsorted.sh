@@ -64,7 +64,6 @@ AddPackage noto-fonts-emoji # Google Noto emoji fonts
 AddPackage npm # JavaScript package manager
 AddPackage ntfs-3g # NTFS filesystem driver and utilities
 AddPackage obs-studio # Free, open source software for live
-AddPackage ollama # Create, run and share large language
 AddPackage opam # OCaml package manager
 AddPackage openssh # SSH protocol implementation for remote
 AddPackage p7zip # Command-line file archiver with high
@@ -139,7 +138,6 @@ AddPackage --foreign rar # A command-line port of the rar compression
 AddPackage --foreign sioyek # PDF viewer for research papers and
 AddPackage --foreign texlive-full # This packages provides texlive-full in
 AddPackage --foreign tofi # Tiny rofi / dmenu replacement for
-AddPackage --foreign uuplugin-bin # UU Steam Deck Plugin for General Linux
 AddPackage --foreign v2raya-bin # A web GUI client of Project V which
 AddPackage --foreign ventoy-bin # A new bootable USB solution
 AddPackage --foreign wechat-universal-bwrap # WeChat (Universal) with bwrap sandbox
@@ -503,11 +501,4 @@ AddPackage --foreign wasm-tools # Low level tooling for WebAssembly in Rust
 
 # Sat Nov  2 21:54:27 CST 2024 - New / changed files
 
-
 CopyFile /etc/v2raya/config.json 600
-
-
-# Sun Nov  3 17:29:42 CST 2024 - Missing packages
-
-
-RemovePackage ollama
