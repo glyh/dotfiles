@@ -17,6 +17,7 @@ local servers = {
   "rubocop",
   -- "sorbet",
   "cmake",
+  "mesonlsp",
   -- "gleam",
   -- "kotlin_language_server",
   "glsl_analyzer",
@@ -41,9 +42,9 @@ lspconfig.elixirls.setup {
   capabilities = capabilities,
 }
 
-lspconfig.crystalline.setup {
-  cmd = { "crystalline", "--stdio" },
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-}
+-- lspconfig.crystalline.setup {
+--   cmd = { "crystalline", "--stdio" },
+--   on_attach = on_attach,
+--   on_init = on_init,
+--   capabilities = capabilities,
+-- }

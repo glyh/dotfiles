@@ -8,11 +8,11 @@
 source $_this_dir/yake/src/yake.ysh
 
 const dotPath = _this_dir
-const credentialPath = "$HOME/Documents/credential"
+const credentialPath = "$[ENV.HOME]/Documents/credential"
 
-const XDG_CONFIG_HOME = ${XDG_CONFIG_HOME:-"$HOME/.config"}
-const XDG_STATE_HOME = ${XDG_STATE_HOME:-"$HOME/local/state"}
-const XDG_DATA_HOME = ${XDG_DATA_HOME:-"$HOME/.local/share"}
+const XDG_CONFIG_HOME = ${XDG_CONFIG_HOME:-"$[ENV.HOME]/.config"}
+const XDG_STATE_HOME = ${XDG_STATE_HOME:-"$[ENV.HOME]/local/state"}
+const XDG_DATA_HOME = ${XDG_DATA_HOME:-"$[ENV.HOME]/.local/share"}
 
 proc ensure-pacman(...packages) {
   echo Ensuring 'package(s)' @packages are installed
@@ -182,7 +182,7 @@ M dots-fish xdg {
 }
 
 M dots-xmake xdg {
-  var xmakeRc = "$HOME/.xmake"
+  var xmakeRc = "$[ENV.HOME]/.xmake"
   mkdir -p $xmakeRc
   ln -sfnv $dotPath/dots/xmake/xmake.conf $xmakeRc/xmake.conf
 }
@@ -216,7 +216,7 @@ M dots-DE xdg {
 
 M dots-aria2 xdg paru-sync-pkg-list {
   # https://github.com/aria2/aria2/issues/2215
-  var aria2Config = "$HOME/.aria2"
+  var aria2Config = "$[ENV.HOME]/.aria2"
   if ! test -d $aria2Config {
     git clone https://github.com/P3TERX/aria2.conf.git $aria2Config
   } else {
@@ -254,14 +254,14 @@ M dots-tools xdg {
 #}
 
 # M dots-emacs paru-sync-pkg-list {
-#   ln -sfnv $dotPath/dots/emacs $HOME/.config/emacs
+#   ln -sfnv $dotPath/dots/emacs $[ENV.HOME]/.config/emacs
 # } 
 
  M dots-doom xdg paru-sync-pkg-list {
    if ! test -d ~/.config/emacs {
      git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
    }
-   ln -sfnv $dotPath/dots/doom $HOME/.config/doom
+   ln -sfnv $dotPath/dots/doom $[ENV.HOME]/.config/doom
    ~/.config/emacs/bin/doom install -!
  } 
 
@@ -284,13 +284,13 @@ M dots-fix-waybar xdg paru-sync-pkg-list {
 }
 
 M dots-haskell xdg paru-sync-pkg-list {
-  var ghcupDir = "$HOME/.ghcup"
+  var ghcupDir = "$[ENV.HOME]/.ghcup"
   if ! test -d $ghcupDir {
     mkdir -p $ghcupDir
     ln -sfnv $dotPath/dots/ghcup/config.yaml $ghcupDir/config.yaml
 
-    mkdir -p $HOME/.cabal
-    ln -sfnv $dotPath/dots/cabal/config $HOME/.cabal/config
+    mkdir -p $[ENV.HOME]/.cabal
+    ln -sfnv $dotPath/dots/cabal/config $[ENV.HOME]/.cabal/config
 
     ghcup install ghc
     ghcup set ghc
@@ -304,7 +304,7 @@ M dots-haskell xdg paru-sync-pkg-list {
     cabal install --overwrite-policy=always cabal-fmt
   }
 
-  var ghcRc = "$HOME/.ghc"
+  var ghcRc = "$[ENV.HOME]/.ghc"
   mkdir -p $ghcRc
   ln -sfnv $dotPath/dots/ghc/ghci.conf $ghcRc/ghci.conf
 }
@@ -344,7 +344,7 @@ M dots-languages xdg paru-sync-pkg-list {
 
   # FSharp
   mkdir -p ~/.nuget
-  ln -sfnv $dotPath/dots/NuGet $HOME/.nuget/NuGet
+  ln -sfnv $dotPath/dots/NuGet $[ENV.HOME]/.nuget/NuGet
 }
 
 M dots-services xdg {
@@ -369,10 +369,10 @@ M go-musicfox xdg {
 #  ln -snfv $dotPath/dots/guix/channels.scm $XDG_CONFIG_HOME/guix/channels.scm
 #}
 
-#M dots-nix {
-#  ln -snfv $dotPath/dots/nix $XDG_CONFIG_HOME/nix
-#  ln -snfv $dotPath/dots/nix/nix-channels $HOME/.nix-channels
-#}
+M dots-nix {
+  ln -snfv $dotPath/dots/nix $XDG_CONFIG_HOME/nix
+  ln -snfv $dotPath/dots/nix/nix-channels $[ENV.HOME]/.nix-channels
+}
 
 cd $dotPath {
   _yake ($(nproc --all) // 2)

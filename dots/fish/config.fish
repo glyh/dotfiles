@@ -74,3 +74,6 @@ abbr --add dnl 'direnv allow .'
 abbr --add dnshow 'direnv exec / direnv export json'
 abbr --add ff 'fastfetch'
 abbr --add rsync "rsync --exclude='*/_opam/' --exclude='*/venv/'"
+
+abbr --add csb 'cmake -S . -B build'
+abbr --add cbb 'cmake --build build'

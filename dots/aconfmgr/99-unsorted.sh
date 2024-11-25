@@ -502,3 +502,26 @@ AddPackage --foreign wasm-tools # Low level tooling for WebAssembly in Rust
 # Sat Nov  2 21:54:27 CST 2024 - New / changed files
 
 CopyFile /etc/v2raya/config.json 600
+
+
+# Mon Nov 25 20:09:17 CST 2024 - Unknown packages
+
+
+AddPackage libc++ # LLVM C++ standard library
+AddPackage valgrind # Tool to help find memory-management problems in programs
+AddPackage xmake # A cross-platform build utility based on Lua
+AddPackage zls # A language server for Zig
+
+
+# Mon Nov 25 20:09:17 CST 2024 - Unknown foreign packages
+
+
+AddPackage --foreign cmake-format # Source code formatter for CMake listfiles
+AddPackage --foreign reflex-lexer # RE/flex is the regex-centric, fast lexical analyzer generator for C++ with full Unicode support.
+
+
+# Mon Nov 25 20:09:17 CST 2024 - New / changed files
+
+
+CopyFile /etc/pacman.conf
+CopyFile /etc/v2raya/config.json 600

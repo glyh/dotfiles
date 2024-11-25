@@ -28,6 +28,8 @@ require("nvim-treesitter.configs").setup {
     -- "dart",
     -- "moonbit",
     "typescript",
+    "typst",
+    "meson",
   },
   highlight = { enable = true },
 }

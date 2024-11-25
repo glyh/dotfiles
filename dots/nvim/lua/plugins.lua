@@ -73,7 +73,7 @@ return {
           -- C/Cpp {{{
           "clangd",
           "clang-format",
-          "cmake-language-server",
+          -- "cmakelang", on arch, cmake-format
           -- }}}
           -- Clojure {{{
           -- 'clj-kondo',
@@ -504,11 +504,16 @@ return {
     lazy = false, -- This plugin is already lazy
   },
   -- }}}
-
   -- Antlr {{{
+  -- {
+  --   "dylon/vim-antlr",
+  --   ft = { "antlr3", "antlr4" },
+  -- },
+  -- }}}
+  -- Flex & Bison {{{
   {
-    "dylon/vim-antlr",
-    ft = { "antlr3", "antlr4" },
+    "justinmk/vim-syntax-extra",
+    ft = { "yacc", "lex" },
   },
   -- }}}
 }

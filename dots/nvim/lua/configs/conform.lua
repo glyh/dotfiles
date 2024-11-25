@@ -5,6 +5,8 @@ local options = {
     -- css = { 'prettier' },
     -- html = { 'prettier' },
     cpp = { "clang-format" },
+    cmake = { "cmake_format" },
+    ocaml = { "ocamlformat" },
   },
 
   format_after_save = function(bufnr)
@@ -13,12 +15,11 @@ local options = {
     -- languages here or re-enable it for the disabled ones.
     local disable_filetypes = { crystal = true }
     if disable_filetypes[vim.bo[bufnr].filetype] then
-      return { lsp_format = "never"}
+      return { lsp_format = "never" }
     else
-      return { lsp_format = "fallback"}
+      return { lsp_format = "fallback" }
     end
   end,
-
 }
 
 require("conform").setup(options)
