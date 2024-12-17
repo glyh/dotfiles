@@ -4,7 +4,7 @@ local options = {
     dart = { "dart_format" },
     -- css = { 'prettier' },
     -- html = { 'prettier' },
-    cpp = { "clang-format" },
+    -- cpp = { "clang-format" },
     cmake = { "cmake_format" },
     ocaml = { "ocamlformat" },
   },

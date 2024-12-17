@@ -24,6 +24,8 @@ local servers = {
   "glasgow",
   -- "hls", -- use haskell-tools.nvim instead
   "eslint",
+
+  "mlir_lsp_server",
 }
 
 for _, lsp in ipairs(servers) do

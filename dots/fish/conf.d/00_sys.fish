@@ -71,3 +71,4 @@ set -gx JAVA_HOME            /usr/lib/jvm/default
 
 # Path
 fish_add_path -gp            ~/Binaries
+fish_add_path -gp            ~/InstallGround/bin

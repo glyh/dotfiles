@@ -525,3 +525,110 @@ AddPackage --foreign reflex-lexer # RE/flex is the regex-centric, fast lexical a
 
 CopyFile /etc/pacman.conf
 CopyFile /etc/v2raya/config.json 600
+
+
+# Wed Dec  4 18:17:22 CST 2024 - Unknown packages
+
+
+AddPackage bazel # Correct, reproducible, and fast builds for everyone
+AddPackage fcitx5-mozc # Fcitx5 Module of A Japanese Input Method for Chromium OS, Windows, Mac and Linux (the Open Source
+AddPackage hyperfine # A command-line benchmarking tool
+AddPackage tree-sitter-cli # CLI tool for developing, testing, and using Tree-sitter parsers
+
+
+# Wed Dec  4 18:17:22 CST 2024 - Missing foreign packages
+
+
+RemovePackage --foreign reflex-lexer
+RemovePackage --foreign wasm-tools
+
+
+# Wed Dec  4 18:17:22 CST 2024 - Extra files
+
+
+RemoveFile /etc/systemd/system/multi-user.target.wants/nix-daemon.service
+RemoveFile /etc/bash_completion.d/guix-daemon
+RemoveFile /etc/bash_completion.d/guix
+
+
+# Wed Dec  4 18:17:23 CST 2024 - New / changed files
+
+
+CopyFile /etc/bash.bashrc
+CopyFile /etc/bash.bashrc.backup-before-nix
+CreateFile /etc/bashrc > /dev/null
+CopyFile /etc/fish/conf.d/nix.fish
+CreateFile /etc/zshrc > /dev/null
+CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Dec 15 15:57:25 CST 2024 - Unknown packages
+
+
+AddPackage chromium # A web browser built for speed, simplicity, and security
+AddPackage leiningen # Automate Clojure projects
+
+
+# Sun Dec 15 15:57:25 CST 2024 - Missing packages
+
+
+RemovePackage kdenlive
+
+
+# Sun Dec 15 15:57:25 CST 2024 - Missing foreign packages
+
+
+RemovePackage --foreign google-chrome-dev
+
+
+# Sun Dec 15 15:57:25 CST 2024 - New / changed files
+
+
+CopyFile /etc/brlapi.key 640 '' brlapi
+CreateLink /etc/fonts/conf.d/69-urw-bookman.conf /usr/share/fontconfig/conf.default/69-urw-bookman.conf
+CreateLink /etc/fonts/conf.d/69-urw-c059.conf /usr/share/fontconfig/conf.default/69-urw-c059.conf
+CreateLink /etc/fonts/conf.d/69-urw-d050000l.conf /usr/share/fontconfig/conf.default/69-urw-d050000l.conf
+CreateLink /etc/fonts/conf.d/69-urw-fallback-backwards.conf /usr/share/fontconfig/conf.default/69-urw-fallback-backwards.conf
+CreateLink /etc/fonts/conf.d/69-urw-fallback-generics.conf /usr/share/fontconfig/conf.default/69-urw-fallback-generics.conf
+CreateLink /etc/fonts/conf.d/69-urw-fallback-specifics.conf /usr/share/fontconfig/conf.default/69-urw-fallback-specifics.conf
+CreateLink /etc/fonts/conf.d/69-urw-gothic.conf /usr/share/fontconfig/conf.default/69-urw-gothic.conf
+CreateLink /etc/fonts/conf.d/69-urw-nimbus-mono-ps.conf /usr/share/fontconfig/conf.default/69-urw-nimbus-mono-ps.conf
+CreateLink /etc/fonts/conf.d/69-urw-nimbus-roman.conf /usr/share/fontconfig/conf.default/69-urw-nimbus-roman.conf
+CreateLink /etc/fonts/conf.d/69-urw-nimbus-sans.conf /usr/share/fontconfig/conf.default/69-urw-nimbus-sans.conf
+CreateLink /etc/fonts/conf.d/69-urw-p052.conf /usr/share/fontconfig/conf.default/69-urw-p052.conf
+CreateLink /etc/fonts/conf.d/69-urw-standard-symbols-ps.conf /usr/share/fontconfig/conf.default/69-urw-standard-symbols-ps.conf
+CreateLink /etc/fonts/conf.d/69-urw-z003.conf /usr/share/fontconfig/conf.default/69-urw-z003.conf
+CopyFile /etc/ly/save.ini
+CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Dec 15 16:24:31 CST 2024 - Missing packages
+
+
+RemovePackage breeze
+
+
+# Sun Dec 15 16:24:31 CST 2024 - Extra files
+
+
+RemoveFile /etc/fonts/conf.d/69-urw-z003.conf
+RemoveFile /etc/fonts/conf.d/69-urw-standard-symbols-ps.conf
+RemoveFile /etc/fonts/conf.d/69-urw-p052.conf
+RemoveFile /etc/fonts/conf.d/69-urw-nimbus-sans.conf
+RemoveFile /etc/fonts/conf.d/69-urw-nimbus-roman.conf
+RemoveFile /etc/fonts/conf.d/69-urw-nimbus-mono-ps.conf
+RemoveFile /etc/fonts/conf.d/69-urw-gothic.conf
+RemoveFile /etc/fonts/conf.d/69-urw-fallback-specifics.conf
+RemoveFile /etc/fonts/conf.d/69-urw-fallback-generics.conf
+RemoveFile /etc/fonts/conf.d/69-urw-fallback-backwards.conf
+RemoveFile /etc/fonts/conf.d/69-urw-d050000l.conf
+RemoveFile /etc/fonts/conf.d/69-urw-c059.conf
+RemoveFile /etc/fonts/conf.d/69-urw-bookman.conf
+RemoveFile /etc/brlapi.key
+
+
+# Sun Dec 15 16:24:31 CST 2024 - Extra file properties
+
+
+SetFileProperty /etc/brlapi.key group ''
+SetFileProperty /etc/brlapi.key mode ''

@@ -26,10 +26,10 @@ require("nvim-treesitter.configs").setup {
     "heex",
     -- "clojure",
     -- "dart",
-    -- "moonbit",
     "typescript",
     "typst",
     "meson",
+    "mlir",
   },
   highlight = { enable = true },
 }
