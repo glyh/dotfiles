@@ -10,7 +10,7 @@ local servers = {
   "gopls",
   "rust_analyzer",
   "pyright",
-  "typst_lsp",
+  "tinymist",
   -- 'dartls', -- other plugin sets up dart for me
   "ocamllsp",
   "ruby_lsp",

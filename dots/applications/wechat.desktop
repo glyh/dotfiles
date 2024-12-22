@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=wechat
+Name[zh_CN]=微信
+Exec=env 'QT_QPA_PLATFORM=wayland;xcb' QT_AUTO_SCREEN_SCALE_FACTOR=2 /usr/bin/wechat %U
+StartupNotify=true
+Terminal=false
+Icon=wechat
+Type=Application
+Categories=Network;InstantMessaging;Chat;
+Comment=Wechat Desktop
+Comment[zh_CN]=微信桌面版

@@ -632,3 +632,56 @@ RemoveFile /etc/brlapi.key
 
 SetFileProperty /etc/brlapi.key group ''
 SetFileProperty /etc/brlapi.key mode ''
+
+
+# Wed Dec 18 10:21:34 CST 2024 - New / changed files
+
+
+CopyFile /etc/ly/save.ini
+CopyFile /etc/pacman.conf
+CopyFile /etc/v2raya/config.json 600
+
+
+# Wed Dec 18 19:20:35 CST 2024 - Unknown foreign packages
+
+
+AddPackage --foreign linuxqq # New Linux QQ based on Electron
+AddPackage --foreign wechat-bin # WeChat from Tencent | 
+
+
+# Wed Dec 18 19:20:35 CST 2024 - Missing foreign packages
+
+
+RemovePackage --foreign linuxqq-nt-bwrap
+RemovePackage --foreign wechat-universal-bwrap
+
+
+# Wed Dec 18 19:20:35 CST 2024 - New / changed files
+
+
+CopyFile /etc/makepkg.conf
+
+
+# Sun Dec 22 19:10:35 CST 2024 - Missing packages
+
+
+RemovePackage pandoc-cli
+
+
+# Sun Dec 22 19:10:35 CST 2024 - Unknown foreign packages
+
+
+AddPackage --foreign captive-browser-git # A dedicated Chrome instance to log into captive portals without messing with DNS settings
+
+
+# Sun Dec 22 19:10:35 CST 2024 - Missing foreign packages
+
+
+RemovePackage --foreign ghcup-hs-bin
+
+
+# Sun Dec 22 19:10:35 CST 2024 - New / changed files
+
+
+CopyFile /etc/ly/save.ini
+CopyFile /etc/v2raya/config.json 600

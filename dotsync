@@ -365,6 +365,10 @@ M go-musicfox xdg {
   ln -sfnv $dotPath/dots/go-musicfox/go-musicfox.ini ~/.config/go-musicfox/go-musicfox.ini
 }
 
+M captive-browser xdg {
+  ln -sfnv $dotPath/dots/captive-browser/captive-browser.toml ~/.config/captive-browser.toml
+}
+
 #M dots-guix {
 #  ln -snfv $dotPath/dots/guix/channels.scm $XDG_CONFIG_HOME/guix/channels.scm
 #}

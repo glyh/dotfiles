@@ -86,7 +86,7 @@ return {
           "gopls",
           -- }}}
           -- Typst {{{
-          "typst-lsp",
+          "tinymist",
           -- }}}
           -- Python {{{
           "pyright",
