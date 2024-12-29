@@ -66,7 +66,6 @@ AddPackage ntfs-3g # NTFS filesystem driver and utilities
 AddPackage obs-studio # Free, open source software for live
 AddPackage opam # OCaml package manager
 AddPackage openssh # SSH protocol implementation for remote
-AddPackage p7zip # Command-line file archiver with high
 AddPackage pamixer # Pulseaudio command-line mixer like amixer
 AddPackage pandoc-cli # Conversion between documentation formats
 AddPackage perl-ipc-system-simple # Run commands simply, with detailed
@@ -94,7 +93,6 @@ AddPackage rsync # A fast and versatile file copying tool for
 AddPackage rustup # The Rust toolchain installer
 AddPackage slurp # Select a region in a Wayland compositor
 AddPackage starship # The cross-shell prompt for astronauts
-AddPackage steam # Valve's digital software delivery system
 AddPackage tealdeer # A fast tldr client in Rust
 AddPackage texinfo # GNU documentation system for on-line
 AddPackage tree # A directory listing program displaying a
@@ -132,7 +130,6 @@ AddPackage --foreign neovim-drop-in # Emulate vim and vi executables with neovim
 AddPackage --foreign oils-for-unix # Our upgrade path from bash to a better
 AddPackage --foreign page-git # Pager powered by neovim and inspired by
 AddPackage --foreign paru-bin # Feature packed AUR helper
-AddPackage --foreign protonlaunch # A small piece of script to launch Proton
 AddPackage --foreign quickemu # Quickly create and run optimised Windows,
 AddPackage --foreign rar # A command-line port of the rar compression
 AddPackage --foreign sioyek # PDF viewer for research papers and
@@ -194,7 +191,6 @@ CreateLink /etc/fonts/conf.d/69-urw-z003.conf /usr/share/fontconfig/conf.default
 CreateLink /etc/fonts/conf.d/80-delicious.conf /usr/share/fontconfig/conf.default/80-delicious.conf
 CreateLink /etc/fonts/conf.d/90-synthetic.conf /usr/share/fontconfig/conf.default/90-synthetic.conf
 CopyFile /etc/fuse.conf
-CreateDir /etc/gnome-remote-desktop '' gnome-remote-desktop gnome-remote-desktop
 CopyFile /etc/hostname
 CopyFile /etc/locale.conf
 CopyFile /etc/locale.gen
@@ -375,8 +371,6 @@ AddPackage inotify-tools # inotify-tools is a C library and a set of
 
 # Tue Oct  8 08:00:55 CST 2024 - Unknown foreign packages
 
-
-AddPackage --foreign bottles # Easily manage wine and proton prefix
 
 
 CopyFile /etc/pacman.d/mirrorlist
@@ -685,3 +679,34 @@ RemovePackage --foreign ghcup-hs-bin
 
 CopyFile /etc/ly/save.ini
 CopyFile /etc/v2raya/config.json 600
+
+
+# Wed Dec 25 16:29:06 CST 2024 - Unknown packages
+
+
+AddPackage 7zip # File archiver for extremely high compression
+
+# Wed Dec 25 16:29:07 CST 2024 - New / changed files
+
+
+CopyFile /etc/brlapi.key 640 '' brlapi
+CopyFile /etc/ly/save.ini
+CopyFile /etc/v2raya/config.json 600
+
+
+
+AddPackage --foreign ghcup-hs-bin # an installer for the general purpose
+
+
+# Sun Dec 29 13:48:04 CST 2024 - Missing foreign packages
+
+
+# Sun Dec 29 13:48:04 CST 2024 - Extra files
+
+
+# Sun Dec 29 13:48:04 CST 2024 - New / changed files
+
+
+CopyFile /etc/v2raya/config.json 600
+
+AddPackage patool

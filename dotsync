@@ -292,12 +292,12 @@ M dots-haskell xdg paru-sync-pkg-list {
     mkdir -p $[ENV.HOME]/.cabal
     ln -sfnv $dotPath/dots/cabal/config $[ENV.HOME]/.cabal/config
 
-    ghcup install ghc
-    ghcup set ghc
+    ghcup install ghc 9.10.1
+    ghcup set ghc 9.10.1
     ghcup install hls
     ghcup set hls
-    ghcup install cabal
-    ghcup set cabal
+    ghcup install cabal 3.12.1.0
+    ghcup set cabal 3.12.1.0
   } else {
     cabal update
     cabal install --overwrite-policy=always cabal-gild
@@ -311,7 +311,7 @@ M dots-haskell xdg paru-sync-pkg-list {
 
 M dots-ocaml xdg paru-sync-pkg-list {
   # OCaml
-  opam init default https://mirrors.sjtug.sjtu.edu.cn/git/opam-repository.git -n
+  opam repo set-url default https://kkgithub.com/ocaml/opam-repository.git
   opam install -y dune utop # For creating softwares
   # run in individual switch:
   # opam install -y dune ocamlformat ocaml-lsp-server
