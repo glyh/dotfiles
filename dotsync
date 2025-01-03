@@ -292,16 +292,17 @@ M dots-haskell xdg paru-sync-pkg-list {
     mkdir -p $[ENV.HOME]/.cabal
     ln -sfnv $dotPath/dots/cabal/config $[ENV.HOME]/.cabal/config
 
+    mkdir -p $[ENV.HOME]/.stack
+    ln -sfnv $dotPath/dots/stack/config.yaml $[ENV.HOME]/.stack/config.yaml
+
     ghcup install ghc 9.10.1
     ghcup set ghc 9.10.1
     ghcup install hls
     ghcup set hls
     ghcup install cabal 3.12.1.0
     ghcup set cabal 3.12.1.0
-  } else {
-    cabal update
-    cabal install --overwrite-policy=always cabal-gild
-    cabal install --overwrite-policy=always cabal-fmt
+    ghcup install stack
+    ghcup set stack
   }
 
   var ghcRc = "$[ENV.HOME]/.ghc"

@@ -578,7 +578,6 @@ RemovePackage --foreign google-chrome-dev
 # Sun Dec 15 15:57:25 CST 2024 - New / changed files
 
 
-CopyFile /etc/brlapi.key 640 '' brlapi
 CreateLink /etc/fonts/conf.d/69-urw-bookman.conf /usr/share/fontconfig/conf.default/69-urw-bookman.conf
 CreateLink /etc/fonts/conf.d/69-urw-c059.conf /usr/share/fontconfig/conf.default/69-urw-c059.conf
 CreateLink /etc/fonts/conf.d/69-urw-d050000l.conf /usr/share/fontconfig/conf.default/69-urw-d050000l.conf
@@ -618,14 +617,6 @@ RemoveFile /etc/fonts/conf.d/69-urw-fallback-backwards.conf
 RemoveFile /etc/fonts/conf.d/69-urw-d050000l.conf
 RemoveFile /etc/fonts/conf.d/69-urw-c059.conf
 RemoveFile /etc/fonts/conf.d/69-urw-bookman.conf
-RemoveFile /etc/brlapi.key
-
-
-# Sun Dec 15 16:24:31 CST 2024 - Extra file properties
-
-
-SetFileProperty /etc/brlapi.key group ''
-SetFileProperty /etc/brlapi.key mode ''
 
 
 # Wed Dec 18 10:21:34 CST 2024 - New / changed files
@@ -689,7 +680,6 @@ AddPackage 7zip # File archiver for extremely high compression
 # Wed Dec 25 16:29:07 CST 2024 - New / changed files
 
 
-CopyFile /etc/brlapi.key 640 '' brlapi
 CopyFile /etc/ly/save.ini
 CopyFile /etc/v2raya/config.json 600
 
@@ -709,4 +699,5 @@ AddPackage --foreign ghcup-hs-bin # an installer for the general purpose
 
 CopyFile /etc/v2raya/config.json 600
 
-AddPackage patool
+
+AddPackage --foreign patool # portable command line archive file manager
