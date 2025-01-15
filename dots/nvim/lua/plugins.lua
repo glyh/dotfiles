@@ -516,4 +516,10 @@ return {
     ft = { "yacc", "lex" },
   },
   -- }}}
+  -- Go {{{
+  {
+    "fatih/vim-go",
+    ft = "go",
+  },
+  -- }}}
 }

@@ -701,3 +701,70 @@ CopyFile /etc/v2raya/config.json 600
 
 
 AddPackage --foreign patool # portable command line archive file manager
+
+
+# Sun Jan  5 10:52:06 CST 2025 - Unknown packages
+
+
+AddPackage steam # Valve's digital software delivery system
+
+
+# Sun Jan  5 10:52:06 CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign komga
+RemovePackage --foreign quickemu
+
+
+# Sun Jan  5 10:52:06 CST 2025 - New / changed files
+
+
+CopyFile /etc/ly/save.ini
+CopyFile /etc/v2raya/config.json 600
+
+
+# Fri Jan 10 12:52:53 CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign wechat # Fixes and optional sandbox for WeChat.
+
+
+# Fri Jan 10 12:52:53 CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign captive-browser-git
+RemovePackage --foreign texlive-full
+
+
+# Fri Jan 10 12:52:53 CST 2025 - New / changed files
+
+
+CopyFile /etc/resolv.conf
+CopyFile /etc/v2raya/config.json 600
+
+
+# Wed Jan 15 16:47:20 CST 2025 - Unknown packages
+
+
+AddPackage niri # A scrollable-tiling Wayland compositor
+AddPackage oil # A new Unix shell
+
+
+# Wed Jan 15 16:47:20 CST 2025 - Missing packages
+
+
+RemovePackage hyprland
+
+
+# Wed Jan 15 16:47:20 CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign logseq-desktop-wayland-bin
+RemovePackage --foreign oils-for-unix
+
+
+# Wed Jan 15 16:47:20 CST 2025 - New / changed files
+
+
+CopyFile /etc/shells
+CopyFile /etc/v2raya/config.json 600

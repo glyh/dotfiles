@@ -2,13 +2,10 @@
 
 DOT_PATH="$(realpath $0 | xargs dirname)"
 
-if ! pacman -Qi oils-for-unix > /dev/null; then
-  OILS_AUR_PATH="$(mktemp -d)"
-  git clone https://aur.archlinux.org/oils-for-unix.git $OILS_AUR_PATH
-  # BUG: to disable debug package we have to have makepkg.conf prepared
-  cd $OILS_AUR_PATH && makepkg -si --noconfirm
+if ! pacman -Qi oil > /dev/null; then
+  sudo pacman -S oil
 else
-  echo 'oils-for-unix is already installed.'
+  echo 'oil shell is already installed.'
 fi
 
 $DOT_PATH/dotsync

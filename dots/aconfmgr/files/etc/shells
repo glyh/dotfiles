@@ -11,3 +11,5 @@
 /usr/bin/fish
 /bin/fish
 /usr/bin/systemd-home-fallback-shell
+/bin/osh
+/usr/bin/osh

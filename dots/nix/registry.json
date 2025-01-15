@@ -1,0 +1,16 @@
+{
+  "flakes": [
+    {
+      "from": {
+        "id": "mina",
+        "type": "indirect"
+      },
+      "to": {
+        "submodules": true,
+        "type": "git",
+        "url": "file:///home/lyh/PullGround/mina"
+      }
+    }
+  ],
+  "version": 2
+}
