@@ -768,3 +768,52 @@ RemovePackage --foreign oils-for-unix
 
 CopyFile /etc/shells
 CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Jan 26 15:06:11 CST 2025 - Unknown packages
+
+
+AddPackage android-tools # Android platform tools
+AddPackage libreoffice-still # LibreOffice maintenance branch
+
+
+# Sun Jan 26 15:06:12 CST 2025 - Missing packages
+
+
+RemovePackage grim
+RemovePackage jellyfin-ffmpeg
+RemovePackage jellyfin-server
+RemovePackage jellyfin-web
+RemovePackage slurp
+
+
+# Sun Jan 26 15:06:12 CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign actual-bin # A local-first personal finance tool. It is
+AddPackage --foreign xwayland-satellite-git # Xwayland outside your Wayland - git version
+
+
+# Sun Jan 26 15:06:12 CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign jellyfin-media-player
+RemovePackage --foreign wechat
+
+
+# Sun Jan 26 15:06:12 CST 2025 - New / changed files
+
+
+CopyFile /etc/ly/save.ini
+CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Jan 26 15:06:12 CST 2025 - Extra file properties
+
+
+SetFileProperty /etc/jellyfin/jellyfin.env group ''
+SetFileProperty /etc/jellyfin/jellyfin.env owner ''
+SetFileProperty /etc/jellyfin/logging.json group ''
+SetFileProperty /etc/jellyfin/logging.json owner ''
+SetFileProperty /etc/jellyfin group ''
+SetFileProperty /etc/jellyfin owner ''

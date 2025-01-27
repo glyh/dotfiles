@@ -11,7 +11,7 @@ const dotPath = _this_dir
 const credentialPath = "$[ENV.HOME]/Documents/credential"
 
 const XDG_CONFIG_HOME = ${XDG_CONFIG_HOME:-"$[ENV.HOME]/.config"}
-const XDG_STATE_HOME = ${XDG_STATE_HOME:-"$[ENV.HOME]/local/state"}
+const XDG_STATE_HOME = ${XDG_STATE_HOME:-"$[ENV.HOME]/.local/state"}
 const XDG_DATA_HOME = ${XDG_DATA_HOME:-"$[ENV.HOME]/.local/share"}
 
 proc ensure-pacman(...packages) {

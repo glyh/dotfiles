@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
+SCREENSHOT_FILE=$(date +"$HOME/Pictures/Screenshots/%Y-%m-%d_%H:%M:%S_%Z.png")
+
+echo saving screenshot to $SCREENSHOT_FILE
+
 if [ "$1" == "area" ]; then
-  grim -g "$(slurp)" ~/Pictures/screenshot.png
+  grim -g "$(slurp)" $SCREENSHOT_FILE
 else
-  grim ~/Pictures/screenshot.png
+  grim $SCREENSHOT_FILE
 fi
 
-wl-copy < ~/Pictures/screenshot.png
+wl-copy < $SCREENSHOT_FILE

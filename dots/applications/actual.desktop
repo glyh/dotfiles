@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Actual
+Exec=actual %U
+Terminal=false
+Type=Application
+Icon=actual
+StartupWMClass=Actual
+X-AppImage-Version=25.1.0
+Comment=A simple and powerful personal finance system
+Categories=Office;Finance;
