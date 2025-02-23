@@ -10,6 +10,17 @@
         "type": "git",
         "url": "file:///home/lyh/PullGround/mina"
       }
+    },
+    {
+      "from": {
+        "id": "o1js",
+        "type": "indirect"
+      },
+      "to": {
+        "submodules": true,
+        "type": "git",
+        "url": "file:///home/lyh/PullGround/o1js"
+      }
     }
   ],
   "version": 2

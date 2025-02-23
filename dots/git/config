@@ -3,6 +3,7 @@
 	name = glyh
 [core]
 	pager = delta
+	compression = 0
 [interactive]
 	diffFilter = delta --color-only
 [delta]
@@ -15,7 +16,7 @@
 [pull]
 	rebase = false
 [alias]
-	l = log --oneline --decorate --graph
+	l = log --oneline --decorate --graph -n 1000
 	d = diff
 	a = add
 	c = commit

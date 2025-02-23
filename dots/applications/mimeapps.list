@@ -1,3 +1,4 @@
-x-scheme-handler/mw-matlab=mw-matlab.desktop
-x-scheme-handler/mw-simulink=mw-simulink.desktop
+[Default Applications]
 x-scheme-handler/mw-matlabconnector=mw-matlabconnector.desktop
+x-scheme-handler/mw-simulink=mw-simulink.desktop
+x-scheme-handler/mw-matlab=mw-matlab.desktop

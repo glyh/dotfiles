@@ -1,0 +1,15 @@
+=========================
+Fcitx 5.1.12 -- Get Signal No.: 11
+Date: try "date -d @1738742319" if you are using GNU date ***
+ProcessID: 160666
+/usr/bin/fcitx5(+0xebfc) [0x58262b5a5bfc]
+/usr/lib/libc.so.6(+0x3dcd0) [0x7d3a6424bcd0]
+/usr/lib/fcitx5/libcpis-module-im-sogou-ime-ng-fcitx5-kylin-desktop.so(_ZNKSt14default_deleteIN6apache6thrift11concurrency5MutexEEclEPS3_+0x1b) [0x7d3a6066db3f]
+/usr/lib/fcitx5/libcpis-module-im-sogou-ime-ng-fcitx5-kylin-desktop.so(_ZNSt10unique_ptrIN6apache6thrift11concurrency5MutexESt14default_deleteIS3_EED1Ev+0x47) [0x7d3a6066d4f5]
+/usr/lib/fcitx5/libcpis-module-im-sogou-ime-ng-fcitx5-kylin-desktop.so(_ZN6apache6thrift11concurrency7Monitor4ImplD1Ev+0x28) [0x7d3a6066d232]
+/usr/lib/fcitx5/libcpis-module-im-sogou-ime-ng-fcitx5-kylin-desktop.so(_ZN6apache6thrift11concurrency7MonitorD1Ev+0x34) [0x7d3a6066c6c4]
+/usr/lib/libc.so.6(+0x40391) [0x7d3a6424e391]
+/usr/lib/libc.so.6(+0x4046e) [0x7d3a6424e46e]
+/usr/lib/libc.so.6(+0x2748f) [0x7d3a6423548f]
+/usr/lib/libc.so.6(__libc_start_main+0x8c) [0x7d3a6423554c]
+/usr/bin/fcitx5(+0xe0c5) [0x58262b5a50c5]

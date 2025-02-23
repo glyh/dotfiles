@@ -249,9 +249,9 @@ M dots-tools xdg {
   ln -sfnv $dotPath/dots/containers $XDG_CONFIG_HOME/containers
 }
 
-#M dots-zig xdg paru-sync-pkg-list {
-#  zigup 0.13.0-dev.351+64ef45eb0 --install-dir ~/.zig --path-link ~/.zig/zig
-#}
+M dots-zig xdg paru-sync-pkg-list {
+  zigup 0.14.0-dev.3089+87bbb49d5 --install-dir ~/.zig --path-link ~/.zig/zig
+}
 
 # M dots-emacs paru-sync-pkg-list {
 #   ln -sfnv $dotPath/dots/emacs $[ENV.HOME]/.config/emacs
@@ -312,7 +312,8 @@ M dots-haskell xdg paru-sync-pkg-list {
 
 M dots-ocaml xdg paru-sync-pkg-list {
   # OCaml
-  opam repo set-url default https://kkgithub.com/ocaml/opam-repository.git
+  # https://fcp7.com/github-mirror-daily-updates.html
+  opam repo set-url default https://bgithub.xyz/ocaml/opam-repository.git
   opam install -y dune utop # For creating softwares
   # run in individual switch:
   # opam install -y dune ocamlformat ocaml-lsp-server

@@ -1,0 +1,6 @@
+[MIME Cache]
+image/*=vimiv.desktop;
+x-scheme-handler/baiduyunguanjia=baidunetdisk.desktop;
+x-scheme-handler/logseq=logseq-desktop.desktop;
+x-scheme-handler/steam=steam.desktop;
+x-scheme-handler/steamlink=steam.desktop;

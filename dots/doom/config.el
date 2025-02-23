@@ -114,4 +114,4 @@
 
 ;; Default browser is chrome
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "mercury-browser-avx2")
+      browse-url-generic-program "firefox-nightly")
