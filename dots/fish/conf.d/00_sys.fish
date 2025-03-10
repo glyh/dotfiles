@@ -3,9 +3,9 @@
 # See https://coderschool.cn/3724.html
 
 # Nvidia Drivers
-set -gx LIBVA_DRIVER_NAME nvidia
-set -gx VDPAU_DRIVER nvidia
-set -gx VK_DRIVER_FILES /usr/share/vulkan/icd.d/nvidia_icd.json
+#set -gx LIBVA_DRIVER_NAME nvidia
+#set -gx VDPAU_DRIVER nvidia
+#set -gx VK_DRIVER_FILES /usr/share/vulkan/icd.d/nvidia_icd.json
 
 # XDG
 set -gx  XDG_CONFIG_HOME     ~/.config

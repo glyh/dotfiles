@@ -7,9 +7,9 @@
 /usr/bin/sh
 /usr/bin/bash
 /usr/bin/rbash
+/usr/bin/systemd-home-fallback-shell
 /usr/bin/git-shell
 /usr/bin/fish
 /bin/fish
-/usr/bin/systemd-home-fallback-shell
 /bin/osh
 /usr/bin/osh

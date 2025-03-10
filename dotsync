@@ -364,11 +364,12 @@ M write-meta-data xdg {
 
 M go-musicfox xdg {
   # ln -sfnv $dotPath/services $XDG_CONFIG_HOME/systemd/user
-  ln -sfnv $dotPath/dots/go-musicfox/go-musicfox.ini ~/.config/go-musicfox/go-musicfox.ini
+  mkdir -p $XDG_CONFIG_HOME/go-musicfox
+  ln -sfnv $dotPath/dots/go-musicfox/go-musicfox.ini  $XDG_CONFIG_HOME/go-musicfox/go-musicfox.ini
 }
 
 M captive-browser xdg {
-  ln -sfnv $dotPath/dots/captive-browser/captive-browser.toml ~/.config/captive-browser.toml
+  ln -sfnv $dotPath/dots/captive-browser/captive-browser.toml $XDG_CONFIG_HOME/captive-browser.toml
 }
 
 #M dots-guix {

@@ -198,11 +198,11 @@ return {
   },
   -- }}}
   -- UI {{{
-  {
-    "3rd/image.nvim",
-    dependencies = { "luarocks.nvim" },
-    config = true,
-  },
+  -- {
+  --   "3rd/image.nvim",
+  --   dependencies = { "luarocks.nvim" },
+  --   config = true,
+  -- },
   {
     "folke/which-key.nvim",
     keys = { "<leader>", "<localleader>", '"', "'", "`", "c", "v", ";" },
@@ -329,37 +329,37 @@ return {
     config = true,
   },
 
-  {
-    "nvim-neorg/neorg",
-    dependencies = { "luarocks.nvim" },
-    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-    -- version = "*", -- Pin Neorg to the latest stable release
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.export"] = {},
-          ["core.export.markdown"] = {},
-          ["core.concealer"] = {},
-          ["core.completion"] = {
-            config = {
-              engine = "nvim-cmp",
-            },
-          },
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                knowledge = "~/Documents/Knowledge/Notes Base",
-              },
-              default_workspace = "knowledge",
-            },
-          },
-          ["core.integrations.image"] = {},
-          ["core.latex.renderer"] = {},
-        },
-      }
-    end,
-  },
+  -- {
+  --   "nvim-neorg/neorg",
+  --   dependencies = { "luarocks.nvim" },
+  --   lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+  --   -- version = "*", -- Pin Neorg to the latest stable release
+  --   config = function()
+  --     require("neorg").setup {
+  --       load = {
+  --         ["core.defaults"] = {},
+  --         ["core.export"] = {},
+  --         ["core.export.markdown"] = {},
+  --         ["core.concealer"] = {},
+  --         ["core.completion"] = {
+  --           config = {
+  --             engine = "nvim-cmp",
+  --           },
+  --         },
+  --         ["core.dirman"] = {
+  --           config = {
+  --             workspaces = {
+  --               knowledge = "~/Documents/Knowledge/Notes Base",
+  --             },
+  --             default_workspace = "knowledge",
+  --           },
+  --         },
+  --         ["core.integrations.image"] = {},
+  --         ["core.latex.renderer"] = {},
+  --       },
+  --     }
+  --   end,
+  -- },
   -- {
   --   "nvim-orgmode/orgmode",
   --   event = "VeryLazy",
