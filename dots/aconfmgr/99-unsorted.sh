@@ -211,3 +211,105 @@ CreateLink /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket /usr/lib
 CreateLink /etc/systemd/user/sockets.target.wants/pipewire.socket /usr/lib/systemd/user/pipewire.socket
 CopyFile /etc/vconsole.conf
 CreateDir /lost+found 700
+
+
+# Wed Mar 12 07:18:35 AM CST 2025 - Unknown packages
+
+
+AddPackage acpid # A daemon for delivering ACPI power management events with netlink support
+AddPackage capnproto # Cap'n Proto serialization/RPC system
+AddPackage dune # A composable build system for OCaml (formerly jbuilder)
+AddPackage evtest # Input device event monitor and query tool
+AddPackage firefox # Fast, Private & Safe Web Browser
+AddPackage fprintd # D-Bus service to access fingerprint readers
+AddPackage grim # Screenshot utility for Wayland
+AddPackage hyprland # a highly customizable dynamic tiling Wayland compositor
+AddPackage hyprpolkitagent # Simple polkit authentication agent for Hyprland, written in QT/QML
+AddPackage intel-media-driver # Intel Media Driver for VAAPI — Broadwell+ iGPUs
+AddPackage jack2 # The JACK low-latency audio server
+AddPackage lib32-vulkan-intel # Open-source Vulkan driver for Intel GPUs - 32-bit
+AddPackage pavucontrol # PulseAudio Volume Control
+AddPackage pulseaudio # A featureful, general-purpose sound server
+AddPackage slurp # Select a region in a Wayland compositor
+AddPackage sof-firmware # Sound Open Firmware
+AddPackage vulkan-intel # Open-source Vulkan driver for Intel GPUs
+AddPackage vulkan-tools # Vulkan tools and utilities
+AddPackage wev # A tool for debugging wayland events on a Wayland window, analagous to the X11 tool xev
+
+
+# Wed Mar 12 07:18:35 AM CST 2025 - Missing packages
+
+
+RemovePackage easyeffects
+RemovePackage kooha
+RemovePackage lib32-pipewire
+RemovePackage lib32-pipewire-jack
+RemovePackage niri
+RemovePackage obs-studio
+RemovePackage pipewire-alsa
+RemovePackage pipewire-audio
+RemovePackage pipewire-jack
+RemovePackage pipewire-pulse
+
+
+# Wed Mar 12 07:18:35 AM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign adobe-source-han-fonts # Meta package of Adobe Source Han fonts in the official repositories.
+AddPackage --foreign go-musicfox-bin # Command-line Netease Cloud Music written in Go. (Precompiled version)
+AddPackage --foreign laptop-mode-tools # Power saving tool for Linux
+AddPackage --foreign light # A program to control backlights (and other hardware lights)
+AddPackage --foreign tofi # Tiny rofi / dmenu replacement for wlroots-based Wayland compositors.
+AddPackage --foreign v2raya-bin # A web GUI client of Project V which supports VMess, VLESS, SS, SSR, Trojan, Tuic and Juicity protocols
+
+
+# Wed Mar 12 07:18:35 AM CST 2025 - Extra files
+
+
+RemoveFile /etc/systemd/user/sockets.target.wants/pipewire.socket
+RemoveFile /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket
+RemoveFile /etc/systemd/user/pipewire.service.wants/wireplumber.service
+RemoveFile /etc/systemd/user/pipewire.service.wants
+RemoveFile /etc/systemd/user/pipewire-session-manager.service
+
+
+# Wed Mar 12 07:18:35 AM CST 2025 - New / changed files
+
+
+CopyFile /etc/bash.bashrc
+CopyFile /etc/bash.bashrc.backup-before-nix
+CopyFile /etc/bashrc
+CreateFile /etc/bashrc.backup-before-nix > /dev/null
+CopyFile /etc/conf.d/lm_sensors
+CopyFile /etc/fish/conf.d/nix.fish
+CreateLink /etc/fonts/conf.d/44-source-han-sans-hk.conf /usr/share/fontconfig/conf.default/44-source-han-sans-hk.conf
+CreateLink /etc/fonts/conf.d/44-source-han-sans-jp.conf /usr/share/fontconfig/conf.default/44-source-han-sans-jp.conf
+CreateLink /etc/fonts/conf.d/44-source-han-sans-kr.conf /usr/share/fontconfig/conf.default/44-source-han-sans-kr.conf
+CreateLink /etc/fonts/conf.d/44-source-han-sans-otc.conf /usr/share/fontconfig/conf.default/44-source-han-sans-otc.conf
+CreateLink /etc/fonts/conf.d/44-source-han-sans-tw.conf /usr/share/fontconfig/conf.default/44-source-han-sans-tw.conf
+CreateLink /etc/fonts/conf.d/44-source-han-serif-jp.conf /usr/share/fontconfig/conf.default/44-source-han-serif-jp.conf
+CreateLink /etc/fonts/conf.d/44-source-han-serif-kr.conf /usr/share/fontconfig/conf.default/44-source-han-serif-kr.conf
+CreateLink /etc/fonts/conf.d/44-source-han-serif-otc.conf /usr/share/fontconfig/conf.default/44-source-han-serif-otc.conf
+CreateLink /etc/fonts/conf.d/44-source-han-serif-tw.conf /usr/share/fontconfig/conf.default/44-source-han-serif-tw.conf
+CopyFile /etc/nix/nix.conf
+CopyFile /etc/profile.d/nix.sh
+CopyFile /etc/systemd/logind.conf
+CreateLink /etc/systemd/system/multi-user.target.wants/laptop-mode.service /usr/lib/systemd/system/laptop-mode.service
+CreateLink /etc/systemd/system/multi-user.target.wants/lm_sensors.service /usr/lib/systemd/system/lm_sensors.service
+CreateLink /etc/systemd/system/multi-user.target.wants/v2raya.service /usr/lib/systemd/system/v2raya.service
+CreateLink /etc/systemd/system/nix-daemon.service /nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.service
+CreateLink /etc/systemd/system/nix-daemon.socket /nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.socket
+CreateLink /etc/systemd/system/sockets.target.wants/nix-daemon.socket /nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.socket
+CreateLink /etc/systemd/user/sockets.target.wants/pulseaudio.socket /usr/lib/systemd/user/pulseaudio.socket
+CreateLink /etc/tmpfiles.d/nix-daemon.conf /nix/var/nix/profiles/default/lib/tmpfiles.d/nix-daemon.conf
+CopyFile /etc/udev/rules.d/backlight.rules
+CopyFile /etc/v2raya/config.json 600
+CopyFile /etc/zshrc
+CopyFile /etc/sudoers
+
+
+# Wed Mar 12 07:18:35 AM CST 2025 - New file properties
+
+
+SetFileProperty /etc/nix mode 555
+SetFileProperty /etc/v2raya mode 750

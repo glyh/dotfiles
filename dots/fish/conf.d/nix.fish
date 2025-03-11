@@ -1,2 +1,3 @@
-
-if test -e /home/lyh/.nix-profile/etc/profile.d/nix.fish; . /home/lyh/.nix-profile/etc/profile.d/nix.fish; end # added by Nix installer
+if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish; 
+end

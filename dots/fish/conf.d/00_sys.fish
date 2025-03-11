@@ -66,9 +66,6 @@ set -gx XMODIFIERS               \@im=fcitx
 # GTK themes
 set -gx  GTK_THEME           Adwaita:dark
 
-# JAVA
-set -gx JAVA_HOME            /usr/lib/jvm/default
-
 # Path
 fish_add_path -gp            ~/Binaries
 fish_add_path -gp            ~/InstallGround/bin
