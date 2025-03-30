@@ -313,3 +313,111 @@ CopyFile /etc/sudoers
 
 SetFileProperty /etc/nix mode 555
 SetFileProperty /etc/v2raya mode 750
+
+
+# Sun Mar 16 10:04:55 PM CST 2025 - Unknown packages
+
+
+AddPackage homebank # Free, easy, personal accounting for everyone
+AddPackage obsidian # A powerful knowledge base that works on top of a local folder of plain text Markdown files
+AddPackage pulseaudio-bluetooth # Bluetooth support for PulseAudio
+
+
+# Sun Mar 16 10:04:55 PM CST 2025 - Missing packages
+
+
+RemovePackage chromium
+RemovePackage ly
+
+
+# Sun Mar 16 10:04:55 PM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign dragon-drop # Simple drag-and-drop source/sink for X or Wayland
+AddPackage --foreign google-chrome # The popular web browser by Google (Stable Channel)
+AddPackage --foreign page-git # Pager powered by neovim and inspired by neovim-remote
+
+
+# Sun Mar 16 10:04:55 PM CST 2025 - New / changed files
+
+
+CopyFile /etc/sgml/catalog
+CopyFile /etc/sgml/sgml-docbook.cat
+CopyFile /etc/sgml/sgml-ent.cat
+CreateLink /etc/systemd/system/bluetooth.target.wants/bluetooth.service /usr/lib/systemd/system/bluetooth.service
+CreateLink /etc/systemd/system/dbus-org.bluez.service /usr/lib/systemd/system/bluetooth.service
+CopyFile /etc/v2raya/config.json 600
+
+
+# Wed Mar 19 03:04:16 PM CST 2025 - New / changed files
+
+
+CopyFile /etc/nix/nix.conf
+CopyFile /etc/resolv.conf
+CopyFile /etc/v2raya/config.json 600
+
+
+# Wed Mar 19 03:04:42 PM CST 2025 - Missing packages
+
+
+RemovePackage homebank
+
+
+# Sun Mar 30 03:52:33 PM CST 2025 - Unknown packages
+
+
+AddPackage bluez-utils # Development and debugging utilities for the bluetooth protocol stack
+AddPackage difftastic # An experimental diff tool that compares files based on their syntax
+AddPackage lib32-pipewire # Low-latency audio/video router and processor - 32-bit
+AddPackage lib32-pipewire-jack # Low-latency audio/video router and processor - 32-bit - JACK support
+AddPackage nano # Pico editor clone with enhancements
+AddPackage pipewire # Low-latency audio/video router and processor
+AddPackage pipewire-alsa # Low-latency audio/video router and processor - ALSA configuration
+AddPackage pipewire-jack # Low-latency audio/video router and processor - JACK replacement
+AddPackage pipewire-pulse # Low-latency audio/video router and processor - PulseAudio replacement
+AddPackage wireplumber # Session / policy manager implementation for PipeWire
+
+
+# Sun Mar 30 03:52:33 PM CST 2025 - Missing packages
+
+
+RemovePackage jack2
+RemovePackage pavucontrol
+RemovePackage pulseaudio
+RemovePackage pulseaudio-bluetooth
+
+
+# Sun Mar 30 03:52:33 PM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign pwvucontrol # Pipewire volume control for GNOME
+
+
+# Sun Mar 30 03:52:33 PM CST 2025 - Extra files
+
+
+RemoveFile /etc/systemd/user/sockets.target.wants/pulseaudio.socket
+
+
+# Sun Mar 30 03:52:33 PM CST 2025 - New / changed files
+
+
+CreateLink /etc/fonts/conf.d/69-urw-bookman.conf /usr/share/fontconfig/conf.default/69-urw-bookman.conf
+CreateLink /etc/fonts/conf.d/69-urw-c059.conf /usr/share/fontconfig/conf.default/69-urw-c059.conf
+CreateLink /etc/fonts/conf.d/69-urw-d050000l.conf /usr/share/fontconfig/conf.default/69-urw-d050000l.conf
+CreateLink /etc/fonts/conf.d/69-urw-fallback-backwards.conf /usr/share/fontconfig/conf.default/69-urw-fallback-backwards.conf
+CreateLink /etc/fonts/conf.d/69-urw-fallback-generics.conf /usr/share/fontconfig/conf.default/69-urw-fallback-generics.conf
+CreateLink /etc/fonts/conf.d/69-urw-fallback-specifics.conf /usr/share/fontconfig/conf.default/69-urw-fallback-specifics.conf
+CreateLink /etc/fonts/conf.d/69-urw-gothic.conf /usr/share/fontconfig/conf.default/69-urw-gothic.conf
+CreateLink /etc/fonts/conf.d/69-urw-nimbus-mono-ps.conf /usr/share/fontconfig/conf.default/69-urw-nimbus-mono-ps.conf
+CreateLink /etc/fonts/conf.d/69-urw-nimbus-roman.conf /usr/share/fontconfig/conf.default/69-urw-nimbus-roman.conf
+CreateLink /etc/fonts/conf.d/69-urw-nimbus-sans.conf /usr/share/fontconfig/conf.default/69-urw-nimbus-sans.conf
+CreateLink /etc/fonts/conf.d/69-urw-p052.conf /usr/share/fontconfig/conf.default/69-urw-p052.conf
+CreateLink /etc/fonts/conf.d/69-urw-standard-symbols-ps.conf /usr/share/fontconfig/conf.default/69-urw-standard-symbols-ps.conf
+CreateLink /etc/fonts/conf.d/69-urw-z003.conf /usr/share/fontconfig/conf.default/69-urw-z003.conf
+CreateLink /etc/systemd/user/pipewire-session-manager.service /usr/lib/systemd/user/wireplumber.service
+CreateLink /etc/systemd/user/pipewire.service.wants/wireplumber.service /usr/lib/systemd/user/wireplumber.service
+CreateLink /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket /usr/lib/systemd/user/pipewire-pulse.socket
+CreateLink /etc/systemd/user/sockets.target.wants/pipewire.socket /usr/lib/systemd/user/pipewire.socket
+CopyFile /etc/nix/nix.conf
+CopyFile /etc/v2raya/config.json 600
