@@ -31,6 +31,7 @@ require("nvim-treesitter.configs").setup {
     -- "meson",
     "mlir",
     "kdl",
+    "ocaml",
   },
   highlight = { enable = true },
 }

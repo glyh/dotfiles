@@ -17,10 +17,10 @@
 	rebase = false
 [alias]
 	l = log --oneline --decorate --graph -n 1000
-  dl = -c diff.external=difft log -p --ext-diff
+	dl = -c diff.external=difft log -p --ext-diff
 	d = diff
-  dd = -c diff.external=difft diff
-  ds = -c diff.external=difft show --ext-diff
+	dd = -c diff.external=difft diff
+	ds = -c diff.external=difft show --ext-diff
 	a = add
 	c = commit
 	o = checkout
@@ -35,13 +35,12 @@
 	cf = commit --amend
 	r = restore
 	root = rev-parse --show-toplevel
+	cp = cherry-pick
 [gpg]
 	program = gpg2
 [push]
 	autoSetupRemote = true
 
-[url "https://githubfast.com/"]
-	insteadof = https://github.com/
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
