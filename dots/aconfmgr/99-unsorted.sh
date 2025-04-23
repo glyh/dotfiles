@@ -421,3 +421,27 @@ CreateLink /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket /usr/lib
 CreateLink /etc/systemd/user/sockets.target.wants/pipewire.socket /usr/lib/systemd/user/pipewire.socket
 CopyFile /etc/nix/nix.conf
 CopyFile /etc/v2raya/config.json 600
+
+
+# Sat Apr 12 17:40:03 CST 2025 - Unknown packages
+
+
+AddPackage postgresql-libs # Libraries for use with PostgreSQL
+
+
+# Sat Apr 12 17:40:03 CST 2025 - Missing packages
+
+
+RemovePackage pinta
+
+
+# Sat Apr 12 17:40:03 CST 2025 - New / changed files
+
+
+CreateDir /etc/cni/net.d 700
+CreateDir /etc/docker
+CopyFile /etc/hosts
+CreateLink /etc/systemd/system/multi-user.target.wants/docker.service /usr/lib/systemd/system/docker.service
+CopyFile /etc/xml/catalog
+CopyFile /etc/pacman.d/mirrorlist
+CopyFile /etc/v2raya/config.json 600

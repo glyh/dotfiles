@@ -30,7 +30,7 @@
 	t = difftool
 	p = pull
 	u = push
-	g = clone --filter=blob:none --recurse-submodules -j8
+	g = clone --filter=blob:none -j8
 	b = branch
 	cf = commit --amend
 	r = restore
@@ -46,3 +46,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[submodule]
+	recurse = true
