@@ -17,7 +17,10 @@
 	rebase = false
 [alias]
 	l = log --oneline --decorate --graph -n 1000
+	dl = -c diff.external=difft log -p --ext-diff
 	d = diff
+	dd = -c diff.external=difft diff
+	ds = -c diff.external=difft show --ext-diff
 	a = add
 	c = commit
 	o = checkout
@@ -44,3 +47,6 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+
+[submodule]
+	recurse = true
