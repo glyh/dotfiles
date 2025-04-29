@@ -48,3 +48,5 @@
 	smudge = git-lfs smudge -- %f
 [submodule]
 	recurse = true
+[http]
+	proxy = http://127.0.0.1:20171
