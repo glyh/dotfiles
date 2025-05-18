@@ -445,3 +445,57 @@ CreateLink /etc/systemd/system/multi-user.target.wants/docker.service /usr/lib/s
 CopyFile /etc/xml/catalog
 CopyFile /etc/pacman.d/mirrorlist
 CopyFile /etc/v2raya/config.json 600
+
+
+# Sun May 18 02:03:42 PM CST 2025 - Unknown packages
+
+
+AddPackage dbeaver # Free universal SQL Client for developers and database administrators (community edition)
+AddPackage docker # Pack, ship and run any application as a lightweight container
+AddPackage fzf # Command-line fuzzy finder
+AddPackage gnucash # Personal and small-business financial-accounting application
+AddPackage mosh # Mobile shell, surviving disconnects with local echo and line editing
+AddPackage mpv # a free, open source, and cross-platform media player
+
+
+# Sun May 18 02:03:42 PM CST 2025 - Missing packages
+
+
+RemovePackage bazel
+RemovePackage lsp-plugins-lv2
+RemovePackage qemu-desktop
+RemovePackage zig
+RemovePackage zls
+
+
+# Sun May 18 02:03:42 PM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign anyzig-bin # One zig to rule them all
+AddPackage --foreign bottles # Easily manage wine and proton prefix
+AddPackage --foreign firefly-iii # PHP personal finances manager
+AddPackage --foreign telegram-desktop-bin # Official desktop version of Telegram messaging app - Static binaries
+AddPackage --foreign windsurf # The new purpose-built IDE to harness magic
+
+
+# Sun May 18 02:03:42 PM CST 2025 - New / changed files
+
+
+CopyFile /etc/dbeaver/bundles.info
+CopyFile /etc/docker/daemon.json
+CreateLink /etc/systemd/system/multi-user.target.wants/postgresql.service /usr/lib/systemd/system/postgresql.service
+CopyFile /etc/pacman.d/mirrorlist
+CopyFile /etc/shells
+CopyFile /etc/v2raya/config.json 600
+
+
+# Sun May 18 02:05:39 PM CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign firefly-iii
+
+
+# Sun May 18 02:05:39 PM CST 2025 - Extra files
+
+
+RemoveFile /etc/systemd/system/multi-user.target.wants/postgresql.service

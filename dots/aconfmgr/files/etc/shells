@@ -13,3 +13,5 @@
 /bin/fish
 /bin/osh
 /usr/bin/osh
+/bin/ysh
+/usr/bin/ysh
