@@ -59,6 +59,15 @@ wk.add {
 }
 
 wk.add {
+  { "<leader>l", group = "LSP" },
+  {
+    "<leader>la",
+    vim.lsp.buf.code_action,
+    desc = "LSP code action",
+  },
+}
+
+wk.add {
   { "<leader>m", group = "make" },
   {
     "<leader>mr",
