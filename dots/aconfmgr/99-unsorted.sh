@@ -499,3 +499,33 @@ RemovePackage --foreign firefly-iii
 
 
 RemoveFile /etc/systemd/system/multi-user.target.wants/postgresql.service
+
+
+# Thu May 22 12:35:03 PM CST 2025 - Unknown packages
+
+
+AddPackage bash-language-server # Bash language server implementation based on Tree
+AddPackage inkscape # Professional vector graphics editor
+AddPackage socat # Multipurpose relay
+
+
+# Thu May 22 12:35:03 PM CST 2025 - Missing packages
+
+
+RemovePackage crystal
+
+
+# Thu May 22 12:35:03 PM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign ansifilter # remove or convert ANSI codes to another format
+AddPackage --foreign slack-desktop # Slack Desktop (Beta) for Linux
+
+
+# Thu May 22 12:35:03 PM CST 2025 - New / changed files
+
+
+CopyFile /etc/dbeaver/bundles.info
+CopyFile /etc/nix/nix.conf
+CopyFile /etc/resolv.conf
+CopyFile /etc/v2raya/config.json 600

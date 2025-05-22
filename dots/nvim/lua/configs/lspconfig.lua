@@ -26,6 +26,8 @@ local servers = {
   "eslint",
 
   "mlir_lsp_server",
+
+  "bashls",
 }
 
 for _, lsp in ipairs(servers) do
