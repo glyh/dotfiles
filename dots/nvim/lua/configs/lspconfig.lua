@@ -28,6 +28,8 @@ local servers = {
   "mlir_lsp_server",
 
   "bashls",
+
+  "dhall_lsp_server",
 }
 
 for _, lsp in ipairs(servers) do

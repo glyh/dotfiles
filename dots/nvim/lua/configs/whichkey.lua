@@ -124,6 +124,17 @@ wk.add {
 }
 
 wk.add {
+  { "<leader>t", group = "format" },
+  {
+    "<leader>tb",
+    function()
+      require("conform").format { async = true }
+    end,
+    desc = "Format buffer",
+  },
+}
+
+wk.add {
   { "<leader>g", group = "git" },
   {
     "<leader>gc",

@@ -1,25 +1,15 @@
-local options = {
+require("conform").setup {
+  -- Define your formatters
   formatters_by_ft = {
-    lua = { "stylua" },
-    dart = { "dart_format" },
-    -- css = { 'prettier' },
-    -- html = { 'prettier' },
-    -- cpp = { "clang-format" },
     cmake = { "cmake_format" },
+    dart = { "dart_format" },
+    lua = { "stylua" },
     ocaml = { "ocamlformat" },
   },
-
-  format_after_save = function(bufnr)
-    -- Disable "format_on_save lsp_fallback" for languages that don't
-    -- have a well standardized coding style. You can add additional
-    -- languages here or re-enable it for the disabled ones.
-    local disable_filetypes = { crystal = true }
-    if disable_filetypes[vim.bo[bufnr].filetype] then
-      return { lsp_format = "never" }
-    else
-      return { lsp_format = "fallback" }
-    end
-  end,
+  -- Set default options
+  default_format_opts = {
+    lsp_format = "fallback",
+  },
+  -- Set up format-on-save
+  format_on_save = { timeout_ms = 500 },
 }
-
-require("conform").setup(options)
