@@ -13,19 +13,20 @@ local servers = {
   "tinymist",
   -- 'dartls', -- other plugin sets up dart for me
   "ocamllsp",
-  "ruby_lsp",
-  "rubocop",
+  -- "ruby_lsp",
+  -- "rubocop",
   -- "sorbet",
-  "cmake",
-  "mesonlsp",
+  -- "cmake",
+  -- "mesonlsp",
   -- "gleam",
   -- "kotlin_language_server",
-  "glsl_analyzer",
-  "glasgow",
+  -- "glsl_analyzer",
+  -- "glasgow",
   -- "hls", -- use haskell-tools.nvim instead
-  "eslint",
+  -- "eslint",
 
   "mlir_lsp_server",
+  "dhall_lsp_server",
 }
 
 for _, lsp in ipairs(servers) do

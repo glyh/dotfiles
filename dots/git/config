@@ -33,6 +33,7 @@
 	g = clone --filter=blob:none --recurse-submodules -j8
 	b = branch
 	cf = commit --amend
+	cp = cherry-pick
 	r = restore
 	root = rev-parse --show-toplevel
 [gpg]

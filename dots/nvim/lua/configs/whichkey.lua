@@ -77,6 +77,11 @@ wk.add {
 }
 
 wk.add {
+  { "<leader>l", group = "LSP" },
+  { "<leader>la", vim.lsp.buf.code_action, desc = "Find files" },
+}
+
+wk.add {
   { "<leader>f", group = "finder/toggle" },
   { "<leader>ff", "<Cmd>Telescope find_files<CR>", desc = "Find files" },
   { "<leader>fk", "<Cmd>Telescope marks<CR>", desc = "Find bookmarks" },
