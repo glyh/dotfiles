@@ -7,6 +7,9 @@ vim.g.maplocalleader = ","
 -- TWEAKS: disable bullshit default for neovim
 vim.g.zig_fmt_autosave = 0
 
+-- Replace original file type plugin
+require("filetypes_override")
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 

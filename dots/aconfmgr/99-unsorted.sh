@@ -529,3 +529,31 @@ CopyFile /etc/dbeaver/bundles.info
 CopyFile /etc/nix/nix.conf
 CopyFile /etc/resolv.conf
 CopyFile /etc/v2raya/config.json 600
+
+
+# Wed Jun 18 04:45:51 PM CST 2025 - Unknown packages
+
+
+AddPackage dhall-lsp-server # Language Server Protocol (LSP) server for Dhall
+AddPackage markdownlint-cli2 # Fast, flexible, configuration-based command-line
+AddPackage tlp # Linux Advanced Power Management
+
+
+# Wed Jun 18 04:45:51 PM CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign laptop-mode-tools
+RemovePackage --foreign slack-desktop
+
+
+# Wed Jun 18 04:45:51 PM CST 2025 - New / changed files
+
+
+CopyFile /etc/systemd/system/docker.service.d/http-proxy.conf
+CreateLink /etc/systemd/system/multi-user.target.wants/tlp.service /usr/lib/systemd/system/tlp.service
+CopyFile /etc/dbeaver/bundles.info
+CopyFile /etc/docker/daemon.json
+CopyFile /etc/nix/nix.conf
+CopyFile /etc/pacman.d/mirrorlist
+CopyFile /etc/v2raya/config.json 600
+CopyFile /etc/xml/catalog
