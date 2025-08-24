@@ -557,3 +557,41 @@ CopyFile /etc/nix/nix.conf
 CopyFile /etc/pacman.d/mirrorlist
 CopyFile /etc/v2raya/config.json 600
 CopyFile /etc/xml/catalog
+
+
+# Mon Jul  7 11:23:54 AM CST 2025 - Unknown packages
+
+
+AddPackage k9s # TUI for managing Kubernetes clusters and pods
+AddPackage kubectl # A command line tool for communicating with a Kubernetes API server
+AddPackage notcurses # Blingful TUI/character graphics library
+
+
+# Mon Jul  7 11:23:54 AM CST 2025 - Missing packages
+
+
+RemovePackage vcpkg
+
+
+# Mon Jul  7 11:23:54 AM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign google-cloud-cli # A core set of command-line tools for the Google Cloud Platform. Includes only gcloud core (with beta and alpha
+AddPackage --foreign google-cloud-cli-gke-gcloud-auth-plugin # A google-cloud-cli component that provides a kubectl authentication plugin for GKE.
+
+
+# Mon Jul  7 11:23:54 AM CST 2025 - Extra files
+
+
+RemoveFile /etc/fonts/conf.d/10-sub-pixel-rgb.conf
+
+
+# Mon Jul  7 11:23:54 AM CST 2025 - New / changed files
+
+
+CreateLink /etc/systemd/system/dbus-org.freedesktop.timesync1.service /usr/lib/systemd/system/systemd-timesyncd.service
+CreateLink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service /usr/lib/systemd/system/systemd-timesyncd.service
+CopyFile /etc/dbeaver/bundles.info
+RemoveFile /etc/localtime # Replacing symbolic link with symbolic link
+CreateLink /etc/localtime ../usr/share/zoneinfo/Asia/Shanghai
+CopyFile /etc/v2raya/config.json 600

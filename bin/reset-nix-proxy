@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ "$EUID" -ne 0 ]; then
+  echo "Not root. Re-executing with sudo..."
+  exec sudo "$0" "$@"
+fi
+
+mkdir -p /run/systemd/system/docker.service.d/
+
+rm /run/systemd/system/nix-daemon.service.d/proxy-override.conf
+systemctl daemon-reload
+systemctl restart nix-daemon

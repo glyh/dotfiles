@@ -4,9 +4,10 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
-  -- "clangd",
+  "clangd",
   "zls",
-  -- "gopls",
+  "gopls",
+  -- "csharp_ls",
   -- "rust_analyzer",
   -- "pyright",
   -- "tinymist",

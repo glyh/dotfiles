@@ -1,6 +1,9 @@
 [MIME Cache]
+application/x-gnucash=gnucash.desktop;
 image/*=vimiv.desktop;
 x-scheme-handler/baiduyunguanjia=baidunetdisk.desktop;
+x-scheme-handler/clash=clash-verge-handler.desktop;
+x-scheme-handler/clash-verge=clash-verge-handler.desktop;
 x-scheme-handler/logseq=logseq-desktop.desktop;
 x-scheme-handler/steam=steam.desktop;
 x-scheme-handler/steamlink=steam.desktop;
