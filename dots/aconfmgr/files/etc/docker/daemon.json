@@ -1,6 +1,6 @@
 {
   "registry-mirrors": [
-    "https://docker.m.daocloud.io"
+    "https://docker.1ms.run"
   ],
   "max-concurrent-uploads": 6,
   "max-concurrent-downloads": 6

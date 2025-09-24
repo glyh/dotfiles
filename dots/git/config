@@ -31,6 +31,7 @@
 	p = pull
 	u = push
 	g = clone --filter=blob:none -j8 --recurse-submodules --shallow-submodules
+	submod = submodule update --init --recursive --depth 1
 	b = branch
 	cf = commit --amend
 	r = restore
@@ -48,3 +49,7 @@
 	smudge = git-lfs smudge -- %f
 [http]
 	proxy = socks5://127.0.0.1:7897
+[checkout]
+	defaultRemote = origin
+[init]
+	defaultBranch = trunk

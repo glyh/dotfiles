@@ -7,6 +7,8 @@ local servers = {
   "clangd",
   "zls",
   "gopls",
+  "postgres_lsp",
+  "ts_ls",
   -- "csharp_ls",
   -- "rust_analyzer",
   -- "pyright",
@@ -17,12 +19,9 @@ local servers = {
   -- "glsl_analyzer",
   -- "glasgow",
   -- "hls", -- use haskell-tools.nvim instead
-  -- "eslint",
-  --
+  "eslint",
   -- "mlir_lsp_server",
-  --
   -- "bashls",
-  --
   -- "dhall_lsp_server",
 }
 

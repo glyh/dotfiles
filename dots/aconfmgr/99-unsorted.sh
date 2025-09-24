@@ -595,3 +595,138 @@ CopyFile /etc/dbeaver/bundles.info
 RemoveFile /etc/localtime # Replacing symbolic link with symbolic link
 CreateLink /etc/localtime ../usr/share/zoneinfo/Asia/Shanghai
 CopyFile /etc/v2raya/config.json 600
+
+
+# Thu Aug 28 12:43:18 AM CST 2025 - Unknown packages
+
+
+AddPackage docker-compose # Fast, isolated development environments using
+AddPackage gopls # Language server for Go programming language
+AddPackage inetutils # A collection of common network programs
+AddPackage ly # TUI display manager
+AddPackage nuget # Package manager for .NET.
+AddPackage perf # Linux kernel performance auditing tool
+AddPackage uv # An extremely fast Python package installer and
+
+
+# Thu Aug 28 12:43:18 AM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign aws-cli-bin # Unified command line interface for Amazon Web
+AddPackage --foreign flamegraph # Flame Graphs visualize profiled code
+AddPackage --foreign gleam-bin # A friendly language for building type-safe,
+AddPackage --foreign google-cloud-cli-gsutil # Cloud Storage Command Line Tool: gsutil is not
+AddPackage --foreign metals # Language Server For Scala
+AddPackage --foreign zig-bin # a general-purpose programming language and
+AddPackage --foreign zls-bin # Zig Language Server, or zls, is a language server
+
+
+# Thu Aug 28 12:43:19 AM CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign anyzig-bin
+
+
+# Thu Aug 28 12:43:19 AM CST 2025 - Extra files
+
+
+RemoveFile /etc/systemd/system/docker.service.d/http-proxy.conf
+
+
+# Thu Aug 28 12:43:19 AM CST 2025 - New / changed files
+
+
+CopyFile /etc/ly/save.ini
+CreateLink /etc/systemd/system/display-manager.service /usr/lib/systemd/system/ly.service
+CopyFile /etc/dbeaver/bundles.info
+CopyFile /etc/docker/daemon.json
+CopyFile /etc/nix/nix.conf
+CopyFile /etc/resolv.conf
+CopyFile /etc/v2raya/config.json 600
+
+
+# Thu Aug 28 12:02:07 PM CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign metals
+
+
+# Thu Aug 28 12:02:48 PM CST 2025 - Missing packages
+
+
+RemovePackage inetutils
+RemovePackage nuget
+RemovePackage uv
+
+
+# Sun Aug 31 09:24:43 PM CST 2025 - Missing packages
+
+
+RemovePackage dhall-lsp-server
+
+
+# Sun Aug 31 09:24:43 PM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign asmjit-git # Machine code generation for C++
+
+
+# Sun Aug 31 09:24:43 PM CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign windsurf
+
+
+# Sun Aug 31 09:24:43 PM CST 2025 - New / changed files
+
+
+CopyFile /etc/v2raya/config.json 600
+
+
+# Wed Sep 24 03:49:36 PM CST 2025 - Unknown packages
+
+
+AddPackage eslint-language-server # Language server for ESLint
+AddPackage flatpak # Linux application sandboxing and distribution framework (formerly xdg-app)
+AddPackage openssl-1.1 # The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
+AddPackage postgresql # Sophisticated object-relational DBMS
+AddPackage sbcl # Steel Bank Common Lisp
+AddPackage tokei # A blazingly fast CLOC (Count Lines Of Code) program
+AddPackage typescript-language-server # Language Server Protocol (LSP) implementation for TypeScript using tsserver
+
+
+# Wed Sep 24 03:49:36 PM CST 2025 - Missing packages
+
+
+RemovePackage aria2
+RemovePackage emacs
+RemovePackage gnucash
+RemovePackage mosh
+
+
+# Wed Sep 24 03:49:36 PM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign netease-cloud-music # Netease Cloud Music, converted from .deb package
+AddPackage --foreign postgrestools-bin # A collection of language tools and a Language Server Protocol (LSP) implementation for Postgres, focusing on developer
+
+
+# Wed Sep 24 03:49:36 PM CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign asmjit-git
+RemovePackage --foreign aws-cli-bin
+RemovePackage --foreign bottles
+RemovePackage --foreign go-musicfox-bin
+
+
+# Wed Sep 24 03:49:36 PM CST 2025 - New / changed files
+
+
+CreateFile /etc/systemd/system/docker.service.d/proxy.conf > /dev/null
+CreateDir /etc/userdb
+CopyFile /etc/dbeaver/bundles.info
+CopyFile /etc/docker/daemon.json
+CopyFile /etc/makepkg.conf
+CopyFile /etc/resolv.conf
+CopyFile /etc/v2raya/config.json 600

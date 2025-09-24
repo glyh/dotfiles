@@ -19,27 +19,27 @@ proc ensure-pacman(...packages) {
   sudo pacman -S --needed --noconfirm @packages
 }
 
-proc pin-pacman(package, version) {
-  echo "Pining package $package to $version"
-  var needDowngrade = false
-  if ! pacman -Qi $package > /dev/null {
-    setvar needDowngrade = true
-  } else {
-    var packageInfo = $(pacman -Q $package)
-    var packageVersion = split(packageInfo)[1]
-    if (packageVersion !== version) {
-      setvar needDowngrade = true
-    }
-  }
-  echo "Needdowngrade for $package? $[needDowngrade]"
-  if (needDowngrade) {
-    sudo downgrade \
-      --ala-only \
-      --ignore always \
-      "$package=$version" \
-      -- --asdeps --noconfirm
-  }
-}
+#proc pin-pacman(package, version) {
+#  echo "Pining package $package to $version"
+#  var needDowngrade = false
+#  if ! pacman -Qi $package > /dev/null {
+#    setvar needDowngrade = true
+#  } else {
+#    var packageInfo = $(pacman -Q $package)
+#    var packageVersion = split(packageInfo)[1]
+#    if (packageVersion !== version) {
+#      setvar needDowngrade = true
+#    }
+#  }
+#  echo "Needdowngrade for $package? $[needDowngrade]"
+#  if (needDowngrade) {
+#    sudo downgrade \
+#      --ala-only \
+#      --ignore always \
+#      "$package=$version" \
+#      -- --asdeps --noconfirm
+#  }
+#}
 
 proc ensure-AUR(...packages) {
   echo Ensuring AUR 'package(s)' @packages are installed
@@ -69,18 +69,18 @@ M dots-kdenlive xdg {
   ln -sfnv $dotPath/dots/kdenlive/kdenliverc $XDG_CONFIG_HOME/kdenliverc
 }
 
- M dots-ruby paru-sync-pkg-list {
-   # Ruby, depends on rust 
-   ln -sfnv $dotPath/dots/bundler $XDG_CONFIG_HOME/bundler
-   ln -sfnv $dotPath/dots/gem $XDG_CONFIG_HOME/gem
-   try {                                             
-     # frum panics if ruby is already installed      
-     # TODO: figure out how to redirect errors       
-     frum --ruby-build-mirror=https://cache.ruby-china.com/pub/ruby install 3.3.0
-   }                                                 
-                                                     
-   frum global 3.3.0                                 
- }
+ #M dots-ruby paru-sync-pkg-list {
+ #  # Ruby, depends on rust 
+ #  ln -sfnv $dotPath/dots/bundler $XDG_CONFIG_HOME/bundler
+ #  ln -sfnv $dotPath/dots/gem $XDG_CONFIG_HOME/gem
+ #  try {                                             
+ #    # frum panics if ruby is already installed      
+ #    # TODO: figure out how to redirect errors       
+ #    frum --ruby-build-mirror=https://cache.ruby-china.com/pub/ruby install 3.3.0
+ #  }                                                 
+ #
+ #  frum global 3.3.0                                 
+ #}
 
 M dots-aconfmgr xdg {
   ensure-AUR paru-bin
@@ -90,15 +90,15 @@ M dots-aconfmgr xdg {
 }
 
 M dots-etc dots-aconfmgr {
-  return 0
+  true
 }
 
 M paru-sync-pkg-list dots-aconfmgr {
-  return 0
+  true
 }
 
 M ensure-paru dots-aconfmgr {
-  return 0
+  true
 }
 
 proc install-rustup(...tags) {
@@ -122,15 +122,15 @@ M dots-rust dots-etc {
   rustup default stable
 }
 
-M ensure-downgrade ensure-paru  {
-  paru -S --needed --noconfirm downgrade
-}
+#M ensure-downgrade ensure-paru  {
+#  paru -S --needed --noconfirm downgrade
+#}
 
-M pin-packages ensure-downgrade {
-  # https://github.com/fcitx/fcitx5/issues/1031
-  # pin-pacman fcitx5 5.1.8
-  :
-}
+#M pin-packages ensure-downgrade {
+#  # https://github.com/fcitx/fcitx5/issues/1031
+#  # pin-pacman fcitx5 5.1.8
+#  :
+#}
 
 #M add-groups paru-sync-pkg-list { # Only installs group when pacman created them
 #  return 0
@@ -143,34 +143,34 @@ M xdg {
     ln -sfnv $dotPath/dots/xdg/mimeapps.list $XDG_CONFIG_HOME/mimeapps.list
 }
 
-M dots-credential xdg {
-  mkdir -p $credentialPath
-  cd $credentialPath {
-    # SSH
-    ln -sfnv $credentialPath/ssh ~/.ssh
-    ln -sfnv $dotPath/dots/ssh/config ~/.ssh/config
-    # Thorium
-    mkdir -p thorium
-    ln -sfnv $credentialPath/thorium $XDG_CONFIG_HOME/thorium
-    ln -sfnv $dotPath/dots/electron/thorium-flags.conf $XDG_CONFIG_HOME/thorium-flags.conf
-    # # Firefox
-    # ln -sfnv $credentialPath/mozilla ~/.mozilla
-    # Edge
-    ln -sfnv $dotPath/dots/electron/microsoft-edge-stable-flags.conf $XDG_CONFIG_HOME/microsoft-edge-stable-flags.conf
-    # Mercury
-    ln -sfnv $credentialPath/mercury ~/.mercury
-    # Rclone
-    sudo mkdir -p /mnt/pikpak
-    sudo chown lyh /mnt/pikpak
-    mkdir -p rclone
-    ln -sfnv $credentialPath/rclone $XDG_CONFIG_HOME/rclone
-    # V2rayA
-    ln -sfnv $credentialPath/v2raya $XDG_CONFIG_HOME/v2raya
-  }
-}
+#M dots-credential xdg {
+#  mkdir -p $credentialPath
+#  cd $credentialPath {
+#    # SSH
+#    ln -sfnv $credentialPath/ssh ~/.ssh
+#    ln -sfnv $dotPath/dots/ssh/config ~/.ssh/config
+#    # Thorium
+#    mkdir -p thorium
+#    ln -sfnv $credentialPath/thorium $XDG_CONFIG_HOME/thorium
+#    ln -sfnv $dotPath/dots/electron/thorium-flags.conf $XDG_CONFIG_HOME/thorium-flags.conf
+#    # # Firefox
+#    # ln -sfnv $credentialPath/mozilla ~/.mozilla
+#    # Edge
+#    ln -sfnv $dotPath/dots/electron/microsoft-edge-stable-flags.conf $XDG_CONFIG_HOME/microsoft-edge-stable-flags.conf
+#    # Mercury
+#    ln -sfnv $credentialPath/mercury ~/.mercury
+#    # Rclone
+#    sudo mkdir -p /mnt/pikpak
+#    sudo chown lyh /mnt/pikpak
+#    mkdir -p rclone
+#    ln -sfnv $credentialPath/rclone $XDG_CONFIG_HOME/rclone
+#    # V2rayA
+#    ln -sfnv $credentialPath/v2raya $XDG_CONFIG_HOME/v2raya
+#  }
+#}
 
 M dots-bash xdg {
-  mkdir -p "$XDG_STATE_HOME"/bash
+  mkdir -p "$XDG_STATE_HOME/bash"
 }
 
 M dots-fish xdg {
@@ -181,11 +181,11 @@ M dots-fish xdg {
   ln -sfnv $dotPath/dots/fish $fishConfigPath
 }
 
-M dots-xmake xdg {
-  var xmakeRc = "$[ENV.HOME]/.xmake"
-  mkdir -p $xmakeRc
-  ln -sfnv $dotPath/dots/xmake/xmake.conf $xmakeRc/xmake.conf
-}
+#M dots-xmake xdg {
+#  var xmakeRc = "$[ENV.HOME]/.xmake"
+#  mkdir -p $xmakeRc
+#  ln -sfnv $dotPath/dots/xmake/xmake.conf $xmakeRc/xmake.conf
+#}
 
 M dots-base xdg {
   echo 'Setting up base'
@@ -231,9 +231,9 @@ M dots-aria2 xdg paru-sync-pkg-list {
   $aria2Config/tracker.sh ./dots/aria2/aria2.conf
 }
 
-M dots-jellyfin xdg {
-  ln -sfnv $dotPath/dots/javsp $XDG_CONFIG_HOME/javsp
-}
+#M dots-jellyfin xdg {
+#  ln -sfnv $dotPath/dots/javsp $XDG_CONFIG_HOME/javsp
+#}
 
 M dots-tools xdg {
   echo 'Setting up tools'
@@ -249,21 +249,21 @@ M dots-tools xdg {
   ln -sfnv $dotPath/dots/containers $XDG_CONFIG_HOME/containers
 }
 
-M dots-zig xdg paru-sync-pkg-list {
-  zigup 0.14.0-dev.3089+87bbb49d5 --install-dir ~/.zig --path-link ~/.zig/zig
-}
+#M dots-zig xdg paru-sync-pkg-list {
+#  zigup 0.14.0-dev.3089+87bbb49d5 --install-dir ~/.zig --path-link ~/.zig/zig
+#}
 
 # M dots-emacs paru-sync-pkg-list {
 #   ln -sfnv $dotPath/dots/emacs $[ENV.HOME]/.config/emacs
 # } 
 
- M dots-doom xdg paru-sync-pkg-list {
-   if ! test -d ~/.config/emacs {
-     git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
-   }
-   ln -sfnv $dotPath/dots/doom $[ENV.HOME]/.config/doom
-   ~/.config/emacs/bin/doom install -!
- } 
+ #M dots-doom xdg paru-sync-pkg-list {
+ #  if ! test -d ~/.config/emacs {
+ #    git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+ #  }
+ #  ln -sfnv $dotPath/dots/doom $[ENV.HOME]/.config/doom
+ #  ~/.config/emacs/bin/doom install -!
+ #} 
 
 #M dots-space-emacs xdg paru-sync-pkg-list {
 #   if ! test -d ~/.config/emacs {
@@ -271,67 +271,67 @@ M dots-zig xdg paru-sync-pkg-list {
 #   }
 #}
 
-M dots-cuda xdg paru-sync-pkg-list {
-  # CUDA
-  pin-pacman gcc11-libs 11.3.0-5
-  pin-pacman gcc11 11.3.0-5
-  pin-pacman cuda 11.8.0-1
-}
+#M dots-cuda xdg paru-sync-pkg-list {
+#  # CUDA
+#  pin-pacman gcc11-libs 11.3.0-5
+#  pin-pacman gcc11 11.3.0-5
+#  pin-pacman cuda 11.8.0-1
+#}
 
-M dots-fix-waybar xdg paru-sync-pkg-list {
-  # https://github.com/Alexays/Waybar/issues/3575
-  pin-pacman tzdata 2024a-1
-}
+#M dots-fix-waybar xdg paru-sync-pkg-list {
+#  # https://github.com/Alexays/Waybar/issues/3575
+#  pin-pacman tzdata 2024a-1
+#}
 
-M dots-haskell xdg paru-sync-pkg-list {
-  var ghcupDir = "$[ENV.HOME]/.ghcup"
-  if ! test -d $ghcupDir {
-    mkdir -p $ghcupDir
-    ln -sfnv $dotPath/dots/ghcup/config.yaml $ghcupDir/config.yaml
-
-    mkdir -p $[ENV.HOME]/.cabal
-    ln -sfnv $dotPath/dots/cabal/config $[ENV.HOME]/.cabal/config
-
-    mkdir -p $[ENV.HOME]/.stack
-    ln -sfnv $dotPath/dots/stack/config.yaml $[ENV.HOME]/.stack/config.yaml
-
-    ghcup install ghc 9.10.1
-    ghcup set ghc 9.10.1
-    ghcup install hls
-    ghcup set hls
-    ghcup install cabal 3.12.1.0
-    ghcup set cabal 3.12.1.0
-    ghcup install stack
-    ghcup set stack
-  }
-
-  var ghcRc = "$[ENV.HOME]/.ghc"
-  mkdir -p $ghcRc
-  ln -sfnv $dotPath/dots/ghc/ghci.conf $ghcRc/ghci.conf
-}
+#M dots-haskell xdg paru-sync-pkg-list {
+#  var ghcupDir = "$[ENV.HOME]/.ghcup"
+#  if ! test -d $ghcupDir {
+#    mkdir -p $ghcupDir
+#    ln -sfnv $dotPath/dots/ghcup/config.yaml $ghcupDir/config.yaml
+#
+#    mkdir -p $[ENV.HOME]/.cabal
+#    ln -sfnv $dotPath/dots/cabal/config $[ENV.HOME]/.cabal/config
+#
+#    mkdir -p $[ENV.HOME]/.stack
+#    ln -sfnv $dotPath/dots/stack/config.yaml $[ENV.HOME]/.stack/config.yaml
+#
+#    ghcup install ghc 9.10.1
+#    ghcup set ghc 9.10.1
+#    ghcup install hls
+#    ghcup set hls
+#    ghcup install cabal 3.12.1.0
+#    ghcup set cabal 3.12.1.0
+#    ghcup install stack
+#    ghcup set stack
+#  }
+#
+#  var ghcRc = "$[ENV.HOME]/.ghc"
+#  mkdir -p $ghcRc
+#  ln -sfnv $dotPath/dots/ghc/ghci.conf $ghcRc/ghci.conf
+#}
 
 M dots-ocaml xdg paru-sync-pkg-list {
   # OCaml
   # https://fcp7.com/github-mirror-daily-updates.html
-  opam repo set-url default https://bgithub.xyz/ocaml/opam-repository.git
+  #opam repo set-url default https://bgithub.xyz/ocaml/opam-repository.git
   opam install -y dune utop # For creating softwares
   # run in individual switch:
   # opam install -y dune ocamlformat ocaml-lsp-server
 }
 
-M dots-pipx paru-sync-pkg-list {
-  pipx install zipunicode || true
-  pipx install poetry || true
-}
+#M dots-pipx paru-sync-pkg-list {
+#  pipx install zipunicode || true
+#  pipx install poetry || true
+#}
 
 
-M dots-js xdg paru-sync-pkg-list {
-  # JS & TypeScript
-  ln -sfnv $dotPath/dots/npm $XDG_CONFIG_HOME/npm
-  ln -sfnv $dotPath/dots/bun/bunfig.toml $XDG_CONFIG_HOME/.bunfig.toml
-
-  npm install -g "@moonbit/moonbit-lsp"
-}
+#M dots-js xdg paru-sync-pkg-list {
+#  # JS & TypeScript
+#  ln -sfnv $dotPath/dots/npm $XDG_CONFIG_HOME/npm
+#  ln -sfnv $dotPath/dots/bun/bunfig.toml $XDG_CONFIG_HOME/.bunfig.toml
+#
+#  npm install -g "@moonbit/moonbit-lsp"
+#}
 
 M dots-languages xdg paru-sync-pkg-list {
   echo 'Setting up languages'
@@ -339,14 +339,14 @@ M dots-languages xdg paru-sync-pkg-list {
   # Python
   ln -sfnv $dotPath/dots/pip $XDG_CONFIG_HOME/pip
 
-  # Clojure
-  ln -sfnv $dotPath/dots/clojure $XDG_CONFIG_HOME/clojure
-  ln -sfnv $dotPath/dots/lein $XDG_CONFIG_HOME/lein
-  ln -sfnv $dotPath/dots/shadow-cljs $XDG_CONFIG_HOME/shadow-cljs
-
-  # FSharp
-  mkdir -p ~/.nuget
-  ln -sfnv $dotPath/dots/NuGet $[ENV.HOME]/.nuget/NuGet
+  ## Clojure
+  #ln -sfnv $dotPath/dots/clojure $XDG_CONFIG_HOME/clojure
+  #ln -sfnv $dotPath/dots/lein $XDG_CONFIG_HOME/lein
+  #ln -sfnv $dotPath/dots/shadow-cljs $XDG_CONFIG_HOME/shadow-cljs
+  #
+  ## FSharp
+  #mkdir -p ~/.nuget
+  #ln -sfnv $dotPath/dots/NuGet $[ENV.HOME]/.nuget/NuGet
 }
 
 M dots-services xdg {
@@ -368,9 +368,9 @@ M go-musicfox xdg {
   ln -sfnv $dotPath/dots/go-musicfox/go-musicfox.ini  $XDG_CONFIG_HOME/go-musicfox/go-musicfox.ini
 }
 
-M captive-browser xdg {
-  ln -sfnv $dotPath/dots/captive-browser/captive-browser.toml $XDG_CONFIG_HOME/captive-browser.toml
-}
+#M captive-browser xdg {
+#  ln -sfnv $dotPath/dots/captive-browser/captive-browser.toml $XDG_CONFIG_HOME/captive-browser.toml
+#}
 
 #M dots-guix {
 #  ln -snfv $dotPath/dots/guix/channels.scm $XDG_CONFIG_HOME/guix/channels.scm
