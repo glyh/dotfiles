@@ -2,6 +2,9 @@
   "registry-mirrors": [
     "https://docker.1ms.run"
   ],
+  "features": {
+    "buildkit": true
+  },
   "max-concurrent-uploads": 6,
   "max-concurrent-downloads": 6
 }

@@ -53,6 +53,7 @@
   "vim-crystal": { "branch": "master", "commit": "dc21188ec8c2ee77bb81dffca02e1a29d87cfd9f" },
   "vim-go": { "branch": "master", "commit": "e6788d124a564b049f3d80bef984e8bd5281286d" },
   "vim-oil": { "branch": "main", "commit": "d967182345d1daeb8d9a74a7b60a72e6800492fe" },
+  "vim-raku": { "branch": "master", "commit": "84a65c415f966c3cd5536fdbc6d70ee8f0d73508" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "vim-sandwich": { "branch": "master", "commit": "74cf93d58ccc567d8e2310a69860f1b93af19403" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },

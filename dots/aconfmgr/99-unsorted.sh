@@ -730,3 +730,29 @@ CopyFile /etc/docker/daemon.json
 CopyFile /etc/makepkg.conf
 CopyFile /etc/resolv.conf
 CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Oct  5 04:55:32 PM CST 2025 - Unknown packages
+
+
+AddPackage docker-buildx # Docker CLI plugin for extended build capabilities with BuildKit
+AddPackage patchelf # Small utility to modify the dynamic linker and RPATH of ELF executables
+AddPackage ruby-lsp # An opinionated language server for Ruby
+
+
+# Sun Oct  5 04:55:32 PM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign aptly # A Swiss Army knife for Debian repository management.
+AddPackage --foreign asdf-vm # Extendable version manager with support for Ruby, Node.js, Elixir, Erlang & more
+AddPackage --foreign aws-cli-bin # Unified command line interface for Amazon Web Services (Amazon provided v2 binary release)
+AddPackage --foreign earthly-bin # Build automation for the container era
+AddPackage --foreign nodejs-xml2json # Converts XML to JSON using node-expat
+AddPackage --foreign vscodium-bin # Binary releases of VS Code without MS branding/telemetry/licensing.
+
+
+# Sun Oct  5 04:55:32 PM CST 2025 - New / changed files
+
+
+CopyFile /etc/docker/daemon.json
+CopyFile /etc/v2raya/config.json 600

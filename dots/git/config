@@ -42,11 +42,6 @@
 [push]
 	autoSetupRemote = true
 
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
 [http]
 	proxy = socks5://127.0.0.1:7897
 [checkout]

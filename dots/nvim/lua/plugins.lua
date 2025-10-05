@@ -445,4 +445,9 @@ return {
     ft = "go",
   },
   -- }}}
+  -- Raku {{{
+  {
+    "Raku/vim-raku",
+  },
+  -- }}}
 }
