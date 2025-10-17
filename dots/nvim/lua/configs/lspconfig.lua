@@ -21,7 +21,7 @@ local servers = {
   "ts_ls",
   -- "csharp_ls",
   -- "rust_analyzer",
-  -- "pyright",
+  "pyright",
   -- "tinymist",
   -- "cmake",
   -- "gleam",

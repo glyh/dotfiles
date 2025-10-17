@@ -1,3 +1,7 @@
+if not status is-interactive
+  exit 0
+end
+
 # Fish options
 fish_vi_key_bindings
 set fish_greeting
@@ -28,11 +32,7 @@ abbr --add gr "cd (git root)"
 abbr --add l "eza"
 abbr --add la "eza -la"
 
-# abbr --add ncmdl "pyncmdel --load ~/.netease --save-m3u (basename \$PWD).m3u "
-# abbr --add ncmdl "pyncmdel --quality hires --output NetEase/{album} --save-m3u NetEase/PLAYLIST.m3u "
-abbr --add ytdl 'yt-dlp --proxy socks5://127.0.0.1:20170 -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" --cookies-from-browser chrome:~/.config/thorium/'
-# abbr --add ytdlx "yt-dlp -x"
-# abbr --add ytdlxp "yt-dlp --proxy socks5://127.0.0.1:20170 -x"
+abbr --add ytdl 'yt-dlp --proxy socks5://127.0.0.1:7897 -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" --cookies-from-browser chrome:~/.config/thorium/'
 
 # https://github.com/ranger/ranger/wiki/Integration-with-other-programs#changing-directories
 function f
@@ -65,8 +65,6 @@ abbr --add ph "HTTP_PROXY=http://127.0.0.1:20171 HTTPS_PROXY=http://127.0.0.1:20
 abbr --add gacu "git add -A; git commit -m 'update'; git push"
 
 abbr --add rcr  "rclone rc vfs/refresh recursive=true"
-#abbr --add dosnap "sudo bcachefs subvolume snapshot -r $HOME/Documents/ /snapshots/user/(date +%Y.%m.%d)"
-#abbr --add rmsnap "sudo bcachefs subvolume delete /snapshots/user/(date +%Y.%m.%d)"
 abbr --add cmkbd "mkdir -p build && cd build && cmake .. && make"
 abbr --add --position anywhere cpy " | wl-copy"
 

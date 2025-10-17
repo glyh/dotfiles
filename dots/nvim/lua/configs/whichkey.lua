@@ -1,7 +1,6 @@
 require "nvchad.mappings"
 
 vim.keymap.del("n", "<leader>n")
-vim.keymap.del("n", "<Tab>")
 
 local wk = require "which-key"
 
