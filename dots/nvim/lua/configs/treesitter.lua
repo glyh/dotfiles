@@ -18,9 +18,7 @@ require("nvim-treesitter.configs").setup {
     "ocaml",
     "dhall",
     "ruby",
-    "earthfile",
-    -- "fsharp",
-    -- "scala",
+    "typescript",
   },
   highlight = { enable = true },
 }

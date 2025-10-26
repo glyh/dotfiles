@@ -18,6 +18,7 @@ local servers = {
   "zls",
   "gopls",
   "postgres_lsp",
+  "eslint",
   "ts_ls",
   -- "csharp_ls",
   -- "rust_analyzer",
@@ -29,12 +30,11 @@ local servers = {
   -- "glsl_analyzer",
   -- "glasgow",
   -- "hls", -- use haskell-tools.nvim instead
-  "eslint",
   -- "mlir_lsp_server",
   -- "bashls",
   -- "dhall_lsp_server",
   "ocamllsp",
-  "rubocop",
+  -- "rubocop",
 }
 
 for _, lsp in ipairs(servers) do

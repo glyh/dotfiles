@@ -30,7 +30,7 @@
 	t = difftool
 	p = pull
 	u = push
-	g = clone --filter=blob:none -j8 --recurse-submodules --shallow-submodules
+	g = clone --filter=blob:none
 	submod = submodule update --init --recursive --depth 1
 	b = branch
 	cf = commit --amend
@@ -41,10 +41,13 @@
 	program = gpg2
 [push]
 	autoSetupRemote = true
-
 [http]
-	proxy = socks5://127.0.0.1:7897
+	proxy = http://127.0.0.1:7898
 [checkout]
 	defaultRemote = origin
 [init]
 	defaultBranch = trunk
+[fetch]
+	parallel = 8
+[https]
+	proxy = http://127.0.0.1:7898
