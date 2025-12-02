@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=WeChat___
+Name=WeChat
 Name[zh_CN]=微信
 Exec=env QT_AUTO_SCREEN_SCALE_FACTOR=2 'DISPLAY=:0' /opt/wechat/wechat %U
 StartupNotify=true

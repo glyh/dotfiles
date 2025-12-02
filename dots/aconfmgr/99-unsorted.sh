@@ -481,7 +481,6 @@ AddPackage --foreign windsurf # The new purpose-built IDE to harness magic
 # Sun May 18 02:03:42 PM CST 2025 - New / changed files
 
 
-CopyFile /etc/dbeaver/bundles.info
 CopyFile /etc/docker/daemon.json
 CreateLink /etc/systemd/system/multi-user.target.wants/postgresql.service /usr/lib/systemd/system/postgresql.service
 CopyFile /etc/pacman.d/mirrorlist
@@ -525,7 +524,6 @@ AddPackage --foreign slack-desktop # Slack Desktop (Beta) for Linux
 # Thu May 22 12:35:03 PM CST 2025 - New / changed files
 
 
-CopyFile /etc/dbeaver/bundles.info
 CopyFile /etc/nix/nix.conf
 CopyFile /etc/resolv.conf
 CopyFile /etc/v2raya/config.json 600
@@ -551,7 +549,6 @@ RemovePackage --foreign slack-desktop
 
 CopyFile /etc/systemd/system/docker.service.d/http-proxy.conf
 CreateLink /etc/systemd/system/multi-user.target.wants/tlp.service /usr/lib/systemd/system/tlp.service
-CopyFile /etc/dbeaver/bundles.info
 CopyFile /etc/docker/daemon.json
 CopyFile /etc/nix/nix.conf
 CopyFile /etc/pacman.d/mirrorlist
@@ -591,7 +588,6 @@ RemoveFile /etc/fonts/conf.d/10-sub-pixel-rgb.conf
 
 CreateLink /etc/systemd/system/dbus-org.freedesktop.timesync1.service /usr/lib/systemd/system/systemd-timesyncd.service
 CreateLink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service /usr/lib/systemd/system/systemd-timesyncd.service
-CopyFile /etc/dbeaver/bundles.info
 RemoveFile /etc/localtime # Replacing symbolic link with symbolic link
 CreateLink /etc/localtime ../usr/share/zoneinfo/Asia/Shanghai
 CopyFile /etc/v2raya/config.json 600
@@ -636,9 +632,7 @@ RemoveFile /etc/systemd/system/docker.service.d/http-proxy.conf
 # Thu Aug 28 12:43:19 AM CST 2025 - New / changed files
 
 
-CopyFile /etc/ly/save.ini
 CreateLink /etc/systemd/system/display-manager.service /usr/lib/systemd/system/ly.service
-CopyFile /etc/dbeaver/bundles.info
 CopyFile /etc/docker/daemon.json
 CopyFile /etc/nix/nix.conf
 CopyFile /etc/resolv.conf
@@ -725,7 +719,6 @@ RemovePackage --foreign go-musicfox-bin
 
 CreateFile /etc/systemd/system/docker.service.d/proxy.conf > /dev/null
 CreateDir /etc/userdb
-CopyFile /etc/dbeaver/bundles.info
 CopyFile /etc/docker/daemon.json
 CopyFile /etc/makepkg.conf
 CopyFile /etc/resolv.conf
@@ -755,4 +748,66 @@ AddPackage --foreign vscodium-bin # Binary releases of VS Code without MS brandi
 
 
 CopyFile /etc/docker/daemon.json
+CopyFile /etc/v2raya/config.json 600
+
+
+# Mon Oct 27 11:39:15 AM CST 2025 - Unknown packages
+
+
+AddPackage krita # Edit and paint images
+AddPackage pyright # Type checker for the Python language
+AddPackage python-poetry # Python dependency management and packaging made easy
+AddPackage rocksdb # Embedded key-value store for fast storage
+
+
+# Mon Oct 27 11:39:15 AM CST 2025 - Unknown foreign packages
+
+
+AddPackage --foreign downgrade # Bash script for downgrading one or more packages to a version in your cache or the A.L.A.
+
+
+# Mon Oct 27 11:39:15 AM CST 2025 - Missing foreign packages
+
+
+RemovePackage --foreign aws-cli-bin
+RemovePackage --foreign earthly-bin
+RemovePackage --foreign google-cloud-cli-gsutil
+
+
+# Mon Oct 27 11:39:15 AM CST 2025 - Extra files
+
+
+RemoveFile /etc/systemd/user/default.target.wants/xdg-user-dirs-update.service
+RemoveFile /etc/systemd/user/default.target.wants
+
+
+# Mon Oct 27 11:39:15 AM CST 2025 - New / changed files
+
+
+CreateDir /buildkite2
+CreateLink /etc/systemd/user/graphical-session-pre.target.wants/xdg-user-dirs.service /usr/lib/systemd/user/xdg-user-dirs.service
+CopyFile /etc/pacman.conf
+CopyFile /etc/v2raya/config.json 600
+
+
+# Tue Dec  2 01:20:52 PM CST 2025 - Missing packages
+
+
+RemovePackage dbeaver
+
+
+# Tue Dec  2 01:20:52 PM CST 2025 - Extra files
+
+
+
+
+# Tue Dec  2 01:20:52 PM CST 2025 - New / changed files
+
+
+CreateDir /etc/audisp
+CreateDir /etc/audit/plugins.d 750
+CreateDir /etc/audit/rules.d
+CopyFile /etc/ly/save.txt
+CopyFile /etc/pacman.conf
+CopyFile /etc/resolv.conf
 CopyFile /etc/v2raya/config.json 600
