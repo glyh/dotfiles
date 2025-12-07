@@ -21,7 +21,7 @@ local servers = {
   "eslint",
   "ts_ls",
   -- "csharp_ls",
-  -- "rust_analyzer",
+  "rust_analyzer",
   "pyright",
   -- "tinymist",
   -- "cmake",
