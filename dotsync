@@ -101,25 +101,11 @@ M ensure-paru dots-aconfmgr {
   true
 }
 
-proc install-rustup(...tags) {
-  for tag in (tags) {
-    try {
-      # TODO: figure out how to redirect errors
-      rustup toolchain list | grep $tag > /dev/null
-    }
-    if (_status !== 0) {
-      rustup toolchain install $tag --component rust-analyzer
-    }
-  }
-}
-
 M dots-rust dots-etc {
-  # cargo +nightly install glasgow
   ensure-pacman rustup clang mold
-  mkdir -p ~/.cargo/official
+  mkdir -p ~/.cargo
   ln -sfnv $dotPath/dots/cargo/config.toml ~/.cargo/config.toml
-  ln -sfnv $dotPath/dots/cargo/config_offcial.toml ~/.cargo/official/config.toml
-  install-rustup stable nightly-x86_64
+  rustup toolchain install stable-x86_64-unknown-linux-gnu --component rust-analyzer
   rustup default stable
 }
 
