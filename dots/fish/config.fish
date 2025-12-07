@@ -73,5 +73,9 @@ abbr --add dnshow 'direnv exec / direnv export json'
 abbr --add ff 'fastfetch'
 abbr --add rsync "rsync --exclude='*/_opam/' --exclude='*/venv/'"
 
+# cmake
 abbr --add csb 'cmake -S . -B build'
 abbr --add cbb 'cmake --build build'
+
+# cargo
+abbr --add pcargo 'HTTPS_PROXY=127.0.0.1:7898 RUSTUP_DIST_SERVER= RUSTUP_UPDATE_ROOT= cargo'
