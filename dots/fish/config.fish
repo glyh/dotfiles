@@ -77,5 +77,5 @@ abbr --add rsync "rsync --exclude='*/_opam/' --exclude='*/venv/'"
 abbr --add csb 'cmake -S . -B build'
 abbr --add cbb 'cmake --build build'
 
-# cargo
-abbr --add pcargo 'HTTPS_PROXY=127.0.0.1:7898 RUSTUP_DIST_SERVER= RUSTUP_UPDATE_ROOT= cargo'
+# for setting up proxy free rustup/cargo access
+abbr --add rustp 'HTTPS_PROXY=127.0.0.1:7898 RUSTUP_DIST_SERVER= RUSTUP_UPDATE_ROOT= '
