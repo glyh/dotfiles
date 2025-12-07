@@ -116,8 +116,9 @@ proc install-rustup(...tags) {
 M dots-rust dots-etc {
   # cargo +nightly install glasgow
   ensure-pacman rustup clang mold
-  mkdir -p ~/.cargo
+  mkdir -p ~/.cargo/official
   ln -sfnv $dotPath/dots/cargo/config.toml ~/.cargo/config.toml
+  ln -sfnv $dotPath/dots/cargo/config_offcial.toml ~/.cargo/official/config.toml
   install-rustup stable nightly-x86_64
   rustup default stable
 }

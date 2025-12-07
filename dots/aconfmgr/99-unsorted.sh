@@ -811,3 +811,10 @@ CopyFile /etc/ly/save.txt
 CopyFile /etc/pacman.conf
 CopyFile /etc/resolv.conf
 CopyFile /etc/v2raya/config.json 600
+
+
+# Sun Dec  7 12:58:14 PM CST 2025 - New / changed files
+
+
+CopyFile /etc/ly/save.txt
+CopyFile /etc/v2raya/config.json 600
