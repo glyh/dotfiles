@@ -818,3 +818,9 @@ CopyFile /etc/v2raya/config.json 600
 
 CopyFile /etc/ly/save.txt
 CopyFile /etc/v2raya/config.json 600
+
+
+# Tue Dec  9 03:18:11 PM CST 2025 - Unknown packages
+
+
+AddPackage gcc14 # The GNU Compiler Collection - C and C++ frontends (14.x.x)

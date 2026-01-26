@@ -49,3 +49,5 @@
 	parallel = 8
 [https]
 	proxy = http://127.0.0.1:7898
+[safe]
+	directory = /workdir

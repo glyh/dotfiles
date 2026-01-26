@@ -17,8 +17,9 @@ require("nvim-treesitter.configs").setup {
     "python",
     "ocaml",
     "dhall",
-    "ruby",
+    -- "ruby",
     "typescript",
+    "capnp",
   },
   highlight = { enable = true },
 }

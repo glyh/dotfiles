@@ -15,3 +15,7 @@ image/png=vimiv.desktop
 image/bmp=vimiv.desktop
 image/svg+xml=vimiv.desktop
 image/svg+xml=vimiv.desktop
+x-scheme-handler/tonsite=org.telegram.desktop.desktop
+
+[Added Associations]
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;

@@ -60,7 +60,7 @@ abbr --add plz "sudo"
 abbr --add cls "clear"
 abbr --add rpt "eval (history --max=1)"
 abbr --add p "proxychains -q"
-abbr --add ph "HTTP_PROXY=http://127.0.0.1:20171 HTTPS_PROXY=http://127.0.0.1:20171"
+abbr --add ph "HTTP_PROXY=http://127.0.0.1:7898 HTTPS_PROXY=http://127.0.0.1:7898"
 
 abbr --add gacu "git add -A; git commit -m 'update'; git push"
 
@@ -74,8 +74,9 @@ abbr --add ff 'fastfetch'
 abbr --add rsync "rsync --exclude='*/_opam/' --exclude='*/venv/'"
 
 # cmake
-abbr --add csb 'cmake -S . -B build'
-abbr --add cbb 'cmake --build build'
+abbr --add csb 'cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug'
+abbr --add csbv 'cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug --preset vcpkg'
+abbr --add cbb 'cmake --build build --parallel (math (nproc) + 1)'
 
 # for setting up proxy free rustup/cargo access
 abbr --add rustp 'HTTPS_PROXY=127.0.0.1:7898 RUSTUP_DIST_SERVER= RUSTUP_UPDATE_ROOT= '

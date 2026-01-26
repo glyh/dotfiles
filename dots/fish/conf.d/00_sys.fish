@@ -68,4 +68,4 @@ set -gx  GTK_THEME           Adwaita:dark
 
 # Path
 fish_add_path -gp            ~/Binaries
-fish_add_path -gp            ~/InstallGround/bin
+fish_add_path -gp            ~/installed/bin
