@@ -282,7 +282,7 @@ return {
     },
   },
   {
-    "ggandor/leap.nvim",
+    url = "https://codeberg.org/andyg/leap.nvim",
     keys = {
       { "f", "<Plug>(leap)", noremap = true, mode = { "n", "v", "o" } },
     },
@@ -449,5 +449,6 @@ return {
   {
     "Raku/vim-raku",
   },
+  -- }}}
   -- }}}
 }

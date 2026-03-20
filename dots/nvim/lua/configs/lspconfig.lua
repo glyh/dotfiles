@@ -34,6 +34,7 @@ local servers = {
   -- "bashls",
   -- "dhall_lsp_server",
   "ocamllsp",
+  "ty",
   -- "rubocop",
 }
 

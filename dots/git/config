@@ -39,15 +39,15 @@
 	program = gpg2
 [push]
 	autoSetupRemote = true
-[http]
-	proxy = http://127.0.0.1:7898
 [checkout]
 	defaultRemote = origin
 [init]
 	defaultBranch = trunk
 [fetch]
 	parallel = 8
-[https]
-	proxy = http://127.0.0.1:7898
+; [http]
+; 	proxy = http://127.0.0.1:7898
+; [https]
+; 	proxy = http://127.0.0.1:7898
 [safe]
 	directory = /workdir
