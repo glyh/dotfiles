@@ -1,0 +1,195 @@
+# ---------------------------------------------------------------- #
+#                  Go-Musicfox Configuration File                  #
+# ---------------------------------------------------------------- #
+# Migrated from legacy INI format
+# ---------------------------------------------------------------- #
+
+# 启动页相关配置
+[startup]
+# 是否显示启动页
+enable = false
+# 启动页进度条是否具有回弹效果
+progressOutBounce = true
+# 启动页的持续时长（秒）
+loadingSeconds = 2
+# 启动页欢迎语
+welcome = "musicfox"
+# 启动时是否自动签到
+signIn = false
+# 启动时是否检查应用更新
+checkUpdate = true
+
+# 主界面与核心功能配置
+[main]
+# altScreen 显示模式
+altScreen = true
+# 是否在界面中启用鼠标事件
+enableMouseEvent = true
+# 是否开启 Debug 模式
+debug = false
+
+# 桌面通知相关设置
+[main.notification]
+# 是否启用桌面通知
+enable = false
+# 默认通知图标
+icon = "logo.png"
+# 是否使用歌曲的专辑封面作为通知图标
+albumCover = false
+
+# 歌词显示相关设置
+[main.lyric]
+# 是否显示歌词
+show = true
+# 是否显示翻译歌词
+showTranslation = true
+# 歌词显示时间的全局偏移量（毫秒）
+offset = 0
+
+# Go性能分析工具pprof的相关设置
+[main.pprof]
+# pprof 服务监听的端口
+port = 9876
+
+# 账号相关配置
+[main.account]
+# 网易云音乐的登录 Cookie
+neteaseCookie = ""
+
+# 主题设置
+[theme]
+# 是否在界面顶部显示标题
+showTitle = true
+# 菜单加载时显示的提示文字
+loadingText = "[加载中...]"
+# 是否使用双列布局
+doubleColumn = true
+# 菜单行数是否根据终端高度动态变化
+dynamicMenuRows = false
+# 界面所有内容居中
+centerEverything = false
+# 主题颜色
+primaryColor = "#ea403f"
+
+# 进度条字符样式配置
+[theme.progress]
+# 进度条已加载字符
+fullChar = "█"
+# fullCharWhenFirst
+givenFirst = "█"
+# fullCharWhenLast
+givenLast = "█"
+# lastFullChar
+lastFullChar = "█"
+# 进度条未加载字符
+emptyChar = " "
+# emptyCharWhenFirst
+emptyCharWhenFirst = " "
+# emptyCharWhenLast
+emptyCharWhenLast = " "
+# firstEmptyChar
+firstEmptyChar = " "
+
+# 下载、缓存等文件存储相关配置
+[storage]
+# 下载目录
+downloadDir = ""
+# 歌词文件的默认下载目录
+lyricDir = ""
+# 下载歌曲时是否同时下载歌词文件
+downloadSongWithLyric = false
+# 下载文件的命名模板
+# fileNameTpl = "{{.SongName}}-{{.SongArtists}}.{{.FileExt}}"
+
+# 音乐播放缓存相关设置
+[storage.cache]
+# 缓存目录
+dir = ""
+# 音乐缓存文件的总大小限制（单位：MB）
+limit = 0
+
+# 播放器引擎与行为配置
+[player]
+# 播放引擎
+engine = "beep"
+# 允许的最大连续失败重试次数
+maxPlayErrCount = 3
+# 是否获取并显示歌单下的所有歌曲
+showAllSongsOfPlaylist = false
+
+# `beep` 引擎专属配置
+[player.beep]
+# MP3解码器
+mp3Decoder = "go-mp3"
+
+# `mpd` 引擎专属配置
+[player.mpd]
+# mpd 可执行文件的路径
+bin = "/sbin/mpd"
+# mpd配置文件的路径
+configFile = "/home/.config/mpd/mpd.conf"
+# 与mpd服务的连接方式
+network = "unix"
+# 连接地址
+addr = ""
+# 是否在需要时自动启动 mpd 服务
+autoStart = true
+
+# `mpv` 引擎专属配置
+[player.mpv]
+# mpv 可执行文件的路径
+bin = ""
+
+# 启动时自动播放相关配置
+[autoplay]
+# 是否在启动后自动开始播放
+enable = false
+# 自动播放的歌单
+playlist = "dailyReco"
+# 播放列表的起始偏移量
+offset = 0
+# 播放模式
+mode = "random"
+
+# UNM (Unlock NetEase Music) 相关配置
+[unm]
+# 是否启用 UNM 功能
+enable = false
+# 音源匹配来源，可配置多个
+sources = ["kuwo", "kugou", "migu", "qq"]
+# UNM搜索其他平台限制
+searchLimit = 0
+# 解除会员限制
+enableLocalVip = true
+# 解除音质限制
+unlockSoundEffects = true
+# 用于获取QQ音乐音源的Cookie文件路径
+qqCookieFile = ""
+# 检测到无效的歌时跳过播放
+skipInvalidTracks = false
+
+# 播放状态上报配置
+[reporter]
+# 是否将播放状态上报回网易云音乐
+[reporter.netease]
+enable = false
+
+# 上报至 Last.fm
+[reporter.lastfm]
+enable = false
+# Last.fm API Key
+key = ""
+# Last.fm API Shared Secret
+secret = ""
+# 播放一首歌的百分比达到多少时，才进行上报
+scrobblePoint = 50
+# 是否只上报歌曲的第一位艺术家
+onlyFirstArtist = false
+# 是否跳过电台节目的上报
+skipDjRadio = false
+
+# 快捷键绑定配置
+[keybindings]
+# 是否使用应用内置的默认快捷键作为基础
+useDefaultKeyBindings = true
+

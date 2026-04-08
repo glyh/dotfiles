@@ -4,8 +4,8 @@
 #     ForwardAgent yes
 #     ProxyCommand corkscrew 127.0.0.1 7898 %h %p
 #
-# Host o1
-#     Hostname o1.yak.finance
-#     ServerAliveInterval 55
-#     ForwardAgent yes
-#     ProxyCommand corkscrew 127.0.0.1 7898 %h %p
+Host o1
+    Hostname o1.yak.finance
+    ServerAliveInterval 55
+    ForwardAgent yes
+    # ProxyCommand corkscrew 127.0.0.1 7898 %h %p

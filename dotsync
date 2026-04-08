@@ -352,7 +352,7 @@ M write-meta-data xdg {
 M go-musicfox xdg {
   # ln -sfnv $dotPath/services $XDG_CONFIG_HOME/systemd/user
   mkdir -p $XDG_CONFIG_HOME/go-musicfox
-  ln -sfnv $dotPath/dots/go-musicfox/go-musicfox.ini  $XDG_CONFIG_HOME/go-musicfox/go-musicfox.ini
+  ln -sfnv $dotPath/dots/go-musicfox/config.toml  $XDG_CONFIG_HOME/go-musicfox/config.toml
 }
 
 #M captive-browser xdg {
