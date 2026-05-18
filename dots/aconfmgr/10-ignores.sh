@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 IgnorePath '/nix/*'
+IgnorePath '/gnu/*' 
 IgnorePath '/var/*'
 IgnorePath '/opt/*'
 IgnorePath '/usr/*'

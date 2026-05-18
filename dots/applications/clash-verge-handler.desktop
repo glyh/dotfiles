@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Clash Verge
+Terminal=false
+NoDisplay=true
+MimeType=x-scheme-handler/clash-verge;x-scheme-handler/clash
+Exec="/usr/bin/clash-verge" %u

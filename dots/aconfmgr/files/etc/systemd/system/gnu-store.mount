@@ -1,0 +1,13 @@
+[Unit]
+Description=Read-only /gnu/store for GNU Guix
+DefaultDependencies=no
+ConditionPathExists=/gnu/store
+
+[Install]
+WantedBy=multi-user.target
+
+[Mount]
+What=/gnu/store
+Where=/gnu/store
+Type=none
+Options=bind,ro

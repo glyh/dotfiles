@@ -17,6 +17,12 @@ image/svg+xml=vimiv.desktop
 image/svg+xml=vimiv.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
 x-scheme-handler/ccswitch=cc-switch-handler.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/jetbrains=jetbrainsd.desktop
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;
 
 [Added Associations]
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;

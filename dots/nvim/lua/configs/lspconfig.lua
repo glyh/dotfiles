@@ -2,7 +2,7 @@ local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-vim.lsp.set_log_level "debug"
+vim.lsp.log.set_level "debug"
 
 vim.lsp.config("ocamllsp", {
   filetypes = { "ocaml", "ocaml.menhir", "ocamlinterface", "dune" },

@@ -824,3 +824,121 @@ CopyFile /etc/v2raya/config.json 600
 
 
 AddPackage gcc14 # The GNU Compiler Collection - C and C++ frontends (14.x.x)
+
+
+# Mon Apr 20 01:44:55 PM CST 2026 - Unknown packages
+
+
+AddPackage crystal # The Crystal Programming Language
+AddPackage github-cli # The GitHub CLI
+AddPackage nasm # 80x86 assembler designed for portability and modularity
+AddPackage ninja # Small build system with a focus on speed
+AddPackage qemu-base # A basic QEMU setup for headless environments
+AddPackage shellcheck # Shell script analysis tool
+AddPackage swaybg # Wallpaper tool for Wayland compositors
+AddPackage ty # Extremely fast Python type checker and language server, written in Rust
+AddPackage vcpkg # C++ library manager
+
+
+# Mon Apr 20 01:44:55 PM CST 2026 - Missing packages
+
+
+RemovePackage gcc14
+RemovePackage ly
+RemovePackage openssl-1.1
+
+
+# Mon Apr 20 01:44:55 PM CST 2026 - Unknown foreign packages
+
+
+AddPackage --foreign aider-chat-venv # AI pair programming in your terminal (installed with uv)
+AddPackage --foreign cc-switch-bin # A cross-platform desktop All-in-One assistant tool for Claude Code, Codex & Gemini CLI.
+AddPackage --foreign clash-verge-rev-bin # Continuation of Clash Verge | A Clash Meta GUI based on Tauri
+AddPackage --foreign gcc14 # The GNU Compiler Collection - C and C++ frontends (14.x.x)
+AddPackage --foreign llvm19 # Compiler infrastructure (LLVM 19)
+AddPackage --foreign paru # Feature packed AUR helper
+
+
+# Mon Apr 20 01:44:55 PM CST 2026 - Missing foreign packages
+
+
+RemovePackage --foreign netease-cloud-music
+RemovePackage --foreign paru-bin
+RemovePackage --foreign vscodium-bin
+
+
+# Mon Apr 20 01:44:55 PM CST 2026 - Extra files
+
+
+RemoveFile /etc/systemd/system/display-manager.service
+RemoveFile /etc/fonts/conf.d/66-noto-mono.conf
+RemoveFile /etc/fonts/conf.d/46-noto-mono.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-serif-tw.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-serif-otc.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-serif-kr.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-serif-jp.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-serif-cn.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-sans-tw.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-sans-otc.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-sans-kr.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-sans-jp.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-sans-hk.conf
+RemoveFile /etc/fonts/conf.d/44-source-han-sans-cn.conf
+
+
+# Mon Apr 20 01:44:55 PM CST 2026 - New / changed files
+
+
+CreateLink /etc/bash_completion.d/guix /var/guix/profiles/per-user/root/current-guix/etc/bash_completion.d/guix
+CreateLink /etc/bash_completion.d/guix-daemon /var/guix/profiles/per-user/root/current-guix/etc/bash_completion.d/guix-daemon
+CopyFile /etc/guix/acl '' guix-daemon guix-daemon
+CopyFile /etc/makepkg.conf.d/fortran.conf
+CopyFile /etc/profile.d/zzz-guix.sh
+CreateLink /etc/systemd/system/autovt@.service /usr/lib/systemd/system/getty@.service
+CopyFile /etc/systemd/system/gnu-store.mount 664
+CopyFile /etc/systemd/system/guix-daemon.service 664
+CreateLink /etc/systemd/system/multi-user.target.wants/gnu-store.mount /etc/systemd/system/gnu-store.mount
+CreateLink /etc/systemd/system/multi-user.target.wants/guix-daemon.service /etc/systemd/system/guix-daemon.service
+CopyFile /etc/nix/nix.conf
+CopyFile /etc/pacman.conf
+CopyFile /etc/pacman.d/mirrorlist '' lyh lyh
+CopyFile /etc/subgid
+CopyFile /etc/v2raya/config.json 600
+
+
+# Mon Apr 20 01:44:55 PM CST 2026 - New file properties
+
+
+SetFileProperty /etc/guix group guix-daemon
+SetFileProperty /etc/guix owner guix-daemon
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/build_info group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/build_info owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/doc group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/doc owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/extensions group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/extensions owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/gems group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/gems owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/plugins group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/plugins owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/specifications group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0/specifications owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0 group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems/3.4.0 owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby/gems owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib/ruby owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6/lib owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6 group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby/3.4.6 owner lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby group lyh
+SetFileProperty /home/lyh/.asdf/installs/ruby owner lyh
+SetFileProperty /home/lyh/.asdf/installs group lyh
+SetFileProperty /home/lyh/.asdf/installs owner lyh
+SetFileProperty /home/lyh/.asdf group lyh
+SetFileProperty /home/lyh/.asdf owner lyh
+SetFileProperty /home/lyh group lyh
+SetFileProperty /home/lyh mode 700
+SetFileProperty /home/lyh owner lyh
