@@ -24,15 +24,6 @@ wk.add {
   { "<leader>k", "<C-b>", desc = "Go up a page" },
 }
 
--- Neorg bindings
-wk.add {
-  { "<leader>n", group = "neorg" },
-  { "<leader>ni", "<cmd>Neorg index<CR>", desc = "Jump to Neorg Index" },
-  { "<leader>nr", "<cmd>Neorg return<CR>", desc = "Return from Neorg" },
-  -- TODO: this should be local key binding
-  -- c = { "<cmd>Neorg toggle-concealer", "Toggle concealer" },
-}
-
 wk.add {
   { "<leader>w", group = "window" },
   { "<leader>wv", vsplit_new_file, desc = "New vertical split with a file" },

@@ -12,6 +12,10 @@ vim.lsp.config("raku_navigator", {
   cmd = { "node", "/home/lyh/pullground/RakuNavigator/server/out/server.js", "--stdio" },
 })
 
+vim.lsp.config("fsautocomplete", {
+  cmd = { vim.fn.expand("~/.dotnet/tools/fsautocomplete") },
+})
+
 -- if you just want default config for the servers then put them in a table
 local servers = {
   "clangd",
@@ -33,6 +37,7 @@ local servers = {
   -- "mlir_lsp_server",
   -- "bashls",
   -- "dhall_lsp_server",
+  "fsautocomplete",
   "ocamllsp",
   "ty",
   -- "rubocop",

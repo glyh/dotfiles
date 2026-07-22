@@ -29,7 +29,7 @@
 	p = pull
 	u = push
 	g = clone --filter=blob:none
-	submod = submodule update --init --recursive --depth 1
+	submod = !git submodule update --init --recursive --depth 1 --single-branch --jobs $(nproc)
 	b = branch
 	cf = commit --amend
 	r = restore
@@ -51,6 +51,8 @@
 ; 	proxy = http://127.0.0.1:7898
 [safe]
 	directory = /workdir
+	directory = /tmp/opencode/install-sh-test.W8oRFw
+	directory = /tmp/opencode/install-sh-test.W8oRFw
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential

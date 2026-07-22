@@ -1,5 +1,9 @@
 [source.crates-io]
-registry = "https://github.com/rust-lang/crates.io-index"
+# Use the fast sparse HTTP index instead of the legacy full-git-repo index.
+# The git index made cargo hang on "Updating crates.io index" by git-fetching
+# the entire crates.io-index repo; the sparse index fetches only needed
+# crate metadata over HTTP.
+registry = "sparse+https://index.crates.io/"
 # replace-with = 'tuna'
 
 [source.tuna]

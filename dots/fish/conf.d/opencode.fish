@@ -1,0 +1,2 @@
+# OpenCode configuration
+set -gx OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS 1

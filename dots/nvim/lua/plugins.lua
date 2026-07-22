@@ -4,6 +4,7 @@
 
 local pdf_viewer = "zathura"
 local lispy_filetypes = { "clojure", "dune", "scheme", "fennel" }
+local obsidian_vault_path = "/home/lyh/Documents/Notes"
 ---@type NvPluginSpec[]
 return {
   -- IDE {{{
@@ -450,5 +451,54 @@ return {
     "Raku/vim-raku",
   },
   -- }}}
+  -- }}}
+  -- Note-taking {{{
+  {
+    "obsidian-nvim/obsidian.nvim",
+    version = "*", -- use latest release, remove to use latest commit
+    ft = "markdown",
+    cmd = "Obsidian",
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function(args)
+          local name = vim.api.nvim_buf_get_name(args.buf)
+          if vim.startswith(name, obsidian_vault_path .. "/") then
+            vim.opt_local.conceallevel = 2
+          end
+        end,
+      })
+    end,
+    keys = {
+      { "<localleader>oo", "<cmd>Obsidian open<CR>", desc = "Open in Obsidian" },
+      { "<localleader>on", "<cmd>Obsidian new<CR>", desc = "New Obsidian note" },
+      { "<localleader>oq", "<cmd>Obsidian quick_switch<CR>", desc = "Switch Obsidian note" },
+      { "<localleader>os", "<cmd>Obsidian search<CR>", desc = "Search Obsidian vault" },
+      { "<localleader>ob", "<cmd>Obsidian backlinks<CR>", desc = "Obsidian backlinks" },
+      { "<localleader>ot", "<cmd>Obsidian tags<CR>", desc = "Obsidian tags" },
+    },
+    ---@module 'obsidian'
+    ---@type obsidian.config
+    opts = {
+      legacy_commands = false, -- this will be removed in 4.0.0
+      workspaces = {
+        {
+          name = "personal",
+          path = obsidian_vault_path,
+        },
+      },
+      picker = {
+        name = "telescope.nvim",
+      },
+      note_id_func = function(title, path)
+        return require("obsidian.builtin").title_id(title, path)
+      end,
+      callbacks = {
+        enter_note = function()
+          vim.opt_local.conceallevel = 2
+        end,
+      },
+    },
+  },
   -- }}}
 }

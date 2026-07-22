@@ -2,6 +2,9 @@ if not status is-interactive
   exit 0
 end
 
+# Local secrets (not in dotfiles)
+test -f ~/Documents/credential/secrets.sh && source ~/Documents/credential/secrets.sh
+
 # Fish options
 fish_vi_key_bindings
 set fish_greeting
@@ -80,3 +83,11 @@ abbr --add cbb 'cmake --build build --parallel (math (nproc) + 1)'
 
 # for setting up proxy free rustup/cargo access
 abbr --add rustp 'HTTPS_PROXY=127.0.0.1:7898 RUSTUP_DIST_SERVER= RUSTUP_UPDATE_ROOT= '
+set -gx PATH $PATH $HOME/.dotnet/tools
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# Added by codebase-memory-mcp install
+fish_add_path /home/lyh/.local/bin
